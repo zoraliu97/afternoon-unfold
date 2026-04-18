@@ -142,22 +142,16 @@ section{min-height:100vh;padding-top:58px;}
 .belief-p.belief-p-lead em{font-style:normal;color:var(--ink);font-weight:500;}
 @keyframes beliefLeadDraw{from{height:0;}to{height:100%;}}
 .belief-visual{position:relative;width:100%;height:100%;min-height:460px;overflow:hidden;isolation:isolate;}
-.belief-visual video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:saturate(0.78) contrast(0.96) brightness(1.02);}
+.belief-visual video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:saturate(0.95) contrast(1.0);}
 /* Soft fade on the left edge of the video so it blends into the parchment */
 .belief-visual::before{content:'';position:absolute;top:0;left:0;bottom:0;width:22%;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(245,235,228,0.85) 0%,rgba(245,235,228,0.35) 50%,rgba(245,235,228,0) 100%);}
 /* Soft parchment wash over the whole picture to calm the brightness */
 .belief-visual::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(135deg,rgba(245,235,228,0.22) 0%,rgba(245,235,228,0.08) 45%,rgba(245,235,228,0.14) 100%);mix-blend-mode:normal;}
-/* Cover top-left corner watermark area */
-.belief-visual .bv-corner-mask{position:absolute;top:0;left:0;width:34%;height:20%;z-index:3;pointer-events:none;background:radial-gradient(ellipse at top left,rgba(245,235,228,0.9) 0%,rgba(245,235,228,0.5) 45%,rgba(245,235,228,0) 78%);}
-/* Small cover over residual chili area */
-.belief-visual .bv-pepper-mask{position:absolute;top:4%;left:14%;width:20%;height:26%;z-index:3;pointer-events:none;background:radial-gradient(ellipse 60% 55% at 50% 50%,rgba(242,168,135,0.7) 0%,rgba(246,190,160,0.4) 50%,rgba(250,220,200,0) 90%);filter:blur(9px);}
 @media(max-width:900px){
   #belief{grid-template-columns:1fr;min-height:0;}
   .belief-text-wrap{padding:3.5rem 2rem 3rem;}
   .belief-visual{min-height:360px;}
   .belief-visual::before{width:100%;height:22%;top:0;bottom:auto;background:linear-gradient(180deg,rgba(245,235,228,0.75) 0%,rgba(245,235,228,0) 100%);}
-  .belief-visual .bv-corner-mask{width:40%;height:24%;}
-  .belief-visual .bv-pepper-mask{width:26%;height:22%;}
 }
 /* PRODUCT */
 #product{background:var(--white);display:flex;align-items:center;justify-content:center;padding:6rem 3rem;border-top:1px solid var(--border);position:relative;overflow:hidden;}
@@ -181,6 +175,8 @@ section{min-height:100vh;padding-top:58px;}
 .craft-hero-slide video{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(1.18);}
 .craft-panel.active{display:flex;flex-direction:column;gap:0;}
 .craft-hero{width:100vw;margin-left:calc(-50vw + 50%);height:78vh;position:relative;overflow:hidden;margin-top:0;}
+/* Paint by Numbers — crop to upper-right so the birds in the lower-left of the scene don't show */
+#cp-sy .craft-hero video,#hero-sy video{object-position:90% 15% !important;transform:scale(1.25);transform-origin:80% 20%;}
 .craft-hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.9s ease-in-out;}
 .craft-hero-slide.active{opacity:1;}
 .craft-hero-slide img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -242,8 +238,8 @@ section{min-height:100vh;padding-top:58px;}
 #quiz-overlay.open{display:flex;}
 
 /* Persistent wave video bg for entire survey */
-.quiz-video-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;}
-.quiz-video-tint{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(253,248,245,0.55) 0%,rgba(253,244,240,0.48) 50%,rgba(250,240,238,0.58) 100%);backdrop-filter:blur(0.5px);-webkit-backdrop-filter:blur(0.5px);}
+.quiz-video-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;pointer-events:none;filter:saturate(1.05) contrast(1.05);}
+.quiz-video-tint{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(253,248,245,0.35) 0%,rgba(253,244,240,0.30) 50%,rgba(250,240,238,0.38) 100%);}
 
 /* Scene-specific quiz backgrounds — now subtle color washes over wave video */
 .quiz-bg{position:absolute;inset:0;transition:opacity 0.6s ease;opacity:0;pointer-events:none;z-index:2;mix-blend-mode:soft-light;}
@@ -799,6 +795,73 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 .result-items-hint-eye{display:block;font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,220,180,0.72);margin-bottom:8px;font-weight:500;}
 .result-items-wrap.revealed .result-items-hint{opacity:0;}
 
+/* ══════════════ EMAIL PROMO MODAL — 30s popup (UO/H&M style) ══════════════ */
+.promo-modal{display:none;position:fixed;inset:0;z-index:450;align-items:center;justify-content:center;background:rgba(20,14,8,0.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);padding:1.5rem;animation:promoFade 0.35s ease;}
+.promo-modal.open{display:flex;}
+@keyframes promoFade{from{opacity:0;}to{opacity:1;}}
+.promo-close{position:absolute;top:12px;right:12px;background:none;border:none;font-size:22px;color:var(--dust);cursor:pointer;line-height:1;width:34px;height:34px;padding:0;font-family:'Raleway',sans-serif;z-index:5;}
+.promo-close:hover{color:var(--ink);}
+
+/* ─── OPTION A — minimal centered card (UO-style) ─── */
+.promo-a{background:var(--parchment);padding:3rem 2.5rem 2.25rem;max-width:440px;width:100%;position:relative;border:1px solid var(--border);box-shadow:0 30px 80px -25px rgba(20,14,8,0.5);text-align:center;}
+.promo-a .promo-eye{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#B94F63;font-weight:600;margin-bottom:14px;}
+.promo-a .promo-h{font-family:'Cormorant',serif;font-size:clamp(2rem,3.5vw,2.6rem);font-weight:500;color:var(--ink);line-height:1.1;margin-bottom:0.75rem;letter-spacing:-0.01em;}
+.promo-a .promo-sub{font-size:13px;color:var(--dust);line-height:1.65;margin-bottom:1.5rem;padding:0 0.5rem;}
+.promo-a input[type="email"]{width:100%;background:var(--white);border:1px solid var(--border);padding:14px 16px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);outline:none;margin-bottom:10px;transition:border-color 0.2s;letter-spacing:0.02em;}
+.promo-a input[type="email"]:focus{border-color:#B94F63;box-shadow:0 0 0 3px rgba(185,79,99,0.12);}
+.promo-a button.promo-submit{width:100%;background:var(--ink);color:var(--white);border:none;padding:14px;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background 0.2s;}
+.promo-a button.promo-submit:hover{background:#B94F63;}
+.promo-a .promo-dismiss{background:none;border:none;text-decoration:underline;color:var(--dust);font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.06em;cursor:pointer;margin-top:14px;padding:4px 8px;}
+.promo-a .promo-dismiss:hover{color:var(--ink);}
+.promo-a .promo-fine{font-size:9px;color:var(--dust);margin-top:1rem;line-height:1.6;text-align:left;}
+.promo-a .promo-deco{position:absolute;top:-20px;left:-20px;width:110px;height:110px;opacity:0.35;pointer-events:none;filter:saturate(1.2);mix-blend-mode:multiply;}
+
+/* ─── OPTION B — split-image card (H&M-style) ─── */
+.promo-b{background:var(--white);max-width:780px;width:100%;position:relative;border:1px solid var(--border);box-shadow:0 30px 80px -25px rgba(20,14,8,0.5);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+.promo-b .pb-visual{position:relative;overflow:hidden;min-height:440px;}
+.promo-b .pb-visual video,.promo-b .pb-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.promo-b .pb-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(185,79,99,0.08) 0%,rgba(20,14,8,0.15) 100%);}
+.promo-b .pb-form-side{padding:2.75rem 2.25rem 2rem;display:flex;flex-direction:column;justify-content:center;background:var(--parchment);}
+.promo-b .promo-logo{font-family:'Cormorant',serif;font-size:28px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;margin-bottom:1.2rem;}
+.promo-b .promo-h{font-family:'Raleway',sans-serif;font-size:clamp(1.8rem,3vw,2.3rem);font-weight:700;color:var(--ink);line-height:1.0;letter-spacing:-0.01em;text-transform:uppercase;margin-bottom:0.75rem;}
+.promo-b .promo-h strong{color:#B94F63;font-weight:700;}
+.promo-b .promo-sub{font-size:13px;color:var(--dust);line-height:1.6;margin-bottom:1.25rem;}
+.promo-b .pb-pref{margin-bottom:1rem;}
+.promo-b .pb-pref-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dust);font-weight:600;margin-bottom:8px;}
+.promo-b .pb-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.promo-b .pb-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:6px 12px;border:1px solid var(--border);background:var(--white);color:var(--dust);cursor:pointer;transition:all 0.18s;border-radius:20px;}
+.promo-b .pb-chip:hover{border-color:#B94F63;color:#B94F63;}
+.promo-b .pb-chip.picked{background:linear-gradient(135deg,#E8BBC3,#D89DA9);color:#6B2A3B;border-color:#C77788;font-weight:500;}
+.promo-b input[type="email"]{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--border);padding:10px 0;font-family:'Raleway',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s;margin-bottom:0;}
+.promo-b input[type="email"]:focus{border-bottom-color:#B94F63;}
+.promo-b .pb-email-label{font-size:11px;color:var(--dust);margin-bottom:4px;letter-spacing:0.06em;}
+.promo-b button.promo-submit{width:100%;background:var(--ink);color:var(--white);border:none;padding:14px;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background 0.2s;margin-top:1rem;}
+.promo-b button.promo-submit:hover{background:#B94F63;}
+.promo-b .promo-dismiss{background:none;border:none;text-decoration:underline;color:var(--dust);font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.06em;cursor:pointer;margin-top:10px;padding:4px 8px;align-self:flex-start;}
+.promo-b .promo-dismiss:hover{color:var(--ink);}
+.promo-b .promo-fine{font-size:9px;color:var(--dust);margin-top:0.75rem;line-height:1.55;}
+
+/* Success message after submit */
+.promo-success{text-align:center;padding:1rem 0;}
+.promo-success .ps-icon{font-size:44px;color:#B94F63;margin-bottom:10px;}
+.promo-success .ps-h{font-family:'Cormorant',serif;font-size:1.75rem;color:var(--ink);font-weight:500;margin-bottom:8px;}
+.promo-success .ps-sub{font-size:13px;color:var(--dust);line-height:1.55;}
+
+@media(max-width:700px){
+  .promo-b{grid-template-columns:1fr;max-width:440px;}
+  .promo-b .pb-visual{min-height:200px;}
+  .promo-b .pb-form-side{padding:1.75rem 1.5rem 1.25rem;}
+}
+
+/* ── FLOATING SOCIAL ICONS (right edge, next to scrollbar) ── */
+.social-float{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:300;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1),opacity 0.3s ease;pointer-events:auto;}
+.social-float.shift-up{transform:translateY(calc(-50% - 18px));}
+.social-float.shift-down{transform:translateY(calc(-50% + 18px));}
+.social-float a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;background:rgba(253,248,245,0.88);border:1px solid var(--border);color:var(--ink);border-radius:50%;text-decoration:none;transition:all 0.25s ease;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 4px 12px -4px rgba(20,14,8,0.12);}
+.social-float a:hover{background:#B94F63;color:#fff;border-color:#B94F63;transform:translateX(-2px) scale(1.05);box-shadow:0 6px 18px -4px rgba(185,79,99,0.4);}
+.social-float svg{width:18px;height:18px;display:block;}
+@media(max-width:768px){.social-float{right:12px;gap:10px;}.social-float a{width:38px;height:38px;}.social-float svg{width:16px;height:16px;}}
+
 #slide-7 .result-price-row{justify-content:flex-start;}
 #slide-7 .result-actions{margin-top:12px;display:flex;gap:10px;}
 
@@ -919,10 +982,8 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
     </div>
     <div class="belief-visual">
       <video autoplay muted loop playsinline preload="auto" poster="">
-        <source src="assets/au-newspaper.mp4" type="video/mp4">
+        <source src="assets/au-newspaper-v2.mp4" type="video/mp4">
       </video>
-      <div class="bv-corner-mask"></div>
-      <div class="bv-pepper-mask"></div>
     </div>
   </div>
 </section>
@@ -1039,6 +1100,208 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
   <div class="foot-copy">&copy; 2025 Afternoon Unfold. All rights reserved.</div>
   <div class="foot-links"><a class="foot-link" href="https://www.instagram.com/afternoonunfold" target="_blank" rel="noopener">Instagram</a><a class="foot-link" href="https://www.tiktok.com/@afternoon.unfold" target="_blank" rel="noopener">TikTok</a><span class="foot-link">Contact</span></div>
 </footer>
+
+<!-- ══════════════ EMAIL PROMO MODAL — 30s popup ══════════════
+     Two design options. Flip the PROMO_VARIANT const in JS below to switch.
+     'A' = minimal centered parchment card (UO-style)
+     'B' = split image + form card (H&M-style)
+-->
+<div id="promo-modal" class="promo-modal" role="dialog" aria-labelledby="promo-title">
+  <div id="promo-variant-container"></div>
+</div>
+
+<script>
+/* Pick which variant to show. Change this to 'B' to test the other design. */
+var PROMO_VARIANT = 'A';
+var PROMO_SEEN_KEY = 'au_promo_seen';
+var PROMO_DELAY_MS = 30000; // 30 seconds
+
+function _renderPromoA(){
+  return '<div class="promo-a">'+
+    '<button class="promo-close" onclick="closePromo()" aria-label="Close">✕</button>'+
+    '<img src="assets/15.png" class="promo-deco" alt="">'+
+    '<div id="promo-state-a">'+
+      '<div class="promo-eye">✦ A little gift</div>'+
+      '<h2 class="promo-h" id="promo-title">Get <strong style="color:#B94F63;">15% off</strong><br>your first blind box</h2>'+
+      '<p class="promo-sub">Plus early access to new crafts, seasonal bundles, and peeks behind the curation. No spam — just the good stuff.</p>'+
+      '<form id="promo-form-a" onsubmit="return submitPromo(event, \'A\')">'+
+        '<input type="email" name="email" required placeholder="Your email address" autocomplete="email">'+
+        '<button type="submit" class="promo-submit">Get my 15% code →</button>'+
+      '</form>'+
+      '<button type="button" class="promo-dismiss" onclick="dismissPromo()">No thanks, I\'m just browsing</button>'+
+      '<p class="promo-fine">By subscribing you agree to receive marketing emails from Afternoon Unfold. Unsubscribe anytime.</p>'+
+    '</div>'+
+    '<div id="promo-success-a" class="promo-success" style="display:none;">'+
+      '<div class="ps-icon">✦</div>'+
+      '<div class="ps-h">Welcome!</div>'+
+      '<p class="ps-sub">Your 15% off code is on its way to your inbox.<br>Use it at checkout for your first order.</p>'+
+    '</div>'+
+  '</div>';
+}
+
+function _renderPromoB(){
+  return '<div class="promo-b">'+
+    '<button class="promo-close" onclick="closePromo()" aria-label="Close">✕</button>'+
+    '<div class="pb-visual">'+
+      '<video autoplay muted loop playsinline><source src="assets/au-newspaper-v2.mp4" type="video/mp4"></video>'+
+    '</div>'+
+    '<div class="pb-form-side">'+
+      '<div id="promo-state-b">'+
+        '<div class="promo-logo">Afternoon Unfold</div>'+
+        '<h2 class="promo-h" id="promo-title">Enjoy <strong>15% off</strong></h2>'+
+        '<p class="promo-sub">+ early access to new arrivals, seasonal bundles, and behind-the-scenes when you sign up for emails.</p>'+
+        '<form id="promo-form-b" onsubmit="return submitPromo(event, \'B\')">'+
+          '<div class="pb-pref">'+
+            '<div class="pb-pref-label">I\'m crafting for</div>'+
+            '<div class="pb-chips" id="pb-chips">'+
+              '<div class="pb-chip" data-val="self" onclick="togglePbChip(this)">Just me</div>'+
+              '<div class="pb-chip" data-val="date" onclick="togglePbChip(this)">Date night</div>'+
+              '<div class="pb-chip" data-val="friends" onclick="togglePbChip(this)">Friends</div>'+
+              '<div class="pb-chip" data-val="family" onclick="togglePbChip(this)">Family</div>'+
+              '<div class="pb-chip" data-val="gift" onclick="togglePbChip(this)">A gift</div>'+
+            '</div>'+
+          '</div>'+
+          '<div class="pb-email-label">Email address</div>'+
+          '<input type="email" name="email" required placeholder="you@example.com" autocomplete="email">'+
+          '<input type="hidden" name="preference" id="pb-preference" value="">'+
+          '<button type="submit" class="promo-submit">Continue →</button>'+
+        '</form>'+
+        '<button type="button" class="promo-dismiss" onclick="dismissPromo()">Maybe later</button>'+
+        '<p class="promo-fine">By submitting you agree to receive marketing emails from Afternoon Unfold. Unsubscribe anytime.</p>'+
+      '</div>'+
+      '<div id="promo-success-b" class="promo-success" style="display:none;">'+
+        '<div class="ps-icon">✦</div>'+
+        '<div class="ps-h">Welcome to the afternoon.</div>'+
+        '<p class="ps-sub">Your 15% off code is on its way.<br>Check your inbox in a minute.</p>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
+}
+
+function togglePbChip(el){
+  var all=el.parentElement.querySelectorAll('.pb-chip');
+  all.forEach(function(c){c.classList.remove('picked');});
+  el.classList.add('picked');
+  document.getElementById('pb-preference').value=el.getAttribute('data-val');
+}
+
+function openPromo(){
+  var c=document.getElementById('promo-variant-container');
+  c.innerHTML=(PROMO_VARIANT==='B'?_renderPromoB():_renderPromoA());
+  document.getElementById('promo-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePromo(){
+  document.getElementById('promo-modal').classList.remove('open');
+  if(!document.getElementById('quiz-overlay').classList.contains('open')
+    && !document.getElementById('reserve-modal').classList.contains('open')){
+    document.body.style.overflow='';
+  }
+  try{localStorage.setItem(PROMO_SEEN_KEY,Date.now().toString());}catch(e){}
+}
+function dismissPromo(){
+  closePromo();
+}
+function submitPromo(e,variant){
+  e.preventDefault();
+  var form=e.target;
+  var emailInput=form.querySelector('input[name="email"]');
+  var email=emailInput.value;
+  var prefEl=form.querySelector('input[name="preference"]');
+  var pref=prefEl?prefEl.value:'';
+  var submitBtn=form.querySelector('.promo-submit');
+  submitBtn.textContent='Sending…'; submitBtn.disabled=true;
+  var data={
+    _subject:'📬 New 15% off subscriber — '+email,
+    source:'promo-popup-'+variant,
+    email:email,
+    preference:pref,
+    message:'New newsletter signup:\nEmail: '+email+'\nPreference: '+(pref||'(not selected)')+'\nVariant shown: '+variant
+  };
+  fetch('https://formspree.io/f/xaqaoebr',{
+    method:'POST',
+    headers:{'Accept':'application/json','Content-Type':'application/json'},
+    body:JSON.stringify(data)
+  }).then(function(r){
+    var stateEl=document.getElementById('promo-state-'+variant.toLowerCase());
+    var succEl=document.getElementById('promo-success-'+variant.toLowerCase());
+    if(stateEl) stateEl.style.display='none';
+    if(succEl) succEl.style.display='block';
+    try{localStorage.setItem(PROMO_SEEN_KEY,Date.now().toString());}catch(e){}
+    setTimeout(closePromo,2800);
+  }).catch(function(){
+    alert('Something went wrong. Please try again.');
+    submitBtn.textContent=(variant==='B'?'Continue →':'Get my 15% code →');
+    submitBtn.disabled=false;
+  });
+  return false;
+}
+
+/* Trigger the promo after 30s (once per 7 days) */
+(function(){
+  try{
+    var seen=localStorage.getItem(PROMO_SEEN_KEY);
+    if(seen){
+      var daysSince=(Date.now()-parseInt(seen,10))/(1000*60*60*24);
+      if(daysSince<7) return; // shown recently, skip
+    }
+  }catch(e){}
+  setTimeout(function(){
+    /* Don't interrupt the quiz, reserve modal, or if user has already scrolled deep into checkout */
+    if(document.getElementById('quiz-overlay').classList.contains('open')) return;
+    if(document.getElementById('reserve-modal').classList.contains('open')) return;
+    openPromo();
+  }, PROMO_DELAY_MS);
+})();
+
+/* Close on backdrop / Esc */
+(function(){
+  var modal=document.getElementById('promo-modal');
+  if(!modal) return;
+  modal.addEventListener('click',function(e){if(e.target===modal) closePromo();});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && modal.classList.contains('open')) closePromo();
+  });
+})();
+</script>
+
+<!-- Floating social icons (right edge, scroll-responsive) -->
+<div class="social-float" id="social-float">
+  <a href="https://www.instagram.com/afternoonunfold" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@afternoon.unfold" target="_blank" rel="noopener" aria-label="TikTok">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+  </a>
+</div>
+
+<script>
+/* Scroll-responsive float: ease the icons gently up/down as page scrolls */
+(function(){
+  var sf=document.getElementById('social-float');
+  if(!sf) return;
+  var lastY=window.scrollY, raf=null;
+  function update(){
+    var y=window.scrollY;
+    var dy=y-lastY;
+    sf.classList.remove('shift-up','shift-down');
+    if(dy>2) sf.classList.add('shift-down');
+    else if(dy<-2) sf.classList.add('shift-up');
+    lastY=y;
+    raf=null;
+  }
+  window.addEventListener('scroll',function(){
+    if(raf) return;
+    raf=requestAnimationFrame(update);
+  },{passive:true});
+  /* Settle back to center after scroll stops */
+  var settle;
+  window.addEventListener('scroll',function(){
+    clearTimeout(settle);
+    settle=setTimeout(function(){sf.classList.remove('shift-up','shift-down');},180);
+  },{passive:true});
+})();
+</script>
 
 <!-- ═══════════════════════════ QUIZ OVERLAY ═══════════════════════════ -->
 <div id="quiz-overlay">
@@ -1373,7 +1636,7 @@ var CRAFTS = [
   {
     id:'pb', name:'Perler Beads', cn:'Hama Bead Art', price:35,
     time:'2–4 hrs', level:'Beginner friendly',
-    videos:['assets/craft-videos/perler beads play.mp4','assets/craft-videos/make beads.mp4','assets/craft-videos/beads box.mp4'],
+    videos:['assets/craft-videos/perler beads play.mp4','assets/craft-videos/beads box.mp4'],
     hero: 'assets/products/pb-atmo1.PNG',
     preview: 'assets/products/pb-hero.png',
     kitImg: 'assets/products/pb-box-top.PNG',
@@ -1382,13 +1645,12 @@ var CRAFTS = [
       'assets/products/pb-atmo2.jpg',
       'assets/products/pb-atmo3.jpg',
     ],
-    desc:'Arrange thousands of tiny colourful beads on a peg board following a pixel pattern. Fuse with gentle heat to create a vibrant, permanent keepsake you can frame, stand, or hang.',
+    desc:'Place colourful beads onto a pegboard following a pattern, then fuse them together with an iron to create your pixel art masterpiece.',
     steps:[
-      'Choose your pattern from the included cards',
-      'Sort beads by colour into the sorting tray',
-      'Place beads on the peg board one by one — it\'s meditative!',
-      'Cover with ironing paper and press gently with the iron',
-      'Peel away and display your finished piece',
+      'Choose your bead colors from the kit',
+      'Arrange beads on the pegboard following the template',
+      'Use tweezers to place beads with precision',
+      'Iron with parchment paper to fuse and set the design',
     ]
   },
   {
@@ -1405,17 +1667,17 @@ var CRAFTS = [
     ],
     desc:'Twist and shape soft, fuzzy chenille wires into beautiful 3D flowers, animals, and decorative pieces. No heat, no glue — just twist, bend, and create. Great for all ages and skill levels.',
     steps:[
-      'Choose your design from the illustrated idea booklet',
       'Fold and twist wires to form petals or the base shape',
       'Add details and texture with smaller accent pieces',
       'Shape and adjust until you\'re happy with the look',
       'Display in the included stand or give as a handmade gift',
+      'Video tutorials for various flowers available on our <a href="https://www.instagram.com/afternoonunfold" target="_blank" rel="noopener" style="color:#B94F63;text-decoration:underline;">Instagram</a> / <a href="https://www.tiktok.com/@afternoon.unfold" target="_blank" rel="noopener" style="color:#B94F63;text-decoration:underline;">TikTok</a>',
     ]
   },
   {
     id:'sy', name:'Paint by Numbers', cn:'Number Painting', price:35,
     time:'2–4 hrs', level:'Beginner friendly',
-    videos:['assets/craft-videos/paint on beach.mp4','assets/craft-videos/paint box carpet.mp4'],
+    videos:['assets/craft-videos/paint box carpet.mp4'],
     hero: 'assets/products/sy-atmo1.jpg',
     preview: 'assets/products/sy-hero.png',
     kitImg: 'assets/products/sy-box-angle.PNG',
