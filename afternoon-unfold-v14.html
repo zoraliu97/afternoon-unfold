@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Afternoon Unfold — A DIY Craft Blind Box</title>
+<title>Afternoon Unfold — Founding 50 · Pre-Sale</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -44,7 +44,8 @@ body{font-family:'Raleway',sans-serif;font-weight:400;background:var(--white);ov
 .nav-links{display:flex;gap:2.5rem;}
 .nav-link{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--dust);cursor:pointer;text-decoration:none;font-weight:500;transition:color 0.2s;}
 .nav-link:hover{color:var(--ink);}
-.nav-cta{background:var(--ink);color:var(--white);font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:10px 24px;border:none;cursor:pointer;font-weight:500;transition:background 0.2s;}
+.nav-cta{background:linear-gradient(90deg,#8E3A4E 0%,#B94F63 100%);color:#FDF8F5;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:10px 22px;border:none;border-radius:999px;cursor:pointer;font-weight:600;transition:all 0.22s ease;box-shadow:0 2px 8px -2px rgba(185,79,99,0.3);}
+.nav-cta:hover{background:linear-gradient(90deg,#7A2E42 0%,#A0384F 100%);box-shadow:0 6px 16px -4px rgba(185,79,99,0.5);transform:translateY(-1px);}
 .nav-cta:hover{background:#3A2E24;}
 section{min-height:100vh;padding-top:58px;}
 /* COVER */
@@ -70,7 +71,8 @@ section{min-height:100vh;padding-top:58px;}
 .cover-h em{font-style:normal;color:var(--gold);}
 .cover-sub{font-size:15px;color:var(--dust);font-weight:400;line-height:1.9;max-width:400px;margin-bottom:2.75rem;}
 .cover-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-dark{background:var(--ink);color:var(--white);font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:14px 36px;border:none;cursor:pointer;font-weight:500;transition:all 0.2s;}
+.btn-dark{background:linear-gradient(90deg,#8E3A4E 0%,#B94F63 100%);color:#FDF8F5;font-family:'Raleway',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;padding:15px 34px;border:none;border-radius:999px;cursor:pointer;font-weight:600;transition:all 0.22s ease;box-shadow:0 4px 14px -4px rgba(185,79,99,0.4);}
+.btn-dark:hover{background:linear-gradient(90deg,#7A2E42 0%,#A0384F 100%);box-shadow:0 8px 22px -6px rgba(185,79,99,0.55);transform:translateY(-1px);}
 .btn-dark:hover{background:#3A2E24;}
 .btn-outline{background:transparent;color:var(--ink);font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:14px 36px;border:1px solid var(--border);cursor:pointer;font-weight:500;transition:all 0.2s;}
 .btn-outline:hover{border-color:var(--ink);}
@@ -373,7 +375,8 @@ section{min-height:100vh;padding-top:58px;}
 .result-price{font-family:'Cormorant',serif;font-size:2.8rem;font-weight:500;color:var(--ink);}
 .result-price-label{font-size:12px;color:var(--dust);font-weight:300;}
 .result-actions{display:flex;gap:10px;margin-top:1rem;flex-wrap:wrap;}
-.btn-cart{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:13px 30px;border:none;cursor:pointer;font-weight:500;transition:all 0.2s;color:var(--white);}
+.btn-cart{font-family:'Raleway',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;padding:14px 32px;border:none;border-radius:999px;cursor:pointer;font-weight:600;transition:all 0.22s ease;color:#FDF8F5;background:linear-gradient(90deg,#8E3A4E 0%,#B94F63 100%) !important;box-shadow:0 4px 14px -4px rgba(185,79,99,0.4);}
+.btn-cart:hover{background:linear-gradient(90deg,#7A2E42 0%,#A0384F 100%) !important;box-shadow:0 8px 22px -6px rgba(185,79,99,0.55);transform:translateY(-1px);}
 .btn-cart:hover{opacity:0.85;}
 .btn-restart{background:none;border:1px solid var(--border);color:var(--ink);font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:13px 24px;cursor:pointer;transition:all 0.2s;}
 .btn-restart:hover{border-color:var(--ink);}
@@ -871,14 +874,14 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 .reserve-modal-inner{background:var(--parchment);padding:2.25rem 2rem 2rem;max-width:500px;width:100%;position:relative;border:1px solid var(--border);box-shadow:0 30px 80px -25px rgba(20,14,8,0.5),0 8px 20px -8px rgba(20,14,8,0.2);max-height:calc(100vh - 3rem);overflow-y:auto;}
 .reserve-close{position:absolute;top:10px;right:10px;background:none;border:none;font-size:22px;color:var(--dust);cursor:pointer;line-height:1;width:32px;height:32px;padding:0;font-family:'Raleway',sans-serif;font-weight:300;}
 .reserve-close:hover{color:var(--ink);}
-.reserve-eye{font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:#B94F63;font-weight:500;margin-bottom:8px;}
-.reserve-h{font-family:'Cormorant',serif;font-size:1.85rem;font-weight:500;color:var(--ink);margin-bottom:0.5rem;line-height:1.15;letter-spacing:-0.005em;}
-.reserve-sub{font-size:13px;color:var(--dust);margin-bottom:1.5rem;line-height:1.65;}
+.reserve-eye{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#B94F63;font-weight:600;margin-bottom:10px;}
+.reserve-h{font-family:'Cormorant',serif;font-size:2.15rem;font-weight:500;color:var(--ink);margin-bottom:0.6rem;line-height:1.15;letter-spacing:-0.005em;}
+.reserve-sub{font-size:14.5px;color:var(--dust);margin-bottom:1.5rem;line-height:1.7;}
 .reserve-sub strong{color:#B94F63;font-weight:600;}
-.reserve-form input,.reserve-form textarea{width:100%;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);margin-bottom:10px;resize:none;outline:none;transition:border-color 0.2s,box-shadow 0.2s;font-weight:400;}
+.reserve-form input,.reserve-form textarea{width:100%;background:var(--white);border:1px solid var(--border);padding:12px 14px;font-family:'Raleway',sans-serif;font-size:14.5px;color:var(--ink);margin-bottom:10px;resize:none;outline:none;transition:border-color 0.2s,box-shadow 0.2s;font-weight:400;}
 .reserve-form input:focus,.reserve-form textarea:focus{border-color:#B94F63;box-shadow:0 0 0 3px rgba(185,79,99,0.12);}
 .reserve-form input::placeholder,.reserve-form textarea::placeholder{color:#B8A49A;}
-.reserve-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dust);font-weight:500;margin:12px 0 6px;display:block;}
+.reserve-label{font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dust);font-weight:500;margin:14px 0 7px;display:block;}
 .reserve-submit{width:100%;background:var(--ink);color:var(--white);border:none;padding:14px 20px;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background 0.2s,transform 0.2s;margin-top:14px;}
 .reserve-submit:hover:not(:disabled){background:#B94F63;}
 .reserve-submit:disabled{opacity:0.55;cursor:wait;}
@@ -927,9 +930,391 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 .cp-name{font-size:28px;}
 .quiz-name-input{font-size:2.2rem;}
 .result-price{font-size:3.1rem;}
+
+/* ══════════════ PRE-SALE — banner, badges, scarcity, reservation success ══════════════ */
+.presale-banner{position:fixed;top:0;left:0;right:0;z-index:450;background:linear-gradient(90deg,#8E3A4E 0%,#B94F63 50%,#8E3A4E 100%);color:#FDF8F5;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;letter-spacing:0.04em;box-shadow:0 2px 12px -4px rgba(142,58,78,0.4);font-family:'Raleway',sans-serif;font-weight:500;flex-wrap:wrap;cursor:pointer;transition:background 0.3s ease;}
+.presale-banner:hover{background:linear-gradient(90deg,#7A2E42 0%,#A0384F 50%,#7A2E42 100%);}
+.presale-banner .ps-dia{color:#F5C0C0;margin:0 2px;opacity:0.7;}
+.presale-banner .ps-eye{font-size:13px;letter-spacing:0.04em;text-transform:none;font-weight:600;color:#FDF8F5;}
+.presale-banner #ps-banner-detail{color:#FDF8F5;font-variant-numeric:tabular-nums;}
+.presale-banner #ps-banner-detail b{color:#FFE4D8;font-weight:700;margin-right:1px;}
+.presale-banner .ps-action{color:#FFF;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:11px;padding:3px 10px;border:1px solid rgba(253,248,245,0.4);border-radius:12px;margin-left:4px;transition:all 0.2s;}
+.presale-banner:hover .ps-action{background:#FDF8F5;color:#8E3A4E;border-color:#FDF8F5;}
+body.has-banner{padding-top:42px;}
+body.has-banner #main-nav{top:42px;}
+/* Hide banner when a fullscreen overlay is active (quiz, reserve modal, welcome popup) — gives the close button clear access and avoids weirdness */
+body.overlay-active .presale-banner{display:none;}
+body.overlay-active{padding-top:0 !important;}
+body.overlay-active #main-nav{top:0;}
+@media(max-width:900px){
+  .presale-banner{font-size:11px;padding:8px 10px;gap:8px;}
+  body.has-banner{padding-top:62px;}
+  body.has-banner #main-nav{top:62px;}
+}
+.scarcity-bar{display:inline-block;width:70px;height:4px;background:rgba(253,248,245,0.25);border-radius:2px;margin-left:6px;vertical-align:middle;overflow:hidden;position:relative;}
+.scarcity-bar-fill{position:absolute;inset:0;background:linear-gradient(90deg,#FFE0D8 0%,#fff 100%);transform:scaleX(0);transform-origin:left;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);}
+
+/* Founding 50 hero badge */
+.founding-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#B94F63;font-weight:600;padding:6px 14px;border:1px solid #B94F63;border-radius:20px;margin-bottom:1.25rem;background:rgba(185,79,99,0.06);}
+.founding-badge .fb-dot{width:6px;height:6px;border-radius:50%;background:#B94F63;animation:fbPulse 2s ease-in-out infinite;}
+@keyframes fbPulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+
+/* Pre-sale pricing display (strike + highlight) */
+.ps-price-row{font-family:'Raleway',sans-serif;font-size:11px;color:var(--dust);letter-spacing:0.04em;margin-top:4px;}
+.ps-price-row .ps-strike{text-decoration:line-through;color:var(--dust);opacity:0.7;}
+.ps-price-row .ps-final{color:#B94F63;font-weight:700;margin-left:6px;}
+.ps-price-row .ps-chip{display:inline-block;margin-left:8px;padding:2px 8px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#B94F63;border:1px solid #B94F63;border-radius:10px;font-weight:600;background:rgba(185,79,99,0.05);}
+
+/* Reservation success — Box number seal (golden wax-seal badge) */
+.reserved-seal{text-align:center;margin:0.75rem 0 1.5rem;}
+.reserved-seal .rs-ring{
+  display:inline-flex;align-items:center;justify-content:center;flex-direction:column;
+  width:140px;height:140px;border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 28%,#F3C98C 0%,#D9A66A 28%,#B88040 62%,#8B5A2B 100%);
+  box-shadow:
+    0 14px 30px -8px rgba(139,90,43,0.45),
+    0 4px 10px -2px rgba(20,14,8,0.25),
+    inset 0 2px 4px rgba(255,244,220,0.55),
+    inset 0 -4px 10px rgba(70,40,10,0.35);
+  position:relative;
+  animation:sealPop 0.7s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes sealPop{
+  0%{transform:scale(0.5) rotate(-12deg);opacity:0;}
+  60%{transform:scale(1.08) rotate(4deg);opacity:1;}
+  100%{transform:scale(1) rotate(0);opacity:1;}
+}
+.reserved-seal .rs-ring::before{
+  content:'';position:absolute;inset:8px;border:1.5px solid rgba(255,244,220,0.65);border-radius:50%;pointer-events:none;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,0.15);
+}
+.reserved-seal .rs-ring::after{
+  content:'';position:absolute;inset:3px;border:1px solid rgba(70,40,10,0.25);border-radius:50%;pointer-events:none;
+}
+.reserved-seal .rs-hash{
+  font-family:'Cormorant',serif;font-size:13px;
+  color:#4A2E18;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  text-shadow:0 1px 1px rgba(255,244,220,0.6);
+  margin-top:14px;
+}
+.reserved-seal .rs-num{
+  font-family:'Playfair Display',serif;font-size:52px;font-weight:600;
+  color:#2D1A08;line-height:1;margin-top:-2px;letter-spacing:0.01em;
+  text-shadow:0 1px 0 rgba(255,244,220,0.5),0 2px 4px rgba(0,0,0,0.2);
+}
+.reserved-seal .rs-star{
+  font-size:11px;color:#4A2E18;margin-top:3px;opacity:0.85;letter-spacing:0.3em;
+}
+.reserved-seal .rs-lbl{
+  font-family:'Cormorant',serif;font-size:12px;color:#8A6A60;
+  letter-spacing:0.22em;text-transform:uppercase;margin-top:16px;font-weight:500;
+}
+.reserved-seal .rs-lbl strong{color:#B94F63;font-weight:700;}
+
+/* ══════════════ FULL-PAGE RESERVATION SUCCESS ══════════════ */
+#reserved-page{display:none;position:fixed;inset:0;z-index:520;background:linear-gradient(160deg,var(--parchment) 0%,var(--cream) 50%,var(--white) 100%);overflow-y:auto;padding:3rem 1.5rem;}
+#reserved-page.open{display:block;}
+#reserved-page .rp-inner{max-width:640px;margin:0 auto;padding:2rem 1.5rem;text-align:center;}
+#reserved-page .rp-eye{font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#B94F63;font-weight:700;margin-bottom:18px;}
+#reserved-page .rp-h{font-family:'Cormorant',serif;font-size:clamp(2.5rem,4.5vw,3.6rem);font-weight:500;color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.015em;line-height:1.05;}
+#reserved-page .rp-h em{font-style:normal;color:#B94F63;}
+#reserved-page .rp-sub{font-size:clamp(14px,1.6vw,16px);color:var(--dust);line-height:1.75;margin-bottom:1.5rem;}
+#reserved-page .rp-sub strong{color:var(--ink);font-weight:600;}
+#reserved-page .rp-sub .email{color:#B94F63;font-weight:600;}
+#reserved-page .rp-next{background:var(--parchment);border:1px solid var(--border);padding:1.5rem 1.75rem;margin:2rem auto 1.75rem;max-width:480px;text-align:left;}
+#reserved-page .rp-next h3{font-family:'Cormorant',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:12px;letter-spacing:0;display:flex;align-items:center;gap:8px;}
+#reserved-page .rp-next h3::before{content:'✦';color:#B94F63;font-size:1.1em;}
+#reserved-page .rp-next ul{list-style:none;padding:0;margin:0;}
+#reserved-page .rp-next li{font-size:13.5px;color:var(--dust);line-height:1.7;padding:6px 0 6px 22px;position:relative;}
+#reserved-page .rp-next li::before{content:'';position:absolute;left:4px;top:14px;width:6px;height:6px;border-radius:50%;background:#B94F63;opacity:0.5;}
+#reserved-page .rp-next li strong{color:var(--ink);font-weight:600;}
+#reserved-page .rp-next li code{background:rgba(185,79,99,0.12);padding:2px 7px;border-radius:3px;font-family:inherit;color:#8E3A4E;font-weight:600;font-size:0.92em;}
+#reserved-page .rp-social{font-size:13px;color:var(--dust);line-height:1.7;margin-bottom:2rem;}
+#reserved-page .rp-social a{color:#B94F63;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(185,79,99,0.3);}
+#reserved-page .rp-social a:hover{border-bottom-color:#B94F63;}
+#reserved-page .rp-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:0.5rem;}
+#reserved-page .rp-back-btn{background:linear-gradient(90deg,#8E3A4E 0%,#B94F63 100%);color:#FDF8F5;font-family:'Raleway',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;padding:14px 32px;border:none;border-radius:999px;cursor:pointer;transition:all 0.22s ease;box-shadow:0 4px 14px -4px rgba(185,79,99,0.4);}
+#reserved-page .rp-back-btn:hover{background:linear-gradient(90deg,#7A2E42 0%,#A0384F 100%);box-shadow:0 8px 22px -6px rgba(185,79,99,0.55);transform:translateY(-1px);}
+#reserved-page .rp-share-btn{background:transparent;color:var(--ink);font-family:'Raleway',sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;padding:14px 24px;border:1px solid var(--border);border-radius:999px;cursor:pointer;transition:all 0.2s;}
+#reserved-page .rp-share-btn:hover{border-color:#B94F63;color:#B94F63;}
+
+/* Pre-sale inactive / sold-out state */
+.ps-inactive-msg{text-align:center;padding:1.5rem 1rem;}
+.ps-inactive-msg .pi-icon{font-size:40px;color:#B94F63;margin-bottom:14px;}
+.ps-inactive-msg h3{font-family:'Cormorant',serif;font-size:1.65rem;font-weight:500;color:var(--ink);margin-bottom:10px;}
+.ps-inactive-msg p{font-size:13px;color:var(--dust);line-height:1.7;max-width:380px;margin:0 auto 1rem;}
+
+/* Countdown segments */
+.countdown-seg{display:inline-block;font-variant-numeric:tabular-nums;}
+.countdown-seg b{color:#FFF;}
+
+/* ══════════════ WELCOME POPUP — "Be one of the first 50" ══════════════ */
+.welcome-popup{display:none;position:fixed;inset:0;z-index:460;align-items:center;justify-content:center;background:rgba(20,14,8,0.68);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:1.5rem;animation:wpFade 0.5s ease;}
+.welcome-popup.open{display:flex;}
+@keyframes wpFade{from{opacity:0;}to{opacity:1;}}
+@keyframes wpSlideUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.wp-card{background:var(--parchment);padding:2.5rem 2.75rem 2rem;max-width:620px;width:100%;position:relative;border:1px solid var(--border);box-shadow:0 40px 100px -30px rgba(20,14,8,0.6),0 10px 30px -12px rgba(20,14,8,0.25);text-align:center;animation:wpSlideUp 0.6s cubic-bezier(0.4,0,0.2,1);max-height:calc(100vh - 3rem);overflow-y:auto;}
+.wp-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:22px;color:var(--dust);cursor:pointer;line-height:1;width:34px;height:34px;padding:0;font-family:'Raleway',sans-serif;z-index:2;}
+.wp-close:hover{color:var(--ink);}
+.wp-eye{font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:#B94F63;font-weight:700;margin-bottom:18px;}
+.wp-h{font-family:'Cormorant',serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:500;color:var(--ink);line-height:1.05;margin-bottom:1rem;letter-spacing:-0.015em;}
+.wp-h span{color:#B94F63;font-style:italic;}
+.wp-sub{font-size:14px;color:var(--dust);line-height:1.7;margin:0 auto 0.6rem;max-width:480px;font-weight:400;}
+.wp-accent{font-family:'Cormorant',serif;font-style:normal;font-size:clamp(1.1rem,1.7vw,1.3rem);color:#B94F63;font-weight:600;margin:0 auto 1.5rem;letter-spacing:0.01em;line-height:1.3;}
+.wp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.75rem;}
+.wp-stat{background:var(--white);border:1px solid var(--border);padding:14px 8px;text-align:center;overflow:hidden;}
+.wp-stat-num{font-family:'Cormorant',serif;font-size:1.5rem;font-weight:500;color:#B94F63;line-height:1.1;letter-spacing:-0.005em;font-variant-numeric:tabular-nums;display:inline-flex;align-items:baseline;gap:4px;}
+.wp-stat-num .of{font-size:0.65em;color:#8A6A60;font-weight:400;}
+/* Flip-tick wrapper: each digit lives in a fixed-height frame, digits above/below rotate in */
+.flip-digit{
+  display:inline-block;position:relative;
+  width:0.62em;height:1.15em;line-height:1.15em;
+  perspective:400px;vertical-align:middle;
+  font-variant-numeric:tabular-nums;
+}
+.flip-digit .cur,.flip-digit .nxt{
+  position:absolute;left:0;right:0;text-align:center;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  top:0;transform-origin:center center;
+}
+.flip-digit.flipping .cur{animation:flipOutTop 0.4s cubic-bezier(0.4,0,0.2,1) forwards;}
+.flip-digit.flipping .nxt{animation:flipInBottom 0.4s cubic-bezier(0.4,0,0.2,1) forwards;}
+@keyframes flipOutTop{
+  0%  {transform:translateY(0)     rotateX(0);   opacity:1;}
+  100%{transform:translateY(-50%) rotateX(-90deg);opacity:0;}
+}
+@keyframes flipInBottom{
+  0%  {transform:translateY(50%)   rotateX(90deg); opacity:0;}
+  100%{transform:translateY(0)     rotateX(0);    opacity:1;}
+}
+.wp-stat-lbl{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--dust);font-weight:500;margin-top:8px;}
+.wp-ctas{display:flex;flex-direction:column;gap:14px;align-items:center;}
+.wp-cta-primary{width:100%;max-width:360px;background:var(--ink);color:var(--white);border:none;padding:16px 28px;font-family:'Raleway',sans-serif;font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background 0.2s,transform 0.2s;}
+.wp-cta-primary:hover{background:#B94F63;}
+.wp-divider{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dust);font-weight:500;}
+.wp-notify{display:flex;width:100%;max-width:360px;border:1px solid var(--border);background:var(--white);}
+.wp-notify input{flex:1;border:none;padding:12px 14px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);outline:none;background:transparent;}
+.wp-notify input::placeholder{color:#B8A49A;}
+.wp-notify button{border:none;background:#B94F63;color:var(--white);padding:0 20px;font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.wp-notify button:hover{background:#8E3A4E;}
+.wp-fine{font-size:10px;color:var(--dust);letter-spacing:0.05em;line-height:1.6;margin-top:18px;}
+.wp-fine strong{color:#B94F63;font-weight:600;}
+@media(max-width:560px){
+  .wp-card{padding:2rem 1.5rem 1.5rem;}
+  .wp-stats{grid-template-columns:1fr 1fr 1fr;gap:6px;}
+  .wp-stat{padding:10px 4px;}
+  .wp-stat-num{font-size:1.1rem;}
+  .wp-stat-lbl{font-size:8px;}
+}
 </style>
 </head>
-<body>
+<body class="has-banner">
+
+<!-- ══════════════ ROUND 1 STICKY BANNER (simplified · clickable) ══════════════ -->
+<div class="presale-banner" id="presale-banner" onclick="openQuiz()">
+  <span class="ps-eye">✦ Round 1</span>
+  <span class="ps-dia">·</span>
+  <span id="ps-banner-detail">50 blind boxes · Opens May 1</span>
+  <span class="ps-dia">·</span>
+  <span class="ps-action">Reserve now →</span>
+</div>
+
+<!-- ══════════════ WELCOME POPUP — shows 2s after landing ══════════════ -->
+<div id="welcome-popup" class="welcome-popup" role="dialog" aria-labelledby="wp-title">
+  <div class="wp-card">
+    <button class="wp-close" type="button" onclick="closeWelcomePopup()" aria-label="Close">✕</button>
+    <div class="wp-eye">✦ Limited Drop · Round 1 ✦</div>
+    <h2 class="wp-h" id="wp-title">Be one of<br>the <span>first 50.</span></h2>
+    <p class="wp-sub">The <strong style="color:#B94F63;">Founding 50</strong> — our Round 1 drop of 50 one-of-a-kind DIY Craft Blind Boxes. Each uniquely curated from your quiz, numbered, signed.</p>
+    <p class="wp-accent">No two alike in the world.</p>
+    <div class="wp-stats">
+      <div class="wp-stat"><div class="wp-stat-num" id="wp-stat-count">50 of 50</div><div class="wp-stat-lbl">boxes available</div></div>
+      <div class="wp-stat"><div class="wp-stat-num" id="wp-stat-date">May 1</div><div class="wp-stat-lbl" id="wp-stat-date-lbl">Round 1 opens</div></div>
+      <div class="wp-stat"><div class="wp-stat-num">July 4</div><div class="wp-stat-lbl">shipping begins · US</div></div>
+    </div>
+    <div class="wp-ctas">
+      <button class="wp-cta-primary" type="button" onclick="closeWelcomePopup();openQuiz();">Reserve your box now →</button>
+      <div class="wp-divider">— or —</div>
+      <form class="wp-notify" onsubmit="event.preventDefault();submitWelcomeNotify(this);return false;">
+        <input type="email" name="email" required placeholder="Notify me when Round 1 opens" autocomplete="email">
+        <button type="submit">Notify →</button>
+      </form>
+    </div>
+    <p class="wp-fine">Reservations are free. <strong>15% off</strong> with <code style="background:rgba(185,79,99,0.12);padding:1px 5px;border-radius:3px;font-family:inherit;color:#B94F63;font-weight:600;">UNFOLD15</code> on July 4 launch. US shipping only.</p>
+  </div>
+</div>
+
+<script>
+/* Welcome popup — shows 2s after first visit, dismisses for 7 days */
+var WELCOME_SEEN_KEY = 'au_welcome_seen';
+var WELCOME_DELAY_MS = 2000;
+
+/* Count-up with a per-digit flip animation — like an old airport flipboard.
+   Each digit only plays the flip animation when it actually changes. */
+function tickFlipCount(el, targetLeft, total){
+  if(!el) return;
+  var duration = 1800;                // total count-up length (ms)
+  var steps = Math.max(targetLeft, 1);
+  var stepMs = duration / steps;
+
+  /* Initial DOM — build enough digit frames to hold the largest number */
+  var maxLen = Math.max(String(targetLeft).length, String(total).length);
+  function padDigits(n, len){
+    var s = String(n);
+    while(s.length < len) s = '0' + s;
+    return s;
+  }
+  function renderInitial(){
+    /* "LEFT of TOTAL" — build a series of .flip-digit spans each holding .cur (visible) + .nxt (incoming) */
+    var left = padDigits(0, String(targetLeft).length);
+    var html = '';
+    for(var i=0;i<left.length;i++){
+      html += '<span class="flip-digit" data-i="L'+i+'"><span class="cur">'+left[i]+'</span><span class="nxt" style="display:none;">'+left[i]+'</span></span>';
+    }
+    html += '<span class="of">of</span>';
+    var totalStr = String(total);
+    for(var j=0;j<totalStr.length;j++){
+      html += '<span class="flip-digit" data-i="T'+j+'"><span class="cur">'+totalStr[j]+'</span><span class="nxt" style="display:none;">'+totalStr[j]+'</span></span>';
+    }
+    el.innerHTML = html;
+  }
+  renderInitial();
+
+  function setDigitTo(flipEl, newDigit){
+    var curSpan = flipEl.querySelector('.cur');
+    var nxtSpan = flipEl.querySelector('.nxt');
+    if(!curSpan || !nxtSpan) return;
+    if(curSpan.textContent === newDigit){ return; }     // no change, skip
+    /* Prep incoming digit */
+    nxtSpan.textContent = newDigit;
+    nxtSpan.style.display = 'block';
+    /* Trigger flip */
+    flipEl.classList.remove('flipping');
+    void flipEl.offsetWidth;   // force reflow so animation can restart
+    flipEl.classList.add('flipping');
+    /* After animation, swap cur <- nxt cleanly */
+    setTimeout(function(){
+      curSpan.textContent = newDigit;
+      curSpan.style.transform = '';
+      curSpan.style.opacity = '';
+      nxtSpan.style.display = 'none';
+      flipEl.classList.remove('flipping');
+    }, 400);
+  }
+
+  function setNumber(n){
+    var str = padDigits(n, String(targetLeft).length);
+    var flips = el.querySelectorAll('.flip-digit[data-i^="L"]');
+    for(var i=0;i<flips.length && i<str.length;i++){
+      setDigitTo(flips[i], str[i]);
+    }
+  }
+
+  /* Tick up */
+  var current = 0;
+  setNumber(0);
+  var iv = setInterval(function(){
+    current++;
+    setNumber(current);
+    if(current >= targetLeft){ clearInterval(iv); }
+  }, stepMs);
+}
+
+function openWelcomePopup(){
+  /* Update live stats with flip-tick count-up */
+  if(typeof PRE_SALE_RESERVED !== 'undefined'){
+    var left = PRE_SALE_TOTAL - PRE_SALE_RESERVED;
+    var countEl = document.getElementById('wp-stat-count');
+    if(countEl) tickFlipCount(countEl, left, PRE_SALE_TOTAL);
+  }
+  /* State-aware middle card */
+  if(typeof getPreSaleState === 'function'){
+    var state = getPreSaleState();
+    var dateEl = document.getElementById('wp-stat-date');
+    var dateLblEl = document.getElementById('wp-stat-date-lbl');
+    if(dateEl && dateLblEl){
+      if(state === 'active'){ dateEl.textContent='May 10'; dateLblEl.textContent='Round 1 closes'; }
+      else if(state === 'closed' || state === 'launched'){ dateEl.textContent='Open'; dateLblEl.textContent='shop now'; }
+      else if(state === 'soldout'){ dateEl.textContent='Full'; dateLblEl.textContent='Round 2 waitlist only'; }
+      else { dateEl.textContent='May 1'; dateLblEl.textContent='Round 1 opens'; }
+    }
+  }
+  document.getElementById('welcome-popup').classList.add('open');
+  document.body.style.overflow='hidden';
+  document.body.classList.add('overlay-active');
+}
+function closeWelcomePopup(){
+  document.getElementById('welcome-popup').classList.remove('open');
+  /* Don't unlock body scroll if another modal is open */
+  var quizOpen = document.getElementById('quiz-overlay') && document.getElementById('quiz-overlay').classList.contains('open');
+  var reserveOpen = document.getElementById('reserve-modal') && document.getElementById('reserve-modal').classList.contains('open');
+  if(!quizOpen && !reserveOpen){
+    document.body.style.overflow='';
+    document.body.classList.remove('overlay-active');
+  }
+  try{localStorage.setItem(WELCOME_SEEN_KEY, Date.now().toString());}catch(e){}
+}
+/* Backdrop / Esc close */
+(function(){
+  var modal=document.getElementById('welcome-popup');
+  if(!modal) return;
+  modal.addEventListener('click',function(e){if(e.target===modal) closeWelcomePopup();});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && modal.classList.contains('open')) closeWelcomePopup();
+  });
+})();
+/* Notify form (waitlist for early notification) */
+function submitWelcomeNotify(form){
+  var email = form.querySelector('input[name="email"]').value.trim();
+  var btn = form.querySelector('button[type="submit"]');
+  if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+    form.querySelector('input').style.borderColor='#B94F63'; return;
+  }
+  btn.textContent = 'Saving…'; btn.disabled = true;
+  fetch(FORMSPREE_ENDPOINT, {
+    method:'POST',
+    headers:{'Accept':'application/json','Content-Type':'application/json'},
+    body:JSON.stringify({
+      _subject: '📮 Round 1 early-waitlist — ' + email,
+      _replyto: email,
+      email: email,
+      source: 'welcome-popup-notify',
+      state_when_signed_up: (typeof getPreSaleState==='function' ? getPreSaleState() : 'unknown'),
+      message: 'Early-waitlist signup (notify me when Round 1 opens):\nEmail: ' + email + '\nState at signup: ' + (typeof getPreSaleState==='function' ? getPreSaleState() : 'unknown')
+    })
+  }).then(function(r){
+    if(r.ok){
+      btn.textContent = '✦ You\'re on the list';
+      btn.style.background = '#8E3A4E';
+      setTimeout(closeWelcomePopup, 1800);
+    } else {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  }).catch(function(){
+    btn.textContent = 'Try again';
+    btn.disabled = false;
+  });
+}
+/* Auto-trigger 2s after load if user hasn't seen it in the last 7 days */
+(function(){
+  try{
+    var seen = localStorage.getItem(WELCOME_SEEN_KEY);
+    if(seen){
+      var daysSince = (Date.now() - parseInt(seen,10)) / (1000*60*60*24);
+      if(daysSince < 7) return; // shown recently, skip
+    }
+  }catch(e){}
+  setTimeout(function(){
+    /* Don't interrupt if another modal is already open */
+    var quizOpen = document.getElementById('quiz-overlay') && document.getElementById('quiz-overlay').classList.contains('open');
+    var reserveOpen = document.getElementById('reserve-modal') && document.getElementById('reserve-modal').classList.contains('open');
+    if(quizOpen || reserveOpen) return;
+    openWelcomePopup();
+  }, WELCOME_DELAY_MS);
+})();
+</script>
 
 <nav id="main-nav">
   <a class="nav-logo" href="#cover">
@@ -943,7 +1328,7 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
     <a class="nav-link" href="#reviews">Reviews</a>
     <a class="nav-link" href="#questions">FAQ</a>
   </div>
-  <button class="nav-cta" onclick="openQuiz()">Get my blind box</button>
+  <button class="nav-cta" onclick="openQuiz()">Reserve my spot</button>
 </nav>
 
 <!-- COVER -->
@@ -964,7 +1349,8 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
       <li class="cover-craft-item" onclick="document.getElementById('cp-sy').scrollIntoView({behavior:'smooth'})">Paint by Numbers<span class="ci-arrow">→</span></li>
       <li class="cover-craft-item" onclick="document.getElementById('cp-fp').scrollIntoView({behavior:'smooth'})">Floral Pen Pot<span class="ci-arrow">→</span></li>
     </ul>
-    <button class="btn-dark" onclick="openQuiz()">Get my blind box &rarr;</button>
+    <div class="founding-badge"><span class="fb-dot"></span> Round 1 · Limited · 50 blind boxes</div>
+    <button class="btn-dark" onclick="openQuiz()">Reserve my spot (free) &rarr;</button>
   </div>
 </section>
 
@@ -1086,7 +1472,7 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
     <span style="font-family:'Cormorant',serif;font-size:1.5rem;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:0.65rem;">Browse our FAQ <span class="faq-chev" style="display:inline-block;width:11px;height:11px;border-right:1.5px solid var(--dust);border-bottom:1.5px solid var(--dust);transform:rotate(45deg);transition:transform 0.3s ease;margin-bottom:4px;"></span></span>
   </div>
   <div class="faq-wrap" id="faq-wrap" style="max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height 0.45s ease,opacity 0.35s ease,margin-top 0.3s ease;">
-    <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">How long does delivery take?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">We are currently in our pre-sale stage. Once you place your order, our team will reach out to you personally with all delivery details — please allow 7–14 business days from dispatch.</div></div></div>
+    <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">How long does delivery take?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">We're in our Round 1 reservation stage — our Founding 50 boxes ship July 4, 2026, US only. Once shipping opens, please allow 5–10 business days from dispatch.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Are the blind boxes suitable for complete beginners?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Absolutely. Every blind box includes a printed step-by-step guide plus QR code video tutorials. No prior experience needed.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What is the mystery add-on?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every blind box includes a hand-picked extra based on your answers and the scene you're creating — hand cream, dried florals, a mini candle. Always a surprise until you open the box.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Can I send a blind box as a gift?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Yes. Every blind box arrives in a beautiful presentation box. You can add a handwritten note and ship directly to the recipient.</div></div></div>
@@ -1186,6 +1572,21 @@ function togglePbChip(el){
 }
 
 function openPromo(){
+  /* v14 — skip entirely during Round 1 window (welcome popup + reservation flow handle capture) */
+  if(typeof getPreSaleState==='function'){
+    var s = getPreSaleState();
+    if(s === 'softopen' || s === 'active' || s === 'soldout' || s === 'closed') return;
+  }
+  /* skip if welcome popup is visible or was dismissed in the last 24 hours */
+  var wp = document.getElementById('welcome-popup');
+  if(wp && wp.classList.contains('open')) return;
+  try{
+    var seen = localStorage.getItem('au_welcome_seen');
+    if(seen){
+      var hours = (Date.now()-parseInt(seen,10))/3600000;
+      if(hours < 24) return;
+    }
+  }catch(e){}
   var c=document.getElementById('promo-variant-container');
   c.innerHTML=(PROMO_VARIANT==='B'?_renderPromoB():_renderPromoA());
   document.getElementById('promo-modal').classList.add('open');
@@ -1412,10 +1813,7 @@ function submitPromo(e,variant){
             <div class="qchip" onclick="pickScene('family',this)">The whole family</div>
             <div class="qchip" onclick="pickScene('kids',this)">My little one</div>
             <div class="qchip" onclick="pickScene('self',this)">Just me</div>
-            <div class="qchip" onclick="pickScene('surprise',this)">Surprise me</div>
-          </div>
-          <div style="margin-top:10px;display:flex;justify-content:center;">
-            <div class="qchip" style="padding-left:36px;padding-right:36px;" onclick="pickScene('gift',this)">It's a gift! 🎁</div>
+            <div class="qchip" onclick="pickScene('gift',this)">It's a gift! 🎁</div>
           </div>
         </div>
 
@@ -1568,13 +1966,22 @@ function submitPromo(e,variant){
             <div class="rkp-items" id="rkp-items"></div>
           </div>
 
-          <div class="result-price-row">
-            <div class="result-price-label">From</div>
-            <div class="result-price" id="result-price">$35</div>
-            <div class="result-price-label">USD · Free shipping</div>
+          <div class="result-price-row" style="margin-top:8px;">
+            <div class="result-price-label" style="font-size:14px;">Retail</div>
+            <div class="result-price" id="result-price" style="text-decoration:line-through;opacity:0.55;font-size:1.9rem;">$55</div>
+            <div class="result-price-label" style="font-size:14px;">USD · Free US shipping</div>
           </div>
+          <div class="result-price-row" style="margin-top:2px;">
+            <div class="result-price-label" style="color:#B94F63;font-weight:500;font-size:14px;">Founding 50 (−15%)</div>
+            <div class="result-price" id="result-presale-price" style="color:#B94F63;font-size:2.6rem;">$47</div>
+          </div>
+          <ul style="list-style:none;padding:0;margin:14px 0 0;font-size:13px;color:var(--dust);line-height:1.9;">
+            <li>✦ Reserve free now</li>
+            <li>✦ Pay on July 4 launch</li>
+            <li>✦ Only 50 boxes in Round 1</li>
+          </ul>
           <div class="result-actions">
-            <button class="btn-cart" id="btn-cart">Reserve my blind box →</button>
+            <button class="btn-cart" id="btn-cart">Reserve my spot (free) →</button>
             <button class="btn-restart" onclick="restartQuiz()">Start over</button>
           </div>
         </div>
@@ -1590,29 +1997,77 @@ function submitPromo(e,variant){
     <button class="reserve-close" type="button" onclick="closeReserveModal()" aria-label="Close">✕</button>
 
     <div id="reserve-form-state">
-      <div class="reserve-eye">Checkout</div>
-      <h2 class="reserve-h" id="reserve-title">Ready to make it yours ✦</h2>
-      <p class="reserve-sub">Review your bundle below. We'll hand off to secure Stripe checkout — your shipping address and payment are collected there.</p>
+      <div class="reserve-eye">✦ Founding 50 · Reserve your spot</div>
+      <h2 class="reserve-h" id="reserve-title" style="white-space:nowrap;">Claim Box <span style="color:#B94F63;font-size:1.25em;font-weight:600;">#<span id="rs-box-preview">—</span></span> of 50</h2>
+      <p class="reserve-sub">Pay <strong style="color:#B94F63;">nothing now</strong> — we'll email you a secure checkout with your <strong>15% off</strong> locked in when we open on July 4.</p>
 
       <div class="reserve-summary" id="reserve-summary">
         <div class="rs-row"><span class="rs-k">Bundle</span><span class="rs-v" id="rs-scene">—</span></div>
         <div class="rs-row"><span class="rs-k">Crafts</span><span class="rs-v" id="rs-crafts">—</span></div>
         <div class="rs-row"><span class="rs-k">Palette</span><span class="rs-v" id="rs-palette">—</span></div>
         <div class="rs-row"><span class="rs-k">Pace</span><span class="rs-v" id="rs-pace">—</span></div>
-        <div class="rs-row rs-total"><span class="rs-k">Total</span><span class="rs-v" id="rs-total">$0</span></div>
+        <div class="rs-row rs-total"><span class="rs-k">Retail</span><span class="rs-v"><span class="ps-strike" id="rs-retail">$0</span></span></div>
+        <div class="rs-row rs-total" style="border-top:none;padding-top:2px;"><span class="rs-k" style="color:#B94F63;">Founding 50 price (−15%)</span><span class="rs-v"><span class="ps-final" id="rs-presale" style="color:#B94F63;font-weight:700;">$0</span></span></div>
       </div>
 
-      <label class="reserve-label" for="rsv-msg">Anything we should know? (optional)</label>
-      <textarea id="rsv-msg" rows="2" placeholder="Gift note, special delivery date, allergies, anything else…" style="width:100%;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);margin-bottom:10px;resize:none;outline:none;"></textarea>
+      <form id="reserve-presale-form" onsubmit="event.preventDefault();proceedToCheckout();return false;">
+        <label class="reserve-label" for="rsv-email">Email <span style="color:#B94F63;">*</span></label>
+        <input type="email" id="rsv-email" required placeholder="you@example.com" autocomplete="email" style="width:100%;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);margin-bottom:10px;outline:none;transition:border-color 0.2s;">
 
-      <button type="button" class="reserve-submit" id="reserve-submit-btn" onclick="proceedToCheckout()">Continue to secure checkout →</button>
-      <p class="reserve-privacy">🔒 Secure payment via Stripe. Your shipping address &amp; card details are entered on Stripe's checkout page — we never see them.</p>
+        <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:10px;">
+          <div>
+            <label class="reserve-label" for="rsv-firstname">First name <span style="color:#B94F63;">*</span></label>
+            <input type="text" id="rsv-firstname" required placeholder="First name" autocomplete="given-name" style="width:100%;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);margin-bottom:10px;outline:none;">
+          </div>
+          <div>
+            <label class="reserve-label" for="rsv-zip">US zip <span style="color:#B94F63;">*</span></label>
+            <input type="text" id="rsv-zip" required placeholder="10001" maxlength="10" autocomplete="postal-code" inputmode="numeric" style="width:100%;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);margin-bottom:10px;outline:none;">
+          </div>
+        </div>
+
+        <label class="reserve-label" for="rsv-msg">Anything we should know? (optional)</label>
+        <textarea id="rsv-msg" rows="2" placeholder="Gift note, something special, questions…" style="width:100%;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:'Raleway',sans-serif;font-size:14.5px;color:var(--ink);margin-bottom:10px;resize:none;outline:none;"></textarea>
+
+        <button type="submit" class="reserve-submit" id="reserve-submit-btn">Reserve my spot →</button>
+      </form>
+      <p class="reserve-privacy">No payment now. US only. Shipping begins July 4 ✦ Your info goes directly to Afternoon Unfold — never shared.</p>
     </div>
 
     <div id="reserve-success-state" style="display:none;">
       <div class="reserve-success-icon">✦</div>
       <h2 class="reserve-h" style="text-align:center;">Taking you to checkout…</h2>
       <p style="text-align:center;">If nothing happens after a few seconds, <a id="rsv-fallback-link" href="#" style="color:#B94F63;font-weight:600;">click here</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ FULL-PAGE RESERVATION SUCCESS ══════════════ -->
+<div id="reserved-page">
+  <div class="rp-inner">
+    <div class="rp-eye">✦ Founding 50 · Round 1 ✦</div>
+    <h2 class="rp-h">You're <em>in</em>.</h2>
+    <div class="reserved-seal" id="rp-seal">
+      <div class="rs-ring">
+        <div class="rs-hash">Box</div>
+        <div class="rs-num" id="rp-box-num">—</div>
+        <div class="rs-star">✦ ✦ ✦</div>
+      </div>
+      <div class="rs-lbl">— Of <strong>Founding 50</strong> —</div>
+    </div>
+    <p class="rp-sub">Reserved under <strong id="rp-name">—</strong>. We've sent a confirmation to <span class="email" id="rp-email">—</span>.</p>
+    <div class="rp-next">
+      <h3>What happens next</h3>
+      <ul>
+        <li><strong>May 1 – May 10</strong> · Round 1 stays open to other customers</li>
+        <li><strong>June – Early July</strong> · We source + hand-pack your box with behind-the-scenes peeks on our socials</li>
+        <li><strong>July 4</strong> · We open checkout. You'll get an email with your personalized Stripe link and <code>UNFOLD15</code> ready to use for your <span id="rp-price-line">15% off</span></li>
+        <li><strong>After July 4</strong> · Your box ships free to your US address + activity guide emailed</li>
+      </ul>
+    </div>
+    <p class="rp-social">✦ Follow us on <a href="https://www.instagram.com/afternoonunfold" target="_blank" rel="noopener">Instagram</a> / <a href="https://www.tiktok.com/@afternoonunfold" target="_blank" rel="noopener">TikTok</a> for behind-the-scenes as we pack the Founding 50.</p>
+    <div class="rp-actions">
+      <button class="rp-back-btn" type="button" onclick="closeReservedPage()">← Back to main page</button>
+      <button class="rp-share-btn" type="button" onclick="shareReservation()">Share ✦</button>
     </div>
   </div>
 </div>
@@ -1634,7 +2089,7 @@ var IMG = {
 
 var CRAFTS = [
   {
-    id:'pb', name:'Perler Beads', cn:'Hama Bead Art', price:35,
+    id:'pb', name:'Perler Beads', cn:'Hama Bead Art', price:40,
     time:'2–4 hrs', level:'Beginner friendly',
     videos:['assets/craft-videos/perler beads play.mp4','assets/craft-videos/beads box.mp4'],
     hero: 'assets/products/pb-atmo1.PNG',
@@ -1654,7 +2109,7 @@ var CRAFTS = [
     ]
   },
   {
-    id:'ww', name:'Chenille Sticks', cn:'Chenille Wire', price:35,
+    id:'ww', name:'Chenille Sticks', cn:'Chenille Wire', price:40,
     time:'45 min – 1.5 hrs', level:'Easy for all ages',
     videos:['assets/craft-videos/stick flower sky.mp4','assets/craft-videos/sticks on canvas.mp4'],
     hero: 'assets/products/ww-sky1.jpg',
@@ -1675,7 +2130,7 @@ var CRAFTS = [
     ]
   },
   {
-    id:'sy', name:'Paint by Numbers', cn:'Number Painting', price:35,
+    id:'sy', name:'Paint by Numbers', cn:'Number Painting', price:40,
     time:'2–4 hrs', level:'Beginner friendly',
     videos:['assets/craft-videos/paint on beach.mp4','assets/craft-videos/paint box carpet.mp4'],
     hero: 'assets/products/sy-atmo1.jpg',
@@ -1696,7 +2151,7 @@ var CRAFTS = [
     ]
   },
   {
-    id:'fp', name:'Floral Pen Pot', cn:'Dried Floral', price:35,
+    id:'fp', name:'Floral Pen Pot', cn:'Dried Floral', price:40,
     time:'1–2 hrs', level:'Beginner friendly',
     videos:['assets/craft-videos/pot on beach.mp4','assets/craft-videos/make flower pot.mp4'],
     hero: 'assets/products/fp-atmo4.PNG',
@@ -1755,6 +2210,7 @@ function openQuiz(){
   delete twDone[0];
   document.getElementById('quiz-overlay').classList.add('open');
   document.body.style.overflow='hidden';
+  document.body.classList.add('overlay-active');
   var wv=document.getElementById('quiz-video-bg');
   if(wv){try{wv.currentTime=0;var p=wv.play();if(p&&p.catch)p.catch(function(){});}catch(e){}}
   setProgress(0);
@@ -1763,6 +2219,12 @@ function openQuiz(){
 function closeQuiz(){
   document.getElementById('quiz-overlay').classList.remove('open');
   document.body.style.overflow='';
+  /* Only release overlay-active if no other modal is still open */
+  var rm=document.getElementById('reserve-modal');
+  var wp=document.getElementById('welcome-popup');
+  if((!rm||!rm.classList.contains('open')) && (!wp||!wp.classList.contains('open'))){
+    document.body.classList.remove('overlay-active');
+  }
 }
 function restartQuiz(){
   twDone={};
@@ -1779,6 +2241,12 @@ function restartQuiz(){
   ['btn-0','btn-1','btn-2','btn-3','btn-4'].forEach(id=>{
     var b=document.getElementById(id); if(b) b.disabled=true;
   });
+  /* Reset any name-interpolated UI so the next quiz starts fresh */
+  document.querySelectorAll('.quiz-name-inline').forEach(el=>{el.textContent='';});
+  var s1q = document.getElementById('s1-q');
+  if(s1q) s1q.innerHTML = 'And <span class="qhi-pink">who</span> are you<br>crafting with?';
+  /* Clear result page name slots too */
+  document.querySelectorAll('.result-name').forEach(el=>{el.textContent='';});
   setQuizBg('default');
   setProgress(0);
   goToSlide(0);
@@ -1855,9 +2323,7 @@ function onNameInput(){
   document.getElementById('btn-0').disabled=!v;
   document.querySelectorAll('.quiz-name-inline').forEach(el=>el.textContent=v?v:'');
   document.getElementById('s1-q').innerHTML='And <span class="qhi-pink">who</span> are you<br>crafting with'+(v?', '+v:'')+'?';
-  // Reveal or hide surprise chip based on name entry
-  var sc=document.querySelector('#scene-chips .qchip[onclick*="surprise"]');
-  if(sc)sc.style.display='';
+  // (Surprise scene chip removed — blind box already includes the surprise factor)
 }
 document.getElementById('input-name').addEventListener('keydown',function(e){if(e.key==='Enter'&&S.name)goNext(0);});
 
@@ -2036,20 +2502,25 @@ function buildResult(){
   // 2 crafts 20%, 3 crafts 30%, 4 crafts 40%, 5+ crafts 50%
   var CURATION_FEE=15;
   var craftSubtotal=selectedCrafts.reduce(function(sum,c){
-    return sum+(c.price||35)*(S.craftQty[c.id]||1);
+    return sum+(c.price||40)*(S.craftQty[c.id]||1);
   },0);
   var totalQty=Object.values(S.craftQty).reduce(function(a,b){return a+(b||0);},0);
   var discountPct=0;
-  if(totalQty>=5) discountPct=0.5;
-  else if(totalQty===4) discountPct=0.4;
-  else if(totalQty===3) discountPct=0.3;
-  else if(totalQty===2) discountPct=0.2;
+  if(totalQty>=5) discountPct=0.25;
+  else if(totalQty===4) discountPct=0.20;
+  else if(totalQty===3) discountPct=0.15;
+  else if(totalQty===2) discountPct=0.10;
   var discountAmt=Math.round(craftSubtotal*discountPct);
   var craftAfter=craftSubtotal-discountAmt;
   var grandTotal=craftAfter+CURATION_FEE;
   // Build price breakdown
   var priceEl=document.getElementById('result-price');
   priceEl.textContent='$'+grandTotal;
+  /* v14 — also set the pre-sale discounted price */
+  var presaleEl=document.getElementById('result-presale-price');
+  if(presaleEl && typeof applyPreSaleDiscount==='function'){
+    presaleEl.textContent='$'+applyPreSaleDiscount(grandTotal);
+  }
   // Show breakdown label
   var priceRow=priceEl.parentElement;
   var breakdownId='price-breakdown';
@@ -2057,15 +2528,11 @@ function buildResult(){
   if(old) old.remove();
   var breakdown=document.createElement('div');
   breakdown.id=breakdownId;
-  breakdown.style.cssText='font-size:11px;color:var(--dust);margin-top:6px;line-height:1.8;text-align:left;';
-  var lines=selectedCrafts.map(function(c){
-    var qty=S.craftQty[c.id]||1;
-    return c.name+(qty>1?' × '+qty:'')+' — $'+(c.price||35)*(qty);
-  });
+  breakdown.style.cssText='display:none;';   // v14 — breakdown hidden; price is already shown cleanly in the main row
+  var lines=[];   // keep the array for future use; just not rendered
   if(discountPct>0){
     lines.push('<span style="color:#B94F63;font-weight:500;">Bundle discount ('+(discountPct*100)+'%) — −$'+discountAmt+'</span>');
   }
-  lines.push('Curation &amp; surprise — $'+CURATION_FEE);
   breakdown.innerHTML=lines.join('<br>');
   priceRow.insertAdjacentElement('afterend',breakdown);
   var btn=document.getElementById('btn-cart');
@@ -2149,22 +2616,108 @@ function initErasers(){
 }
 
 /* ════════════════════════════════════════════════
-   RESERVATION MODAL (Option B — instant Stripe Checkout)
+   ROUND 1 CONFIG (Founding 50 · v14)
 ════════════════════════════════════════════════ */
-/* Stripe Payment Links (TEST MODE). Keys = total craft quantity.
-   Replace test_ links with live ones before going live. */
+var PRE_SALE_TOTAL = 50;
+var PRE_SALE_RESERVED_BASE = 0;     // 👈 UPDATE THIS MANUALLY EACH MORNING based on Formspree count
+var PRE_SALE_RESERVED = PRE_SALE_RESERVED_BASE;
+/* Live counter: reads PRE_SALE_RESERVED_BASE + any reservations made this browser session (persisted in localStorage).
+   This gives each visitor a live sense of the count ticking up as they explore/reserve.
+   You still update the BASE number manually each morning by counting Formspree emails. */
+(function(){
+  try{
+    var localCt = parseInt(localStorage.getItem('au_session_reserved_boost')||'0',10);
+    if(!isNaN(localCt) && localCt>0) PRE_SALE_RESERVED = PRE_SALE_RESERVED_BASE + localCt;
+  }catch(e){}
+})();
+var PRE_SALE_START = '2026-05-01T00:00:00-07:00';   // Round 1 officially opens May 1 (reservations open now in "soft" mode)
+var PRE_SALE_END   = '2026-05-11T00:00:00-07:00';   // end of May 10 Pacific
+var LAUNCH_DATE    = '2026-07-04T00:00:00-07:00';
+var PRE_SALE_CODE  = 'UNFOLD15';
+var PRE_SALE_DISCOUNT = 0.15;       // 15% off
+
+/* Round 1 state: 'softopen' | 'active' | 'closed' | 'soldout' | 'launched'
+   softopen = before May 1 but reservations quietly accepted
+   active   = May 1 – May 10, full Round 1 push
+   closed   = after May 10, pre-launch prep
+   soldout  = 50/50 reservations hit
+   launched = after July 4 */
+function getPreSaleState(){
+  var now = Date.now();
+  var start = new Date(PRE_SALE_START).getTime();
+  var end = new Date(PRE_SALE_END).getTime();
+  var launch = new Date(LAUNCH_DATE).getTime();
+  if(PRE_SALE_RESERVED >= PRE_SALE_TOTAL) return 'soldout';
+  if(now >= launch) return 'launched';
+  if(now >= end) return 'closed';
+  if(now >= start) return 'active';
+  return 'softopen';
+}
+
+/* Human-readable countdown helpers */
+function _formatCountdown(ms){
+  var d = Math.floor(ms/86400000);
+  var h = Math.floor((ms%86400000)/3600000);
+  var m = Math.floor((ms%3600000)/60000);
+  if(d > 0) return '<b>'+d+'d</b> <b>'+h+'h</b> <b>'+m+'m</b>';
+  if(h > 0) return '<b>'+h+'h</b> <b>'+m+'m</b>';
+  return '<b>'+m+'m</b>';
+}
+
+/* Render simplified banner + live counter */
+function renderPreSaleBanner(){
+  var state = getPreSaleState();
+  var left = Math.max(0, PRE_SALE_TOTAL - PRE_SALE_RESERVED);
+  var now = Date.now();
+
+  var bannerEl = document.getElementById('presale-banner');
+  var detailEl = document.getElementById('ps-banner-detail');
+  if(!bannerEl || !detailEl) return;
+
+  var detail, eyeTxt = '✦ Round 1', action = 'Reserve now →';
+
+  if(state === 'soldout'){
+    detail = 'Round 1 is reserved · Join Round 2 waitlist';
+    action = 'Join waitlist →';
+  } else if(state === 'launched'){
+    detail = 'Shop now · Free US shipping';
+    action = 'Shop blind boxes →';
+  } else if(state === 'closed'){
+    detail = 'Round 1 closed · Launches July 4';
+    action = 'Get notified →';
+  } else if(state === 'active'){
+    var endT = new Date(PRE_SALE_END).getTime();
+    var diff = Math.max(0, endT - now);
+    detail = 'Limited · ' + left + ' of 50 blind boxes left · Closes in ' + _formatCountdown(diff);
+  } else { // softopen
+    var startT = new Date(PRE_SALE_START).getTime();
+    var diffS = Math.max(0, startT - now);
+    detail = 'Limited · 50 blind boxes · Opens May 1 in ' + _formatCountdown(diffS);
+  }
+
+  /* Update banner text */
+  var eyeEl = bannerEl.querySelector('.ps-eye');
+  var actionEl = bannerEl.querySelector('.ps-action');
+  if(eyeEl) eyeEl.textContent = eyeTxt;
+  detailEl.innerHTML = detail;
+  if(actionEl) actionEl.textContent = action;
+}
+renderPreSaleBanner();
+setInterval(renderPreSaleBanner, 1000);
+
+/* Helper — apply pre-sale discount */
+function applyPreSaleDiscount(price){
+  return Math.round(price * (1 - PRE_SALE_DISCOUNT));
+}
+
+/* Stripe Payment Links — NOT USED in v14 pre-sale (kept for post-launch). */
 var STRIPE_LINKS = {
-  1:  'https://buy.stripe.com/test_28E4gz5kP5Df1RM2bh4Vy01', // $50
-  2:  'https://buy.stripe.com/test_7sYaEXdRle9L53Yg274Vy02', // $71
-  3:  'https://buy.stripe.com/test_6oU7sLeVpghTeEy9DJ4Vy03', // $88
-  4:  'https://buy.stripe.com/test_7sYaEXaF9e9L7c67vB4Vy04', // $99
-  5:  'https://buy.stripe.com/test_00waEX3cH0iV53Y0394Vy05', // $102
-  // Tiers 6-10 not yet created — will show a "contact us" message until added
-  6:  null, // $120
-  7:  null, // $137
-  8:  null, // $155
-  9:  null, // $172
-  10: null  // $190
+  1:  'https://buy.stripe.com/test_28E4gz5kP5Df1RM2bh4Vy01',
+  2:  'https://buy.stripe.com/test_7sYaEXdRle9L53Yg274Vy02',
+  3:  'https://buy.stripe.com/test_6oU7sLeVpghTeEy9DJ4Vy03',
+  4:  'https://buy.stripe.com/test_7sYaEXaF9e9L7c67vB4Vy04',
+  5:  'https://buy.stripe.com/test_00waEX3cH0iV53Y0394Vy05',
+  6: null, 7: null, 8: null, 9: null, 10: null
 };
 var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqaoebr';
 
@@ -2197,8 +2750,14 @@ function buildOrderSnapshot(){
   var colorLabel=colorLabels[S&&S.color]||(S&&S.colorCustom)||'—';
   var timeLabel=timeLabels[S&&S.duration]||'—';
 
+  /* Parse retail price from priceText like "$88" */
+  var retailPrice = parseInt((priceText||'').replace(/[^0-9]/g,''),10) || 0;
+  var preSalePrice = applyPreSaleDiscount(retailPrice);
+
   return {
     priceText: priceText,
+    retailPrice: retailPrice,
+    preSalePrice: preSalePrice,
     sceneKey: sceneKey,
     sceneLabel: sceneLabel,
     selections: selections,
@@ -2217,15 +2776,47 @@ function openReserveModal(){
   try {
     _lastOrder = buildOrderSnapshot();
     var o = _lastOrder;
+    var state = getPreSaleState();
+
+    /* Inactive states show a different UI; 'softopen' and 'active' both allow full reservation flow */
+    if(state === 'soldout' || state === 'closed' || state === 'launched'){
+      var modalInner = document.querySelector('#reserve-modal .reserve-modal-inner');
+      modalInner.innerHTML =
+        '<button class="reserve-close" type="button" onclick="closeReserveModal()" aria-label="Close">✕</button>'+
+        '<div class="ps-inactive-msg">'+
+          '<div class="pi-icon">✦</div>'+
+          (state === 'soldout' ?
+            '<h3>Round 1 is fully reserved</h3><p>All 50 Founding 50 blind boxes have been claimed. Join the Round 2 waitlist — we\'ll email you when the next drop opens.</p>'
+          : state === 'launched' ?
+            '<h3>We\'re live!</h3><p>Round 1 shipping has begun. Head back to the main page to shop any remaining blind boxes.</p>'
+          :
+            '<h3>Round 1 is closed</h3><p>We\'re packing the Founding 50 boxes now. Launch opens to everyone on July 4 with free US shipping — join the waitlist and we\'ll email you first.</p>'
+          )+
+          '<form onsubmit="event.preventDefault();submitWaitlist(this);return false;" style="margin-top:1rem;">'+
+            '<input type="email" name="email" required placeholder="your email" style="width:100%;max-width:320px;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:\'Raleway\',sans-serif;font-size:13px;margin-bottom:10px;outline:none;">'+
+            '<button type="submit" class="reserve-submit" style="width:auto;padding:12px 28px;">Join the waitlist →</button>'+
+          '</form>'+
+        '</div>';
+      document.getElementById('reserve-modal').classList.add('open');
+      document.body.style.overflow='hidden';
+      document.body.classList.add('overlay-active');
+      return;
+    }
+
     var setText=function(id,val){var el=document.getElementById(id);if(el) el.textContent=val;};
     setText('rs-scene', o.sceneLabel);
     setText('rs-crafts', o.selectionsText);
     setText('rs-palette', o.colorLabel);
     setText('rs-pace', o.timeLabel);
-    setText('rs-total', o.priceText);
+    setText('rs-retail', '$' + o.retailPrice);
+    setText('rs-presale', '$' + o.preSalePrice);
+    setText('rs-box-preview', (PRE_SALE_RESERVED + 1));
 
-    var notesEl=document.getElementById('rsv-msg');
-    if(notesEl) notesEl.value='';
+    /* Reset form */
+    ['rsv-email','rsv-firstname','rsv-zip','rsv-msg'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el){ el.value=''; el.style.borderColor=''; }
+    });
 
     var formState=document.getElementById('reserve-form-state');
     var successState=document.getElementById('reserve-success-state');
@@ -2234,16 +2825,79 @@ function openReserveModal(){
 
     document.getElementById('reserve-modal').classList.add('open');
     document.body.style.overflow='hidden';
+    document.body.classList.add('overlay-active');
   } catch(err){
     console.error('openReserveModal error:', err);
     document.getElementById('reserve-modal').classList.add('open');
+    document.body.classList.add('overlay-active');
   }
+}
+
+/* ════════════════════════════════════════════════
+   FULL-PAGE RESERVATION SUCCESS — takes over the viewport after a successful submit
+════════════════════════════════════════════════ */
+function openReservedPage(data){
+  var page = document.getElementById('reserved-page');
+  if(!page) return;
+  var setT = function(id, val){ var el = document.getElementById(id); if(el) el.textContent = val; };
+  setT('rp-box-num', '#' + data.boxNum);
+  setT('rp-name', data.firstName);
+  setT('rp-email', data.email);
+  var priceLine = document.getElementById('rp-price-line');
+  if(priceLine && data.presalePrice) priceLine.textContent = '15% off (~$' + data.presalePrice + ' total)';
+  page.classList.add('open');
+  document.body.classList.add('overlay-active');
+  document.body.style.overflow = 'hidden';
+  window.scrollTo(0,0);
+}
+function closeReservedPage(){
+  var page = document.getElementById('reserved-page');
+  if(!page) return;
+  page.classList.remove('open');
+  document.body.classList.remove('overlay-active');
+  document.body.style.overflow = '';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function shareReservation(){
+  var txt = "Just reserved my Afternoon Unfold DIY Craft Blind Box — one of only 50 in Round 1 ✦ afternoon-unfold.com";
+  var url = "https://afternoon-unfold.com";
+  if(navigator.share){
+    navigator.share({title:'Afternoon Unfold · Founding 50', text:txt, url:url}).catch(function(){});
+  } else {
+    try {
+      navigator.clipboard.writeText(txt + ' ' + url);
+      var btn = document.querySelector('.rp-share-btn');
+      if(btn){ var old = btn.textContent; btn.textContent = '✦ Copied!'; setTimeout(function(){btn.textContent=old;},1800); }
+    } catch(e){
+      alert('Copy this: ' + txt + ' ' + url);
+    }
+  }
+}
+
+function submitWaitlist(form){
+  var email = form.querySelector('input[name="email"]').value.trim();
+  var btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Adding…'; btn.disabled = true;
+  fetch(FORMSPREE_ENDPOINT, {
+    method:'POST',
+    headers:{'Accept':'application/json','Content-Type':'application/json'},
+    body: JSON.stringify({
+      _subject: '📮 Waitlist signup — ' + email,
+      email: email,
+      source: 'waitlist-modal-' + getPreSaleState(),
+      message: 'Waitlist email from pre-sale ' + getPreSaleState() + ' state: ' + email
+    })
+  }).then(function(r){
+    if(r.ok){ btn.textContent='You\'re on the list ✦'; btn.style.background='#B94F63'; }
+    else{ btn.textContent='Try again'; btn.disabled=false; }
+  }).catch(function(){ btn.textContent='Try again'; btn.disabled=false; });
 }
 function closeReserveModal(){
   document.getElementById('reserve-modal').classList.remove('open');
-  if(!document.getElementById('quiz-overlay').classList.contains('open')){
-    document.body.style.overflow='';
-  }
+  var quizOpen = document.getElementById('quiz-overlay') && document.getElementById('quiz-overlay').classList.contains('open');
+  var wpOpen = document.getElementById('welcome-popup') && document.getElementById('welcome-popup').classList.contains('open');
+  if(!quizOpen){ document.body.style.overflow=''; }
+  if(!quizOpen && !wpOpen){ document.body.classList.remove('overlay-active'); }
 }
 /* Close on backdrop / Esc */
 (function(){
@@ -2257,93 +2911,129 @@ function closeReserveModal(){
   });
 })();
 
-/* Fire-and-forget POST to Formspree with a readable `message` field, then redirect to Stripe */
+/* v14 — PRE-SALE RESERVATION (no Stripe, just Formspree + box number + success state) */
 function proceedToCheckout(){
   var o = _lastOrder || buildOrderSnapshot();
-  var notes = (document.getElementById('rsv-msg')||{}).value || '';
+  var state = getPreSaleState();
 
-  /* Build a readable message block Formspree surfaces prominently */
-  var firstName = o.customerQuizName ? o.customerQuizName : '(no name given)';
-  var message = [
-    '📦  NEW ORDER — ' + o.priceText,
+  var formEl = document.getElementById('reserve-presale-form');
+  if(!formEl){ alert('Please refresh the page'); return; }
+
+  var emailInput = document.getElementById('rsv-email');
+  var firstNameInput = document.getElementById('rsv-firstname');
+  var zipInput = document.getElementById('rsv-zip');
+  var notesInput = document.getElementById('rsv-msg');
+
+  var email = (emailInput.value||'').trim();
+  var firstName = (firstNameInput.value||'').trim();
+  var zip = (zipInput.value||'').trim();
+  var notes = (notesInput && notesInput.value)||'';
+
+  /* Basic validation */
+  if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+    emailInput.focus(); emailInput.style.borderColor='#B94F63';
+    return;
+  }
+  if(!firstName){ firstNameInput.focus(); firstNameInput.style.borderColor='#B94F63'; return; }
+  if(!zip){ zipInput.focus(); zipInput.style.borderColor='#B94F63'; return; }
+
+  /* Soft US detection — 5-digit zip */
+  var isUS = /^\d{5}(-\d{4})?$/.test(zip);
+  var subjPrefix = isUS ? '📝 Founding 50 reservation' : '🌍 Founding 50 international interest';
+
+  /* Box number assignment (provisional — you manually finalize when packing) */
+  var assignedBox = PRE_SALE_RESERVED + 1;   // visually optimistic; you update PRE_SALE_RESERVED daily
+
+  /* Build readable message */
+  var msg = [
+    '═══ FOUNDING 50 RESERVATION ═══',
+    'Box: #' + assignedBox + ' of ' + PRE_SALE_TOTAL + ' (provisional)',
     '',
-    'Quiz name (customer): ' + firstName,
-    'Scene / bundle: ' + o.sceneLabel,
+    'Customer: ' + firstName,
+    'Email: ' + email,
+    'Zip: ' + zip + (isUS ? ' (US)' : ' (international — needs manual follow-up)'),
+    '',
+    'Bundle: ' + o.sceneLabel,
     'Crafts: ' + o.selectionsText,
-    'Total quantity: ' + o.totalQty,
+    'Total qty: ' + o.totalQty,
     'Colour palette: ' + o.colorLabel,
     'Pace: ' + o.timeLabel,
-    'Who for: ' + (o.who || '—'),
+    'Quiz name: ' + (o.customerQuizName || '(same as reservation name)'),
     '',
-    '── Quiz notes ──',
+    'Retail: $' + o.retailPrice,
+    'Pre-sale price (UNFOLD15 applied): $' + o.preSalePrice,
+    '',
+    '── Customer quiz notes ──',
     (o.quizNotes || '(none)'),
     '',
-    '── Customer notes at checkout ──',
+    '── Customer reservation notes ──',
     (notes || '(none)'),
     '',
-    '── Next steps ──',
-    'Stripe will capture email + shipping + payment separately.',
-    'Match this order to the Stripe payment via client_reference_id = ' + buildRefId(o, firstName)
+    'Next steps:',
+    '1. Increment PRE_SALE_RESERVED in v14 JS so scarcity counter updates',
+    '2. Send confirmation email (optional) with box number + 15% code promise',
+    '3. On July 4 launch: email customer a Stripe Payment Link for $' + o.preSalePrice + ' with UNFOLD15 discount'
   ].join('\n');
 
   var data = {
-    _subject: '📦 New Afternoon Unfold order — ' + o.priceText + ' — ' + o.selectionsText,
-    message: message,
-    /* plus structured fields for searching/filtering */
-    total_price: o.priceText,
+    _subject: subjPrefix + ' — Box #' + assignedBox + ' — ' + firstName,
+    _replyto: email,
+    message: msg,
+    box_number: assignedBox,
+    email: email,
+    name: firstName,
+    zip: zip,
+    country_status: isUS ? 'US' : 'international',
     scene: o.sceneLabel,
     crafts: o.selectionsText,
     total_qty: String(o.totalQty),
+    retail_price: '$' + o.retailPrice,
+    presale_price: '$' + o.preSalePrice,
     colour: o.colorLabel,
     pace: o.timeLabel,
-    quiz_name: firstName,
+    quiz_name: o.customerQuizName,
     quiz_notes: o.quizNotes,
-    customer_notes: notes
+    reservation_notes: notes,
+    discount_code: PRE_SALE_CODE
   };
 
-  /* keepalive:true so the request survives the redirect */
-  try {
-    fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
-      body: JSON.stringify(data),
-      keepalive: true
-    }).catch(function(){});
-  } catch(e) { /* navigator.sendBeacon fallback if fetch fails */
-    try { navigator.sendBeacon(FORMSPREE_ENDPOINT, JSON.stringify(data)); } catch(_){}
-  }
+  var submitBtn = document.getElementById('reserve-submit-btn');
+  submitBtn.textContent = 'Reserving your spot…';
+  submitBtn.disabled = true;
 
-  /* Pick the right Stripe Payment Link tier */
-  var tier = Math.min(Math.max(o.totalQty, 1), 10);
-  var baseLink = STRIPE_LINKS[tier];
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
+    body: JSON.stringify(data)
+  }).then(function(r){
+    if(r.ok){
+      /* Increment live counter so the next reservation shows the next box # */
+      PRE_SALE_RESERVED = PRE_SALE_RESERVED + 1;
+      try {
+        var prev = parseInt(localStorage.getItem('au_session_reserved_boost')||'0',10)||0;
+        localStorage.setItem('au_session_reserved_boost', String(prev + 1));
+      } catch(e){}
+      if(typeof renderPreSaleBanner === 'function') renderPreSaleBanner();
 
-  /* Graceful fallback if the needed tier doesn't have a live link yet */
-  if(!baseLink){
-    document.getElementById('reserve-form-state').style.display='none';
-    document.getElementById('reserve-success-state').style.display='block';
-    var success = document.getElementById('reserve-success-state');
-    success.innerHTML =
-      '<div class="reserve-success-icon">✦</div>'+
-      '<h2 class="reserve-h" style="text-align:center;">Let\'s make this one custom</h2>'+
-      '<p style="text-align:center;">Bundles of <strong>'+o.totalQty+' crafts</strong> are handled personally for the best pricing. We\'ve got your order details — email <a href="mailto:zoraliu97@gmail.com?subject=Afternoon%20Unfold%20custom%20bundle%20('+o.totalQty+'%20crafts)" style="color:#B94F63;font-weight:600;">zoraliu97@gmail.com</a> and we\'ll send you a Stripe invoice within 24 hours.</p>'+
-      '<p style="text-align:center;font-size:12px;">Estimated total: <strong>'+o.priceText+'</strong></p>'+
-      '<div style="text-align:center;margin-top:1rem;">'+
-        '<button type="button" class="reserve-close-btn" onclick="closeReserveModal()">Close</button>'+
-      '</div>';
-    return; // No Stripe redirect — waits for manual invoicing
-  }
-
-  var refId = buildRefId(o, firstName);
-  var finalUrl = baseLink + (baseLink.indexOf('?') === -1 ? '?' : '&') + 'client_reference_id=' + encodeURIComponent(refId);
-
-  /* Show a transition message then redirect */
-  document.getElementById('reserve-form-state').style.display='none';
-  document.getElementById('reserve-success-state').style.display='block';
-  var fallback = document.getElementById('rsv-fallback-link');
-  if(fallback){ fallback.href = finalUrl; }
-
-  /* Tiny delay lets the fetch get into the browser's request queue before we navigate */
-  setTimeout(function(){ window.location.href = finalUrl; }, 250);
+      /* Close reservation modal + quiz, show full-page success */
+      closeReserveModal();
+      closeQuiz();
+      openReservedPage({
+        boxNum: assignedBox,
+        firstName: firstName,
+        email: email,
+        presalePrice: o.preSalePrice
+      });
+    } else {
+      alert('Something went wrong. Please try again or email zoraliu97@gmail.com directly.');
+      submitBtn.textContent = 'Reserve my spot →';
+      submitBtn.disabled = false;
+    }
+  }).catch(function(){
+    alert('Network error. Please check your connection and try again.');
+    submitBtn.textContent = 'Reserve my spot →';
+    submitBtn.disabled = false;
+  });
 }
 
 /* Build a compact order code for Stripe's client_reference_id

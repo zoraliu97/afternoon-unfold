@@ -1,0 +1,132 @@
+<!-- ═══════════════════════════════════════════════════════════════════
+     AFTERNOON UNFOLD — Round 1 Reservation Confirmation Email
+     Paste into Zapier Gmail "Body" field (Body Type: HTML)
+     Wherever you see {{fieldname}}, click Zapier's "+" button and pick
+     the corresponding field from the Formspree trigger.
+     Fields to map:
+       {{name}}         → Formspree `name`
+       {{box_number}}   → Formspree `box_number`
+       {{scene}}        → Formspree `scene`
+       {{crafts}}       → Formspree `crafts`
+       {{presale_price}}→ Formspree `presale_price` (already has $ sign)
+       {{colour}}       → Formspree `colour`
+       {{pace}}         → Formspree `pace`
+═══════════════════════════════════════════════════════════════════ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>You're in ✦ Afternoon Unfold</title>
+</head>
+<body style="margin:0;padding:0;background:#FAF6F0;font-family:'Helvetica Neue',Arial,sans-serif;color:#1A1208;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FAF6F0;">
+<tr><td align="center" style="padding:32px 16px;">
+
+<table width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#FDF8F5;border:1px solid #E0CFC8;border-collapse:separate;">
+
+  <!-- Header banner -->
+  <tr><td style="background:linear-gradient(90deg,#8E3A4E 0%,#B94F63 50%,#8E3A4E 100%);padding:14px 20px;text-align:center;color:#FDF8F5;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;">
+    ✦ Founding 50 · Round 1 ✦
+  </td></tr>
+
+  <!-- Logo / brand name -->
+  <tr><td align="center" style="padding:36px 32px 8px;">
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;color:#1A1208;letter-spacing:-0.005em;">Afternoon Unfold</div>
+    <div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#8A6A60;margin-top:6px;">DIY Craft Blind Box</div>
+  </td></tr>
+
+  <!-- Hero -->
+  <tr><td align="center" style="padding:28px 32px 8px;">
+    <h1 style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:40px;font-weight:500;color:#1A1208;letter-spacing:-0.015em;line-height:1.05;">
+      You're <span style="color:#B94F63;">in</span>.
+    </h1>
+  </td></tr>
+
+  <!-- Golden seal -->
+  <tr><td align="center" style="padding:24px 32px 8px;">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tr><td align="center" style="
+        width:130px;height:130px;
+        background:radial-gradient(circle at 35% 28%,#F3C98C 0%,#D9A66A 30%,#B88040 65%,#8B5A2B 100%);
+        border-radius:65px;
+        text-align:center;
+        vertical-align:middle;
+      ">
+        <div style="padding-top:22px;">
+          <div style="font-family:Georgia,serif;font-size:12px;color:#4A2E18;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;">Box</div>
+          <div style="font-family:Georgia,serif;font-size:48px;color:#2D1A08;font-weight:700;line-height:1;margin-top:2px;">#{{box_number}}</div>
+          <div style="font-size:10px;color:#4A2E18;margin-top:6px;letter-spacing:0.3em;">✦ ✦ ✦</div>
+        </div>
+      </td></tr>
+    </table>
+    <div style="font-family:Georgia,serif;font-size:11px;color:#8A6A60;letter-spacing:0.22em;text-transform:uppercase;margin-top:14px;">— Of <strong style="color:#B94F63;">Founding 50</strong> —</div>
+  </td></tr>
+
+  <!-- Greeting -->
+  <tr><td style="padding:28px 36px 8px;font-size:15px;line-height:1.65;color:#1A1208;">
+    <p style="margin:0 0 14px;">Hi <strong>{{name}}</strong>,</p>
+    <p style="margin:0 0 14px;">You've officially claimed <strong style="color:#B94F63;">Box #{{box_number}}</strong> of our first-ever Round 1 drop. Only 50 boxes exist. Each one is hand-curated, numbered, and signed. <strong>No two alike in the world.</strong></p>
+    <p style="margin:0 0 14px;">Thank you for being one of the Founding 50. It means the world to me that you took a chance on a small brand this early.</p>
+  </td></tr>
+
+  <!-- Your reservation -->
+  <tr><td style="padding:12px 36px;">
+    <div style="background:#F5EBE4;border:1px solid #E0CFC8;padding:18px 20px;">
+      <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#B94F63;font-weight:700;margin-bottom:10px;">✦ Your reservation</div>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:13px;color:#1A1208;">
+        <tr><td style="padding:4px 0;color:#8A6A60;width:140px;">Bundle</td><td style="padding:4px 0;">{{scene}}</td></tr>
+        <tr><td style="padding:4px 0;color:#8A6A60;">Craft(s)</td><td style="padding:4px 0;">{{crafts}}</td></tr>
+        <tr><td style="padding:4px 0;color:#8A6A60;">Colour palette</td><td style="padding:4px 0;">{{colour}}</td></tr>
+        <tr><td style="padding:4px 0;color:#8A6A60;">Pace</td><td style="padding:4px 0;">{{pace}}</td></tr>
+        <tr><td style="padding:8px 0 4px;border-top:1px solid rgba(185,79,99,0.2);color:#B94F63;font-weight:600;">Founding 50 price</td><td style="padding:8px 0 4px;border-top:1px solid rgba(185,79,99,0.2);color:#B94F63;font-weight:600;">{{presale_price}} <span style="color:#8A6A60;font-weight:400;font-size:11px;">(15% off retail)</span></td></tr>
+      </table>
+    </div>
+  </td></tr>
+
+  <!-- What happens next -->
+  <tr><td style="padding:28px 36px 12px;">
+    <h3 style="margin:0 0 12px;font-family:Georgia,serif;font-size:20px;color:#1A1208;font-weight:600;letter-spacing:-0.005em;">✦ What happens next</h3>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:13.5px;line-height:1.65;color:#3A2A22;">
+      <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">May 1 – May 10</strong> · Round 1 stays open to other customers</td></tr>
+      <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">June – Early July</strong> · We source your kits + hand-pack each box. Follow along on our socials for behind-the-scenes.</td></tr>
+      <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">July 4</strong> · Checkout opens. You'll get a personalized Stripe link for <strong style="color:#B94F63;">{{presale_price}}</strong> with <code style="background:rgba(185,79,99,0.12);padding:2px 6px;border-radius:3px;color:#8E3A4E;font-family:monospace;font-weight:600;">UNFOLD15</code> pre-applied.</td></tr>
+      <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">After July 4</strong> · Your box ships free to your US address. Your activity guide will be emailed to this inbox.</td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Social CTA -->
+  <tr><td align="center" style="padding:24px 36px 8px;">
+    <p style="margin:0;font-size:13px;color:#8A6A60;line-height:1.7;">
+      ✦ Follow us on
+      <a href="https://www.instagram.com/afternoonunfold" style="color:#B94F63;font-weight:600;text-decoration:none;">Instagram</a> /
+      <a href="https://www.tiktok.com/@afternoonunfold" style="color:#B94F63;font-weight:600;text-decoration:none;">TikTok</a><br>
+      for behind-the-scenes as we pack the Founding 50.
+    </p>
+  </td></tr>
+
+  <!-- Signoff -->
+  <tr><td style="padding:24px 36px 32px;">
+    <p style="margin:0;font-size:14px;color:#1A1208;line-height:1.7;">
+      Reply to this email anytime — I read every one.<br><br>
+      <span style="font-family:Georgia,serif;font-size:20px;color:#B94F63;">— Zora ✎</span><br>
+      <span style="font-size:12px;color:#8A6A60;">Founder · Afternoon Unfold</span>
+    </p>
+  </td></tr>
+
+  <!-- Footer -->
+  <tr><td align="center" style="padding:20px 32px;border-top:1px solid #E0CFC8;background:#FAF3EE;">
+    <div style="font-size:11px;color:#8A6A60;line-height:1.6;">
+      <a href="https://afternoon-unfold.com" style="color:#8A6A60;text-decoration:none;">afternoon-unfold.com</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:zoraliu97@gmail.com" style="color:#8A6A60;text-decoration:none;">zoraliu97@gmail.com</a>
+      <br><br>
+      You're receiving this because you reserved a spot in the Afternoon Unfold Round 1 drop.
+    </div>
+  </td></tr>
+
+</table>
+
+</td></tr>
+</table>
+</body>
+</html>

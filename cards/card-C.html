@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Afternoon Unfold — Card Option C</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page { size: 4.25in 6.25in; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 4.25in; background: #fff; }
+  body { font-family: 'Cormorant', serif; color: #1A1208; }
+  .card {
+    width: 4.25in;
+    height: 6.25in;
+    padding: 0.125in;
+    position: relative;
+    page-break-after: always;
+  }
+  .card-inner {
+    width: 4in;
+    height: 6in;
+    background: #F5EBE4;
+    border: 1px solid #E8D7CE;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7in 0.4in;
+    text-align: center;
+  }
+
+  /* ── FRONT — museum label style ── */
+  .front .sep-line {
+    font-size: 8pt;
+    letter-spacing: 0.15em;
+    color: #C4936A;
+    margin: 0.15in 0;
+    font-family: 'Raleway', sans-serif;
+  }
+  .front .sep-line .dia { color: #B94F63; margin: 0 0.3em; font-size: 9pt; }
+  .front .box-label {
+    font-family: 'Cormorant', serif;
+    font-weight: 500;
+  }
+  .front .box-no {
+    font-size: 12pt;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #8A6A60;
+    margin-bottom: 0.05in;
+  }
+  .front .box-num {
+    font-size: 46pt;
+    font-weight: 500;
+    color: #1A1208;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    margin: 0.1in 0;
+    font-family: 'Caveat', cursive;
+    min-height: 1in;
+  }
+  .front .box-num::before,
+  .front .box-num::after {
+    content: '';
+  }
+  .front .of-label {
+    font-family: 'Cormorant', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: #8A6A60;
+    letter-spacing: 0.05em;
+  }
+  .front .brand {
+    font-family: 'Cormorant', serif;
+    font-size: 16pt;
+    font-weight: 500;
+    color: #1A1208;
+    letter-spacing: 0.3em;
+    margin: 0.4in 0 0.15in;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+  .front .brand-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #8A6A60;
+    margin-top: 0.3in;
+    font-weight: 500;
+  }
+
+  /* ── BACK — playful CTA ── */
+  .back .card-inner { padding: 0.6in 0.5in; justify-content: space-between; }
+  .back .back-h {
+    font-family: 'Cormorant', serif;
+    font-size: 18pt;
+    color: #1A1208;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    margin-top: 0.2in;
+  }
+  .back .back-h em {
+    font-style: normal;
+    color: #B94F63;
+  }
+  .back .back-actions {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10pt;
+    color: #3A2A22;
+    line-height: 1.9;
+    margin-top: 0.3in;
+    letter-spacing: 0.04em;
+    max-width: 2.8in;
+  }
+  .back .back-actions strong {
+    color: #B94F63;
+    font-weight: 600;
+  }
+  .back .offer {
+    font-family: 'Cormorant', serif;
+    font-size: 22pt;
+    color: #B94F63;
+    font-weight: 600;
+    margin-top: 0.25in;
+    letter-spacing: 0.03em;
+  }
+  .back .hashtag {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9pt;
+    color: #8A6A60;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 0.35in;
+  }
+  .back .hashtag .dia { color: #B94F63; margin: 0 0.4em; }
+  .back .sign {
+    font-family: 'Caveat', cursive;
+    font-size: 18pt;
+    color: #B94F63;
+    margin-top: 0.25in;
+  }
+  .back .web {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7.5pt;
+    color: #8A6A60;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 0.15in;
+  }
+</style>
+</head>
+<body>
+
+<!-- FRONT -->
+<div class="card front">
+  <div class="card-inner">
+    <div class="sep-line">——— <span class="dia">✦</span> ———</div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.1in;">
+      <div class="box-label">
+        <div class="box-no">Box № </div>
+        <div class="box-num">&nbsp;</div>
+        <div class="of-label">one of fifty</div>
+      </div>
+      <div class="brand">
+        A&nbsp;F&nbsp;T&nbsp;E&nbsp;R&nbsp;N&nbsp;O&nbsp;O&nbsp;N<br>
+        U&nbsp;N&nbsp;F&nbsp;O&nbsp;L&nbsp;D
+      </div>
+      <div class="brand-sub">— Founding 50 —</div>
+    </div>
+    <div class="sep-line">——— <span class="dia">✦</span> ———</div>
+  </div>
+</div>
+
+<!-- BACK -->
+<div class="card back">
+  <div class="card-inner">
+    <div class="back-h">
+      Your afternoon,<br>
+      <em>in the wild.</em>
+    </div>
+    <div>
+      <div class="back-actions">
+        <strong>Unbox</strong>. Tag <strong>@afternoonunfold</strong>.<br>
+        Instagram · TikTok.
+      </div>
+      <div class="offer">= 15% off next box</div>
+    </div>
+    <div>
+      <div class="hashtag"><span class="dia">✦</span> #afternoonunfold <span class="dia">✦</span></div>
+      <div class="sign">— Z</div>
+      <div class="web">afternoonunfold.com</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

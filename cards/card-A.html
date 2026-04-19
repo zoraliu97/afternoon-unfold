@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Afternoon Unfold — Card Option A</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page { size: 4.25in 6.25in; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 4.25in; background: #fff; }
+  body { font-family: 'Raleway', sans-serif; color: #1A1208; }
+  .card {
+    width: 4.25in;
+    height: 6.25in;
+    padding: 0.125in;
+    position: relative;
+    page-break-after: always;
+  }
+  .card-inner {
+    width: 4in;
+    height: 6in;
+    background: #F5EBE4;
+    border: 1px solid #E8D7CE;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5in 0.4in;
+    text-align: center;
+  }
+  /* ── FRONT ── */
+  .front .brand-eye {
+    font-size: 8pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #B94F63;
+    font-weight: 600;
+    margin-top: 0.2in;
+  }
+  .front .brand-sym { font-size: 10pt; color: #B94F63; margin: 0 6pt; }
+  .front .cohort {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: #8A6A60;
+    margin-top: 0.5in;
+  }
+  .front .cohort::before,
+  .front .cohort::after {
+    content: '—';
+    margin: 0 0.25in;
+    color: #C4936A;
+    letter-spacing: 0;
+  }
+  .front .box-number {
+    font-family: 'Cormorant', serif;
+    font-size: 36pt;
+    font-weight: 500;
+    color: #1A1208;
+    letter-spacing: 0.05em;
+    margin: 0.3in 0 0.04in;
+    line-height: 1;
+  }
+  .front .box-number .num-blank {
+    display: inline-block;
+    min-width: 1.5in;
+    border-bottom: 1px solid #8A6A60;
+    padding: 0 0.15in;
+    font-family: 'Caveat', cursive;
+    font-size: 38pt;
+  }
+  .front .of-fifty {
+    font-family: 'Cormorant', serif;
+    font-style: italic;
+    font-size: 13pt;
+    color: #8A6A60;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .front .divider {
+    width: 0.5in;
+    border-top: 1px solid #C4936A;
+    margin: 0.35in 0;
+  }
+  .front .poem {
+    font-family: 'Cormorant', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: #1A1208;
+    line-height: 1.5;
+    max-width: 2.8in;
+    font-weight: 400;
+  }
+  .front .poem .sep { display: block; height: 4pt; }
+  .front .thanks {
+    font-family: 'Cormorant', serif;
+    font-size: 10.5pt;
+    color: #8A6A60;
+    line-height: 1.5;
+    margin-top: 0.3in;
+    font-style: italic;
+    max-width: 2.6in;
+  }
+  .front .signature {
+    font-family: 'Caveat', cursive;
+    font-size: 20pt;
+    color: #B94F63;
+    margin-top: 0.25in;
+  }
+
+  /* ── BACK ── */
+  .back .back-head {
+    font-size: 8pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #B94F63;
+    font-weight: 600;
+    margin-top: 0.3in;
+  }
+  .back .back-sym { font-size: 10pt; color: #B94F63; margin: 0 6pt; }
+  .back .back-h {
+    font-family: 'Cormorant', serif;
+    font-size: 20pt;
+    color: #1A1208;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 0.4in;
+    letter-spacing: -0.01em;
+  }
+  .back .back-h em { font-style: normal; color: #B94F63; }
+  .back .back-body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10pt;
+    color: #3A2A22;
+    line-height: 1.75;
+    max-width: 2.8in;
+    margin-top: 0.25in;
+    font-weight: 400;
+  }
+  .back .back-offer {
+    font-family: 'Cormorant', serif;
+    font-size: 15pt;
+    color: #B94F63;
+    font-weight: 600;
+    margin-top: 0.3in;
+    letter-spacing: 0.02em;
+  }
+  .back .back-handles {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9.5pt;
+    color: #1A1208;
+    margin-top: 0.3in;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+  }
+  .back .back-handles .dot {
+    color: #C4936A;
+    margin: 0 6pt;
+  }
+  .back .back-web {
+    font-family: 'Raleway', sans-serif;
+    font-size: 8pt;
+    color: #8A6A60;
+    margin-top: 0.25in;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- FRONT -->
+<div class="card front">
+  <div class="card-inner">
+    <div>
+      <div class="brand-eye"><span class="brand-sym">✦</span> Afternoon Unfold <span class="brand-sym">✦</span></div>
+      <div class="cohort">Founding 50</div>
+    </div>
+    <div>
+      <div class="box-number">Box № <span class="num-blank">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      <div class="of-fifty">of fifty</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="divider"></div>
+      <div class="poem">
+        No two afternoons<br>are alike.
+        <span class="sep"></span>
+        This one is yours.
+      </div>
+      <div class="thanks">
+        Thank you for making room<br>to craft with your hands.
+      </div>
+      <div class="signature">— Zora</div>
+    </div>
+  </div>
+</div>
+
+<!-- BACK -->
+<div class="card back">
+  <div class="card-inner">
+    <div class="back-head"><span class="back-sym">✦</span> Share your afternoon <span class="back-sym">✦</span></div>
+    <div>
+      <div class="back-h">Unbox,<br>tag us, &amp; get<br><em>15% off</em> your next</div>
+      <div class="back-body">
+        Post your unboxing on Instagram or TikTok<br>
+        and tag us — we'll send you a code for<br>
+        your next Afternoon Unfold box.
+      </div>
+    </div>
+    <div>
+      <div class="back-handles">
+        <strong>@afternoonunfold</strong>
+        <span class="dot">·</span>
+        <strong>Instagram</strong>
+        <span class="dot">·</span>
+        <strong>TikTok</strong>
+      </div>
+      <div class="back-web">afternoonunfold.com</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
