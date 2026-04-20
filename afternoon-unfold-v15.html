@@ -2229,7 +2229,7 @@ function submitPromo(e,variant){
         <div class="quiz-counter" id="s7-counter">07 — 07</div>
         <div class="quiz-optional-tag">Optional · the deck has drawn one for you</div>
         <h2 class="quiz-q">Pick the <span class="qhi-pink">card</span> that calls</h2>
-        <p class="quiz-sub">Close your eyes, then look — the right card pulls. Your reading gets deeper with every answer.</p>
+        <p class="quiz-sub">Close your eyes, then look — the right card pulls.<br>Your reading gets deeper with every answer.</p>
 
         <div id="tarot-grid" class="tarot-grid">
           <div class="tarot-card" onclick="pickTarot('moon',this)" tabindex="0">
@@ -2428,7 +2428,8 @@ function submitPromo(e,variant){
           </div>
           <div>
             <label class="reserve-label" for="rsv-zip">US zip <span style="color:#B94F63;">*</span></label>
-            <input type="text" id="rsv-zip" required placeholder="10001" maxlength="10" autocomplete="postal-code" inputmode="numeric" style="width:100%;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);margin-bottom:10px;outline:none;">
+            <input type="text" id="rsv-zip" required placeholder="10001" maxlength="10" autocomplete="postal-code" inputmode="numeric" style="width:100%;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:'Raleway',sans-serif;font-size:13px;color:var(--ink);margin-bottom:4px;outline:none;">
+            <div id="rsv-zip-feedback" style="font-size:11px;letter-spacing:0.04em;color:var(--dust);min-height:14px;margin-bottom:10px;font-family:'Raleway',sans-serif;"></div>
           </div>
         </div>
 
@@ -3575,6 +3576,11 @@ function openReserveModal(){
       var el = document.getElementById(id);
       if(el){ el.value=''; el.style.borderColor=''; }
     });
+    /* Clear zip-lookup feedback + cached state */
+    var zipFb = document.getElementById('rsv-zip-feedback');
+    if(zipFb){ zipFb.textContent=''; }
+    window._rsvUsState = '';
+    window._rsvUsCity  = '';
     /* Reset gift toggle + sub-fields */
     var giftCb = document.getElementById('rsv-is-gift');
     if(giftCb){ giftCb.checked = false; toggleGiftFields(); }
@@ -3659,6 +3665,69 @@ function closeReserveModal(){
 })();
 
 /* Reservation-modal gift handlers (separate from quiz; gift now lives here in v14+) */
+/* US zip -> city/state lookup via zippopotam.us (free, no key).
+   Runs 350ms after the 5th digit is typed, caches results, silently
+   falls back on network error. Detected state is stashed on
+   window._rsvUsState so proceedToCheckout can attach it to Formspree. */
+(function(){
+  var zipInput = document.getElementById('rsv-zip');
+  var feedback = document.getElementById('rsv-zip-feedback');
+  if(!zipInput || !feedback) return;
+  var cache = {};
+  var timer = null;
+  window._rsvUsState = '';
+  window._rsvUsCity  = '';
+
+  function render(info, isLoading){
+    if(isLoading){
+      feedback.style.color = 'var(--dust)';
+      feedback.textContent = 'Looking up ' + isLoading + '…';
+      return;
+    }
+    if(info && info.state){
+      feedback.style.color = '#3A7E4E';   // soft green
+      feedback.textContent = '✓ ' + info.city + ', ' + info.state;
+      window._rsvUsState = info.state;
+      window._rsvUsCity  = info.city;
+    } else {
+      feedback.style.color = '#B94F63';   // rosewood
+      feedback.textContent = '✕ Not a US zip — Round 1 is US-only';
+      window._rsvUsState = '';
+      window._rsvUsCity  = '';
+    }
+  }
+
+  function lookup(key){
+    if(cache[key] !== undefined){ render(cache[key]); return; }
+    render(null, key);  // "Looking up 10001…"
+    fetch('https://api.zippopotam.us/us/' + key)
+      .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function(data){
+        var p = (data.places || [])[0];
+        var info = p ? {state: p['state abbreviation'], city: p['place name']} : null;
+        cache[key] = info;
+        render(info);
+      })
+      .catch(function(){
+        cache[key] = null;
+        render(null);
+      });
+  }
+
+  zipInput.addEventListener('input', function(){
+    clearTimeout(timer);
+    var v = (zipInput.value || '').trim();
+    var digits = v.replace(/\D/g,'').slice(0,5);
+    if(digits.length < 5){
+      feedback.textContent = '';
+      window._rsvUsState = '';
+      window._rsvUsCity  = '';
+      return;
+    }
+    timer = setTimeout(function(){ lookup(digits); }, 350);
+  });
+})();
+
 function toggleGiftFields(){
   var checked = document.getElementById('rsv-is-gift').checked;
   document.getElementById('rsv-gift-fields').style.display = checked ? '' : 'none';
@@ -3732,6 +3801,7 @@ function proceedToCheckout(){
     'Customer: ' + firstName,
     'Email: ' + email,
     'Zip: ' + zip + (isUS ? ' (US)' : ' (international - needs manual follow-up)'),
+    'Location: ' + ((window._rsvUsCity && window._rsvUsState) ? (window._rsvUsCity + ', ' + window._rsvUsState) : '—'),
     '',
     'Bundle: ' + o.sceneLabel,
     'Crafts: ' + o.selectionsText,
@@ -3780,6 +3850,8 @@ function proceedToCheckout(){
     name: firstName,
     zip: zip,
     country_status: isUS ? 'US' : 'international',
+    us_state: window._rsvUsState || '',
+    us_city:  window._rsvUsCity  || '',
     scene: o.sceneLabel,
     crafts: o.selectionsText,
     total_qty: String(o.totalQty),
