@@ -1243,7 +1243,11 @@ body.overlay-active #main-nav{top:0;}
 .intl-modal-eye{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#B94F63;font-weight:600;margin-bottom:14px;}
 .intl-modal-h{font-family:'Cormorant',serif;font-size:clamp(1.6rem,2.9vw,2.1rem);font-weight:500;color:var(--ink);line-height:1.2;margin-bottom:0.85rem;letter-spacing:-0.005em;}
 .intl-modal-h em{font-style:italic;color:#B94F63;}
-.intl-modal-sub{font-size:13.5px;color:var(--dust);line-height:1.65;margin-bottom:1.25rem;padding:0 0.25rem;}
+.intl-modal-sub{font-size:13.5px;color:var(--dust);line-height:1.65;margin-bottom:0.85rem;padding:0 0.25rem;}
+.intl-modal-sub a{color:#B94F63;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(185,79,99,0.35);transition:border-color 0.2s;}
+.intl-modal-sub a:hover{border-bottom-color:#B94F63;}
+.intl-signature{font-family:'Cormorant',serif;font-size:14.5px;color:var(--ink);margin-top:14px;margin-bottom:0;line-height:1.6;text-align:right;padding-right:0.25rem;}
+.intl-signature em{font-family:'Great Vibes',cursive;font-style:normal;font-size:1.85em;color:#B94F63;line-height:0.9;letter-spacing:0.02em;display:inline-block;transform:translateY(2px);}
 .intl-modal-inner #intl-form{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;}
 .intl-modal-inner #intl-form input[type="email"]{background:var(--white);border:1px solid var(--border);padding:12px 14px;font-family:'Raleway',sans-serif;font-size:13.5px;color:var(--ink);outline:none;transition:border-color 0.2s;letter-spacing:0.01em;}
 .intl-modal-inner #intl-form input[type="email"]:focus{border-color:#B94F63;box-shadow:0 0 0 3px rgba(185,79,99,0.12);}
@@ -2500,13 +2504,14 @@ function submitPromo(e,variant){
     <div id="intl-form-state">
       <div class="intl-modal-eye">✦ Round 1 · US only</div>
       <h2 class="intl-modal-h" id="intl-modal-title">We're not shipping<br>to you <em>yet</em></h2>
-      <p class="intl-modal-sub">Round 1 ships within the US only. Drop your email and we'll be in touch when international shipping opens.</p>
+      <p class="intl-modal-sub">Drop your email and we'll be in touch when we open international shipping.</p>
+      <p class="intl-modal-sub">Please do follow us on our <a href="https://www.instagram.com/afternoonunfold" target="_blank" rel="noopener">Instagram</a> / <a href="https://www.tiktok.com/@afternoonunfold" target="_blank" rel="noopener">TikTok</a> — we'd love to craft memories with every one of you!</p>
       <form id="intl-form" onsubmit="return submitIntlWaitlist(event)">
         <input type="text" name="_gotcha" style="display:none !important;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
         <button type="submit" class="intl-submit">Keep me posted →</button>
       </form>
-      <p class="intl-fine">We'll only email you when international shipping is ready. No spam, unsubscribe anytime.</p>
+      <p class="intl-signature">Love,<br><em>Zora</em> from Afternoon Unfold</p>
     </div>
 
     <div id="intl-success-state" style="display:none;">
