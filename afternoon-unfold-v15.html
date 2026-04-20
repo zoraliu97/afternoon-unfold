@@ -785,8 +785,8 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 .result-img-container .slideshow-dots{z-index:10 !important;}
 
 /* Slide-7 (result) — solid panel positioned toward the centre-right of the slide */
-#slide-8{padding:0 !important;align-items:stretch !important;justify-content:flex-end !important;}
-#slide-8 .quiz-slide-inner{width:100% !important;max-width:none !important;margin:0 !important;padding:3rem 8rem 3rem 0 !important;display:flex !important;align-items:center !important;justify-content:flex-end !important;}
+#slide-8{padding:0 !important;align-items:stretch !important;justify-content:center !important;}
+#slide-8 .quiz-slide-inner{width:100% !important;max-width:none !important;margin:0 !important;padding:2rem 2.5rem !important;display:flex !important;align-items:center !important;justify-content:center !important;}
 .result-panel{background:var(--parchment);padding:2rem 1.9rem 1.75rem;max-width:560px;width:100%;border:1px solid var(--border);box-shadow:0 30px 80px -25px rgba(20,14,8,0.32),0 8px 20px -8px rgba(20,14,8,0.15);max-height:calc(100vh - 90px);overflow-y:auto;}
 .result-panel-head{text-align:center;margin-bottom:1.25rem;}
 .result-panel-head .result-tag{display:inline-block;padding:5px 14px;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;color:#fff;margin-bottom:12px;}
@@ -804,16 +804,19 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 
 /* Persona reading — magical / gypsy-card style; poetic text revealed,
    specific add-ons blurred until the physical card in the box is opened */
-.persona-reading{background:radial-gradient(ellipse at top,rgba(196,147,106,0.14) 0%,rgba(185,79,99,0.06) 55%,rgba(253,244,240,0.9) 100%);border:1px solid rgba(196,147,106,0.35);padding:1.5rem 1.4rem 1.4rem;margin-bottom:1.25rem;position:relative;overflow:hidden;}
-.persona-reading::before{content:'';position:absolute;top:10px;left:10px;right:10px;bottom:10px;border:1px solid rgba(196,147,106,0.22);pointer-events:none;}
-.persona-reading::after{content:'✦';position:absolute;top:14px;right:18px;color:var(--gold);font-size:18px;opacity:0.55;letter-spacing:0;}
-.persona-reading .pr-eye{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;position:relative;text-align:center;}
+.persona-reading{padding:1.75rem 1.75rem 1.5rem;position:relative;overflow:hidden;height:100%;}
+.persona-reading::before{content:'';position:absolute;top:14px;left:14px;right:14px;bottom:14px;border:1px solid rgba(196,147,106,0.22);pointer-events:none;}
+.persona-reading::after{content:'✦';position:absolute;top:18px;right:22px;color:var(--gold);font-size:20px;opacity:0.6;letter-spacing:0;}
+.persona-reading .pr-eye{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;position:relative;text-align:center;}
 .persona-reading .pr-eye::before,
 .persona-reading .pr-eye::after{content:'';display:inline-block;width:28px;height:1px;background:rgba(196,147,106,0.45);vertical-align:middle;margin:0 10px;}
-.persona-reading .pr-text{font-family:'Cormorant',serif;font-size:17px;line-height:1.7;color:#3A2E24;margin-bottom:16px;font-style:normal;position:relative;text-align:center;letter-spacing:0.005em;}
-.persona-reading .pr-text .pr-line{display:block;margin:0.25em 0;}
-.persona-reading .pr-text .pr-line-first{font-family:'Great Vibes',cursive;font-size:1.7em;color:var(--gold);line-height:1;margin-bottom:0.45em;}
-.persona-reading .pr-divider{display:block;margin:14px auto 12px;width:38px;height:1px;background:rgba(196,147,106,0.55);position:relative;}
+.persona-reading .pr-greeting{font-family:'Great Vibes',cursive;font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:1rem;text-align:center;position:relative;}
+.persona-reading .pr-sections{position:relative;}
+.persona-reading .pr-section{margin-bottom:14px;position:relative;}
+.persona-reading .pr-section-heading{font-family:'Cormorant',serif;font-size:14px;letter-spacing:0.04em;color:#8A6034;font-weight:600;margin-bottom:4px;font-style:italic;}
+.persona-reading .pr-section-body{font-family:'Cormorant',serif;font-size:16px;line-height:1.55;color:#3A2E24;}
+.persona-reading .pr-closer{text-align:center;color:var(--gold);font-size:18px;margin-top:10px;letter-spacing:0.3em;position:relative;}
+.persona-reading .pr-divider{display:block;margin:16px auto 14px;width:38px;height:1px;background:rgba(196,147,106,0.55);position:relative;}
 .persona-reading .pr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;}
 .persona-reading .pr-card{background:var(--white);border:1px solid rgba(196,147,106,0.22);padding:11px 8px 12px;text-align:center;position:relative;}
 .persona-reading .pr-card-icon{width:26px;height:26px;display:flex;align-items:center;justify-content:center;margin:0 auto 7px;color:var(--gold);font-size:15px;}
@@ -825,21 +828,34 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 .persona-reading.sealed .pr-card-swatch{filter:blur(5px) saturate(0.7);opacity:0.65;}
 .persona-reading .pr-seal-note{margin-top:14px;text-align:center;font-family:'Cormorant',serif;font-style:italic;font-size:13px;color:#8A6034;position:relative;padding:0 1rem;}
 .persona-reading .pr-seal-note::before{content:'✦';margin-right:6px;color:var(--gold);}
+/* Empty / skipped state — softer, quieter card */
+.persona-empty{padding:2rem 1.75rem;height:100%;display:flex;flex-direction:column;justify-content:center;text-align:center;position:relative;}
+.persona-empty::before{content:'';position:absolute;top:14px;left:14px;right:14px;bottom:14px;border:1px solid rgba(196,147,106,0.22);pointer-events:none;}
+.persona-empty .pe-eye{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;position:relative;}
+.persona-empty .pe-text{font-family:'Cormorant',serif;font-size:18px;line-height:1.55;color:#3A2E24;margin-bottom:12px;font-style:italic;position:relative;}
+.persona-empty .pe-sub{font-size:13px;color:var(--dust);line-height:1.65;position:relative;}
 
-/* Result page layout: peek + CTA above the fold; reading + items below.
-   Trim the peek image height so the primary block fits next to it on
-   a typical laptop viewport. */
+/* Result page two-column layout: product (left) + reading (right) */
+.result-panel-split{display:flex;flex-direction:row;gap:1.25rem;max-width:1100px;width:100%;max-height:calc(100vh - 80px);padding:0 !important;background:transparent !important;box-shadow:none !important;border:none !important;overflow:visible !important;}
+.result-panel-split .result-col{flex:1 1 50%;min-width:0;background:var(--parchment);border:1px solid var(--border);box-shadow:0 18px 50px -20px rgba(20,14,8,0.28),0 6px 14px -6px rgba(20,14,8,0.14);padding:1.75rem 1.6rem 1.5rem;overflow-y:auto;max-height:calc(100vh - 80px);}
+.result-panel-split .result-col-right{background:radial-gradient(ellipse at top,rgba(196,147,106,0.14) 0%,rgba(253,244,240,0.98) 65%,rgba(245,235,228,0.95) 100%);padding:0;}
+.result-panel-split .result-panel-head{text-align:center;margin-bottom:1rem;}
 .result-img-compact #result-img-wrap,
-.result-img-compact .photo-slideshow{max-height:36vh;}
-.result-img-compact .slide-img-sq{max-height:36vh;aspect-ratio:auto;height:36vh;object-fit:cover;}
-.result-primary-block{margin-top:6px;}
-.result-bullets{list-style:none;padding:0;margin:18px 0 14px;font-size:13px;color:var(--dust);line-height:1.9;}
-.result-scroll-hint{text-align:center;margin-top:14px;font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--dust);opacity:0.7;}
-@media (max-width:720px){
+.result-img-compact .photo-slideshow{max-height:30vh;}
+.result-img-compact .slide-img-sq{max-height:30vh;aspect-ratio:auto;height:30vh;object-fit:cover;}
+.result-bullets{list-style:none;padding:0;margin:14px 0 12px;font-size:12.5px;color:var(--dust);line-height:1.9;}
+.result-bullets li{padding-left:2px;}
+/* Mobile: stack columns, reading below */
+@media (max-width:900px){
+  .result-panel-split{flex-direction:column;gap:1rem;max-height:none;}
+  .result-panel-split .result-col{max-height:none;padding:1.5rem 1.25rem;}
   .result-img-compact #result-img-wrap,
   .result-img-compact .photo-slideshow,
-  .result-img-compact .slide-img-sq{max-height:30vh;height:30vh;}
+  .result-img-compact .slide-img-sq{max-height:28vh;height:28vh;}
+  #slide-8 .quiz-slide-inner{padding:1.5rem 1rem !important;}
 }
+/* Override the old panel styles so the split layout reads cleanly */
+.result-panel-split.result-panel{overflow:visible !important;max-width:1100px !important;}
 
 /* ══════════════ EMAIL PROMO MODAL — 30s popup (UO/H&M style) ══════════════ */
 .promo-modal{display:none;position:fixed;inset:0;z-index:450;align-items:center;justify-content:center;background:rgba(20,14,8,0.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);padding:1.5rem;animation:promoFade 0.35s ease;}
@@ -907,22 +923,46 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 /* Modal prize line */
 .reserve-prize-line{background:linear-gradient(90deg,rgba(196,147,106,0.12) 0%,rgba(185,79,99,0.08) 100%);border:1px solid rgba(196,147,106,0.3);padding:10px 14px;margin:0 0 18px;font-size:12.5px;color:#3A2E24;letter-spacing:0.01em;line-height:1.5;}
 .reserve-prize-line strong{color:#B94F63;font-weight:600;}
-/* Floating Founder's Prize pill — bottom-left corner, dismissible */
-.prize-float{position:fixed;left:18px;bottom:18px;z-index:300;background:linear-gradient(135deg,#F5EBE4 0%,#E8D4BE 50%,#D9B896 100%);color:var(--ink);border:1px solid rgba(196,147,106,0.55);padding:10px 38px 10px 14px;box-shadow:0 10px 30px -10px rgba(142,92,40,0.4),0 3px 8px -3px rgba(142,92,40,0.25);cursor:pointer;transition:transform 0.22s ease,box-shadow 0.22s ease,opacity 0.3s ease;max-width:260px;font-family:'Raleway',sans-serif;}
-.prize-float:hover{transform:translateY(-2px);box-shadow:0 14px 38px -10px rgba(142,92,40,0.52),0 6px 14px -4px rgba(142,92,40,0.32);}
-.prize-float .pf-inner{display:flex;align-items:center;gap:10px;}
-.prize-float .pf-icon{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,#F5C768 0%,#C4936A 80%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;box-shadow:inset 0 -2px 4px rgba(0,0,0,0.12);}
-.prize-float .pf-text{display:flex;flex-direction:column;line-height:1.2;}
-.prize-float .pf-k{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#8A6034;font-weight:600;margin-bottom:2px;}
-.prize-float .pf-v{font-family:'Cormorant',serif;font-size:14.5px;color:var(--ink);font-weight:500;}
-.prize-float .pf-close{position:absolute;top:6px;right:6px;width:22px;height:22px;border:none;background:transparent;color:var(--dust);cursor:pointer;font-size:14px;line-height:1;padding:0;border-radius:50%;transition:background 0.2s,color 0.2s;}
-.prize-float .pf-close:hover{background:rgba(0,0,0,0.08);color:var(--ink);}
-.prize-float.hidden{opacity:0;pointer-events:none;transform:translateY(20px);}
+/* Floating Founder's Prize tab — right edge, vertical ribbon, gold & magnetic */
+.prize-float{position:fixed;right:0;top:42%;transform:translate(0,-50%);z-index:320;background:linear-gradient(180deg,#F5D08A 0%,#D9A557 45%,#B08340 100%);color:#3A2508;border:1px solid #8A6034;border-right:none;padding:16px 14px 18px;box-shadow:-8px 10px 30px -10px rgba(142,92,40,0.55),-3px 4px 10px -3px rgba(142,92,40,0.35);cursor:pointer;transition:transform 0.28s cubic-bezier(0.2,0.9,0.2,1),box-shadow 0.28s ease;font-family:'Raleway',sans-serif;text-align:center;user-select:none;}
+.prize-float:hover{transform:translate(-4px,-50%);box-shadow:-12px 14px 38px -10px rgba(142,92,40,0.65),-5px 6px 14px -4px rgba(142,92,40,0.45);}
+.prize-float .pf-star{font-size:18px;color:#8A6034;margin-bottom:6px;line-height:1;animation:pfPulse 2.8s ease-in-out infinite;}
+@keyframes pfPulse{0%,100%{opacity:0.75;transform:scale(1);}50%{opacity:1;transform:scale(1.15);}}
+.prize-float .pf-label{font-family:'Cormorant',serif;font-size:14px;line-height:1.05;color:#3A2508;font-weight:500;font-style:italic;margin-bottom:6px;letter-spacing:0.01em;}
+.prize-float .pf-tease{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#6B4422;font-weight:600;}
 body.overlay-active .prize-float{display:none;}
+#prize-modal.open ~ .prize-float, .prize-float[aria-hidden="true"]{display:none;}
 @media (max-width:640px){
-  .prize-float{left:10px;bottom:10px;max-width:200px;padding:8px 32px 8px 12px;}
-  .prize-float .pf-v{font-size:13px;}
+  .prize-float{top:auto;bottom:18px;right:0;transform:none;padding:12px 10px 14px;}
+  .prize-float:hover{transform:translateX(-3px);}
+  .prize-float .pf-label{font-size:12.5px;}
 }
+
+/* Founder's Prize detail modal — sealed visual teaser with big ? */
+.prize-modal{display:none;position:fixed;inset:0;z-index:540;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,rgba(60,40,20,0.86) 0%,rgba(20,12,4,0.96) 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:1.5rem;animation:pmFade 0.4s ease;}
+.prize-modal.open{display:flex;}
+@keyframes pmFade{from{opacity:0;}to{opacity:1;}}
+.prize-modal-inner{background:var(--parchment);padding:2.25rem 2rem 2rem;max-width:480px;width:100%;position:relative;border:1px solid rgba(196,147,106,0.55);box-shadow:0 40px 100px -20px rgba(0,0,0,0.7),0 0 60px -20px rgba(217,165,87,0.4);text-align:center;max-height:calc(100vh - 3rem);overflow-y:auto;}
+.prize-modal-inner::before{content:'';position:absolute;top:10px;left:10px;right:10px;bottom:10px;border:1px solid rgba(196,147,106,0.3);pointer-events:none;}
+.prize-modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--dust);cursor:pointer;line-height:1;width:34px;height:34px;padding:0;font-family:'Raleway',sans-serif;z-index:5;transition:color 0.2s;}
+.prize-modal-close:hover{color:var(--ink);}
+.prize-modal-eye{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;position:relative;}
+.prize-modal-h{font-family:'Cormorant',serif;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:500;color:var(--ink);line-height:1.15;margin-bottom:10px;letter-spacing:-0.01em;position:relative;}
+.prize-modal-h em{font-style:normal;color:#B94F63;}
+.prize-modal-sub{font-size:13.5px;color:var(--dust);line-height:1.65;margin-bottom:1.4rem;position:relative;padding:0 0.5rem;}
+/* Blurred teaser "image" — made entirely with CSS so no asset needed */
+.prize-teaser{position:relative;width:100%;aspect-ratio:4/3;margin:0 0 1.25rem;overflow:hidden;border:1px solid rgba(196,147,106,0.3);}
+.prize-teaser .pt-backdrop{position:absolute;inset:0;background:radial-gradient(circle at 38% 42%,#9FB594 0%,#6A8266 30%,#3C4D3A 60%,#1E2B1D 100%);filter:blur(18px) saturate(1.15);transform:scale(1.15);}
+.prize-teaser::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,transparent 30%,rgba(0,0,0,0.4) 100%);pointer-events:none;}
+.prize-teaser .pt-q{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-size:140px;font-weight:500;color:#FFE8B8;text-shadow:0 4px 32px rgba(217,165,87,0.6),0 2px 12px rgba(0,0,0,0.5);line-height:1;z-index:2;}
+.prize-teaser .pt-hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,232,184,0.85);font-weight:600;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,0.6);}
+.prize-modal-meta{background:var(--white);border:1px solid var(--border);padding:14px 16px;margin-bottom:1.2rem;font-size:13px;position:relative;}
+.prize-modal-meta .pm-meta-row{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px dashed rgba(196,147,106,0.2);}
+.prize-modal-meta .pm-meta-row:last-child{border-bottom:none;}
+.prize-modal-meta .pm-k{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dust);font-weight:600;align-self:center;}
+.prize-modal-meta .pm-v{color:var(--ink);text-align:right;font-size:13px;}
+.prize-modal-cta{background:linear-gradient(90deg,#8E3A4E 0%,#B94F63 100%);color:#FDF8F5;font-family:'Raleway',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;padding:14px 32px;border:none;border-radius:999px;cursor:pointer;transition:all 0.22s ease;box-shadow:0 4px 14px -4px rgba(185,79,99,0.4);width:100%;max-width:320px;position:relative;}
+.prize-modal-cta:hover{background:linear-gradient(90deg,#7A2E42 0%,#A0384F 100%);box-shadow:0 8px 22px -6px rgba(185,79,99,0.55);transform:translateY(-1px);}
 
 .social-float{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:300;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1),opacity 0.3s ease;pointer-events:auto;}
 .social-float.shift-up{transform:translateY(calc(-50% - 18px));}
@@ -1308,7 +1348,8 @@ function openWelcomePopup(){
     var dateEl = document.getElementById('wp-stat-date');
     var dateLblEl = document.getElementById('wp-stat-date-lbl');
     if(dateEl && dateLblEl){
-      if(state === 'active'){ dateEl.textContent='May 10'; dateLblEl.textContent='Round 1 closes'; }
+      if(state === 'active'){ dateEl.textContent='May 30'; dateLblEl.textContent='Round 1 closes'; }
+      else if(state === 'round2'){ dateEl.textContent='Jun 30'; dateLblEl.textContent='Round 2 closes'; }
       else if(state === 'closed' || state === 'launched'){ dateEl.textContent='Open'; dateLblEl.textContent='shop now'; }
       else if(state === 'soldout'){ dateEl.textContent='Full'; dateLblEl.textContent='Round 2 waitlist only'; }
       else { dateEl.textContent='May 1'; dateLblEl.textContent='Round 1 opens'; }
@@ -1425,7 +1466,6 @@ function submitWelcomeNotify(form){
     </ul>
     <div class="founding-badge"><span class="fb-dot"></span> Round 1 · Limited · 50 blind boxes</div>
     <button class="btn-dark" onclick="openQuiz()">Reserve my spot (free) &rarr;</button>
-    <p class="hero-prize-hint" onclick="scrollToPrize()">✦ Every reservation enters to win a <em>handmade matcha ritual set</em> — drawn May 15</p>
   </div>
 </section>
 
@@ -1550,7 +1590,7 @@ function submitWelcomeNotify(form){
     <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">How long does delivery take?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">We're in our Round 1 reservation stage — our Founding 50 boxes ship July 4, 2026, US only. Once shipping opens, please allow 5–10 business days from dispatch.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Are the blind boxes suitable for complete beginners?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Absolutely. Every blind box includes a printed step-by-step guide plus QR code video tutorials. No prior experience needed.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What is the mystery add-on?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every blind box includes a hand-picked extra based on your answers and the scene you're creating. Always a surprise until you open the box.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What's the Founder's Prize?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every Founding 50 member is automatically entered into a draw for a handmade matcha ritual set — ceramic bowl, bamboo whisk, scoop, and a tin of premium ceremonial matcha. One winner drawn on May 15, right after Round 1 closes. Announced via email and Instagram. No extra entry needed — reserving your box is your entry.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What's the Founder's Prize?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every Founding 50 member is automatically entered into a draw for a premium, hand-curated prize — kept under wraps until July 4. Reserving your box is your entry. One winner drawn on launch day (July 4) when the first 50 boxes ship. Announced via email and Instagram.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Can I send a blind box as a gift?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Yes. Every blind box arrives in a beautiful presentation box. You can leave a handwritten note while placing your order.</div></div></div>
   </div>
   </div>
@@ -1741,13 +1781,38 @@ function submitPromo(e,variant){
 })();
 </script>
 
-<!-- Floating Founder's Prize hint (bottom-left, dismissible, scroll-aware) -->
-<div class="prize-float" id="prize-float" onclick="scrollToPrize()">
-  <div class="pf-inner">
-    <div class="pf-icon">✦</div>
-    <div class="pf-text"><span class="pf-k">Founder's Prize</span><span class="pf-v">Win a matcha ritual set</span></div>
+<!-- Floating Founder's Prize tab — right edge of the page, tactile gold ribbon.
+     Click opens a full-screen detail modal with a sealed / blurred teaser. -->
+<div class="prize-float" id="prize-float" onclick="openPrizeModal()" role="button" tabindex="0" aria-label="View Founder's Prize">
+  <div class="pf-star">✦</div>
+  <div class="pf-label">Founder's<br>Prize</div>
+  <div class="pf-tease">reveal &rarr;</div>
+</div>
+
+<!-- Founder's Prize detail modal — blurred teaser, opens on pill click -->
+<div id="prize-modal" class="prize-modal" role="dialog" aria-labelledby="prize-modal-title">
+  <div class="prize-modal-inner">
+    <button class="prize-modal-close" type="button" onclick="closePrizeModal()" aria-label="Close">✕</button>
+    <div class="prize-modal-eye">✦ Founder's Prize ✦</div>
+    <h2 class="prize-modal-h" id="prize-modal-title">For the <em>first 50 boxes</em> reserved</h2>
+    <p class="prize-modal-sub">You'll be automatically entered into a draw for a hand-curated premium prize. What it is stays sealed until launch.</p>
+
+    <!-- Blurred "sealed" teaser image — CSS-composed, no photo needed.
+         The question mark sells the suspense. -->
+    <div class="prize-teaser" aria-hidden="true">
+      <div class="pt-backdrop"></div>
+      <div class="pt-q">?</div>
+      <div class="pt-hint">Sealed until July 4</div>
+    </div>
+
+    <div class="prize-modal-meta">
+      <div class="pm-meta-row"><span class="pm-k">Drawn</span><span class="pm-v">July 4 · launch day</span></div>
+      <div class="pm-meta-row"><span class="pm-k">Entry</span><span class="pm-v">Automatic with your Round 1 reservation</span></div>
+      <div class="pm-meta-row"><span class="pm-k">Announced</span><span class="pm-v">By email + Instagram</span></div>
+    </div>
+
+    <button class="prize-modal-cta" type="button" onclick="closePrizeModal();openQuiz();">Reserve my spot →</button>
   </div>
-  <button class="pf-close" type="button" aria-label="Dismiss" onclick="event.stopPropagation();dismissPrizeFloat();">✕</button>
 </div>
 
 <!-- Floating social icons (right edge, scroll-responsive) -->
@@ -2058,24 +2123,30 @@ function submitPromo(e,variant){
       </div></div>
     </div>
 
-    <!-- S8: Result -->
+    <!-- S8: Result — two-column (left: peek/price/CTA, right: reading) -->
     <div class="quiz-slide" id="slide-8">
       <div class="quiz-slide-inner">
-        <div class="result-panel">
-          <div class="result-panel-head">
-            <div id="result-tag-wrap"></div>
-            <h2 class="result-h" id="result-h">Take a peek now!</h2>
-            <p class="result-sub" id="result-sub">This is only a preview of your actual blind box.</p>
-          </div>
+        <div class="result-panel result-panel-split">
 
-          <div class="result-img-container result-img-compact" id="result-img-container">
-            <div id="result-img-wrap"></div>
-            <canvas class="result-img-eraser" id="result-img-eraser"></canvas>
-            <div class="result-img-hint" id="result-img-hint"><span class="result-img-hint-eye">✦ Peek inside</span>Hover &amp; scrub to reveal</div>
-          </div>
+          <!-- LEFT column: the product side -->
+          <div class="result-col result-col-left">
+            <div class="result-panel-head">
+              <div id="result-tag-wrap"></div>
+              <h2 class="result-h" id="result-h">Take a peek now!</h2>
+              <p class="result-sub" id="result-sub">This is only a preview of your actual blind box.</p>
+            </div>
 
-          <!-- Prices + CTA block pinned directly under the peek so it's above the fold -->
-          <div class="result-primary-block">
+            <div class="result-img-container result-img-compact" id="result-img-container">
+              <div id="result-img-wrap"></div>
+              <canvas class="result-img-eraser" id="result-img-eraser"></canvas>
+              <div class="result-img-hint" id="result-img-hint"><span class="result-img-hint-eye">✦ Peek inside</span>Hover &amp; scrub to reveal</div>
+            </div>
+
+            <div class="result-items-wrap" id="result-items-wrap">
+              <div class="rkp-title">What's inside your blind box</div>
+              <div class="rkp-items" id="rkp-items"></div>
+            </div>
+
             <div class="result-price-row" style="margin-top:8px;">
               <div class="result-price-label" style="font-size:14px;">Retail</div>
               <div class="result-price" id="result-price" style="text-decoration:line-through;opacity:0.55;font-size:1.9rem;">$54.99</div>
@@ -2085,51 +2156,55 @@ function submitPromo(e,variant){
               <div class="result-price-label" style="color:#B94F63;font-weight:500;font-size:14px;">Founding 50 (−15%)</div>
               <div class="result-price" id="result-presale-price" style="color:#B94F63;font-size:2.6rem;">$46.99</div>
             </div>
+            <ul class="result-bullets">
+              <li>✦ Reserve free now</li>
+              <li>✦ Pay on July 4 launch</li>
+              <li>✦ Only 50 boxes in Round 1</li>
+            </ul>
             <div class="result-actions">
               <button class="btn-cart" id="btn-cart">Reserve my spot (free) →</button>
               <button class="btn-restart" onclick="restartQuiz()">Start over</button>
             </div>
-            <div class="result-scroll-hint">↓ Scroll for your reading &amp; what's inside</div>
           </div>
 
-          <!-- Below-the-fold: reading, bullets, items -->
-          <ul class="result-bullets">
-            <li>✦ Reserve free now</li>
-            <li>✦ Pay on July 4 launch</li>
-            <li>✦ Only 50 boxes in Round 1</li>
-          </ul>
-
-          <!-- Persona "reading" — only shown when MBTI or zodiac was filled in.
-               The poetic text is revealed; specific add-ons stay blurred
-               ("sealed") as a surprise for the printed card inside the box. -->
-          <div class="persona-reading sealed" id="persona-reading" style="display:none;">
-            <div class="pr-eye">Your reading</div>
-            <div class="pr-text" id="pr-text"></div>
-            <span class="pr-divider"></span>
-            <div class="pr-cards">
-              <div class="pr-card">
-                <div class="pr-card-icon">✦</div>
-                <div class="pr-card-label">Your scent</div>
-                <div class="pr-card-value" id="pr-scent">sealed</div>
+          <!-- RIGHT column: the mystical reading -->
+          <div class="result-col result-col-right">
+            <!-- Persona "reading" — structured sections. Specific items
+                 (scent/tea/colour) stay blurred on site; the printed
+                 card inside the box does the full reveal. -->
+            <div class="persona-reading sealed" id="persona-reading">
+              <div class="pr-eye">Your reading</div>
+              <div class="pr-greeting" id="pr-greeting"></div>
+              <div class="pr-sections" id="pr-sections"></div>
+              <span class="pr-divider"></span>
+              <div class="pr-cards">
+                <div class="pr-card">
+                  <div class="pr-card-icon">✦</div>
+                  <div class="pr-card-label">Your scent</div>
+                  <div class="pr-card-value" id="pr-scent">sealed</div>
+                </div>
+                <div class="pr-card">
+                  <div class="pr-card-icon">✧</div>
+                  <div class="pr-card-label">Your tea</div>
+                  <div class="pr-card-value" id="pr-tea">sealed</div>
+                </div>
+                <div class="pr-card">
+                  <div class="pr-card-icon pr-card-swatch" id="pr-color-swatch" style="background:#C4936A;"></div>
+                  <div class="pr-card-label">Your colour</div>
+                  <div class="pr-card-value" id="pr-color">sealed</div>
+                </div>
               </div>
-              <div class="pr-card">
-                <div class="pr-card-icon">✧</div>
-                <div class="pr-card-label">Your tea</div>
-                <div class="pr-card-value" id="pr-tea">sealed</div>
-              </div>
-              <div class="pr-card">
-                <div class="pr-card-icon pr-card-swatch" id="pr-color-swatch" style="background:#C4936A;"></div>
-                <div class="pr-card-label">Your colour</div>
-                <div class="pr-card-value" id="pr-color">sealed</div>
-              </div>
+              <p class="pr-seal-note">The specifics stay sealed — a hand-written card inside your box reveals all three.</p>
+              <div class="pr-closer" id="pr-closer">✦</div>
             </div>
-            <p class="pr-seal-note">The specifics stay sealed until you unbox — a hand-written card inside reveals all three.</p>
+            <!-- Fallback when no MBTI / zodiac was given -->
+            <div class="persona-empty" id="persona-empty" style="display:none;">
+              <div class="pe-eye">✦ Your reading</div>
+              <p class="pe-text">You skipped the mystical questions — so we'll let your blind box be your reading.</p>
+              <p class="pe-sub">A hand-written card inside reveals a scent, a tea, and a colour chosen for your afternoon.</p>
+            </div>
           </div>
 
-          <div class="result-items-wrap" id="result-items-wrap">
-            <div class="rkp-title">What's inside your blind box</div>
-            <div class="rkp-items" id="rkp-items"></div>
-          </div>
         </div>
       </div>
     </div>
@@ -2146,7 +2221,7 @@ function submitPromo(e,variant){
       <div class="reserve-eye">✦ Founding 50 · Reserve your spot</div>
       <h2 class="reserve-h" id="reserve-title" style="white-space:nowrap;">Claim Box <span style="color:#B94F63;font-size:1.25em;font-weight:600;">#<span id="rs-box-preview">—</span></span> of 50</h2>
       <p class="reserve-sub">Pay <strong style="color:#B94F63;">nothing now</strong> — we'll email you a secure checkout with your <strong>15% off</strong> locked in when we open on July 4.</p>
-      <div class="reserve-prize-line">✦ You'll be entered for the <strong>Founder's Prize</strong> — a matcha ritual set, drawn May 15</div>
+      <div class="reserve-prize-line">✦ You'll be entered for the <strong>Founder's Prize</strong> — drawn on July 4 launch day</div>
 
       <div class="reserve-summary" id="reserve-summary">
         <div class="rs-row"><span class="rs-k">Bundle</span><span class="rs-v" id="rs-scene">—</span></div>
@@ -2220,19 +2295,19 @@ function submitPromo(e,variant){
     <div class="rp-next">
       <h3>What happens next</h3>
       <ul>
-        <li><strong>May 1 – May 10</strong> · Round 1 stays open to other customers</li>
+        <li><strong>Round 1 · May 1–30</strong> · Founding 50 reservations · <strong>Round 2 · June 1–30</strong> for everyone else</li>
         <li><strong>June – Early July</strong> · We source + hand-pack your box with behind-the-scenes peeks on our socials</li>
         <li><strong>July 4</strong> · We open checkout. You'll get an email with your personalized Stripe link and <code>UNFOLD15</code> ready to use for your <span id="rp-price-line">15% off</span></li>
         <li><strong>After July 4</strong> · Your box ships free to your US address + activity guide emailed</li>
       </ul>
     </div>
 
-    <!-- Founder's Prize — automatic entry for every Founding 50 reservation -->
+    <!-- Founder's Prize — automatic entry. Kept intentionally vague here;
+         the suspense belongs on the landing / modal, not the success page. -->
     <div class="rp-prize">
       <div class="rp-prize-badge">✦ Founder's Prize</div>
-      <h3 class="rp-prize-h">You've been entered — one of you wins a <em>matcha ritual set</em></h3>
-      <p class="rp-prize-sub">A handmade ceramic bowl (<em>chawan</em>), bamboo whisk (<em>chasen</em>), scoop, and a tin of premium ceremonial matcha — sourced from a small Kyoto-style maker. One winner drawn from the Founding 50 on <strong>May 15</strong>, right after Round 1 closes.</p>
-      <p class="rp-prize-fine">No extra entry needed — every reserved box is already in the hat. We'll announce the winner via email and on Instagram.</p>
+      <h3 class="rp-prize-h">You've been entered.</h3>
+      <p class="rp-prize-sub">One winner drawn on <strong>July 4</strong>, the day your box ships. We'll announce via email and Instagram.</p>
     </div>
 
     <p class="rp-social">✦ Follow us on <a href="https://www.instagram.com/afternoonunfold" target="_blank" rel="noopener">Instagram</a> / <a href="https://www.tiktok.com/@afternoonunfold" target="_blank" rel="noopener">TikTok</a> for behind-the-scenes as we pack the Founding 50.</p>
@@ -2372,6 +2447,21 @@ var PERSONA = {
     gemini:'air', libra:'air', aquarius:'air',
     cancer:'water', scorpio:'water', pisces:'water'
   },
+  // One-line astrology reading per sign — drawn from traditional archetypes
+  zodiacInfo: {
+    aries:      {name:'Aries',       archetype:'the pioneer',     traits:'bold, first-moving, and full of spark — you ignite rooms and start new things before anyone else'},
+    taurus:     {name:'Taurus',      archetype:'the sensualist',  traits:'grounded and patient, with a love for slow beauty and tactile luxury'},
+    gemini:     {name:'Gemini',      archetype:'the messenger',   traits:'curious and quick-witted, a mind that loves to wander and connect ideas'},
+    cancer:     {name:'Cancer',      archetype:'the nurturer',    traits:'tender-hearted and deeply intuitive, turning houses into homes'},
+    leo:        {name:'Leo',         archetype:'the warm-hearted',traits:'generous and dramatic, with a love that shows up in color, feast, and celebration'},
+    virgo:      {name:'Virgo',       archetype:'the craftsperson',traits:'thoughtful and precise, quiet care dressed as practicality'},
+    libra:      {name:'Libra',       archetype:'the aesthete',    traits:'harmonious and beauty-seeking, crafting elegance almost unconsciously'},
+    scorpio:    {name:'Scorpio',     archetype:'the alchemist',   traits:'persistent and deep, with intensity that holds a quiet pull toward romance'},
+    sagittarius:{name:'Sagittarius', archetype:'the seeker',      traits:'adventurous and philosophical, restless for the next horizon'},
+    capricorn:  {name:'Capricorn',   archetype:'the architect',   traits:'disciplined and patient, a builder who knows time is the secret ingredient'},
+    aquarius:   {name:'Aquarius',    archetype:'the visionary',   traits:'inventive and independent, seeing angles the rest of us miss'},
+    pisces:     {name:'Pisces',      archetype:'the dreamer',     traits:'imaginative and empathic, a soft soul with a deep inner world'}
+  },
   // MBTI axis we use for color: the "N vs S" letter
   //   N (intuitive) → softer, dreamier variant of each element
   //   S (sensing)   → more grounded, tactile variant of each element
@@ -2381,17 +2471,44 @@ var PERSONA = {
     ISTJ:'S', ISFJ:'S', ESTJ:'S', ESFJ:'S',
     ISTP:'S', ISFP:'S', ESTP:'S', ESFP:'S'
   },
+  // Per-type one-line character description (Keirsey temperaments, personalized)
+  mbtiInfo: {
+    INTJ: {tag:'the Architect',    line:'strategic and quietly visionary — you build systems only you fully see'},
+    INTP: {tag:'the Logician',     line:'inventive and curious — you live for the elegant idea, the unsolved puzzle'},
+    ENTJ: {tag:'the Commander',    line:'decisive and ambitious — you see the endgame and walk toward it'},
+    ENTP: {tag:'the Debater',      line:'playful and sharp — your mind sparks on connection and contradiction'},
+    INFJ: {tag:'the Advocate',     line:'deeply empathic with a private inner world — you hold meaning in everything'},
+    INFP: {tag:'the Mediator',     line:'idealistic and gentle — you feel things in color and look for beauty everywhere'},
+    ENFJ: {tag:'the Protagonist',  line:'warm and inspiring — you read people closely and make them feel seen'},
+    ENFP: {tag:'the Campaigner',   line:'bright and possibility-led — your enthusiasm moves other people too'},
+    ISTJ: {tag:'the Logistician',  line:'steady and trustworthy — the quiet kind of person who actually finishes things'},
+    ISFJ: {tag:'the Defender',     line:'warm and attentive — the reason other people get to relax'},
+    ESTJ: {tag:'the Executive',    line:'organised and grounded — you make the invisible structure that holds a room together'},
+    ESFJ: {tag:'the Consul',       line:'generous and connected — you remember the small things that make people feel loved'},
+    ISTP: {tag:'the Virtuoso',     line:'observant and hands-on — you figure things out by touching them'},
+    ISFP: {tag:'the Adventurer',   line:'quietly expressive — you live through your senses and your aesthetic'},
+    ESTP: {tag:'the Entrepreneur', line:'fast-moving and present — you read the room and act on it'},
+    ESFP: {tag:'the Entertainer',  line:'warm and spontaneous — joy follows you into a room'}
+  },
   scent: {
-    fire:  { name:'Bergamot & Orange Blossom', note:'bright, warming, citrus-floral' },
-    earth: { name:'Sandalwood & Vanilla',      note:'grounding, soft, amber-rich' },
-    air:   { name:'Lemon & Eucalyptus',        note:'fresh, cool, garden-green' },
-    water: { name:'Rose & Lavender',           note:'romantic, calming, soft floral' }
+    fire:  { name:'Bergamot & Orange Blossom', note:'bright, warming, citrus-floral',
+             why:'to meet the warmth you bring — lifting without crowding' },
+    earth: { name:'Sandalwood & Vanilla',      note:'grounding, soft, amber-rich',
+             why:'to hold you steady the way you hold others — rich, still, staying' },
+    air:   { name:'Lemon & Eucalyptus',        note:'fresh, cool, garden-green',
+             why:'to clear the mind the way your thoughts move — light, fast, precise' },
+    water: { name:'Rose & Lavender',           note:'romantic, calming, soft floral',
+             why:'to honor the depth in you — softness without losing its weight' }
   },
   tea: {
-    fire:  { name:'Bergamot Black',       note:'warming, awakening' },
-    earth: { name:'Roasted Oolong & Honey', note:'nutty, rounded, grounding' },
-    air:   { name:'Jasmine Green',        note:'floral-fresh, clarity-bringing' },
-    water: { name:'Chamomile & Rose Bud', note:'gentle, calming, softening' }
+    fire:  { name:'Bergamot Black',          note:'warming, awakening',
+             why:'a tea that meets your pace without burning it off' },
+    earth: { name:'Roasted Oolong & Honey',  note:'nutty, rounded, grounding',
+             why:'slow and golden — for the moments you finally sit down' },
+    air:   { name:'Jasmine Green',           note:'floral-fresh, clarity-bringing',
+             why:'light and blooming — a tea that lets you keep thinking' },
+    water: { name:'Chamomile & Rose Bud',    note:'gentle, calming, softening',
+             why:'a tea for the hour between day and night — quiet, held, soft' }
   },
   // 8 deterministic luck-colors = 4 elements × 2 MBTI sense types
   color: {
@@ -2426,33 +2543,63 @@ function computeReading(S){
   var tea   = PERSONA.tea[el];
   var color = PERSONA.color[el][sense];
   var name  = (S && S.name) || 'friend';
+  var zInfo = (S && S.zodiac) ? PERSONA.zodiacInfo[S.zodiac] : null;
+  var mInfo = (S && S.mbti)   ? PERSONA.mbtiInfo[S.mbti]     : null;
 
-  // Build the reading as a set of lines (for poetic display, one per line)
-  var signTitle = S && S.zodiac ? (S.zodiac.charAt(0).toUpperCase()+S.zodiac.slice(1)) : '';
-  var greeting  = 'Dear ' + name + ',';
-  var line1;
-  if(S && S.zodiac && S.mbti){
-    line1 = 'the chart reads a ' + S.mbti + ' ' + signTitle + ' — softly ' + el + '.';
-  } else if(S && S.zodiac){
-    line1 = 'your ' + signTitle + ' sign runs ' + el + '.';
-  } else if(S && S.mbti){
-    line1 = 'your ' + S.mbti + ' heart runs ' + el + '.';
-  } else {
-    line1 = 'your vibe runs ' + el + '.';
+  // Build the reading as structured sections. Each section is {heading, body}.
+  // The result panel renders these with spacing so the card breathes.
+  var sections = [];
+
+  // 1 — Zodiac section (skip if none)
+  if(zInfo){
+    sections.push({
+      heading: 'Your ' + zInfo.name + ' heart',
+      body: 'As '+zInfo.name+', '+zInfo.archetype+', you are '+zInfo.traits+'.'
+    });
   }
-  var line2 = "we're tucking in a scent of " + scent.note + ",";
-  var line3 = "a tea for your mood,";
-  var line4 = "and a colour that's only yours.";
-  var closer = "wear it somewhere only you can see. ✦";
 
-  var lines = [greeting, line1, line2, line3, line4, closer];
-  // Flat string for backward compat (emails, buildRefId, etc.)
-  var flat = lines.join(' ');
+  // 2 — MBTI section (skip if none)
+  if(mInfo){
+    sections.push({
+      heading: 'As ' + S.mbti + ', ' + mInfo.tag,
+      body: 'You are '+mInfo.line+'.'
+    });
+  }
+
+  // 3 — Scent (tied to element)
+  sections.push({
+    heading: 'Your scent',
+    body: 'We\'re tucking in a note of '+scent.note+' — '+scent.why+'.'
+  });
+
+  // 4 — Tea
+  sections.push({
+    heading: 'Your tea',
+    body: 'Yours is '+tea.note+' — '+tea.why+'.'
+  });
+
+  // 5 — Colour
+  sections.push({
+    heading: 'Your colour',
+    body: 'A shade chosen just for you — wear it somewhere only you can see.'
+  });
+
+  // Closing flourish
+  var closer = '✦';
+
+  // Backward-compat flat text (emails, refId)
+  var flatLines = ['Dear '+name+',']
+    .concat(sections.map(function(s){ return s.body; }))
+    .concat([closer]);
+  var flat = flatLines.join(' ');
 
   return {
     scent: scent, tea: tea, color: color, element: el, sense: sense,
-    readingLines: lines,
-    readingText: flat,
+    greeting: 'Dear '+name+',',
+    sections: sections,
+    closer: closer,
+    readingLines: flatLines,    // legacy
+    readingText: flat,          // legacy
     show: hasMystic
   };
 }
@@ -2715,28 +2862,35 @@ function buildResult(){
   });
   /* magic-box "Something we're adding just for you" — removed in v13 */
 
-  // Persona reading card — only renders if MBTI or zodiac was given.
-  // Lines are stacked poetically; the first line (greeting) is scripted
-  // (Great Vibes), the rest plain Cormorant. Add-on specifics stay
-  // blurred via .sealed class — they're revealed on the printed card in the box.
+  // Persona reading card — renders structured sections if MBTI/zodiac given,
+  // otherwise shows a soft "empty" fallback (right column is never blank).
+  // Add-on specifics (scent/tea/colour names) stay blurred via .sealed class;
+  // the printed card inside the box does the full reveal.
   var reading = computeReading(S);
-  var prEl = document.getElementById('persona-reading');
-  if(prEl){
-    if(reading.show){
-      var linesHtml = reading.readingLines.map(function(line,i){
-        var cls = (i===0) ? 'pr-line pr-line-first' : 'pr-line';
-        return '<span class="'+cls+'">'+line+'</span>';
+  var prEl    = document.getElementById('persona-reading');
+  var peEl    = document.getElementById('persona-empty');
+  if(reading.show){
+    if(prEl){
+      document.getElementById('pr-greeting').textContent = reading.greeting;
+      var sectionsHtml = reading.sections.map(function(sec){
+        return '<div class="pr-section">'
+          + '<div class="pr-section-heading">'+sec.heading+'</div>'
+          + '<div class="pr-section-body">'+sec.body+'</div>'
+          + '</div>';
       }).join('');
-      document.getElementById('pr-text').innerHTML = linesHtml;
+      document.getElementById('pr-sections').innerHTML = sectionsHtml;
+      document.getElementById('pr-closer').textContent = reading.closer;
       document.getElementById('pr-scent').textContent = reading.scent.name;
       document.getElementById('pr-tea').textContent = reading.tea.name;
       document.getElementById('pr-color').textContent = reading.color.name;
       document.getElementById('pr-color-swatch').style.background = reading.color.hex;
-      prEl.classList.add('sealed');   // specifics always sealed on this page
+      prEl.classList.add('sealed');
       prEl.style.display = '';
-    } else {
-      prEl.style.display = 'none';
     }
+    if(peEl) peEl.style.display = 'none';
+  } else {
+    if(prEl) prEl.style.display = 'none';
+    if(peEl) peEl.style.display = '';
   }
 
   // Result image — kit box image per selected craft
@@ -2894,26 +3048,31 @@ var PRE_SALE_RESERVED = PRE_SALE_RESERVED_BASE;
     if(!isNaN(localCt) && localCt>0) PRE_SALE_RESERVED = PRE_SALE_RESERVED_BASE + localCt;
   }catch(e){}
 })();
-var PRE_SALE_START = '2026-05-01T00:00:00-07:00';   // Round 1 officially opens May 1 (reservations open now in "soft" mode)
-var PRE_SALE_END   = '2026-05-11T00:00:00-07:00';   // end of May 10 Pacific
+var PRE_SALE_START = '2026-05-01T00:00:00-07:00';   // Round 1 opens May 1
+var PRE_SALE_END   = '2026-05-31T00:00:00-07:00';   // Round 1 closes end of May 30 (Pacific)
+var ROUND2_END     = '2026-07-01T00:00:00-07:00';   // Round 2 closes end of June 30 (Pacific)
 var LAUNCH_DATE    = '2026-07-04T00:00:00-07:00';
 var PRE_SALE_CODE  = 'UNFOLD15';
 var PRE_SALE_DISCOUNT = 0.15;       // 15% off
 
-/* Round 1 state: 'softopen' | 'active' | 'closed' | 'soldout' | 'launched'
+/* Pre-sale state: 'softopen' | 'active' | 'round2' | 'closed' | 'soldout' | 'launched'
    softopen = before May 1 but reservations quietly accepted
-   active   = May 1 – May 10, full Round 1 push
-   closed   = after May 10, pre-launch prep
-   soldout  = 50/50 reservations hit
+   active   = May 1 – May 30, full Round 1 push (Founding 50)
+   round2   = June 1 – June 30, Round 2 reservations (continuous pressure)
+   closed   = July 1 – July 3, pre-launch prep
+   soldout  = 50/50 Founding 50 reservations hit (only applies during active)
    launched = after July 4 */
 function getPreSaleState(){
   var now = Date.now();
   var start = new Date(PRE_SALE_START).getTime();
-  var end = new Date(PRE_SALE_END).getTime();
+  var end   = new Date(PRE_SALE_END).getTime();
+  var r2end = new Date(ROUND2_END).getTime();
   var launch = new Date(LAUNCH_DATE).getTime();
-  if(PRE_SALE_RESERVED >= PRE_SALE_TOTAL) return 'soldout';
   if(now >= launch) return 'launched';
-  if(now >= end) return 'closed';
+  // Only Round 1 can "sell out" the Founding 50
+  if(now >= start && now < end && PRE_SALE_RESERVED >= PRE_SALE_TOTAL) return 'soldout';
+  if(now >= r2end) return 'closed';
+  if(now >= end)   return 'round2';
   if(now >= start) return 'active';
   return 'softopen';
 }
@@ -2941,14 +3100,19 @@ function renderPreSaleBanner(){
   var detail, eyeTxt = '✦ Round 1', action = 'Reserve now →';
 
   if(state === 'soldout'){
-    detail = 'Round 1 is reserved · Join Round 2 waitlist';
-    action = 'Join waitlist →';
+    detail = 'Founding 50 reserved · Round 2 opens June 1';
+    action = 'Join Round 2 →';
   } else if(state === 'launched'){
     detail = 'Shop now · Free US shipping';
     action = 'Shop blind boxes →';
   } else if(state === 'closed'){
-    detail = 'Round 1 closed · Launches July 4';
+    detail = 'Pre-sale closed · Launches July 4';
     action = 'Get notified →';
+  } else if(state === 'round2'){
+    eyeTxt = '✦ Round 2';
+    var r2T = new Date(ROUND2_END).getTime();
+    var diff2 = Math.max(0, r2T - now);
+    detail = 'Round 2 open · Reserve yours · Closes in ' + _formatCountdown(diff2);
   } else if(state === 'active'){
     var endT = new Date(PRE_SALE_END).getTime();
     var diff = Math.max(0, endT - now);
@@ -3533,41 +3697,42 @@ function checkS3(){
   if(btn) btn.disabled=total===0;
 }
 
-/* Founder's Prize floating pill + CTA helpers */
-function scrollToPrize(){
-  // Scroll to the FAQ (the prize FAQ entry lives there) and open it
-  var faqWrap=document.getElementById('faq-wrap');
-  var faqToggle=document.querySelector('.faq-toggle');
-  if(faqWrap && faqWrap.style.maxHeight==='0px' && faqToggle){ toggleFaqWrap(faqToggle); }
-  setTimeout(function(){
-    // Find the Founder's Prize FAQ item by its question text
-    var items=document.querySelectorAll('.faq-item');
-    var target=null;
-    items.forEach(function(it){
-      var qt=it.querySelector('.faq-qt');
-      if(qt && /founder/i.test(qt.textContent)) target=it;
-    });
-    if(target){
-      // Open it + scroll into view
-      document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
-      target.classList.add('open');
-      target.scrollIntoView({behavior:'smooth',block:'center'});
-    }
-  }, 350);
+/* Founder's Prize modal — opened via the right-edge floating ribbon */
+function openPrizeModal(){
+  var m=document.getElementById('prize-modal');
+  if(!m) return;
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  document.body.classList.add('overlay-active');
 }
-function dismissPrizeFloat(){
-  var el=document.getElementById('prize-float');
-  if(el){ el.classList.add('hidden'); }
-  try { localStorage.setItem('au_prize_float_dismissed','1'); } catch(e){}
+function closePrizeModal(){
+  var m=document.getElementById('prize-modal');
+  if(!m) return;
+  m.classList.remove('open');
+  // Only release overlay-active if no other overlay is still showing
+  var quizOpen=document.getElementById('quiz-overlay')&&document.getElementById('quiz-overlay').classList.contains('open');
+  var rOpen=document.getElementById('reserve-modal')&&document.getElementById('reserve-modal').classList.contains('open');
+  var wpOpen=document.getElementById('welcome-popup')&&document.getElementById('welcome-popup').classList.contains('open');
+  if(!quizOpen&&!rOpen&&!wpOpen){
+    document.body.style.overflow='';
+    document.body.classList.remove('overlay-active');
+  }
 }
-/* Respect a previous dismissal on page load */
+/* Close on backdrop click / Esc */
 (function(){
-  try {
-    if(localStorage.getItem('au_prize_float_dismissed')==='1'){
-      var el=document.getElementById('prize-float');
-      if(el){ el.style.display='none'; }
-    }
-  } catch(e){}
+  var m=document.getElementById('prize-modal');
+  if(!m) return;
+  m.addEventListener('click',function(e){ if(e.target===m) closePrizeModal(); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && m.classList.contains('open')) closePrizeModal();
+  });
+  // Keyboard open on the ribbon
+  var pf=document.getElementById('prize-float');
+  if(pf){
+    pf.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPrizeModal(); }
+    });
+  }
 })();
 
 /* FAQ */
