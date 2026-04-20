@@ -1218,7 +1218,7 @@ body.overlay-active #main-nav{top:0;}
   position:relative;
   letter-spacing:-0.005em;
 }
-#reserved-page .rp-prize-h em{font-style:italic;color:#B94F63;}
+#reserved-page .rp-prize-h em{font-style:normal;color:#B94F63;display:inline-block;margin-top:2px;}
 #reserved-page .rp-prize-sub{
   font-size:13.5px;
   color:var(--dust);
@@ -2158,9 +2158,9 @@ function submitPromo(e,variant){
     <div class="quiz-slide" id="slide-5">
       <div class="quiz-slide-inner"><div class="quiz-inner">
         <div class="quiz-counter" id="s5-counter">05 — 07</div>
-        <div class="quiz-optional-tag">Optional · for a deeper reading</div>
+        <div class="quiz-optional-tag">Optional · let the magic read your chart</div>
         <h2 class="quiz-q">Your <span class="qhi-pink">personality</span></h2>
-        <p class="quiz-sub">Skip anything, or share just a little — we use it to personalise your mystery add-ons.</p>
+        <p class="quiz-sub">Share what you know and magic will read your chart — we'll choose your scent, tea, and luck colour from the clues you leave.</p>
 
         <div style="max-width:480px;margin:1.5rem auto 0;text-align:left;">
           <p class="quiz-optional-label">Your MBTI <span class="quiz-optional-hint">— if you know it</span></p>
@@ -2182,8 +2182,6 @@ function submitPromo(e,variant){
             <div class="qchip qchip-mini" onclick="pickMbti('ESTP',this)">ESTP</div>
             <div class="qchip qchip-mini" onclick="pickMbti('ESFP',this)">ESFP</div>
           </div>
-          <p class="quiz-optional-hint" style="margin-bottom:8px;">Don't know it? Describe yourself in 3–5 words:</p>
-          <input class="quiz-name-input" id="input-adjectives" type="text" placeholder="e.g. curious, soft, a little chaotic…" autocomplete="off" oninput="onAdjInput()" style="font-size:1rem;margin-bottom:0;">
         </div>
 
         <div class="quiz-nav">
@@ -2197,9 +2195,9 @@ function submitPromo(e,variant){
     <div class="quiz-slide" id="slide-6">
       <div class="quiz-slide-inner"><div class="quiz-inner">
         <div class="quiz-counter" id="s6-counter">06 — 07</div>
-        <div class="quiz-optional-tag">Optional · for a deeper reading</div>
+        <div class="quiz-optional-tag">Optional · your sign anchors the reading</div>
         <h2 class="quiz-q">Your <span class="qhi-pink">zodiac</span> sign</h2>
-        <p class="quiz-sub">We map your element to your scent, tea, and luck colour. Skip if you'd rather.</p>
+        <p class="quiz-sub">Your element guides everything we tuck into your box — your scent, your tea, your colour. Share if you know it.</p>
 
         <div style="max-width:480px;margin:1.75rem auto 0;text-align:left;">
           <div id="zodiac-chips" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
@@ -2231,7 +2229,7 @@ function submitPromo(e,variant){
         <div class="quiz-counter" id="s7-counter">07 — 07</div>
         <div class="quiz-optional-tag">Optional · the deck has drawn one for you</div>
         <h2 class="quiz-q">Pick the <span class="qhi-pink">card</span> that calls</h2>
-        <p class="quiz-sub">Close your eyes. Then look. Don't think too hard — the right one will pull.</p>
+        <p class="quiz-sub">Close your eyes, then look — the right card pulls. Your reading gets deeper with every answer.</p>
 
         <div id="tarot-grid" class="tarot-grid">
           <div class="tarot-card" onclick="pickTarot('moon',this)" tabindex="0">
@@ -2483,7 +2481,8 @@ function submitPromo(e,variant){
     <div class="rp-next">
       <h3>What happens next</h3>
       <ul>
-        <li><strong>Round 1 · May 1–30</strong> · Founding 50 reservations · <strong>Round 2 · June 1–30</strong> for everyone else</li>
+        <li><strong>Round 1 · May 1–30</strong> · Founding 50 reservations</li>
+        <li><strong>Round 2 · June 1–30</strong> · open to everyone else</li>
         <li><strong>June – Early July</strong> · We source + hand-pack your box with behind-the-scenes peeks on our socials</li>
         <li><strong>July 4</strong> · We open checkout. You'll get an email with your personalized Stripe link and <code>UNFOLD15</code> ready to use for your <span id="rp-price-line">15% off</span></li>
         <li><strong>After July 4</strong> · Your box ships free to your US address + activity guide emailed</li>
@@ -2494,7 +2493,7 @@ function submitPromo(e,variant){
          but keeps the specific maker/palette sealed. -->
     <div class="rp-prize">
       <div class="rp-prize-badge">✦ Founder's Prize</div>
-      <h3 class="rp-prize-h">You've been entered — win a <em>premium matcha set</em></h3>
+      <h3 class="rp-prize-h">You've been entered to win<br><em>a premium matcha set</em></h3>
       <p class="rp-prize-sub">One winner drawn on <strong>July 4</strong>, the day your box ships. We'll announce via email and Instagram.</p>
     </div>
 
