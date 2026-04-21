@@ -2105,13 +2105,16 @@ function submitPromo(e,variant){
 
   <div class="quiz-slides" id="quiz-slides">
 
-    <!-- S0: Name -->
+    <!-- S0: Who for? -->
     <div class="quiz-slide active" id="slide-0">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter">01 — 07</div>
-        <h2 class="quiz-q">Hello! <span class="qhi-pink">Who's this magical box for?</span></h2>
-        <p class="quiz-sub">Every blind box we make is personal, and it begins with a name.</p>
-        <input class="quiz-name-input" id="input-name" type="text" placeholder="Name of the recipient" autocomplete="off" oninput="onNameInput()">
+        <div class="quiz-counter" id="s0-counter">01 — 08</div>
+        <h2 class="quiz-q">Hello! <span class="qhi-pink">What's this magical box for?</span></h2>
+        <p class="quiz-sub">Every blind box is curated around one person — we'll ask about them next.</p>
+        <div id="whofor-chips" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:420px;margin:1.5rem auto 0;">
+          <div class="qchip" onclick="pickWhoFor('self',this)">Myself</div>
+          <div class="qchip" onclick="pickWhoFor('other',this)">Someone Else</div>
+        </div>
         <div class="quiz-nav">
           <button class="quiz-btn-back" onclick="closeQuiz()">← Back to home</button>
           <button class="quiz-btn-next" id="btn-0" onclick="goNext(0)" disabled>Continue →</button>
@@ -2119,11 +2122,25 @@ function submitPromo(e,variant){
       </div></div>
     </div>
 
-    <!-- S1: Occasion -->
+    <!-- S1: Name -->
     <div class="quiz-slide" id="slide-1">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter">02 — 07</div>
-        <h2 class="quiz-q" id="s1-q">What's the <span class="qhi-pink">occasion?</span></h2>
+        <div class="quiz-counter" id="s1-counter">02 — 08</div>
+        <h2 class="quiz-q" id="s1-q">What's <span class="qhi-pink">your name?</span></h2>
+        <p class="quiz-sub">Every blind box we make is personal, and it begins with a name.</p>
+        <input class="quiz-name-input" id="input-name" type="text" placeholder="Name" autocomplete="off" oninput="onNameInput()">
+        <div class="quiz-nav">
+          <button class="quiz-btn-back" onclick="goBack(1)">← Back</button>
+          <button class="quiz-btn-next" id="btn-1" onclick="goNext(1)" disabled>Continue →</button>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- S2: Occasion -->
+    <div class="quiz-slide" id="slide-2">
+      <div class="quiz-slide-inner"><div class="quiz-inner">
+        <div class="quiz-counter" id="s2-counter">03 — 08</div>
+        <h2 class="quiz-q" id="s2-q">What's the <span class="qhi-pink">occasion?</span></h2>
         <p class="quiz-sub">This shapes everything — the craft selection, the pace, and the magic extras we add.</p>
         <div id="scene-chips">
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:440px;margin:0 auto;">
@@ -2132,26 +2149,6 @@ function submitPromo(e,variant){
             <div class="qchip" onclick="pickScene('family',this)">Family Time</div>
             <div class="qchip" onclick="pickScene('self',this)">Solo Unwind</div>
           </div>
-        </div>
-
-        <div class="quiz-nav">
-          <button class="quiz-btn-back" onclick="goBack(1)">← Back</button>
-          <button class="quiz-btn-next" id="btn-1" onclick="goNext(1)" disabled>Continue →</button>
-        </div>
-      </div></div>
-    </div>
-
-    <!-- S2: Group size (hidden for date + self) -->
-    <div class="quiz-slide" id="slide-2">
-      <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter">03 — 06</div>
-        <h2 class="quiz-q" id="s2-q">How many people<br>are <span class="qhi-purple">joining in?</span></h2>
-        <p class="quiz-sub">This helps us get the quantities just right.</p>
-        <div class="quiz-chips" id="size-chips">
-          <div class="qchip" onclick="pickSize('2',this)">2 people</div>
-          <div class="qchip" onclick="pickSize('3',this)">3 people</div>
-          <div class="qchip" onclick="pickSize('4',this)">4 people</div>
-          <div class="qchip" onclick="pickSize('5+',this)">5 or more</div>
         </div>
         <div class="quiz-nav">
           <button class="quiz-btn-back" onclick="goBack(2)">← Back</button>
@@ -2163,7 +2160,7 @@ function submitPromo(e,variant){
     <!-- S3: Craft -->
     <div class="quiz-slide" id="slide-3">
       <div class="quiz-slide-inner"><div class="quiz-inner-wide">
-        <div class="quiz-counter" id="s3-counter">03 — 07</div>
+        <div class="quiz-counter" id="s3-counter">04 — 08</div>
         <h2 class="quiz-q">Choose your <span class="qhi-pink">crafts</span> &amp; <span class="qhi-pink">quantities</span></h2>
         <p class="quiz-sub">How many of each? Perfect for groups — mix and match. e.g. 1 perler beads + 2 paint by numbers for 3 people.</p>
         <div id="craft-qty-grid"></div>
@@ -2177,7 +2174,7 @@ function submitPromo(e,variant){
     <!-- S4: Colours + Duration -->
     <div class="quiz-slide" id="slide-4">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s4-counter">04 — 07</div>
+        <div class="quiz-counter" id="s4-counter">05 — 08</div>
         <h2 class="quiz-q" id="s4-q">Your <span class="qhi-purple">style</span> preferences</h2>
         <p class="quiz-sub" id="s4-sub">This helps us personalise the colours of your blind box.</p>
 
@@ -2205,7 +2202,7 @@ function submitPromo(e,variant){
     <!-- S5: Optional — MBTI + adjectives -->
     <div class="quiz-slide" id="slide-5">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s5-counter">05 — 07</div>
+        <div class="quiz-counter" id="s5-counter">06 — 08</div>
         <div class="quiz-optional-tag" id="s5-tag">Optional · let the magic read your chart</div>
         <h2 class="quiz-q" id="s5-q">Your <span class="qhi-pink">personality</span></h2>
         <p class="quiz-sub" id="s5-sub">Share what you know and magic will read your chart — we'll choose the scent, tea, and luck colour from the clues you leave.</p>
@@ -2242,7 +2239,7 @@ function submitPromo(e,variant){
     <!-- S6: Optional — Zodiac -->
     <div class="quiz-slide" id="slide-6">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s6-counter">06 — 07</div>
+        <div class="quiz-counter" id="s6-counter">07 — 08</div>
         <div class="quiz-optional-tag" id="s6-tag">Optional · your sign anchors the reading</div>
         <h2 class="quiz-q" id="s6-q">Your <span class="qhi-pink">zodiac</span> sign</h2>
         <p class="quiz-sub" id="s6-sub">Your element guides everything we tuck into your box — your scent, your tea, your colour. Share if you know it.</p>
@@ -2274,7 +2271,7 @@ function submitPromo(e,variant){
     <!-- S7: Optional — Tarot card pick -->
     <div class="quiz-slide" id="slide-7">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s7-counter">07 — 07</div>
+        <div class="quiz-counter" id="s7-counter">08 — 08</div>
         <div class="quiz-optional-tag" id="s7-tag">Optional · the deck has drawn one for you</div>
         <h2 class="quiz-q" id="s7-q">Pick the <span class="qhi-pink">card</span> that calls</h2>
         <p class="quiz-sub" id="s7-sub">Close your eyes, then look — the right card pulls.<br>The reading gets deeper with every answer.</p>
@@ -2983,8 +2980,8 @@ function computeReading(S){
 /* ════════════════════════════════════════════════
    STATE
 ════════════════════════════════════════════════ */
-var S = {name:'', scene:'', size:'', crafts:[], craftQty:{}, exp:'', color:'', colorCustom:'', notes:'', mbti:'', zodiac:'', adjectives:'', tarot:'', symbol:''};
-var TOTAL_SLIDES = 10; // 0–9
+var S = {name:'', forWhom:'', scene:'', crafts:[], craftQty:{}, exp:'', color:'', colorCustom:'', notes:'', mbti:'', zodiac:'', adjectives:'', tarot:'', symbol:''};
+var TOTAL_SLIDES = 10; // 0–9 (0:whofor, 1:name, 2:occasion, 3:crafts, 4:palette, 5:mbti, 6:zodiac, 7:tarot*, 8:loading, 9:result)
 var _currentGrandTotal = 0;  // raw numeric total, set in buildResult, read by order snapshot
 
 /* ── Charm pricing: round up to nearest .99 for display ──
@@ -3037,7 +3034,7 @@ function closeQuiz(){
 }
 function restartQuiz(){
   twDone={};
-  S={name:'',scene:'',size:'',crafts:[],craftQty:{},exp:'',color:'',colorCustom:'',notes:'',mbti:'',zodiac:'',adjectives:'',tarot:'',symbol:''};
+  S={name:'',forWhom:'',scene:'',crafts:[],craftQty:{},exp:'',color:'',colorCustom:'',notes:'',mbti:'',zodiac:'',adjectives:'',tarot:'',symbol:''};
   // Safely clear every input the quiz owns — each element may or may not
   // exist depending on current slide layout, so guard every lookup.
   ['input-name','input-adjectives','color-custom-input'].forEach(function(id){
@@ -3054,7 +3051,7 @@ function restartQuiz(){
   /* Reset any name-interpolated UI so the next quiz starts fresh */
   document.querySelectorAll('.quiz-name-inline').forEach(function(el){ el.textContent=''; });
   var s1q = document.getElementById('s1-q');
-  if(s1q) s1q.innerHTML = 'What\'s the <span class="qhi-pink">occasion?</span>';
+  if(s1q) s1q.innerHTML = 'What\'s <span class="qhi-pink">your name?</span>';
   /* Clear result page name slots too */
   document.querySelectorAll('.result-name').forEach(function(el){ el.textContent=''; });
   setQuizBg('default');
@@ -3064,12 +3061,17 @@ function restartQuiz(){
 
 /* ════════════════════════════════════════════════
    NAVIGATION
+   Slide order: 0 whofor / 1 name / 2 occasion / 3 crafts / 4 palette
+                5 mbti / 6 zodiac / 7 tarot(*) / 8 loading / 9 result
+   (*) Tarot is only shown when S.forWhom === 'self'. Buyers purchasing
+   for someone else skip it — the buyer's intuition card isn't great
+   signal for the recipient.
 ════════════════════════════════════════════════ */
 function goToSlide(n){
-  // Always skip slide-2 — quantities are set directly in the craft picker
-  if(n===2){
-    if(arguments[1]==='back') goToSlide(1);
-    else goToSlide(3);
+  // Skip tarot (slide 7) when the box is for someone else
+  if(n===7 && S.forWhom === 'other'){
+    if(arguments[1]==='back') goToSlide(6,'back');
+    else goToSlide(8);
     return;
   }
   document.querySelectorAll('.quiz-slide').forEach((s,i)=>{
@@ -3077,13 +3079,16 @@ function goToSlide(n){
     if(i===n) s.classList.add('active');
     else if(i<n) s.classList.add('exit');
   });
-  // Counter: S2 is always skipped (qty handled in craft picker), so total = 7
-  // Mapping: n=0→1, n=1→2, n=3→3, n=4→4, n=5→5, n=6→6, n=7→7
-  var total = 7;
-  var shown = (n >= 3) ? n : (n + 1);
+  // Counter total: 8 questions (whofor/name/occasion/crafts/palette/mbti/zodiac/tarot)
+  // When tarot is skipped (forWhom=other), total is 7.
+  var total = (S.forWhom === 'other') ? 7 : 8;
+  var shown = n + 1;                      // slides 0–7 map 1:1 to questions 1–8
   if(shown > total) shown = total;
   function pad(x){ return x<10?'0'+x:String(x); }
   var counters = {
+    's0-counter': pad(shown) + ' — ' + pad(total),
+    's1-counter': pad(shown) + ' — ' + pad(total),
+    's2-counter': pad(shown) + ' — ' + pad(total),
     's3-counter': pad(shown) + ' — ' + pad(total),
     's4-counter': pad(shown) + ' — ' + pad(total),
     's5-counter': pad(shown) + ' — ' + pad(total),
@@ -3130,14 +3135,34 @@ function possessiveName(n){
   var t = titleCaseName(n);
   return t ? (t + '\u2019s') : 'Your';
 }
+// S0 — Who for?
+function pickWhoFor(who, el){
+  S.forWhom = who;
+  document.querySelectorAll('#whofor-chips .qchip').forEach(c=>c.classList.remove('picked'));
+  el.classList.add('picked');
+  document.getElementById('btn-0').disabled = false;
+  // Update S1 question text to match
+  var s1q = document.getElementById('s1-q');
+  if(s1q){
+    s1q.innerHTML = (who === 'self')
+      ? 'What\'s <span class="qhi-pink">your name?</span>'
+      : 'What\'s <span class="qhi-pink">his/her/their name?</span>';
+  }
+  var nameInput = document.getElementById('input-name');
+  if(nameInput){
+    nameInput.placeholder = (who === 'self') ? 'Your name' : 'Their name';
+  }
+}
+
+// S1 — Name
 function onNameInput(){
   var raw = document.getElementById('input-name').value;
   var v = (raw || '').trim();
   S.name = v;
-  document.getElementById('btn-0').disabled = !v;
+  document.getElementById('btn-1').disabled = !v;
   document.querySelectorAll('.quiz-name-inline').forEach(function(el){ el.textContent = v ? titleCaseName(v) : ''; });
 
-  /* Personalize Q4–Q7 copy using the recipient's name (from Q1).
+  /* Personalize Q5–Q7 copy using the recipient's name.
      When empty, fall back to the original "Your" wording. */
   var poss = possessiveName(v);              // "Ella’s" or "Your"
   var tName = titleCaseName(v);              // "Ella" or ""
@@ -3179,24 +3204,14 @@ function onNameInput(){
   var s7q = document.getElementById('s7-q');
   if(s7q) s7q.innerHTML = 'Pick the <span class="qhi-pink">card</span> that calls' + forName;
 }
-document.getElementById('input-name').addEventListener('keydown',function(e){if(e.key==='Enter'&&S.name)goNext(0);});
+document.getElementById('input-name').addEventListener('keydown',function(e){if(e.key==='Enter'&&S.name)goNext(1);});
 
-// S1 scene (occasion)
+// S2 — Occasion
 function pickScene(s,el){
   S.scene=s;
-  S.size='';
   document.querySelectorAll('#scene-chips .qchip').forEach(c=>c.classList.remove('picked'));
   el.classList.add('picked');
   setQuizBg(s);
-  document.getElementById('s2-q').innerHTML='How many people<br>are <em>joining in?</em>';
-  document.getElementById('btn-1').disabled=false;
-}
-
-// S2 size
-function pickSize(sz,el){
-  S.size=sz;
-  document.querySelectorAll('#size-chips .qchip').forEach(c=>c.classList.remove('picked'));
-  el.classList.add('picked');
   document.getElementById('btn-2').disabled=false;
 }
 
@@ -3659,7 +3674,7 @@ function buildOrderSnapshot(){
     tarot: (S&&S.tarot)||'',
     symbol: (S&&S.symbol)||'',
     reading: (typeof computeReading==='function') ? computeReading(S) : null,
-    who: (S&&S.size)||''
+    forWhom: (S&&S.forWhom)||''
   };
 }
 
@@ -4034,6 +4049,7 @@ function proceedToCheckout(){
     'Zip: ' + zip + (isUS ? ' (US)' : ' (international - needs manual follow-up)'),
     'Location: ' + ((window._rsvUsCity && window._rsvUsState) ? (window._rsvUsCity + ', ' + window._rsvUsState) : '—'),
     '',
+    'Box for: ' + (o.forWhom === 'self' ? 'Myself (self-purchase)' : o.forWhom === 'other' ? 'Someone else (gift intent)' : '—'),
     'Bundle: ' + o.sceneLabel,
     'Crafts: ' + o.selectionsText,
     'Total qty: ' + o.totalQty,
@@ -4088,6 +4104,7 @@ function proceedToCheckout(){
     retail_price: fmtPrice(o.retailPrice),
     presale_price: fmtPrice(o.preSalePrice),
     colour: o.colorLabel,
+    for_whom: o.forWhom,
     mbti: o.mbti,
     zodiac: o.zodiac,
     tarot: o.tarot,
