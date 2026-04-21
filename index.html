@@ -3184,8 +3184,10 @@ function refreshPersonalization(){
   var poss = isOther && tName ? (tName + '\u2019s') : 'Your';
   // Lowercase form for inline use: "Ella's" or "your"
   var possLower = isOther && tName ? (tName + '\u2019s') : 'your';
-  // "for Ella" suffix (only for tarot when gifting)
-  var forName = isOther && tName ? (' for ' + tName) : ' for you';
+  // Tarot heading suffix: "for Ella" only when gifting (and tarot is
+  // hidden for that case anyway — kept tidy for completeness). For self
+  // we drop it so "Pick the card that calls" stays on one line on desktop.
+  var forName = isOther && tName ? (' for ' + tName) : '';
 
   // S1 — Name heading (depends only on forWhom)
   var s1q = document.getElementById('s1-q');
