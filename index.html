@@ -2899,14 +2899,19 @@ function openCouponModal(){
    On load we read the survey + reading from localStorage (saved at the
    "Proceed to checkout" click) and email the curation details to packing.
 ════════════════════════════════════════════════ */
-function _submitOrderToPacking(order){
+function _submitOrderToPacking(order, status){
   if(!order || !order.S) return;
   var S = order.S;
   var r = order.reading || {};
   var firstName = (S.name || '').trim() || 'Customer';
-  var subj = 'PAID order — ' + (order.craftName || 'Box') + ' — ' + firstName;
+  status = status || 'PAID';
+  var subj = status + ' order — ' + (order.craftName || 'Box') + ' — ' + firstName;
+  var headerNote = status === 'PENDING'
+    ? '⚠️  Customer just clicked Proceed to Checkout. Verify in Stripe dashboard before packing.'
+    : '✅  Stripe redirect confirmed payment. Match with the PENDING email of the same order and pack.';
   var msg = [
-    '═══ PAID ORDER — PACK THIS BOX ═══',
+    '═══ ' + status + ' ORDER ═══',
+    headerNote,
     '',
     'Customer (from quiz):',
     '  Name: ' + (S.name || '—'),
@@ -2965,7 +2970,8 @@ function _submitOrderToPacking(order){
   fetch(FORMSPREE_ENDPOINT, {
     method: 'POST',
     headers: {'Accept':'application/json','Content-Type':'application/json'},
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
+    keepalive: true /* survive the navigation to Stripe when called from checkout-click */
   }).catch(function(e){ console.warn('[order] formspree submit failed', e); });
 }
 
@@ -4874,16 +4880,25 @@ function buildResult(){
     var craftId = (S && S.crafts && S.crafts[0]) || (craft && craft.id);
     var stripeLink = (craftId && typeof STRIPE_LINKS !== 'undefined') ? STRIPE_LINKS[craftId] : null;
     if(stripeLink){
+      var orderObj = {
+        S: S,
+        reading: computeReading(S),
+        craftId: craftId,
+        craftName: craft && craft.name,
+        craftPrice: craft && craft.priceTotal,
+        ts: Date.now()
+      };
       try{
-        localStorage.setItem('au_pending_order', JSON.stringify({
-          S: S,
-          reading: computeReading(S),
-          craftId: craftId,
-          craftName: craft && craft.name,
-          craftPrice: craft && craft.priceTotal,
-          ts: Date.now()
-        }));
+        localStorage.setItem('au_pending_order', JSON.stringify(orderObj));
       }catch(e){console.warn('[checkout] localStorage save failed', e);}
+      /* Send packing details to Zora BEFORE leaving for Stripe. fetch keepalive
+         lets the request finish even though we navigate away. This guarantees
+         the curation lands in Zora's inbox even if the post-payment redirect
+         later fails (e.g., apex DNS, browser closes, localStorage cleared).
+         A second "PAID" confirmation fires from _handlePostPayment when the
+         redirect succeeds — Zora cross-references the two. */
+      try { _submitOrderToPacking(orderObj, 'PENDING'); }
+      catch(e){ console.warn('[checkout] pre-redirect packing notify failed', e); }
       window.location.href = stripeLink;
       return;
     }
