@@ -1,16 +1,11 @@
 <!-- ═══════════════════════════════════════════════════════════════════
      AFTERNOON UNFOLD — Round 1 Reservation Confirmation Email
-     Paste into Zapier Gmail "Body" field (Body Type: HTML)
-     Wherever you see {{fieldname}}, click Zapier's "+" button and pick
-     the corresponding field from the Formspree trigger.
-     Fields to map:
-       {{name}}         → Formspree `name`
-       {{box_number}}   → Formspree `box_number`
-       {{scene}}        → Formspree `scene`
-       {{crafts}}       → Formspree `crafts`
-       {{presale_price}}→ Formspree `presale_price` (already has $ sign)
-       {{colour}}       → Formspree `colour`
-       {{pace}}         → Formspree `pace`
+     Paste into Zapier Gmail "Body" field (Body Type: HTML).
+     Three merge tags. Click Zapier's "+" button and map:
+       {{name}}          → Formspree `name`
+       {{box_number}}    → Formspree `box_number`
+       {{presale_price}} → Formspree `presale_price`  (already has $ sign)
+     Everything else is static copy.
 ═══════════════════════════════════════════════════════════════════ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -45,13 +40,7 @@
   <!-- Golden seal -->
   <tr><td align="center" style="padding:24px 32px 8px;">
     <table cellpadding="0" cellspacing="0" border="0">
-      <tr><td align="center" style="
-        width:130px;height:130px;
-        background:radial-gradient(circle at 35% 28%,#F3C98C 0%,#D9A66A 30%,#B88040 65%,#8B5A2B 100%);
-        border-radius:65px;
-        text-align:center;
-        vertical-align:middle;
-      ">
+      <tr><td align="center" style="width:130px;height:130px;background:radial-gradient(circle at 35% 28%,#F3C98C 0%,#D9A66A 30%,#B88040 65%,#8B5A2B 100%);border-radius:65px;text-align:center;vertical-align:middle;">
         <div style="padding-top:22px;">
           <div style="font-family:Georgia,serif;font-size:12px;color:#4A2E18;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;">Box</div>
           <div style="font-family:Georgia,serif;font-size:48px;color:#2D1A08;font-weight:700;line-height:1;margin-top:2px;">#{{box_number}}</div>
@@ -74,11 +63,10 @@
     <div style="background:#F5EBE4;border:1px solid #E0CFC8;padding:18px 20px;">
       <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#B94F63;font-weight:700;margin-bottom:10px;">✦ Your reservation</div>
       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:13px;color:#1A1208;">
-        <tr><td style="padding:4px 0;color:#8A6A60;width:140px;">Bundle</td><td style="padding:4px 0;">{{scene}}</td></tr>
-        <tr><td style="padding:4px 0;color:#8A6A60;">Craft(s)</td><td style="padding:4px 0;">{{crafts}}</td></tr>
-        <tr><td style="padding:4px 0;color:#8A6A60;">Colour palette</td><td style="padding:4px 0;">{{colour}}</td></tr>
-        <tr><td style="padding:4px 0;color:#8A6A60;">Pace</td><td style="padding:4px 0;">{{pace}}</td></tr>
-        <tr><td style="padding:8px 0 4px;border-top:1px solid rgba(185,79,99,0.2);color:#B94F63;font-weight:600;">Founding 50 price</td><td style="padding:8px 0 4px;border-top:1px solid rgba(185,79,99,0.2);color:#B94F63;font-weight:600;">{{presale_price}} <span style="color:#8A6A60;font-weight:400;font-size:11px;">(15% off retail)</span></td></tr>
+        <tr><td style="padding:4px 0;color:#8A6A60;width:180px;">Box number</td><td style="padding:4px 0;font-weight:600;color:#B94F63;">#{{box_number}} of 50</td></tr>
+        <tr><td style="padding:4px 0;color:#8A6A60;">Curation</td><td style="padding:4px 0;">Based on your quiz answers</td></tr>
+        <tr><td style="padding:4px 0;color:#8A6A60;">Discount code</td><td style="padding:4px 0;">UNFOLD15 · 15% off retail</td></tr>
+        <tr><td style="padding:8px 0 4px;border-top:1px solid rgba(185,79,99,0.2);color:#B94F63;font-weight:600;">Final price</td><td style="padding:8px 0 4px;border-top:1px solid rgba(185,79,99,0.2);color:#B94F63;font-weight:600;">{{presale_price}} <span style="color:#8A6A60;font-weight:400;font-size:11px;">(15% off retail · paid July 4)</span></td></tr>
       </table>
     </div>
   </td></tr>
@@ -89,7 +77,7 @@
     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:13.5px;line-height:1.65;color:#3A2A22;">
       <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">May 1 – May 10</strong> · Round 1 stays open to other customers</td></tr>
       <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">June – Early July</strong> · We source your kits + hand-pack each box. Follow along on our socials for behind-the-scenes.</td></tr>
-      <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">July 4</strong> · Checkout opens. You'll get a personalized Stripe link for <strong style="color:#B94F63;">{{presale_price}}</strong> with <code style="background:rgba(185,79,99,0.12);padding:2px 6px;border-radius:3px;color:#8E3A4E;font-family:monospace;font-weight:600;">UNFOLD15</code> pre-applied.</td></tr>
+      <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">July 4</strong> · Checkout opens. You'll get a personalized Stripe link with <code style="background:rgba(185,79,99,0.12);padding:2px 6px;border-radius:3px;color:#8E3A4E;font-family:monospace;font-weight:600;">UNFOLD15</code> (15% off) pre-applied.</td></tr>
       <tr><td style="padding:8px 0;"><strong style="color:#1A1208;">After July 4</strong> · Your box ships free to your US address. Your activity guide will be emailed to this inbox.</td></tr>
     </table>
   </td></tr>
@@ -107,7 +95,7 @@
   <!-- Signoff -->
   <tr><td style="padding:24px 36px 32px;">
     <p style="margin:0;font-size:14px;color:#1A1208;line-height:1.7;">
-      Reply to this email anytime — I read every one.<br><br>
+      Reply to this email anytime, or write to <a href="mailto:hello@afternoon-unfold.com" style="color:#B94F63;font-weight:500;text-decoration:none;">hello@afternoon-unfold.com</a> — I read every one.<br><br>
       <span style="font-family:Georgia,serif;font-size:20px;color:#B94F63;">— Zora ✎</span><br>
       <span style="font-size:12px;color:#8A6A60;">Founder · Afternoon Unfold</span>
     </p>
@@ -118,7 +106,9 @@
     <div style="font-size:11px;color:#8A6A60;line-height:1.6;">
       <a href="https://afternoon-unfold.com" style="color:#8A6A60;text-decoration:none;">afternoon-unfold.com</a>
       &nbsp;·&nbsp;
-      <a href="mailto:zoraliu97@gmail.com" style="color:#8A6A60;text-decoration:none;">zoraliu97@gmail.com</a>
+      <a href="mailto:hello@afternoon-unfold.com" style="color:#8A6A60;text-decoration:none;">hello@afternoon-unfold.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.instagram.com/afternoonunfold" style="color:#8A6A60;text-decoration:none;">@afternoonunfold</a>
       <br><br>
       You're receiving this because you reserved a spot in the Afternoon Unfold Round 1 drop.
     </div>

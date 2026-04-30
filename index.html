@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Afternoon Unfold — Coming Soon</title>
+<title>Afternoon Unfold — Founding 50 · Pre-Sale</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -311,9 +311,9 @@ section{min-height:100vh;padding-top:58px;}
 .tarot-card:hover{transform:translateY(-3px) rotate(-0.5deg);box-shadow:0 14px 26px -12px rgba(142,92,40,0.35),0 4px 10px -4px rgba(142,92,40,0.2);border-color:#C4936A;}
 .tarot-card.picked{transform:translateY(-4px) rotate(-1.5deg);border-color:#B08340;box-shadow:0 18px 36px -14px rgba(142,92,40,0.5),0 0 0 2px rgba(217,165,87,0.3);}
 .tarot-card.picked::before{border-color:#C4936A;}
-.tarot-card .tc-numeral{display:block;font-family:'Cormorant',serif;font-style:italic;font-size:10px;color:#B08340;letter-spacing:0.14em;text-transform:uppercase;margin:2px 0 6px;opacity:0.75;position:relative;}
+.tarot-card .tc-numeral{display:block;font-family:'Cormorant',serif;font-style:normal;font-size:10px;color:#B08340;letter-spacing:0.14em;text-transform:uppercase;margin:2px 0 6px;opacity:0.75;position:relative;}
 .tarot-card .tc-symbol{display:block;width:40px;height:40px;margin:0 auto 8px;color:#8A6034;position:relative;}
-.tarot-card .tc-name{font-family:'Cormorant',serif;font-style:italic;font-size:15px;color:#3A2508;line-height:1.05;margin-bottom:4px;font-weight:500;position:relative;letter-spacing:0;}
+.tarot-card .tc-name{font-family:'Cormorant',serif;font-style:normal;font-size:15px;color:#3A2508;line-height:1.05;margin-bottom:4px;font-weight:500;position:relative;letter-spacing:0;}
 .tarot-card .tc-tag{font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A6034;font-weight:500;line-height:1.3;opacity:0.82;position:relative;}
 @media (max-width:720px){
   .tarot-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
@@ -327,12 +327,12 @@ section{min-height:100vh;padding-top:58px;}
 .symbol-tile.picked{border-color:#B08340;background:linear-gradient(155deg,rgba(217,165,87,0.12) 0%,rgba(253,250,246,0.98) 65%);box-shadow:0 14px 28px -14px rgba(142,92,40,0.4),inset 0 0 0 1px rgba(217,165,87,0.45);color:#6B4422;}
 .symbol-tile .st-icon{width:44px;height:38px;margin:0 auto 10px;color:#8A6034;display:block;}
 .symbol-tile.picked .st-icon{color:#6B4422;}
-.symbol-tile .st-name{font-family:'Cormorant',serif;font-style:italic;font-size:16px;color:#3A2508;margin-bottom:3px;font-weight:500;letter-spacing:0;}
+.symbol-tile .st-name{font-family:'Cormorant',serif;font-style:normal;font-size:16px;color:#3A2508;margin-bottom:3px;font-weight:500;letter-spacing:0;}
 .symbol-tile .st-tag{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dust);font-weight:500;}
 @media (max-width:560px){
   .symbol-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
 }
-.quiz-optional-tag{display:inline-block;padding:5px 14px;border:1px solid rgba(196,147,106,0.55);border-radius:999px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#8A6034;font-weight:600;margin-bottom:16px;background:rgba(253,250,246,0.9);}
+.quiz-optional-tag{display:inline-block;padding:8px 20px;border:1px solid rgba(196,147,106,0.55);border-radius:999px;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#8A6034;font-weight:600;margin-bottom:18px;background:rgba(253,250,246,0.9);}
 .quiz-optional-label{font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:10px;}
 .quiz-optional-hint{font-size:12.5px;color:#6B5B4F;font-weight:400;letter-spacing:0;text-transform:none;}
 .color-swatch{width:16px;height:16px;border-radius:50%;flex-shrink:0;border:1px solid rgba(0,0,0,0.1);}
@@ -858,6 +858,247 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 
 /* Persona reading — magical / gypsy-card style; poetic text revealed,
    specific add-ons blurred until the physical card in the box is opened */
+/* ── Tarot-altar aesthetic — applies to the whole quiz overlay (survey + result) ── */
+#quiz-overlay.open #quiz-video-bg,
+#quiz-overlay.open .quiz-video-tint,
+#quiz-overlay.open .quiz-bg{display:none !important;}
+
+/* Flower-wall tiled background — repeats instead of stretching */
+#quiz-overlay.open{
+  background-color:#FBF4E6;
+  background-image:url('assets/flowerwall.jpg');
+  background-repeat:repeat;
+  background-size:auto;
+  background-position:center top;
+}
+#quiz-overlay.open::before{display:none;}
+body.result-active .quiz-slide.active{position:relative;z-index:2;}
+
+body.result-active .result-panel-split .result-col{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  position:relative;
+  overflow:visible !important;
+  max-height:none !important;
+}
+/* Kill the scrollbars on the slide itself when result is active —
+   the result page should be the page-level scroll, not internal scroll. */
+body.result-active #slide-9,
+body.result-active #slide-9 .quiz-slide-inner{
+  overflow:visible !important;
+  max-height:none !important;
+  height:auto !important;
+}
+body.result-active #quiz-overlay{overflow-y:auto !important;overflow-x:hidden !important;}
+/* Beige washi tape at the top of the reading card paper only (left panel has no paper to tape to) */
+body.result-active .altar-flipcard::before{
+  content:'';
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%) rotate(-2.5deg);
+  width:110px;
+  height:26px;
+  background:linear-gradient(180deg, rgba(228,210,170,0.85) 0%, rgba(212,190,148,0.78) 100%);
+  border-left:1px dashed rgba(150,115,70,0.18);
+  border-right:1px dashed rgba(150,115,70,0.18);
+  box-shadow:0 2px 4px -1px rgba(60,35,12,0.18);
+  z-index:7;
+  pointer-events:none;
+}
+body.result-active .altar-flipcard{position:relative;}
+/* Headings — handwritten "Hooray" feel */
+body.result-active .result-h{
+  font-family:'Dancing Script', cursive !important;
+  font-weight:700 !important;
+  font-size:clamp(2rem,4.5vw,2.8rem) !important;
+  color:#3A2410 !important;
+  line-height:1.05 !important;
+}
+body.result-active .result-sub{
+  font-family:'Cormorant',serif !important;
+  font-style:italic !important;
+  color:#7A5A30 !important;
+  font-size:14.5px !important;
+}
+/* Paper letter padding — keep text away from torn edges */
+body.result-active .result-panel-split .result-col{
+  padding:3rem 2.6rem 2.5rem !important;
+}
+@media(max-width:768px){
+  body.result-active .result-panel-split .result-col{padding:2.4rem 1.9rem 2rem !important;}
+}
+
+/* Box image removed — wiggly border now goes around the paper letters instead */
+.box-frame{display:none !important;}
+
+/* Wiggly rosewood border wrapping the left paper letter only (reading card stays clean) */
+body.result-active .result-panel-split .result-col{
+  position:relative;
+}
+body.result-active .result-panel-split .result-col-left::after{
+  content:'';
+  position:absolute;
+  inset:-10px;
+  pointer-events:none;
+  z-index:4;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 320' preserveAspectRatio='none'><path d='M16 16 Q30 8 44 16 Q58 24 72 16 Q86 8 100 16 Q114 24 128 16 Q142 8 156 16 Q170 24 184 16 Q198 8 212 16 Q220 18 224 28 Q232 42 224 56 Q216 70 224 84 Q232 98 224 112 Q216 126 224 140 Q232 154 224 168 Q216 182 224 196 Q232 210 224 224 Q216 238 224 252 Q232 266 224 280 Q222 296 212 304 Q198 312 184 304 Q170 296 156 304 Q142 312 128 304 Q114 296 100 304 Q86 312 72 304 Q58 296 44 304 Q30 312 18 304 Q8 296 16 280 Q24 266 16 252 Q8 238 16 224 Q24 210 16 196 Q8 182 16 168 Q24 154 16 140 Q8 126 16 112 Q24 98 16 84 Q8 70 16 56 Q24 42 16 28 Q12 18 16 16 Z' stroke='%23B94F63' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+}
+
+/* "What's inside" — handwritten note on the paper, no white box */
+body.result-active .result-items-wrap{
+  background:transparent !important;
+  border:none !important;
+  padding:0 !important;
+  min-height:0 !important;
+  margin-bottom:1rem;
+}
+body.result-active .rkp-title{
+  font-family:'Cormorant',serif !important;
+  font-style:italic !important;
+  font-size:20px !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  color:#5C3A1A !important;
+  font-weight:500 !important;
+  margin-bottom:6px !important;
+  line-height:1.1;
+}
+body.result-active .rkp-title::after{
+  content:'';
+  display:block;
+  border-bottom:2px dotted rgba(110,75,30,0.4);
+  margin-top:4px;
+  width:65%;
+}
+body.result-active .rkp-items{gap:0 !important;}
+body.result-active .rkp-item{
+  border-bottom:1px dashed rgba(110,75,30,0.28);
+  padding:9px 0;
+  color:#3A2410 !important;
+  font-size:14.5px !important;
+  font-family:'Cormorant',serif !important;
+  font-weight:400 !important;
+}
+body.result-active .rkp-item:last-child{border-bottom:none;}
+body.result-active .rkp-item strong{color:#3A2410;font-weight:600;}
+body.result-active .rkp-dot{margin-top:8px !important;}
+/* Right column: transparent so the flip card sits directly on the "table" */
+body.result-active .result-panel-split .result-col-right{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  position:relative;
+  overflow:visible;
+  padding:1.5rem 0.5rem !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+body.result-active .result-h{color:#3A2410 !important;}
+body.result-active .result-sub{color:#7A5A30 !important;}
+body.result-active .result-bullets{color:#7A5A30 !important;}
+
+/* Decorative dried-sprig SVGs in the corners */
+.altar-sprig{position:absolute;width:38px;height:50px;opacity:0.55;pointer-events:none;z-index:1;}
+.altar-sprig-tl{top:14px;left:14px;}
+.altar-sprig-br{bottom:14px;right:14px;transform:rotate(180deg);}
+
+/* Reading altar wrapper */
+.reading-altar{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;}
+.altar-date{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:#8A6034;font-weight:600;margin-bottom:18px;text-align:center;}
+
+/* Flip card */
+.altar-flipcard{width:100%;perspective:1500px;cursor:pointer;}
+.altar-flipcard:focus{outline:none;}
+.altar-flipcard:focus-visible .afc-back{box-shadow:0 0 0 2px rgba(138,96,52,0.5),0 18px 50px -20px rgba(80,50,20,0.4);}
+.afc-inner{position:relative;width:100%;min-height:880px;transition:transform 0.95s cubic-bezier(0.45,0.05,0.25,1);transform-style:preserve-3d;}
+.altar-flipcard.flipped .afc-inner{transform:rotateY(180deg);}
+.afc-back,.afc-front{
+  position:absolute;inset:0;width:100%;height:100%;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  border:none;
+  box-shadow:none;
+  display:flex;flex-direction:column;
+  background:url('assets/paper.png') center/100% 100% no-repeat;
+  background-color:transparent;
+  filter:brightness(1.08);
+}
+.afc-back{
+  align-items:center;justify-content:center;text-align:center;
+  position:relative;overflow:hidden;padding:2.5rem 2rem;
+}
+.afc-back-mark{font-family:'Cormorant',serif;font-size:84px;color:#8E3A4E;line-height:1;margin-bottom:14px;}
+.afc-back-text{font-family:'Cormorant',serif;font-size:22px;color:#4A2F12;letter-spacing:0.01em;margin-bottom:24px;font-style:italic;}
+.afc-back-cta{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:#8E3A4E;border:1px solid #8E3A4E;padding:9px 20px;border-radius:999px;background:rgba(255,255,255,0.55);}
+.afc-front{
+  transform:rotateY(180deg);
+  overflow:visible;
+  align-items:stretch;
+  padding:0;
+}
+.afc-front .persona-reading,
+.afc-front .persona-empty{height:100%;background:transparent;}
+.afc-front .persona-reading::before,
+.afc-front .persona-empty::before{display:none;}
+.afc-front .persona-reading::after{display:none;}
+/* Reading card — handwriting feel for headings, readable serif for body */
+.afc-front .pr-section-heading{
+  font-family:'Dancing Script', cursive !important;
+  font-size:22px !important;
+  font-weight:700 !important;
+  color:#8E3A4E !important;
+  letter-spacing:0 !important;
+  margin-bottom:6px !important;
+}
+.afc-front .pr-section-body{
+  font-family:'Dancing Script', cursive !important;
+  font-size:17px !important;
+  color:#3A2410 !important;
+  line-height:1.45 !important;
+}
+.afc-front .pr-section-rosewood .pr-section-body{color:#8E3A4E !important;font-size:17px !important;}
+/* Scent / Tea / Colour — visible labels with handwritten values, no white box */
+.afc-front .pr-card{
+  background:transparent !important;
+  border:none !important;
+  border-top:1px dashed rgba(110,75,30,0.35) !important;
+  border-radius:0 !important;
+  padding:12px 6px 10px !important;
+}
+.afc-front .pr-card-label{
+  color:#8E3A4E !important;
+  font-weight:600 !important;
+  font-size:9.5px !important;
+  letter-spacing:0.22em !important;
+  margin-bottom:6px !important;
+}
+.afc-front .pr-card-value{
+  font-family:'Dancing Script', cursive !important;
+  font-size:16px !important;
+  color:#3A2410 !important;
+  font-weight:600 !important;
+}
+/* Sealed value: keep blurred until the box opens, but still visible enough to tease */
+.afc-front .persona-reading.sealed .pr-card-value{filter:blur(3.5px) opacity(0.85);}
+.afc-front .pr-seal-note{
+  font-family:'Cormorant',serif !important;
+  font-style:italic !important;
+  color:#7A5A30 !important;
+  font-size:13px !important;
+  text-align:center !important;
+  margin-top:14px !important;
+}
+
+@media(max-width:768px){
+  .afc-inner{min-height:820px;}
+  .altar-sprig{width:30px;height:40px;}
+  .afc-back-mark{font-size:72px;}
+}
+
 .persona-reading{padding:1.75rem 1.75rem 1.5rem;position:relative;overflow:hidden;height:100%;}
 .persona-reading::before{content:'';position:absolute;top:14px;left:14px;right:14px;bottom:14px;border:1px solid rgba(196,147,106,0.22);pointer-events:none;}
 .persona-reading::after{content:'✦';position:absolute;top:18px;right:22px;color:var(--gold);font-size:20px;opacity:0.6;letter-spacing:0;}
@@ -867,10 +1108,10 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 .persona-reading .pr-greeting{font-family:'Great Vibes',cursive;font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:1rem;text-align:center;position:relative;}
 .persona-reading .pr-sections{position:relative;}
 .persona-reading .pr-section{margin-bottom:14px;position:relative;}
-.persona-reading .pr-section-heading{font-family:'Cormorant',serif;font-size:14px;letter-spacing:0.04em;color:#8A6034;font-weight:600;margin-bottom:4px;font-style:italic;}
+.persona-reading .pr-section-heading{font-family:'Cormorant',serif;font-size:14px;letter-spacing:0.04em;color:#8A6034;font-weight:600;margin-bottom:4px;font-style:normal;}
 .persona-reading .pr-section-body{font-family:'Cormorant',serif;font-size:16px;line-height:1.55;color:#3A2E24;}
 .persona-reading .pr-section-rosewood{margin-top:6px;padding-top:14px;border-top:1px dashed rgba(185,79,99,0.4);}
-.persona-reading .pr-section-rosewood .pr-section-body{color:#B94F63;font-style:italic;font-size:15.5px;line-height:1.65;letter-spacing:0.005em;}
+.persona-reading .pr-section-rosewood .pr-section-body{color:#B94F63;font-style:normal;font-size:15.5px;line-height:1.65;letter-spacing:0.005em;}
 .persona-reading .pr-closer{text-align:center;color:var(--gold);font-size:18px;margin-top:10px;letter-spacing:0.3em;position:relative;}
 .persona-reading .pr-divider{display:block;margin:16px auto 14px;width:38px;height:1px;background:rgba(196,147,106,0.55);position:relative;}
 .persona-reading .pr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;}
@@ -882,13 +1123,13 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 /* Blur the specific items until unboxing — they stay sealed for the physical card reveal */
 .persona-reading.sealed .pr-card-value{filter:blur(6px);user-select:none;}
 .persona-reading.sealed .pr-card-swatch{filter:blur(5px) saturate(0.7);opacity:0.65;}
-.persona-reading .pr-seal-note{margin-top:14px;text-align:center;font-family:'Cormorant',serif;font-style:italic;font-size:13px;color:#8A6034;position:relative;padding:0 1rem;}
+.persona-reading .pr-seal-note{margin-top:14px;text-align:center;font-family:'Cormorant',serif;font-style:normal;font-size:13px;color:#8A6034;position:relative;padding:0 1rem;}
 .persona-reading .pr-seal-note::before{content:'✦';margin-right:6px;color:var(--gold);}
 /* Empty / skipped state — softer, quieter card */
 .persona-empty{padding:2rem 1.75rem;height:100%;display:flex;flex-direction:column;justify-content:center;text-align:center;position:relative;}
 .persona-empty::before{content:'';position:absolute;top:14px;left:14px;right:14px;bottom:14px;border:1px solid rgba(196,147,106,0.22);pointer-events:none;}
 .persona-empty .pe-eye{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;position:relative;}
-.persona-empty .pe-text{font-family:'Cormorant',serif;font-size:18px;line-height:1.55;color:#3A2E24;margin-bottom:12px;font-style:italic;position:relative;}
+.persona-empty .pe-text{font-family:'Cormorant',serif;font-size:18px;line-height:1.55;color:#3A2E24;margin-bottom:12px;font-style:normal;position:relative;}
 .persona-empty .pe-sub{font-size:13px;color:var(--dust);line-height:1.65;position:relative;}
 
 /* Result page two-column layout: product (left) + reading (right) */
@@ -974,7 +1215,7 @@ footer{background:var(--parchment);border-top:1px solid var(--border);padding:2.
 /* ── FLOATING SOCIAL ICONS (right edge, next to scrollbar) ── */
 /* Founder's Prize hero hint — small line under the hero CTA */
 .hero-prize-hint{margin-top:14px;font-size:13px;color:#8A6034;line-height:1.55;letter-spacing:0.01em;cursor:pointer;display:inline-block;border-bottom:1px dashed rgba(196,147,106,0.45);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
-.hero-prize-hint em{font-style:italic;color:#B94F63;font-weight:500;}
+.hero-prize-hint em{font-style:normal;color:#B94F63;font-weight:500;}
 .hero-prize-hint:hover{color:#B94F63;border-bottom-color:#B94F63;}
 /* Modal prize line */
 .reserve-prize-line{background:linear-gradient(90deg,rgba(196,147,106,0.12) 0%,rgba(185,79,99,0.08) 100%);border:1px solid rgba(196,147,106,0.3);padding:10px 14px;margin:0 0 18px;font-size:12.5px;color:#3A2E24;letter-spacing:0.01em;line-height:1.5;}
@@ -1003,12 +1244,12 @@ body.overlay-active .prize-float{display:none;}
 .prize-modal-close:hover{color:var(--ink);}
 .prize-modal-eye{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#B94F63;font-weight:600;margin-bottom:14px;}
 .prize-modal-h{font-family:'Cormorant',serif;font-size:clamp(1.55rem,2.8vw,2rem);font-weight:500;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;letter-spacing:-0.005em;padding:0 0.25rem;}
-.prize-modal-h em{font-style:italic;color:#B94F63;}
+.prize-modal-h em{font-style:normal;color:#B94F63;}
 .prize-modal-sub{font-size:13.5px;color:var(--dust);line-height:1.65;margin-bottom:1.4rem;padding:0 0.5rem;}
 /* Blurred teaser "image" — made entirely with CSS so no asset needed */
 /* Prize teaser — image shown clearly; a line-drawn ? sits over the
    center with a heavy dark halo that actually obscures the middle of
-   the image (sealed-stamp feel). "Sealed until July 4" is a small
+   the image (sealed-stamp feel). "Sealed until May 10" is a small
    cream pill with ink text for readability against any photo area. */
 .prize-teaser{position:relative;width:100%;aspect-ratio:4/3;margin:0 0 1.25rem;overflow:hidden;border:1px solid var(--border);background:var(--parchment);}
 .prize-teaser .pt-matcha-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
@@ -1124,8 +1365,10 @@ body.overlay-active #main-nav{top:0;}
 .scarcity-bar-fill{position:absolute;inset:0;background:linear-gradient(90deg,#FFE0D8 0%,#fff 100%);transform:scaleX(0);transform-origin:left;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);}
 
 /* Founding 50 hero badge */
-.founding-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#B94F63;font-weight:600;padding:6px 14px;border:1px solid #B94F63;border-radius:20px;margin-bottom:1.25rem;background:rgba(185,79,99,0.06);}
+.founding-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#B94F63;font-weight:600;padding:6px 14px;border:1px solid #B94F63;border-radius:20px;margin-bottom:0.85rem;background:rgba(185,79,99,0.06);}
 .founding-badge .fb-dot{width:6px;height:6px;border-radius:50%;background:#B94F63;animation:fbPulse 2s ease-in-out infinite;}
+.cover-coupon{display:inline-block;font-family:'Raleway',sans-serif;font-size:11.5px;color:#B94F63;letter-spacing:0.06em;line-height:1.5;margin-bottom:1.75rem;font-weight:500;background:none;border:none;border-bottom:1px solid rgba(185,79,99,0.4);padding:2px 0 4px;cursor:pointer;transition:color 0.2s,border-color 0.2s;text-align:left;}
+.cover-coupon:hover{color:#8E3A4E;border-bottom-color:#8E3A4E;}
 @keyframes fbPulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
 
 /* Pre-sale pricing display (strike + highlight) */
@@ -1267,7 +1510,7 @@ body.overlay-active #main-nav{top:0;}
 .intl-modal-close:hover{color:var(--ink);}
 .intl-modal-eye{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#B94F63;font-weight:600;margin-bottom:14px;}
 .intl-modal-h{font-family:'Cormorant',serif;font-size:clamp(1.6rem,2.9vw,2.1rem);font-weight:500;color:var(--ink);line-height:1.2;margin-bottom:0.85rem;letter-spacing:-0.005em;}
-.intl-modal-h em{font-style:italic;color:#B94F63;}
+.intl-modal-h em{font-style:normal;color:#B94F63;}
 .intl-modal-sub{font-size:13.5px;color:var(--dust);line-height:1.65;margin-bottom:0.85rem;padding:0 0.25rem;}
 .intl-modal-sub a{color:#B94F63;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(185,79,99,0.35);transition:border-color 0.2s;}
 .intl-modal-sub a:hover{border-bottom-color:#B94F63;}
@@ -1307,7 +1550,7 @@ body.overlay-active #main-nav{top:0;}
 .wp-close:hover{color:var(--ink);}
 .wp-eye{font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:#B94F63;font-weight:700;margin-bottom:18px;}
 .wp-h{font-family:'Cormorant',serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:500;color:var(--ink);line-height:1.05;margin-bottom:1rem;letter-spacing:-0.015em;}
-.wp-h span{color:#B94F63;font-style:italic;}
+.wp-h span{color:#B94F63;font-style:normal;}
 .wp-sub{font-size:14px;color:var(--dust);line-height:1.7;margin:0 auto 0.6rem;max-width:480px;font-weight:400;}
 .wp-accent{font-family:'Cormorant',serif;font-style:normal;font-size:clamp(1.1rem,1.7vw,1.3rem);color:#B94F63;font-weight:600;margin:0 auto 1.5rem;letter-spacing:0.01em;line-height:1.3;}
 .wp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.75rem;}
@@ -1355,34 +1598,770 @@ body.overlay-active #main-nav{top:0;}
   .wp-stat-num{font-size:1.1rem;}
   .wp-stat-lbl{font-size:8px;}
 }
+/* ════════════════════════════════════════════════
+   SHOP GRID (2×3) — replaces old crafts panels
+════════════════════════════════════════════════ */
+#shop{position:relative;padding:5rem 2rem 6rem;background:var(--cream);overflow:hidden;}
+.shop-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.shop-head{text-align:center;margin-bottom:2.5rem;}
+.shop-head .sec-h{margin-top:0.4rem;}
+.shop-head .sec-sub{margin-top:0.75rem;max-width:520px;margin-left:auto;margin-right:auto;}
+
+.shop-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.25rem;
+}
+.shop-card{
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+  background:#F1ECE2;
+  aspect-ratio:1/1;
+  border:1px solid rgba(0,0,0,0.04);
+  transition:transform 0.35s cubic-bezier(0.2,0.8,0.2,1);
+}
+.shop-card-img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:filter 0.45s ease, transform 0.7s ease, opacity 0.45s ease;
+  filter:brightness(0.78) saturate(0.85);
+  opacity:0.92;
+}
+.shop-card:hover .shop-card-img,
+.shop-card:focus-visible .shop-card-img{
+  filter:brightness(1.05) saturate(1.05);
+  opacity:1;
+  transform:scale(1.03);
+}
+.shop-card-overlay{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:1.1rem 1.25rem 1.15rem;
+  background:linear-gradient(to top,rgba(20,15,12,0.55) 0%,rgba(20,15,12,0.0) 100%);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:0.75rem;
+  pointer-events:none;
+}
+.shop-card-info{display:flex;flex-direction:column;gap:4px;min-width:0;}
+.shop-card-name{
+  color:#FFF;
+  font-family:'Cormorant',serif;
+  font-size:1.6rem;
+  line-height:1.1;
+  font-weight:500;
+  letter-spacing:-0.005em;
+  text-shadow:0 2px 12px rgba(0,0,0,0.35);
+}
+.shop-card-price{
+  color:#FFF;
+  font-family:'Raleway',sans-serif;
+  font-size:11px;
+  letter-spacing:0.18em;
+  font-weight:500;
+  opacity:0.92;
+  text-shadow:0 1px 6px rgba(0,0,0,0.4);
+}
+.shop-card-cta{
+  color:#FFF;
+  font-family:'Raleway',sans-serif;
+  font-size:10px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity 0.25s ease, transform 0.25s ease;
+  white-space:nowrap;
+  align-self:flex-end;
+  padding-bottom:4px;
+}
+.shop-card:hover .shop-card-cta,
+.shop-card:focus-visible .shop-card-cta{opacity:1;transform:translateY(0);}
+@media (max-width:820px){
+  .shop-grid{grid-template-columns:repeat(2,1fr);gap:0.85rem;}
+  #shop{padding:3.5rem 1rem 4.5rem;}
+  .shop-card-name{font-size:1.25rem;}
+}
+@media (max-width:430px){
+  .shop-grid{gap:0.7rem;}
+  .shop-card-overlay{padding:0.85rem 0.95rem;}
+  .shop-card-name{font-size:1.05rem;}
+  .shop-card-price{font-size:10px;letter-spacing:0.16em;}
+  .shop-card-cta{display:none;}
+}
+
+/* ════════════════════════════════════════════════
+   PRODUCT DETAIL MODAL (Zara-style)
+════════════════════════════════════════════════ */
+.product-modal{
+  position:fixed;inset:0;z-index:9000;
+  background:#FFF;
+  display:none;
+  overflow-y:auto;
+}
+.product-modal.open{display:block;}
+body.pm-open{overflow:hidden;}
+.pm-close{
+  position:fixed;top:1.1rem;right:1.4rem;z-index:50;
+  width:42px;height:42px;border:none;background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(8px);
+  font-size:18px;color:#1a1a1a;cursor:pointer;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s, transform 0.2s;
+}
+.pm-close:hover{background:#FFF;transform:rotate(90deg);}
+.pm-body{
+  display:grid;
+  grid-template-columns:1fr 460px;
+  min-height:100vh;
+  gap:0;
+}
+.pm-gallery{
+  position:relative;
+  background:#F4EFE6;
+}
+.pm-gallery-main{
+  position:sticky;top:0;
+  height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:0;
+  overflow:hidden;
+}
+.pm-gallery-main img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:opacity 0.3s ease;
+}
+.pm-gallery-main img.pm-img-card{
+  object-fit:contain;
+  background:#FFF;
+  padding:2.5rem;
+}
+.pm-thumb-card{background:#FFF;}
+.pm-thumb-card img{object-fit:contain !important;padding:3px;}
+.pm-img-broken{visibility:hidden;}
+.pm-gallery-thumbs{
+  position:absolute;left:1rem;top:1rem;bottom:1rem;
+  width:64px;
+  display:flex;flex-direction:column;gap:6px;
+  overflow-y:auto;
+  scrollbar-width:none;
+}
+.pm-gallery-thumbs::-webkit-scrollbar{display:none;}
+.pm-thumb{
+  flex:0 0 auto;
+  width:64px;height:64px;
+  border:1px solid transparent;
+  cursor:pointer;
+  background:#FFF;
+  overflow:hidden;
+  transition:border-color 0.2s, opacity 0.2s;
+  opacity:0.6;
+}
+.pm-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.pm-thumb.active{border-color:#1a1a1a;opacity:1;}
+.pm-thumb:hover{opacity:1;}
+
+.pm-info{
+  padding:5rem 2.5rem 4rem;
+  background:#FFF;
+  display:flex;flex-direction:column;
+  font-family:'Raleway',sans-serif;
+  color:#1a1a1a;
+}
+.pm-tag{
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  color:#1a1a1a;font-weight:500;margin-bottom:0.7rem;
+}
+.pm-name{
+  font-family:'Raleway',sans-serif;
+  font-size:1.3rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:#1a1a1a;
+  line-height:1.3;
+  margin:0 0 0.65rem;
+}
+.pm-price{
+  font-family:'Raleway',sans-serif;
+  font-size:1.05rem;
+  font-weight:400;
+  letter-spacing:0.02em;
+  color:#1a1a1a;
+  margin:0 0 1.4rem;
+}
+.pm-divider{
+  height:1px;background:#E0DBD3;margin:0 0 1.4rem;
+}
+.pm-cn-row{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:#1a1a1a;margin-bottom:1.2rem;
+}
+.pm-cn-label{font-weight:500;}
+.pm-cn-code{color:#7a7770;font-weight:400;}
+.pm-actions{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  margin-bottom:1.5rem;
+}
+.pm-btn-add,.pm-btn-pay{
+  height:52px;
+  font-family:'Raleway',sans-serif;
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  font-weight:500;
+  cursor:pointer;
+  border:1px solid #1a1a1a;
+  background:#FFF;color:#1a1a1a;
+  transition:background 0.2s, color 0.2s;
+}
+.pm-btn-add:hover{background:#1a1a1a;color:#FFF;}
+.pm-btn-pay{
+  background:#1a1a1a;color:#FFF;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  opacity:0.45;cursor:not-allowed;
+}
+.pm-desc{
+  font-size:13px;line-height:1.6;color:#1a1a1a;
+  margin:0 0 0.85rem;
+  font-family:'Raleway',sans-serif;
+}
+.pm-note{
+  font-size:11px;line-height:1.55;color:#7a7770;font-style:normal;
+  letter-spacing:0.01em;
+  margin:0 0 1.6rem;
+  padding:0.75rem 0.9rem;
+  background:#F9F6F0;
+  border-left:2px solid #C4749A;
+}
+.pm-founders-tag{
+  display:inline-block;
+  font-family:'Raleway',sans-serif;
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#7A2A35;
+  background:rgba(122,42,53,0.06);
+  border:1px solid rgba(122,42,53,0.45);
+  padding:9px 16px;
+  border-radius:999px;
+  margin-bottom:1rem;
+  font-weight:700;
+  white-space:nowrap;
+  max-width:100%;
+}
+.pm-breakdown{
+  border:1px solid #E0DBD3;
+  padding:1.1rem 1.25rem;
+  margin-bottom:1.6rem;
+  font-size:14px;
+}
+.pm-bd-row{
+  padding:8px 0;
+  font-size:14px;
+}
+.pm-bd-total span:first-child{font-size:11px;}
+.pm-bd-total span:last-child{font-size:16px;}
+.pm-bd-founders{
+  border-top:1px dashed rgba(122,42,53,0.4);
+  margin-top:8px;padding-top:12px;
+  color:#7A2A35;
+}
+.pm-bd-founders span:first-child{
+  display:flex;align-items:center;gap:10px;
+  text-transform:uppercase;font-size:11px;letter-spacing:0.2em;font-weight:700;
+}
+.pm-bd-founders span#pm-bd-founders{
+  font-weight:700;font-size:18px;
+}
+.pm-breakdown .pm-bd-pct,
+.pm-bd-row span .pm-bd-pct,
+span.pm-bd-pct{
+  background:#7A2A35 !important;
+  color:#FFFFFF !important;
+  padding:4px 11px;border-radius:999px;
+  font-size:11px;letter-spacing:0.06em;font-weight:800;
+  text-shadow:0 1px 0 rgba(0,0,0,0.15);
+  line-height:1;
+  display:inline-block;
+}
+.pm-bd-row{
+  display:flex;justify-content:space-between;
+  padding:6px 0;
+  color:#1a1a1a;
+  letter-spacing:0.02em;
+}
+.pm-bd-row span:first-child{color:#5a5650;}
+.pm-bd-total{
+  border-top:1px solid #E0DBD3;
+  margin-top:6px;padding-top:10px;
+  font-weight:500;
+}
+.pm-bd-total span:first-child{color:#1a1a1a;text-transform:uppercase;font-size:10px;letter-spacing:0.2em;}
+.pm-acc{
+  border-top:1px solid #E0DBD3;
+  padding:0.9rem 0;
+}
+.pm-acc summary{
+  cursor:pointer;
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  font-weight:500;color:#1a1a1a;
+  list-style:none;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.pm-acc summary::-webkit-details-marker{display:none;}
+.pm-acc summary::after{content:'+';font-size:18px;font-weight:300;color:#1a1a1a;}
+.pm-acc[open] summary::after{content:'−';}
+.pm-acc[open] summary{margin-bottom:0.85rem;}
+.pm-steps{
+  margin:0;padding:0 0 0 1.1rem;
+  font-size:13px;line-height:1.7;color:#1a1a1a;
+}
+.pm-steps li{margin-bottom:0.3rem;}
+.pm-incl{
+  font-size:13px;line-height:1.6;color:#1a1a1a;
+}
+.pm-incl strong{font-weight:700;}
+.pm-disclaimer{
+  display:inline-block;
+  margin-top:0.4rem;
+  color:#7a7770;
+  font-size:12px;
+  letter-spacing:0.01em;
+}
+
+@media (max-width:820px){
+  .pm-body{grid-template-columns:1fr;}
+  .pm-gallery-main{position:relative;height:auto;aspect-ratio:1/1;padding:0;}
+  .pm-gallery-thumbs{
+    position:relative;left:0;top:0;bottom:auto;
+    width:auto;
+    flex-direction:row;
+    overflow-x:auto;overflow-y:hidden;
+    padding:8px;
+    background:#F4EFE6;
+  }
+  .pm-thumb{width:56px;height:56px;}
+  .pm-info{padding:2.5rem 1.5rem 3rem;}
+  .pm-close{top:0.7rem;right:0.7rem;}
+}
+
+/* Hide the dormant survey craft-selection slide (we pre-select on shop) */
+#slide-3{display:none !important;}
+
+
+/* Global: no italics anywhere — including <em> defaults */
+em, i { font-style: normal; }
+
+/* ════════════════════════════════════════════════
+   BELIEF — rosewood typewriter
+════════════════════════════════════════════════ */
+#belief.belief-rose{
+  background:#B07380;   /* softened mauve-rose — same family, more transparent feel */
+  padding:7rem 2rem;
+  display:flex;align-items:center;justify-content:center;
+  min-height:880px;
+  height:90vh;
+  max-height:1000px;
+  position:relative;
+  overflow:hidden;
+}
+#belief.belief-rose .belief-rose-inner{
+  position:relative;
+  z-index:3;
+  pointer-events:none;
+  text-shadow:0 4px 28px rgba(60,20,30,0.55), 0 1px 4px rgba(60,20,30,0.4);
+}
+.belief-zones{
+  position:absolute;inset:0;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-template-rows:repeat(2, 1fr);
+  z-index:1;
+}
+.belief-zone{
+  position:relative;
+  cursor:pointer;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  overflow:hidden;
+}
+.belief-zone::before{
+  content:"";
+  position:absolute;inset:0;
+  background:#B07380;
+  opacity:1;
+  transition:opacity 0.55s cubic-bezier(0.2,0.8,0.2,1);
+  z-index:1;
+}
+.belief-zone:hover::before{opacity:0;}
+.belief-zone::after{
+  /* subtle inner separator on hover for visual rhythm */
+  content:"";
+  position:absolute;inset:0;
+  pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);
+  z-index:2;
+}
+@media (max-width:780px){
+  #belief.belief-rose{min-height:720px;height:auto;padding:5rem 1.5rem;}
+  .belief-zones{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);}
+}
+.belief-rose-inner{
+  max-width:900px;text-align:center;color:#FFF;
+}
+.belief-rose-h{
+  font-family:'Cormorant',serif;
+  font-weight:400;
+  font-size:clamp(2.1rem, 4.6vw, 3.6rem);
+  line-height:1.3;
+  letter-spacing:-0.005em;
+  color:#FFF;
+  margin:0;
+  min-height:1em;
+  white-space:pre-wrap;
+}
+.belief-rose-h .bw-cursor{
+  display:inline-block;width:2px;height:1em;
+  background:#FFF;margin-left:2px;
+  vertical-align:text-bottom;
+  animation:bwBlink 0.9s steps(1) infinite;
+}
+@keyframes bwBlink{50%{opacity:0;}}
+
+/* ════════════════════════════════════════════════
+   HOW IT WORKS — split illustration with CTA
+════════════════════════════════════════════════ */
+#blind-box.hiw-split{
+  background:var(--cream);
+  padding:5.5rem 2rem 6rem;
+  position:relative;
+}
+.hiw-split-inner{max-width:1100px;margin:0 auto;}
+.hiw-eye{text-align:center;margin-bottom:2.5rem;color:var(--gold);}
+.hiw-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:start;
+}
+.hiw-panel{
+  text-align:center;
+  padding:2.25rem 1.75rem 2rem;
+  background:#FFF;
+  border:1px solid var(--border);
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;
+}
+.hiw-illust{
+  width:140px;height:140px;
+  color:#B94F63;
+  margin-bottom:1.25rem;
+}
+.hiw-illust svg{width:100%;height:100%;}
+.hiw-num{
+  font-family:'Raleway',sans-serif;
+  font-size:11px;letter-spacing:0.26em;
+  color:var(--gold);font-weight:500;
+  margin-bottom:0.6rem;
+}
+.hiw-h{
+  font-family:'Cormorant',serif;
+  font-size:1.85rem;
+  font-weight:500;
+  color:var(--ink);
+  margin:0 0 0.65rem;
+  letter-spacing:-0.005em;
+}
+.hiw-p{
+  font-family:'Cormorant',serif;
+  font-size:1.05rem;
+  line-height:1.55;
+  color:var(--ink);
+  max-width:340px;
+  margin:0;
+}
+.hiw-cta-wrap{
+  text-align:center;
+  margin-top:3rem;
+}
+.hiw-cta{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  padding:0.95rem 2.4rem;
+  background:#B94F63;color:#FFF;
+  font-family:'Raleway',sans-serif;
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  font-weight:500;
+  text-decoration:none;
+  border:none;cursor:pointer;
+  transition:background 0.2s, transform 0.2s;
+  border-radius:999px;
+}
+.hiw-cta:hover{background:#9D3F52;transform:translateY(-1px);}
+.hiw-cta-arr{transition:transform 0.2s;}
+.hiw-cta:hover .hiw-cta-arr{transform:translateX(3px);}
+@media (max-width:780px){
+  .hiw-grid{grid-template-columns:1fr;gap:1.25rem;}
+  .hiw-illust{width:110px;height:110px;}
+  #blind-box.hiw-split{padding:4rem 1.25rem 4.5rem;}
+}
+
+/* ════════════════════════════════════════════════
+   PRODUCT MODAL — refinements (smaller thumbs, button order, gallery arrows)
+════════════════════════════════════════════════ */
+.pm-info .pm-btn-add{
+  width:100%;
+  margin:0 0 1.6rem;
+}
+.pm-gallery-thumbs{
+  width:54px;
+}
+.pm-thumb{
+  width:54px;height:54px;
+}
+.pm-gallery-main{padding-left:74px;}
+.pm-gallery-arr{
+  position:absolute;top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+  width:44px;height:44px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(8px);
+  border:none;
+  cursor:pointer;
+  font-size:26px;line-height:1;
+  color:#1a1a1a;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant',serif;
+  font-weight:300;
+  transition:background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  opacity:0.85;
+}
+.pm-gallery-arr:hover{background:#FFF;opacity:1;transform:translateY(-50%) scale(1.06);}
+.pm-gallery-arr-prev{left:88px;}   /* clears the 54px thumb rail + a bit */
+.pm-gallery-arr-next{right:18px;}
+@media (max-width:820px){
+  .pm-gallery-main{padding-left:0;}
+  .pm-thumb{width:48px;height:48px;}
+  .pm-gallery-arr-prev{left:14px;}
+  .pm-gallery-arr-next{right:14px;}
+  .pm-gallery-arr{width:38px;height:38px;font-size:22px;}
+}
+
+/* ════════════════════════════════════════════════
+   COVER — poetic 3-line message replacing the crafts list
+════════════════════════════════════════════════ */
+.cover-pillars{
+  list-style:none;
+  margin:0 0 3rem;
+  padding:0;
+  width:100%;
+  max-width:340px;
+}
+.cover-pillar{
+  font-family:'Raleway',sans-serif;
+  font-size:10px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#9A8070;
+  padding:0.75rem 0;
+  border-bottom:1px solid rgba(180,160,140,0.3);
+  display:flex;align-items:center;gap:0.65rem;
+}
+.cover-pillar:first-child{border-top:1px solid rgba(180,160,140,0.3);}
+.cp-bullet{
+  width:5px;height:5px;border-radius:50%;
+  background:#B94F63;
+  flex-shrink:0;
+}
+
+/* ════════════════════════════════════════════════
+   SHOP — bigger header, more breathing room
+════════════════════════════════════════════════ */
+#shop{
+  padding:8rem 2rem 9rem;
+}
+.shop-head{
+  margin-bottom:4rem;
+}
+.shop-head .sec-h{
+  font-size:clamp(3rem, 6vw, 5.5rem);
+  line-height:1.05;
+}
+.shop-head .shop-sub{
+  font-family:'Cormorant',serif;
+  font-weight:400;
+  font-size:clamp(1.1rem, 1.7vw, 1.4rem);
+  color:var(--ink);
+  margin:1rem auto 0;
+  max-width:560px;
+  line-height:1.5;
+}
+.hl-rose{color:#B07380;}
+.shop-card-name{
+  font-size:clamp(1.7rem, 2.4vw, 2.3rem);
+  letter-spacing:-0.01em;
+}
+@media (max-width:820px){
+  .shop-card-name{font-size:1.45rem;}
+  #shop{padding:5rem 1rem 5.5rem;}
+  .shop-head{margin-bottom:2.5rem;}
+}
+
+/* ════════════════════════════════════════════════
+   HOW IT WORKS — polish: connector, larger type, decorative blossoms
+════════════════════════════════════════════════ */
+#blind-box.hiw-split{
+  background:linear-gradient(180deg, var(--cream) 0%, #F8F0E5 100%);
+  padding:9rem 2rem 9.5rem;
+  overflow:hidden;
+}
+#blind-box.hiw-split .hiw-eye{
+  font-size:14px;
+  letter-spacing:0.32em;
+  margin-bottom:1.4rem;
+}
+#blind-box.hiw-split .hiw-split-inner > div:first-of-type,
+#blind-box.hiw-split .hiw-split-inner h2,
+#blind-box.hiw-split .hiw-split-inner > .hiw-grid{
+  margin-bottom:0;
+}
+#blind-box.hiw-split::before,
+#blind-box.hiw-split::after{
+  content:"";
+  position:absolute;
+  background-repeat:no-repeat;
+  background-size:contain;
+  pointer-events:none;
+  opacity:0.55;
+  z-index:0;
+}
+#blind-box.hiw-split::before{
+  top:-30px;left:-40px;
+  width:240px;height:240px;
+  background-image:url('assets/14.png');
+  transform:rotate(8deg);
+}
+#blind-box.hiw-split::after{
+  bottom:-40px;right:-30px;
+  width:220px;height:220px;
+  background-image:url('assets/15.png');
+  transform:rotate(-12deg) scaleX(-1);
+}
+.hiw-split-inner{position:relative;z-index:1;}
+.hiw-eye{
+  font-size:13px;
+  color:#B94F63;
+  margin-bottom:1rem;
+}
+.hiw-grid{
+  gap:3.5rem;
+  position:relative;
+}
+/* Soft connecting curve between the two panels */
+.hiw-grid::before{
+  content:"";
+  position:absolute;
+  top:50%;left:50%;
+  width:80px;height:2px;
+  transform:translate(-50%, -50%);
+  background:repeating-linear-gradient(90deg, #C4749A 0 6px, transparent 6px 12px);
+  pointer-events:none;
+  z-index:0;
+}
+@media (max-width:780px){
+  .hiw-grid::before{
+    width:2px;height:60px;
+    background:repeating-linear-gradient(180deg, #C4749A 0 6px, transparent 6px 12px);
+  }
+}
+.hiw-panel{
+  padding:3rem 2.25rem 2.6rem;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(4px);
+  border:none;
+  border-radius:14px;
+  box-shadow:0 6px 32px -16px rgba(122,42,53,0.18), 0 1px 3px rgba(0,0,0,0.04);
+  position:relative;
+  z-index:1;
+  transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+.hiw-panel:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 40px -16px rgba(122,42,53,0.28), 0 2px 6px rgba(0,0,0,0.05);
+}
+.hiw-illust{
+  width:170px;height:170px;
+  margin-bottom:1.5rem;
+}
+.hiw-num{
+  font-size:13px;
+  letter-spacing:0.3em;
+  margin-bottom:0.85rem;
+}
+.hiw-h{
+  font-size:clamp(2rem, 3vw, 2.6rem);
+  margin-bottom:0.85rem;
+  font-style:normal;
+  color:#7A2A35;
+}
+.hiw-h em{font-style:normal;color:#B94F63;}
+.hiw-p{
+  font-size:clamp(1.15rem, 1.5vw, 1.4rem);
+  line-height:1.55;
+  color:var(--ink);
+  max-width:380px;
+}
+.hiw-cta-wrap{
+  margin-top:3.5rem;
+}
+.hiw-cta{
+  padding:1.05rem 2.8rem;
+  font-size:12px;letter-spacing:0.24em;
+  background:linear-gradient(90deg,#8E3A4E 0%, #B94F63 100%);
+  box-shadow:0 6px 22px -8px rgba(185,79,99,0.55);
+}
+.hiw-cta:hover{
+  background:linear-gradient(90deg,#7A2A35 0%, #9D3F52 100%);
+  box-shadow:0 10px 28px -8px rgba(185,79,99,0.7);
+}
+
 </style>
 </head>
 <body class="has-banner">
 
 <!-- ══════════════ ROUND 1 STICKY BANNER (simplified · clickable) ══════════════ -->
-<div class="presale-banner" id="presale-banner" onclick="openWelcomePopup()">
-  <span class="ps-eye">✦ Coming soon</span>
+<div class="presale-banner" id="presale-banner" onclick="scrollToShop()">
+  <span class="ps-eye">✦ Round 1</span>
   <span class="ps-dia">·</span>
-  <span id="ps-banner-detail">Something magical is brewing</span>
-  <span class="ps-dia">·</span>
-  <span class="ps-action">Join the list →</span>
+  <span id="ps-banner-detail">50 blind boxes · Opens May 10</span>
 </div>
 
 <!-- ══════════════ WELCOME POPUP — shows 2s after landing ══════════════ -->
 <div id="welcome-popup" class="welcome-popup" role="dialog" aria-labelledby="wp-title">
   <div class="wp-card">
     <button class="wp-close" type="button" onclick="closeWelcomePopup()" aria-label="Close">✕</button>
-    <div class="wp-eye">✦ Something magical is coming ✦</div>
-    <h2 class="wp-h" id="wp-title">We're dropping<br><span>soon.</span></h2>
-    <p class="wp-sub">Afternoon Unfold — a <strong style="color:#B94F63;">DIY Craft Blind Box</strong>, curated just for you. Drop your email and you'll be the first to know when we open the doors.</p>
+    <div class="wp-eye">✦ Limited Drop · Round 1 ✦</div>
+    <h2 class="wp-h" id="wp-title">Be one of<br>the <span>first 50.</span></h2>
+    <p class="wp-sub">The <strong style="color:#B94F63;">Founding 50</strong> — our Round 1 drop of 50 one-of-a-kind DIY Craft Blind Boxes. Each uniquely curated from your quiz, numbered, signed.</p>
     <p class="wp-accent">No two alike in the world.</p>
+    <div class="wp-stats">
+      <div class="wp-stat"><div class="wp-stat-num" id="wp-stat-count">50 of 50</div><div class="wp-stat-lbl">boxes available</div></div>
+      <div class="wp-stat"><div class="wp-stat-num" id="wp-stat-date">May 10</div><div class="wp-stat-lbl" id="wp-stat-date-lbl">Round 1 opens</div></div>
+      <div class="wp-stat"><div class="wp-stat-num">May 10</div><div class="wp-stat-lbl">checkout opens · US</div></div>
+    </div>
     <div class="wp-ctas">
+      <button class="wp-cta-primary" type="button" onclick="closeWelcomePopup();scrollToShop();">Curate my box →</button>
+      <div class="wp-divider">— or —</div>
       <form class="wp-notify" onsubmit="event.preventDefault();submitWelcomeNotify(this);return false;">
-        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
-        <button type="submit">Join the list →</button>
+        <input type="email" name="email" required placeholder="Notify me when Round 1 opens" autocomplete="email">
+        <button type="submit">Notify →</button>
       </form>
     </div>
-    <p class="wp-fine">We'll email the moment we're live. No spam, ever.</p>
+    <p class="wp-fine">Reservations are free. <strong>15% off</strong> with <code style="background:rgba(185,79,99,0.12);padding:1px 5px;border-radius:3px;font-family:inherit;color:#B94F63;font-weight:600;">UNFOLD15</code> when checkout opens May 10. Free US shipping (10–15 days from China).</p>
   </div>
 </div>
 
@@ -1463,8 +2442,10 @@ function tickFlipCount(el, targetLeft, total){
 }
 
 function openWelcomePopup(){
-  /* Coming-soon mode: popup is the primary email-capture entry.
-     Stats / date blocks are disabled below (no wp-stats in DOM). */
+  /* Disabled during Round 1 pre-sale — the 15% is auto-applied via the
+     reservation flow, so a separate email-capture popup is redundant.
+     Remove this `return;` to re-enable later. */
+  return;
   /* Update live stats with flip-tick count-up */
   if(typeof PRE_SALE_RESERVED !== 'undefined'){
     var left = PRE_SALE_TOTAL - PRE_SALE_RESERVED;
@@ -1481,7 +2462,7 @@ function openWelcomePopup(){
       else if(state === 'round2'){ dateEl.textContent='Jun 30'; dateLblEl.textContent='Round 2 closes'; }
       else if(state === 'closed' || state === 'launched'){ dateEl.textContent='Open'; dateLblEl.textContent='shop now'; }
       else if(state === 'soldout'){ dateEl.textContent='Full'; dateLblEl.textContent='Round 2 waitlist only'; }
-      else { dateEl.textContent='May 1'; dateLblEl.textContent='Round 1 opens'; }
+      else { dateEl.textContent='May 10'; dateLblEl.textContent='Round 1 opens'; }
     }
   }
   document.getElementById('welcome-popup').classList.add('open');
@@ -1520,11 +2501,12 @@ function submitWelcomeNotify(form){
     method:'POST',
     headers:{'Accept':'application/json','Content-Type':'application/json'},
     body:JSON.stringify({
-      _subject: 'Coming-soon waitlist - ' + email,
+      _subject: 'Round 1 early-waitlist - ' + email,
       _replyto: email,
       email: email,
-      source: 'coming-soon-landing',
-      message: 'Coming-soon waitlist signup:\nEmail: ' + email
+      source: 'welcome-popup-notify',
+      state_when_signed_up: (typeof getPreSaleState==='function' ? getPreSaleState() : 'unknown'),
+      message: 'Early-waitlist signup (notify me when Round 1 opens):\nEmail: ' + email + '\nState at signup: ' + (typeof getPreSaleState==='function' ? getPreSaleState() : 'unknown')
     })
   }).then(function(r){
     if(r.ok){
@@ -1540,23 +2522,9 @@ function submitWelcomeNotify(form){
     btn.disabled = false;
   });
 }
-/* Auto-trigger 2s after load if user hasn't seen it in the last 7 days */
-(function(){
-  try{
-    var seen = localStorage.getItem(WELCOME_SEEN_KEY);
-    if(seen){
-      var daysSince = (Date.now() - parseInt(seen,10)) / (1000*60*60*24);
-      if(daysSince < 7) return; // shown recently, skip
-    }
-  }catch(e){}
-  setTimeout(function(){
-    /* Don't interrupt if another modal is already open */
-    var quizOpen = document.getElementById('quiz-overlay') && document.getElementById('quiz-overlay').classList.contains('open');
-    var reserveOpen = document.getElementById('reserve-modal') && document.getElementById('reserve-modal').classList.contains('open');
-    if(quizOpen || reserveOpen) return;
-    openWelcomePopup();
-  }, WELCOME_DELAY_MS);
-})();
+/* Welcome popup auto-trigger disabled — the coupon popup (openCouponModal)
+   is now the auto-pop entry point. Welcome popup HTML stays available for
+   manual openWelcomePopup() calls if needed. */
 
 /* IntersectionObserver — reliably autoplay/pause videos as they scroll into
    view. Some browsers (esp. iOS Safari in low-power mode, and Chrome on
@@ -1590,13 +2558,12 @@ function submitWelcomeNotify(form){
     <div class="nav-logo-stack"><span class="nav-logo-main">Afternoon Unfold</span><span class="nav-logo-sub">DIY CRAFT BLIND BOX</span></div>
   </a>
   <div class="nav-links">
-    <a class="nav-link" href="#belief">Our Belief</a>
-    <a class="nav-link" href="#crafts-section">Crafts Collection</a>
-    <a class="nav-link" href="#blind-box">Blind Box</a>
+    <a class="nav-link" href="#blind-box">How it works</a>
+    <a class="nav-link" href="#shop">Shop</a>
     <a class="nav-link" href="#reviews">Reviews</a>
     <a class="nav-link" href="#questions">FAQ</a>
   </div>
-  <button class="nav-cta" onclick="openWelcomePopup()">Join the list</button>
+  <button class="nav-cta" onclick="scrollToShop()">Curate my box</button>
 </nav>
 
 <!-- COVER -->
@@ -1611,90 +2578,148 @@ function submitWelcomeNotify(form){
   <div class="cover-right">
     <div class="cover-brand-h">Afternoon<br>Unfold</div>
     <p class="cover-brand-sub">DIY Craft blind box curated just for you.</p>
-    <ul class="cover-craft-list">
-      <li class="cover-craft-item" onclick="document.getElementById('cp-pb').scrollIntoView({behavior:'smooth'})">Perler Beads<span class="ci-arrow">→</span></li>
-      <li class="cover-craft-item" onclick="document.getElementById('cp-ww').scrollIntoView({behavior:'smooth'})">Chenille Sticks<span class="ci-arrow">→</span></li>
-      <li class="cover-craft-item" onclick="document.getElementById('cp-sy').scrollIntoView({behavior:'smooth'})">Paint by Numbers<span class="ci-arrow">→</span></li>
-      <li class="cover-craft-item" onclick="document.getElementById('cp-fp').scrollIntoView({behavior:'smooth'})">Floral Pen Pot<span class="ci-arrow">→</span></li>
+    <ul class="cover-pillars">
+      <li class="cover-pillar"><span class="cp-bullet"></span>Six crafts to choose from</li>
+      <li class="cover-pillar"><span class="cp-bullet"></span>Curated to your vibe</li>
+      <li class="cover-pillar"><span class="cp-bullet"></span>One mystery extra in every box</li>
     </ul>
-    <div class="founding-badge"><span class="fb-dot"></span> Dropping soon · Limited launch ahead</div>
-    <button class="btn-dark" onclick="openWelcomePopup()">Join the waitlist &rarr;</button>
+    <div class="founding-badge"><span class="fb-dot"></span> Round 1 · Limited · 50 blind boxes</div>
+    <button type="button" class="cover-coupon" onclick="openCouponModal()">Join the email list for a 15% coupon &rarr;</button>
+    <button class="btn-dark" onclick="scrollToShop()">Curate my box &rarr;</button>
   </div>
 </section>
 
-<!-- BELIEF -->
-<section id="belief">
-  <div class="belief-inner">
-    <div class="belief-text-wrap">
-      <div class="belief-text-inner">
-        <div class="sec-eye">Our belief</div>
-        <h2 class="belief-h">We craft shared memories.</h2>
-        <p class="belief-p belief-p-lead">We don't just sell DIY Craft Blind Box.<br>We design shared experiences — moments where phones are put down, hands are busy, and conversation flows naturally.</p>
-        <p class="belief-p">Every blind box is a small invitation to slow down and make something together. Whether it's a date night, a girls hang, a Sunday afternoon with the kids, or a solo hour of calm.</p>
-        <p class="belief-p">Inside every box is a craft you chose, extras we hand-picked, and one surprise we'll never reveal until you open it. We believe the act of making is itself the gift.</p>
+<!-- BELIEF — slogan + 3×2 grid of hover-reveal MVP boxes -->
+<section id="belief" class="belief-rose">
+  <!-- 6 cells, each holds its own MVP image hidden under a rosewood overlay -->
+  <div class="belief-zones" aria-hidden="true">
+    <div class="belief-zone" style="background-image:url('mvp%20white%20bg/Photoroom_20260429_161349.jpg');" onclick="scrollToShop()"></div>
+    <div class="belief-zone" style="background-image:url('mvp%20white%20bg/Photoroom_20260429_161309.jpg');" onclick="scrollToShop()"></div>
+    <div class="belief-zone" style="background-image:url('mvp%20white%20bg/Photoroom_20260429_161221.jpg');" onclick="scrollToShop()"></div>
+    <div class="belief-zone" style="background-image:url('mvp%20white%20bg/Photoroom_20260429_161421.jpg');" onclick="scrollToShop()"></div>
+    <div class="belief-zone" style="background-image:url('mvp%20white%20bg/Photoroom_20260429_161253.jpg');" onclick="scrollToShop()"></div>
+    <div class="belief-zone" style="background-image:url('mvp%20white%20bg/Photoroom_20260429_161328.jpg');" onclick="scrollToShop()"></div>
+  </div>
+  <!-- Slogan text always on top -->
+  <div class="belief-rose-inner">
+    <h2 class="belief-rose-h" id="belief-typed" aria-label="No two boxes ever bloom the same. Breath. Unwind. Craft your memories."></h2>
+  </div>
+</section>
+
+<!-- HOW IT WORKS — split illustration -->
+<section id="blind-box" class="hiw-split">
+  <div class="hiw-split-inner">
+    <div class="hiw-grid">
+      <div class="hiw-panel">
+        <div class="hiw-illust" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="40" y="55" width="120" height="100" rx="6" fill="#FFF" fill-opacity="0.55"/>
+            <path d="M40 80 L160 80"/>
+            <circle cx="56" cy="68" r="3.2" fill="currentColor"/>
+            <circle cx="68" cy="68" r="3.2" fill="currentColor"/>
+            <circle cx="80" cy="68" r="3.2" fill="currentColor"/>
+            <rect x="56" y="92" width="40" height="48" rx="2" fill="currentColor" fill-opacity="0.12"/>
+            <rect x="104" y="92" width="40" height="22" rx="2" fill="currentColor" fill-opacity="0.20"/>
+            <rect x="104" y="118" width="40" height="22" rx="2" fill="currentColor" fill-opacity="0.08"/>
+            <circle cx="76" cy="116" r="6" fill="currentColor" fill-opacity="0.55"/>
+            <path d="M124 100 L132 108 L140 100" stroke-width="1.6"/>
+            <path d="M76 178 Q100 188 124 178" stroke-dasharray="2 4"/>
+          </svg>
+        </div>
+        <div class="hiw-num">01</div>
+        <h3 class="hiw-h">You pick the craft</h3>
+        <p class="hiw-p">Choose among 6 craft selections — punch needle, perler beads, chenille flowers, plush ball, paint by numbers, diamond painting.</p>
+      </div>
+      <div class="hiw-panel">
+        <div class="hiw-illust" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M70 145 Q70 110 100 110 Q130 110 130 145 Z" fill="currentColor" fill-opacity="0.10"/>
+            <path d="M70 145 Q70 110 100 110 Q130 110 130 145 Z"/>
+            <path d="M65 148 L135 148" stroke-width="1.6"/>
+            <path d="M82 110 Q82 96 90 92 Q98 88 100 96" stroke-width="1.6"/>
+            <path d="M118 110 Q118 96 110 92 Q102 88 100 96" stroke-width="1.6"/>
+            <path d="M88 100 Q86 88 96 84" stroke-dasharray="2 3"/>
+            <path d="M112 100 Q114 88 104 84" stroke-dasharray="2 3"/>
+            <circle cx="100" cy="76" r="2.5" fill="currentColor"/>
+            <path d="M55 80 L52 75 L57 73 L55 67" stroke-width="1.2"/>
+            <path d="M148 90 L153 87 L150 82 L155 79" stroke-width="1.2"/>
+            <path d="M40 130 L34 128" stroke-width="1.2"/>
+            <path d="M40 130 L37 134" stroke-width="1.2"/>
+            <path d="M160 130 L166 128" stroke-width="1.2"/>
+            <path d="M160 130 L163 134" stroke-width="1.2"/>
+            <circle cx="46" cy="60" r="1.5" fill="currentColor"/>
+            <circle cx="160" cy="62" r="1.5" fill="currentColor"/>
+            <circle cx="158" cy="160" r="1.8" fill="currentColor"/>
+            <circle cx="44" cy="158" r="1.8" fill="currentColor"/>
+            <path d="M170 100 L174 98 M170 100 L172 104" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="hiw-num">02</div>
+        <h3 class="hiw-h">We brew the magic</h3>
+        <p class="hiw-p">A short survey reads your vibe (MBTI, zodiac, tarot), and we curate surprise extras to match.</p>
       </div>
     </div>
-    <div class="belief-visual">
-      <video autoplay muted loop playsinline preload="auto" poster="">
-        <source src="assets/au-newspaper-v2.mp4" type="video/mp4">
-      </video>
+    <div class="hiw-cta-wrap">
+      <a class="hiw-cta" href="#shop">Shop now <span class="hiw-cta-arr">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- OUR BLIND BOX + HOW IT WORKS (combined, flip cards) -->
-<div class="flip-sec" id="blind-box">
-  <div class="flip-inner">
-    <div style="text-align:center;margin-bottom:0;">
-      <div class="sec-eye">Our Blind Box</div>
-      <h2 class="sec-h">Choose your craft.<br><em style="font-style:normal;color:#B94F63;">Be surprised.</em></h2>
+<!-- SHOP -->
+<section id="shop">
+  <img src="assets/14.png" class="wc-blossom" style="position:absolute;width:240px;top:-40px;left:-30px;transform:rotate(8deg);z-index:0;pointer-events:none;opacity:0.85;" alt="">
+  <img src="assets/15.png" class="wc-flower" style="position:absolute;width:190px;bottom:-20px;right:10px;transform:rotate(-8deg) scaleX(-1);z-index:0;pointer-events:none;opacity:0.85;" alt="">
+  <div class="shop-inner">
+    <div class="shop-head">
+      <h2 class="sec-h">Choose your <span class="hl-rose">craft</span></h2>
+      <p class="shop-sub">Pick the one that calls to you. We'll curate the rest.</p>
     </div>
-    <div class="tl-wrap">
-      <div class="tl-line"></div>
-      <div class="tl-grid">
-        <div class="tl-step">
-          <div class="tl-dot">01</div>
-          <div class="tl-title">Tell us about yourself</div>
-          <div class="tl-desc">Answer a few quick questions to help us know you better.</div>
-        </div>
-        <div class="tl-step">
-          <div class="tl-dot">02</div>
-          <div class="tl-title">We curate your blind box</div>
-          <div class="tl-desc">We hand-select everything — your craft, add-ons, and a surprise extra.</div>
-        </div>
-        <div class="tl-step">
-          <div class="tl-dot">03</div>
-          <div class="tl-title">Unbox &amp; create</div>
-          <div class="tl-desc">Step-by-step guides plus QR code video tutorials. No experience needed.</div>
-        </div>
-        <div class="tl-step">
-          <div class="tl-dot">04</div>
-          <div class="tl-title">Share the moment</div>
-          <div class="tl-desc">Tag us with your finished piece — we love seeing who you made it with.</div>
-        </div>
+    <div class="shop-grid" id="shop-grid"></div>
+  </div>
+</section>
+
+<!-- PRODUCT DETAIL MODAL (Zara-style) -->
+<div id="product-modal" class="product-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+  <button class="pm-close" onclick="closeShopProduct()" aria-label="Close">✕</button>
+  <div class="pm-body">
+    <div class="pm-gallery">
+      <div class="pm-gallery-main" id="pm-gallery-main"></div>
+      <button class="pm-gallery-arr pm-gallery-arr-prev" onclick="shopGalleryStep(-1)" aria-label="Previous image">‹</button>
+      <button class="pm-gallery-arr pm-gallery-arr-next" onclick="shopGalleryStep(1)" aria-label="Next image">›</button>
+      <div class="pm-gallery-thumbs" id="pm-gallery-thumbs"></div>
+    </div>
+    <div class="pm-info">
+      <div class="pm-tag" id="pm-tag">NEW</div>
+      <h1 class="pm-name" id="pm-title">Craft name</h1>
+      <div class="pm-divider"></div>
+
+      <div class="pm-founders-tag">✦ Founding 50 · 15% off at checkout</div>
+      <div class="pm-breakdown" id="pm-breakdown">
+        <div class="pm-bd-row"><span>Craft kit</span><span id="pm-bd-craft">$0</span></div>
+        <div class="pm-bd-row"><span>Curation &amp; surprise extras</span><span id="pm-bd-cur">$0</span></div>
+        <div class="pm-bd-row pm-bd-total"><span>Total</span><span id="pm-bd-total">$0</span></div>
       </div>
+
+      <p class="pm-desc" id="pm-desc"></p>
+      <p class="pm-note" id="pm-note"></p>
+
+      <button class="pm-btn-add" id="pm-btn-add" onclick="onAddToBox()">Curate my box</button>
+
+      <details class="pm-acc">
+        <summary>How you'll make it</summary>
+        <ol class="pm-steps" id="pm-steps"></ol>
+      </details>
+      <details class="pm-acc">
+        <summary>What's in the box</summary>
+        <div class="pm-incl">A complete craft kit · printed activity guide · curated add-ons matched to your survey · one mystery surprise extra ✦<br><br><strong>Box size:</strong> <span id="pm-dims">33 × 23 × 7 cm</span><br><span class="pm-disclaimer">Extra add-ons are personalized based on your survey answers — every box is unique.</span></div>
+      </details>
+      <details class="pm-acc">
+        <summary>Delivery &amp; returns</summary>
+        <div class="pm-incl">Free shipping to the US. We ship door-to-door by air mail from China, 10–15 business days to your doorstep. Round 1 is US-only — international launch coming later. Because every box is curated to your answers, sales are final — but reach out anytime if anything arrives damaged.</div>
+      </details>
     </div>
   </div>
 </div>
-
-<!-- CRAFTS -->
-<section id="crafts-section">
-  <!-- Watercolor blossom decoration -->
-  <img src="assets/14.png" class="wc-blossom" style="position:absolute;width:260px;top:-40px;left:-30px;transform:rotate(8deg);z-index:0;pointer-events:none;" alt="">
-  <img src="assets/15.png" class="wc-flower" style="position:absolute;width:200px;bottom:-20px;right:10px;transform:rotate(-8deg) scaleX(-1);z-index:0;pointer-events:none;" alt="">
-  <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;">
-    <path d="M1210,42 Q1170,-2 1110,12 Q1064,24 1044,5 Q1028,-10 1038,-28 Q1048,-42 1066,-36 Q1056,-54 1066,-66 Q1082,-78 1096,-62 Q1102,-82 1118,-75 Q1136,-65 1132,-46 Q1148,-58 1164,-48 Q1180,-36 1168,-20 Q1186,-10 1194,8 Q1204,26 1210,42Z" fill="#E8543A" opacity="0.2"/>
-    <circle cx="1024" cy="18" r="10" fill="#E8543A" opacity="0.22"/>
-  </svg>
-  <div class="crafts-inner">
-    <div class="crafts-head">
-      <div class="sec-eye">Craft collection</div>
-      <h2 class="sec-h">Four crafts, endless possibilities</h2>
-      <p class="sec-sub">Scroll through each craft to see how it's made, how long it takes, and what you'll walk away with.</p>
-    </div>
-    <div id="craft-panels"></div>
-  </div>
-</section>
 
 <!-- REVIEWS -->
 <section id="reviews">
@@ -1703,11 +2728,11 @@ function submitWelcomeNotify(form){
   </svg>
   <div class="reviews-inner" style="padding:4.5rem 2rem;text-align:center;">
     <div class="sec-eye" style="margin-bottom:1.5rem;">Coming soon</div>
-    <h2 style="font-family:'Cormorant',serif;font-weight:500;color:#B94F63;font-size:clamp(2.2rem,5.5vw,4rem);line-height:1.15;letter-spacing:-0.01em;margin:0 auto;max-width:960px;">
+    <h2 style="font-family:'Cormorant',serif;font-weight:500;color:#B94F63;font-size:clamp(1.5rem,3.2vw,2.4rem);line-height:1.2;letter-spacing:-0.005em;margin:0 auto;max-width:720px;">
       We're excitedly waiting for your reviews.
     </h2>
-    <p style="font-family:'Cormorant',serif;font-weight:400;color:var(--ink);font-size:clamp(1.15rem,2.4vw,1.75rem);line-height:1.4;margin:1.35rem auto 0;max-width:480px;">
-      Unbox and tell us &mdash; did the magic work, or did it fail?
+    <p style="font-family:'Cormorant',serif;font-weight:400;color:var(--ink);font-size:clamp(1.05rem,2vw,1.4rem);line-height:1.4;margin:1rem auto 0;max-width:480px;">
+      Unbox and tell us &mdash; did the magic work?
     </p>
   </div>
 </section>
@@ -1721,10 +2746,10 @@ function submitWelcomeNotify(form){
     <span style="font-family:'Cormorant',serif;font-size:1.5rem;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:0.65rem;">Browse our FAQ <span class="faq-chev" style="display:inline-block;width:11px;height:11px;border-right:1.5px solid var(--dust);border-bottom:1.5px solid var(--dust);transform:rotate(45deg);transition:transform 0.3s ease;margin-bottom:4px;"></span></span>
   </div>
   <div class="faq-wrap" id="faq-wrap" style="max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height 0.45s ease,opacity 0.35s ease,margin-top 0.3s ease;">
-    <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">When are you launching?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">We're putting the final touches on our first drop. Join the waitlist and we'll email you the moment the doors open, with early access before the public launch.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What's inside a blind box?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">A DIY craft you'll love (Perler Beads, Chenille Sticks, Paint-by-Numbers, or a Floral Pen Pot), plus hand-picked extras and a surprise add-on curated just for you.</div></div></div>
+    <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">How long does delivery take?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">We're in our Round 1 reservation stage — checkout opens May 10, 2026. Round 1 ships to the US only, by air mail door-to-door from China. Allow 10–15 business days from dispatch.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Are the blind boxes suitable for complete beginners?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Absolutely. Every blind box includes a printed step-by-step guide plus QR code video tutorials. No prior experience needed.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What is the mystery add-on?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every blind box includes a hand-picked extra based on your answers and the scene you're creating. Always a surprise until you open the box.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What's the Founder's Prize?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every Founding 50 member is automatically entered into a draw for a premium, hand-curated prize — kept under wraps until May 10. Reserving your box is your entry. One winner drawn on launch day (May 10) when the first 50 boxes ship. Announced via email and Instagram.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Can I send a blind box as a gift?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Yes. Every blind box arrives in a beautiful presentation box. You can leave a handwritten note while placing your order.</div></div></div>
   </div>
   </div>
@@ -1749,7 +2774,7 @@ function submitWelcomeNotify(form){
 /* Pick which variant to show. Change this to 'B' to test the other design. */
 var PROMO_VARIANT = 'A';
 var PROMO_SEEN_KEY = 'au_promo_seen';
-var PROMO_DELAY_MS = 30000; // 30 seconds
+var PROMO_DELAY_MS = 2000; // 2 seconds — auto-pop the coupon modal on landing
 
 function _renderPromoA(){
   return '<div class="promo-a">'+
@@ -1769,7 +2794,9 @@ function _renderPromoA(){
     '<div id="promo-success-a" class="promo-success" style="display:none;">'+
       '<div class="ps-icon">✦</div>'+
       '<div class="ps-h">Welcome!</div>'+
-      '<p class="ps-sub">Your 15% off code is on its way to your inbox.<br>Use it at checkout for your first order.</p>'+
+      '<p class="ps-sub">Use this code at checkout for <strong style="color:#B94F63;">15% off</strong> your first box:</p>'+
+      '<div style="margin:14px auto 6px;display:inline-block;background:rgba(185,79,99,0.10);color:#B94F63;font-family:\'Raleway\',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.22em;padding:10px 20px;border-radius:4px;">UNFOLD15</div>'+
+      '<p class="ps-sub" style="margin-top:10px;">We\'ll also send it to your inbox so you don\'t lose it.</p>'+
     '</div>'+
   '</div>';
 }
@@ -1807,7 +2834,9 @@ function _renderPromoB(){
       '<div id="promo-success-b" class="promo-success" style="display:none;">'+
         '<div class="ps-icon">✦</div>'+
         '<div class="ps-h">Welcome to the afternoon.</div>'+
-        '<p class="ps-sub">Your 15% off code is on its way.<br>Check your inbox in a minute.</p>'+
+        '<p class="ps-sub">Use this code at checkout for <strong style="color:#B94F63;">15% off</strong>:</p>'+
+        '<div style="margin:14px auto 6px;display:inline-block;background:rgba(185,79,99,0.10);color:#B94F63;font-family:\'Raleway\',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.22em;padding:10px 20px;border-radius:4px;">UNFOLD15</div>'+
+        '<p class="ps-sub" style="margin-top:10px;">We\'ll also send it to your inbox.</p>'+
       '</div>'+
     '</div>'+
   '</div>';
@@ -1818,6 +2847,18 @@ function togglePbChip(el){
   all.forEach(function(c){c.classList.remove('picked');});
   el.classList.add('picked');
   document.getElementById('pb-preference').value=el.getAttribute('data-val');
+}
+
+/* User-triggered email capture (cover page CTA). Bypasses the auto-pop guards
+   in openPromo so it always opens, regardless of pre-sale state or last-seen time. */
+function openCouponModal(){
+  var c = document.getElementById('promo-variant-container');
+  if(!c) return;
+  c.innerHTML = (typeof PROMO_VARIANT !== 'undefined' && PROMO_VARIANT === 'B') ? _renderPromoB() : _renderPromoA();
+  var m = document.getElementById('promo-modal');
+  if(!m) return;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
 function openPromo(){
@@ -1890,20 +2931,21 @@ function submitPromo(e,variant){
   return false;
 }
 
-/* Trigger the promo after 30s (once per 7 days) */
+/* Auto-trigger the coupon popup 2s after landing (once per day) */
 (function(){
   try{
     var seen=localStorage.getItem(PROMO_SEEN_KEY);
     if(seen){
-      var daysSince=(Date.now()-parseInt(seen,10))/(1000*60*60*24);
-      if(daysSince<7) return; // shown recently, skip
+      var hoursSince=(Date.now()-parseInt(seen,10))/(1000*60*60);
+      if(hoursSince<24) return; // shown recently, skip
     }
   }catch(e){}
   setTimeout(function(){
-    /* Don't interrupt the quiz, reserve modal, or if user has already scrolled deep into checkout */
-    if(document.getElementById('quiz-overlay').classList.contains('open')) return;
-    if(document.getElementById('reserve-modal').classList.contains('open')) return;
-    openPromo();
+    /* Don't interrupt the quiz, reserve modal, or another open overlay */
+    if(document.getElementById('quiz-overlay') && document.getElementById('quiz-overlay').classList.contains('open')) return;
+    if(document.getElementById('reserve-modal') && document.getElementById('reserve-modal').classList.contains('open')) return;
+    if(document.getElementById('product-modal') && document.getElementById('product-modal').classList.contains('open')) return;
+    openCouponModal();
   }, PROMO_DELAY_MS);
 })();
 
@@ -1920,7 +2962,7 @@ function submitPromo(e,variant){
 
 <!-- Floating Founder's Prize — translucent round button with a gift-box
      line icon in rosewood. Click opens the prize detail modal. -->
-<div class="prize-float" id="prize-float" onclick="openPrizeModal()" role="button" tabindex="0" aria-label="View Founder's Prize" style="display:none;">
+<div class="prize-float" id="prize-float" onclick="openPrizeModal()" role="button" tabindex="0" aria-label="View Founder's Prize">
   <svg class="pf-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <!-- Box body -->
     <rect x="5" y="13.5" width="22" height="15.5"/>
@@ -1951,16 +2993,16 @@ function submitPromo(e,variant){
         <!-- Dot (outlined circle, near-closed) -->
         <circle cx="24" cy="54" r="2.6"/>
       </svg>
-      <div class="pt-hint">Sealed until July 4</div>
+      <div class="pt-hint">Sealed until May 10</div>
     </div>
 
     <div class="prize-modal-meta">
-      <div class="pm-meta-row"><span class="pm-k">Drawn</span><span class="pm-v">July 4 · launch day</span></div>
+      <div class="pm-meta-row"><span class="pm-k">Drawn</span><span class="pm-v">May 10 · launch day</span></div>
       <div class="pm-meta-row"><span class="pm-k">Entry</span><span class="pm-v">Automatic with your Round 1 reservation</span></div>
       <div class="pm-meta-row"><span class="pm-k">Announced</span><span class="pm-v">By email + Instagram</span></div>
     </div>
 
-    <button class="prize-modal-cta" type="button" onclick="closePrizeModal();openQuiz();">Reserve my spot →</button>
+    <button class="prize-modal-cta" type="button" onclick="closePrizeModal();scrollToShop();">Curate my box →</button>
   </div>
 </div>
 
@@ -2087,7 +3129,7 @@ function submitPromo(e,variant){
     <!-- S0: Who for? -->
     <div class="quiz-slide active" id="slide-0">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s0-counter">01 — 08</div>
+        <div class="quiz-counter" id="s0-counter">01 — 07</div>
         <h2 class="quiz-q">Hello! <span class="qhi-pink">Who's this magical box for?</span></h2>
         <p class="quiz-sub">Every blind box is curated around one person — we'll ask about them next.</p>
         <div id="whofor-chips" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:420px;margin:1.5rem auto 0;">
@@ -2104,7 +3146,7 @@ function submitPromo(e,variant){
     <!-- S1: Name -->
     <div class="quiz-slide" id="slide-1">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s1-counter">02 — 08</div>
+        <div class="quiz-counter" id="s1-counter">02 — 07</div>
         <h2 class="quiz-q" id="s1-q">What's <span class="qhi-pink">your name?</span></h2>
         <p class="quiz-sub">Every blind box we make is personal, and it begins with a name.</p>
         <input class="quiz-name-input" id="input-name" type="text" placeholder="Name" autocomplete="off" oninput="onNameInput()">
@@ -2118,7 +3160,7 @@ function submitPromo(e,variant){
     <!-- S2: Occasion -->
     <div class="quiz-slide" id="slide-2">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s2-counter">03 — 08</div>
+        <div class="quiz-counter" id="s2-counter">03 — 07</div>
         <h2 class="quiz-q" id="s2-q">What's the <span class="qhi-pink">occasion?</span></h2>
         <p class="quiz-sub">This shapes everything — the craft selection, the pace, and the magic extras we add.</p>
         <div id="scene-chips">
@@ -2139,7 +3181,7 @@ function submitPromo(e,variant){
     <!-- S3: Craft -->
     <div class="quiz-slide" id="slide-3">
       <div class="quiz-slide-inner"><div class="quiz-inner-wide">
-        <div class="quiz-counter" id="s3-counter">04 — 08</div>
+        <div class="quiz-counter" id="s3-counter">04 — 07</div>
         <h2 class="quiz-q">Choose your <span class="qhi-pink">crafts</span> &amp; <span class="qhi-pink">quantities</span></h2>
         <p class="quiz-sub">How many of each? Perfect for groups — mix and match. e.g. 1 perler beads + 2 paint by numbers for 3 people.</p>
         <div id="craft-qty-grid"></div>
@@ -2153,7 +3195,7 @@ function submitPromo(e,variant){
     <!-- S4: Colours + Duration -->
     <div class="quiz-slide" id="slide-4">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s4-counter">05 — 08</div>
+        <div class="quiz-counter" id="s4-counter">05 — 07</div>
         <h2 class="quiz-q" id="s4-q">Your <span class="qhi-purple">style</span> preferences</h2>
         <p class="quiz-sub" id="s4-sub">This helps us personalise the colours of your blind box.</p>
 
@@ -2181,7 +3223,7 @@ function submitPromo(e,variant){
     <!-- S5: Optional — MBTI + adjectives -->
     <div class="quiz-slide" id="slide-5">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s5-counter">06 — 08</div>
+        <div class="quiz-counter" id="s5-counter">06 — 07</div>
         <div class="quiz-optional-tag" id="s5-tag">Optional · let the magic read your chart</div>
         <h2 class="quiz-q" id="s5-q">Your <span class="qhi-pink">personality</span></h2>
         <p class="quiz-sub" id="s5-sub">Share what you know and magic will read your chart — we'll choose the scent, tea, and luck colour from the clues you leave.</p>
@@ -2218,7 +3260,7 @@ function submitPromo(e,variant){
     <!-- S6: Optional — Zodiac -->
     <div class="quiz-slide" id="slide-6">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s6-counter">07 — 08</div>
+        <div class="quiz-counter" id="s6-counter">07 — 07</div>
         <div class="quiz-optional-tag" id="s6-tag">Optional · your sign anchors the reading</div>
         <h2 class="quiz-q" id="s6-q">Your <span class="qhi-pink">zodiac</span> sign</h2>
         <p class="quiz-sub" id="s6-sub">Your element guides everything we tuck into your box — your scent, your tea, your colour. Share if you know it.</p>
@@ -2250,7 +3292,7 @@ function submitPromo(e,variant){
     <!-- S7: Optional — Tarot card pick -->
     <div class="quiz-slide" id="slide-7">
       <div class="quiz-slide-inner"><div class="quiz-inner">
-        <div class="quiz-counter" id="s7-counter">08 — 08</div>
+        <div class="quiz-counter" id="s7-counter">08 — 07</div>
         <div class="quiz-optional-tag" id="s7-tag">Optional · the deck has drawn one for you</div>
         <h2 class="quiz-q" id="s7-q">Pick the <span class="qhi-pink">card</span> that calls</h2>
         <p class="quiz-sub" id="s7-sub">Close your eyes, then look — the right card pulls.<br>The reading gets deeper with every answer.</p>
@@ -2333,6 +3375,16 @@ function submitPromo(e,variant){
       </div></div>
     </div>
 
+    <!-- Box image with hand-drawn squiggly frame — floats bottom-right of viewport
+         (lives outside slide-9 so position:fixed works — slides have transforms) -->
+    <div class="box-frame" id="box-frame">
+      <svg class="box-squiggle" viewBox="0 0 240 320" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M16 16 Q30 8 44 16 Q58 24 72 16 Q86 8 100 16 Q114 24 128 16 Q142 8 156 16 Q170 24 184 16 Q198 8 212 16 Q220 18 224 28 Q232 42 224 56 Q216 70 224 84 Q232 98 224 112 Q216 126 224 140 Q232 154 224 168 Q216 182 224 196 Q232 210 224 224 Q216 238 224 252 Q232 266 224 280 Q222 296 212 304 Q198 312 184 304 Q170 296 156 304 Q142 312 128 304 Q114 296 100 304 Q86 312 72 304 Q58 296 44 304 Q30 312 18 304 Q8 296 16 280 Q24 266 16 252 Q8 238 16 224 Q24 210 16 196 Q8 182 16 168 Q24 154 16 140 Q8 126 16 112 Q24 98 16 84 Q8 70 16 56 Q24 42 16 28 Q12 18 16 16 Z"
+          stroke="#B94F63" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="box-frame-img" id="box-frame-img"></div>
+    </div>
+
     <!-- S9: Result — two-column (left: peek/price/CTA, right: reading) -->
     <div class="quiz-slide" id="slide-9">
       <div class="quiz-slide-inner">
@@ -2342,14 +3394,8 @@ function submitPromo(e,variant){
           <div class="result-col result-col-left">
             <div class="result-panel-head">
               <div id="result-tag-wrap"></div>
-              <h2 class="result-h" id="result-h">Take a peek now!</h2>
-              <p class="result-sub" id="result-sub">This is only a preview of your actual blind box.</p>
-            </div>
-
-            <div class="result-img-container result-img-compact" id="result-img-container">
-              <div id="result-img-wrap"></div>
-              <canvas class="result-img-eraser" id="result-img-eraser"></canvas>
-              <div class="result-img-hint" id="result-img-hint"><span class="result-img-hint-eye">✦ Peek inside</span>Hover &amp; scrub to reveal</div>
+              <h2 class="result-h" id="result-h">Hooray! Your box is ready!</h2>
+              <p class="result-sub" id="result-sub">Curated just for your afternoon.</p>
             </div>
 
             <div class="result-items-wrap" id="result-items-wrap">
@@ -2357,61 +3403,83 @@ function submitPromo(e,variant){
               <div class="rkp-items" id="rkp-items"></div>
             </div>
 
-            <div class="result-price-row" style="margin-top:8px;">
-              <div class="result-price-label" style="font-size:14px;">Retail</div>
-              <div class="result-price" id="result-price" style="text-decoration:line-through;opacity:0.55;font-size:1.9rem;">$54.99</div>
-              <div class="result-price-label" style="font-size:14px;">USD · Free US shipping</div>
-            </div>
-            <div class="result-price-row" style="margin-top:2px;">
-              <div class="result-price-label" style="color:#B94F63;font-weight:500;font-size:14px;">Founding 50 (−15%)</div>
-              <div class="result-price" id="result-presale-price" style="color:#B94F63;font-size:2.6rem;">$46.99</div>
+            <div class="result-price-row" style="margin-top:8px;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;">
+              <div class="result-price-label" style="font-size:14px;">Total</div>
+              <div class="result-price" id="result-price" style="font-size:1.9rem;">$58</div>
+              <div class="result-price-label" style="font-size:13px;color:#8E3A4E;">Got a code? Apply at checkout</div>
             </div>
             <ul class="result-bullets">
-              <li>✦ Reserve free now</li>
-              <li>✦ Pay on July 4 launch</li>
-              <li>✦ Only 50 boxes in Round 1</li>
+              <li>✦ Free US shipping</li>
+              <li>✦ One mystery surprise inside every box</li>
             </ul>
             <div class="result-actions">
-              <button class="btn-cart" id="btn-cart">Reserve my spot (free) →</button>
+              <button class="btn-cart" id="btn-cart">Proceed to checkout</button>
               <button class="btn-restart" onclick="restartQuiz()">Start over</button>
             </div>
           </div>
 
-          <!-- RIGHT column: the mystical reading -->
+          <!-- RIGHT column: the mystical reading (tarot-altar aesthetic) -->
           <div class="result-col result-col-right">
-            <!-- Persona "reading" — structured sections. Specific items
-                 (scent/tea/colour) stay blurred on site; the printed
-                 card inside the box does the full reveal. -->
-            <div class="persona-reading sealed" id="persona-reading">
-              <div class="pr-eye">Your reading</div>
-              <div class="pr-greeting" id="pr-greeting"></div>
-              <div class="pr-sections" id="pr-sections"></div>
-              <span class="pr-divider"></span>
-              <div class="pr-cards">
-                <div class="pr-card">
-                  <div class="pr-card-icon">✦</div>
-                  <div class="pr-card-label">Your scent</div>
-                  <div class="pr-card-value" id="pr-scent">sealed</div>
-                </div>
-                <div class="pr-card">
-                  <div class="pr-card-icon">✧</div>
-                  <div class="pr-card-label">Your tea</div>
-                  <div class="pr-card-value" id="pr-tea">sealed</div>
-                </div>
-                <div class="pr-card">
-                  <div class="pr-card-icon pr-card-swatch" id="pr-color-swatch" style="background:#C4936A;"></div>
-                  <div class="pr-card-label">Your colour</div>
-                  <div class="pr-card-value" id="pr-color">sealed</div>
+            <!-- Decorative SVG sprigs in corners -->
+            <svg class="altar-sprig altar-sprig-tl" viewBox="0 0 60 80" fill="none" stroke="#A57F45" stroke-width="0.8" stroke-linecap="round" aria-hidden="true">
+              <path d="M30 78 Q30 50 30 22"/>
+              <path d="M30 60 Q22 56 18 48"/><circle cx="18" cy="46" r="2.5" fill="#A57F45" stroke="none"/>
+              <path d="M30 50 Q40 46 44 38"/><circle cx="44" cy="36" r="2.2" fill="#A57F45" stroke="none"/>
+              <path d="M30 38 Q22 34 16 26"/><circle cx="16" cy="24" r="2.6" fill="#A57F45" stroke="none"/>
+              <path d="M30 26 Q42 22 46 14"/><circle cx="46" cy="12" r="2.4" fill="#A57F45" stroke="none"/>
+            </svg>
+            <svg class="altar-sprig altar-sprig-br" viewBox="0 0 60 80" fill="none" stroke="#A57F45" stroke-width="0.8" stroke-linecap="round" aria-hidden="true">
+              <path d="M30 78 Q30 50 30 22"/>
+              <path d="M30 60 Q38 56 44 48"/><circle cx="44" cy="46" r="2.5" fill="#A57F45" stroke="none"/>
+              <path d="M30 50 Q20 46 16 38"/><circle cx="16" cy="36" r="2.2" fill="#A57F45" stroke="none"/>
+              <path d="M30 38 Q38 34 44 26"/><circle cx="44" cy="24" r="2.6" fill="#A57F45" stroke="none"/>
+            </svg>
+
+            <div class="reading-altar">
+              <div class="altar-date" id="altar-date">— · YOUR READING · —</div>
+              <div class="altar-flipcard" id="altar-flipcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0" aria-label="Flip your reading card">
+                <div class="afc-inner">
+                  <!-- BACK of card (shown first, like a face-down tarot) -->
+                  <div class="afc-back">
+                    <div class="afc-back-mark">✦</div>
+                    <div class="afc-back-text">Your reading is ready</div>
+                    <div class="afc-back-cta">Tap to flip</div>
+                  </div>
+                  <!-- FRONT of card (revealed on flip) -->
+                  <div class="afc-front">
+                    <div class="persona-reading sealed" id="persona-reading">
+                      <div class="pr-eye">Your reading</div>
+                      <div class="pr-greeting" id="pr-greeting"></div>
+                      <div class="pr-sections" id="pr-sections"></div>
+                      <span class="pr-divider"></span>
+                      <div class="pr-cards">
+                        <div class="pr-card">
+                          <div class="pr-card-icon">✦</div>
+                          <div class="pr-card-label">Your scent</div>
+                          <div class="pr-card-value" id="pr-scent">sealed</div>
+                        </div>
+                        <div class="pr-card">
+                          <div class="pr-card-icon">✧</div>
+                          <div class="pr-card-label">Your tea</div>
+                          <div class="pr-card-value" id="pr-tea">sealed</div>
+                        </div>
+                        <div class="pr-card">
+                          <div class="pr-card-icon pr-card-swatch" id="pr-color-swatch" style="background:#C4936A;"></div>
+                          <div class="pr-card-label">Your colour</div>
+                          <div class="pr-card-value" id="pr-color">sealed</div>
+                        </div>
+                      </div>
+                      <p class="pr-seal-note">Your full reading — scent, tea &amp; colour — will be printed on a hand-written card inside your box. Open to reveal.</p>
+                      <div class="pr-closer" id="pr-closer">✦</div>
+                    </div>
+                    <div class="persona-empty" id="persona-empty" style="display:none;">
+                      <div class="pe-eye">✦ Your reading</div>
+                      <p class="pe-text">You skipped the mystical questions — so we'll let your blind box be your reading.</p>
+                      <p class="pe-sub">A hand-written card printed inside your box will reveal a scent, a tea, and a colour chosen for your afternoon.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <p class="pr-seal-note">Your full reading — scent, tea &amp; colour — will be printed on a hand-written card inside your box. Open to reveal.</p>
-              <div class="pr-closer" id="pr-closer">✦</div>
-            </div>
-            <!-- Fallback when no MBTI / zodiac was given -->
-            <div class="persona-empty" id="persona-empty" style="display:none;">
-              <div class="pe-eye">✦ Your reading</div>
-              <p class="pe-text">You skipped the mystical questions — so we'll let your blind box be your reading.</p>
-              <p class="pe-sub">A hand-written card printed inside your box will reveal a scent, a tea, and a colour chosen for your afternoon.</p>
             </div>
           </div>
 
@@ -2430,8 +3498,8 @@ function submitPromo(e,variant){
     <div id="reserve-form-state">
       <div class="reserve-eye">✦ Founding 50 · Reserve your spot</div>
       <h2 class="reserve-h" id="reserve-title" style="white-space:nowrap;">Claim Box <span style="color:#B94F63;font-size:1.25em;font-weight:600;">#<span id="rs-box-preview">—</span></span> of 50</h2>
-      <p class="reserve-sub">Pay <strong style="color:#B94F63;">nothing now</strong> — we'll email you a secure checkout with your <strong>15% off</strong> locked in when we open on July 4.</p>
-      <div class="reserve-prize-line">✦ You'll be entered for the <strong>Founder's Prize</strong> — drawn on July 4 launch day</div>
+      <p class="reserve-sub">Pay <strong style="color:#B94F63;">nothing now</strong>. We'll email you a secure checkout with your <strong>15% off</strong> locked in when Round 1 opens May 10.</p>
+      <div class="reserve-prize-line">✦ You'll be entered for the <strong>Founder's Prize</strong> — drawn on May 10 launch day</div>
 
       <div class="reserve-summary" id="reserve-summary">
         <div class="rs-row"><span class="rs-k">Bundle</span><span class="rs-v" id="rs-scene">—</span></div>
@@ -2470,7 +3538,7 @@ function submitPromo(e,variant){
 
         <button type="submit" class="reserve-submit" id="reserve-submit-btn">Reserve my spot →</button>
       </form>
-      <p class="reserve-privacy">No payment now. US only. Shipping begins July 4 ✦ Your info goes directly to Afternoon Unfold — never shared.</p>
+      <p class="reserve-privacy">No payment now. Free US shipping (10–15 days from China). Round 1 checkout opens May 10 ✦ Your info goes directly to Afternoon Unfold — never shared.</p>
     </div>
 
     <div id="reserve-success-state" style="display:none;">
@@ -2528,11 +3596,11 @@ function submitPromo(e,variant){
     <div class="rp-next">
       <h3>What happens next</h3>
       <ul>
-        <li><strong>Round 1 · May 1–30</strong> · Founding 50 reservations</li>
+        <li><strong>Round 1 · May 10 – June 9</strong> · Founding 50 reservations</li>
         <li><strong>Round 2 · June 1–30</strong> · open to everyone else</li>
         <li><strong>June – Early July</strong> · We source + hand-pack your box with behind-the-scenes peeks on our socials</li>
-        <li><strong>July 4</strong> · We open checkout. You'll get an email with your personalized Stripe link and <code>UNFOLD15</code> ready to use for your <span id="rp-price-line">15% off</span></li>
-        <li><strong>After July 4</strong> · Your box ships free to your US address + activity guide emailed</li>
+        <li><strong>May 10</strong> · We open checkout. You'll get an email with your personalized Stripe link and <code>UNFOLD15</code> ready to use for your <span id="rp-price-line">15% off</span></li>
+        <li><strong>After May 10</strong> · Your box ships free to your US address by air mail from China + activity guide emailed</li>
       </ul>
     </div>
 
@@ -2541,7 +3609,7 @@ function submitPromo(e,variant){
     <div class="rp-prize">
       <div class="rp-prize-badge">✦ Founder's Prize</div>
       <h3 class="rp-prize-h">You've been entered to win<br><em>a premium matcha set</em></h3>
-      <p class="rp-prize-sub">One winner drawn on <strong>July 4</strong>, the day your box ships. We'll announce via email and Instagram.</p>
+      <p class="rp-prize-sub">One winner drawn on <strong>May 10</strong>, the day your box ships. We'll announce via email and Instagram.</p>
     </div>
 
     <p class="rp-social">✦ Follow us on <a href="https://www.instagram.com/afternoonunfold" target="_blank" rel="noopener">Instagram</a> / <a href="https://www.tiktok.com/@afternoonunfold" target="_blank" rel="noopener">TikTok</a> for behind-the-scenes as we pack the Founding 50.</p>
@@ -2568,102 +3636,220 @@ var IMG = {
 
 var CRAFTS = [
   {
-    id:'pb', name:'Perler Beads', cn:'Hama Bead Art', price:40,
-    time:'2–4 hrs', level:'Beginner friendly',
-    videos:['assets/craft-videos/perler beads play.mp4','assets/craft-videos/beads box.mp4'],
-    hero: 'assets/products/pb-atmo1.PNG',
-    preview: 'assets/products/pb-hero.png',
-    kitImg: 'assets/products/pb-box-top.PNG',
-    photos: [
-      'assets/products/pb-atmo1.PNG',
-      'assets/products/pb-atmo2.jpg',
-      'assets/products/pb-atmo3.jpg',
-    ],
-    desc:'Place colourful beads onto a pegboard following a pattern, then fuse them together with an iron to create your pixel art masterpiece.',
+    id:'pn', name:'Punch Needle', cn:'戳戳绣',
+    priceCraft:38, priceCuration:20, priceTotal:58, price:38,
+    time:'2–3 hrs', level:'Beginner friendly',
+    boxDims:'33 × 23 × 7 cm',
+    mvpImg:'mvp/Bazaart_39BD5ACD-5BCA-4D3B-89D7-4F449F3E0E5A.JPEG',
+    shopHero:'new%20crafts/needle.PNG',
+    hero:'new%20crafts/needle.PNG',
+    preview:'new%20crafts/needle.PNG',
+    kitImg:'new%20crafts/needle.PNG',
+    desc:'Push loops of soft yarn through fabric to build a fluffy, three-dimensional tapestry. The pile is what makes it special — like a tiny handmade rug you can hang on the wall.',
+    note:'The pattern is randomly selected from our designs based on your survey.',
     steps:[
-      'Choose your bead colors from the kit',
-      'Arrange beads on the pegboard following the template',
-      'Use tweezers to place beads with precision',
-      'Iron with parchment paper to fuse and set the design',
-    ]
+      'Stretch the fabric tight in the included hoop',
+      'Thread the punch needle with yarn',
+      'Punch loops along the printed design lines',
+      'Trim, fluff, and finish — display in the hoop',
+    ],
+    photos:[
+      'product/punch%20needle/IMG_4354.JPG',
+      'cards/exports/06-punch-needle-tools.png',
+      'cards/exports/06-punch-needle-steps.png',
+      'product/punch%20needle/IMG_4356.JPG',
+      'product/punch%20needle/IMG_4357.JPG',
+      'product/punch%20needle/IMG_4358.JPG',
+      'product/punch%20needle/IMG_4359.JPG',
+      'product/punch%20needle/IMG_4375.JPG',
+      'product/punch%20needle/IMG_4376.JPG',
+      'product/punch%20needle/IMG_4377.JPG',
+      'product/punch%20needle/IMG_4378.JPG',
+      'product/punch%20needle/IMG_4381.JPG',
+      'product/punch%20needle/IMG_4384.JPG',
+      'product/punch%20needle/IMG_4482.JPG',
+      'product/punch%20needle/IMG_4484.JPG',
+    ],
+    videos:[],
   },
   {
-    id:'ww', name:'Chenille Sticks', cn:'Chenille Wire', price:40,
-    time:'45 min – 1.5 hrs', level:'Easy for all ages',
-    videos:['assets/craft-videos/stick flower sky.mp4','assets/craft-videos/sticks on canvas.mp4'],
-    hero: 'assets/products/ww-sky1.jpg',
-    preview: 'assets/products/ww-hero.png',
-    kitImg: 'assets/products/ww-box.PNG',
-    photos: [
-      'assets/products/ww-sky1.jpg',
-      'assets/products/ww-atmo1.jpg',
-      'assets/products/ww-atmo2.PNG',
+    id:'pb', name:'Perler Beads', cn:'拼豆',
+    priceCraft:35, priceCuration:20, priceTotal:55, price:35,
+    time:'2–4 hrs', level:'Beginner friendly',
+    boxDims:'33 × 23 × 7 cm',
+    mvpImg:'mvp/Bazaart_13E81AB9-9A40-40EC-92BD-D8CFD9D93713.PNG',
+    shopHero:'new%20crafts/beads.PNG',
+    hero:'new%20crafts/beads.PNG',
+    preview:'new%20crafts/beads.PNG',
+    kitImg:'new%20crafts/beads.PNG',
+    desc:'Place tiny colourful beads onto a pegboard, then iron them together into a glossy, fused pixel-art keepsake. Crisp, satisfying, and surprisingly meditative — like adult Lego.',
+    note:'The pattern is randomly selected from our designs based on your survey.',
+    steps:[
+      'Pick your bead colours from the kit',
+      'Arrange beads on the pegboard following the template',
+      'Use tweezers for the small, precise placements',
+      'Iron with parchment paper to fuse and set the design',
     ],
-    desc:'Twist and shape soft, fuzzy chenille wires into beautiful 3D flowers, animals, and decorative pieces. No heat, no glue — just twist, bend, and create. Great for all ages and skill levels.',
+    photos:[
+      'product/beads/1777359076537.JPG',
+      'cards/exports/02-perler-beads-tools.png',
+      'cards/exports/02-perler-beads-steps.png',
+      'product/beads/IMG_3938.JPG',
+      'product/beads/1777359418954.JPG',
+      'product/beads/IMG_3940.JPG',
+      'product/beads/IMG_3941.JPG',
+      'product/beads/IMG_4515.JPG',
+      'product/beads/IMG_4520.JPG',
+    ],
+    videos:[],
+  },
+  {
+    id:'ww', name:'Chenille Stick Flowers', cn:'扭扭棒花束',
+    priceCraft:25, priceCuration:20, priceTotal:45, price:25,
+    time:'45 min – 1.5 hrs', level:'Easy for all ages',
+    boxDims:'33 × 23 × 7 cm',
+    mvpImg:'mvp/Bazaart_C56E126C-D91D-41E6-B558-8F8BED82BC8A.PNG',
+    shopHero:'new%20crafts/stick.PNG',
+    hero:'new%20crafts/stick.PNG',
+    preview:'new%20crafts/stick.PNG',
+    kitImg:'new%20crafts/stick.PNG',
+    desc:'Twist and bend soft, fuzzy chenille wires into 3D flowers and bouquets. No heat, no glue — just shape, fluff, and arrange. Childlike to make, grown-up to display.',
+    note:'The flower style is randomly selected from our designs based on your survey.',
     steps:[
       'Fold and twist wires to form petals or the base shape',
-      'Add details and texture with smaller accent pieces',
+      'Add detail with smaller accent pieces',
       'Shape and adjust until you\'re happy with the look',
-      'Display in the included stand or give as a handmade gift',
-      'Video tutorials for various flowers available on our <a href="https://www.instagram.com/afternoonunfold" target="_blank" rel="noopener" style="color:#B94F63;text-decoration:underline;">Instagram</a> / <a href="https://www.tiktok.com/@afternoonunfold" target="_blank" rel="noopener" style="color:#B94F63;text-decoration:underline;">TikTok</a>',
-    ]
+      'Arrange in the included vase or wrap as a gift',
+    ],
+    photos:[
+      'product/sticks/hero.JPG',
+      'cards/exports/04-chenille-sticks-tools.png',
+      'cards/exports/04-chenille-sticks-steps.png',
+      'product/sticks/IMG_4490.JPG',
+      'product/sticks/IMG_4491.JPG',
+      'product/sticks/IMG_4492.JPG',
+      'product/sticks/IMG_4493.JPG',
+      'product/sticks/IMG_4494.JPG',
+      'product/sticks/IMG_4495.jpg',
+      'product/sticks/IMG_3651.JPG',
+      'product/sticks/IMG_3627.JPG',
+    ],
+    videos:[],
   },
   {
-    id:'sy', name:'Paint by Numbers', cn:'Number Painting', price:40,
+    id:'pl', name:'Plush Ball Painting', cn:'毛球画',
+    priceCraft:27, priceCuration:20, priceTotal:47, price:27,
+    time:'1.5–2.5 hrs', level:'Beginner friendly',
+    boxDims:'33 × 23 × 7 cm',
+    mvpImg:'mvp/Bazaart_86AD8D84-BB32-4C91-8773-3E8553B436A4.JPEG',
+    shopHero:'new%20crafts/ball.PNG',
+    hero:'new%20crafts/ball.PNG',
+    preview:'new%20crafts/ball.PNG',
+    kitImg:'new%20crafts/ball.PNG',
+    desc:'Press tiny fluffy plush balls onto a sticky-back panel, following a printed pattern. The result is a soft, textured picture you\'ll keep wanting to touch.',
+    note:'The pattern is randomly selected from our designs based on your survey.',
+    steps:[
+      'Peel the protective film from the sticky panel',
+      'Sort plush balls by colour',
+      'Press balls onto the matching numbered squares',
+      'Frame and display when complete',
+    ],
+    photos:[
+      'product/plush%20ball/IMG_4460.JPG',
+      'cards/exports/03-plush-ball-tools.png',
+      'cards/exports/03-plush-ball-steps.png',
+      'product/plush%20ball/IMG_4462.JPG',
+      'product/plush%20ball/IMG_4463.JPG',
+      'product/plush%20ball/IMG_4464.JPG',
+      'product/plush%20ball/IMG_4292.JPG',
+      'product/plush%20ball/IMG_4295.JPG',
+      'product/plush%20ball/IMG_4308.JPG',
+      'product/plush%20ball/IMG_4321.JPG',
+    ],
+    videos:[],
+  },
+  {
+    id:'sy', name:'Paint by Numbers', cn:'数字油画',
+    priceCraft:27, priceCuration:20, priceTotal:47, price:27,
     time:'2–4 hrs', level:'Beginner friendly',
-    videos:['assets/craft-videos/paint on beach.mp4','assets/craft-videos/paint box carpet.mp4'],
-    hero: 'assets/products/sy-atmo1.jpg',
-    preview: 'assets/products/sy-hero.png',
-    kitImg: 'assets/products/sy-box-angle.PNG',
-    photos: [
-      'assets/products/sy-atmo1.jpg',
-      'assets/products/sy-atmo2.PNG',
-      'assets/products/sy-atmo3.jpg',
-    ],
-    desc:'Follow numbered sections on a pre-printed canvas to paint a beautiful scene with acrylic paints. No art experience needed — the result always looks professionally made and ready to display.',
+    boxDims:'33 × 23 × 7 cm',
+    mvpImg:'mvp/Bazaart_6BBBFFAD-28F3-4CBF-95F2-523ABC899FD6.PNG',
+    shopHero:'new%20crafts/number.PNG',
+    hero:'new%20crafts/number.PNG',
+    preview:'new%20crafts/number.PNG',
+    kitImg:'new%20crafts/number.PNG',
+    desc:'Follow numbered sections on a pre-printed canvas with acrylic paints. No art experience needed — every box ends in a piece worthy of your wall.',
+    note:'The painting design is randomly selected from our designs based on your survey.',
     steps:[
-      'Lay canvas flat and identify the numbered colour sections',
-      'Select the matching paint cup and start with larger areas',
+      'Lay the canvas flat and identify the numbered sections',
+      'Match each number to its paint cup',
       'Work from background to foreground, letting layers dry',
-      'Use a fine brush for small detail sections',
       'Varnish (optional) and display with pride',
-    ]
+    ],
+    photos:[
+      'product/paint%20by%20numbers/IMG_4406.JPG',
+      'cards/exports/01-paint-by-numbers-tools.png',
+      'cards/exports/01-paint-by-numbers-steps.png',
+      'product/paint%20by%20numbers/IMG_4391.JPG',
+      'product/paint%20by%20numbers/IMG_4392.JPG',
+      'product/paint%20by%20numbers/IMG_4402.JPG',
+      'product/paint%20by%20numbers/IMG_4411.JPG',
+      'product/paint%20by%20numbers/IMG_4413.JPG',
+      'product/paint%20by%20numbers/IMG_4415.JPG',
+      'product/paint%20by%20numbers/IMG_4422.JPG',
+      'product/paint%20by%20numbers/IMG_4425.JPG',
+      'product/paint%20by%20numbers/IMG_4428.JPG',
+    ],
+    videos:[],
   },
   {
-    id:'fp', name:'Floral Pen Pot', cn:'Dried Floral', price:40,
-    time:'1–2 hrs', level:'Beginner friendly',
-    videos:['assets/craft-videos/pot on beach.mp4','assets/craft-videos/make flower pot.mp4'],
-    hero: 'assets/products/fp-atmo4.PNG',
-    preview: 'assets/products/fp-hero.png',
-    kitImg: 'assets/products/fp-spread.PNG',
-    photos: [
-      'assets/products/fp-atmo4.PNG',
-      'assets/products/fp-atmo2.PNG',
-      'assets/products/fp-atmo3.PNG',
-    ],
-    desc:'Wrap a wooden pot with natural jute twine, then arrange and glue dried and preserved flowers to create a stunning decorative desk piece. Earthy, beautiful, and entirely yours.',
+    id:'dp', name:'Diamond Painting', cn:'钻石画',
+    priceCraft:28, priceCuration:20, priceTotal:48, price:28,
+    time:'2–5 hrs', level:'Beginner friendly',
+    boxDims:'33 × 23 × 7 cm',
+    mvpImg:'mvp/Bazaart_F31A0246-1F04-4ECE-B5BE-FEA3FC0B3E76.PNG',
+    shopHero:'new%20crafts/diamond.PNG',
+    hero:'new%20crafts/diamond.PNG',
+    preview:'new%20crafts/diamond.PNG',
+    kitImg:'new%20crafts/diamond.PNG',
+    desc:'Press tiny resin "diamonds" onto a sticky pre-printed canvas to build a glittering mosaic. Like adult colouring, with sparkle.',
+    note:'The painting design is randomly selected from our designs based on your survey.',
     steps:[
-      'Wrap the wooden pot base tightly with jute twine using glue',
-      'Arrange your dried flowers and foliage to plan the layout',
-      'Apply glue and press flowers firmly into place',
-      'Add lace trim for a finishing detail',
-      'Let dry completely and enjoy your botanical desk art',
-    ]
+      'Peel back a small section of the protective film',
+      'Pick up a diamond with the included pen',
+      'Place onto its matching numbered square',
+      'Seal, smooth flat, and frame when complete',
+    ],
+    photos:[
+      'product/diamond/IMG_4437.JPG',
+      'cards/exports/05-diamond-art-tools.png',
+      'cards/exports/05-diamond-art-steps.png',
+      'product/diamond/IMG_4438.JPG',
+      'product/diamond/IMG_4440.JPG',
+      'product/diamond/IMG_4441.JPG',
+      'product/diamond/IMG_4442.JPG',
+      'product/diamond/IMG_4443.JPG',
+      'product/diamond/IMG_4444.JPG',
+      'product/diamond/IMG_4451.JPG',
+      'product/diamond/IMG_4453.JPG',
+      'product/diamond/IMG_4507.jpg',
+    ],
+    videos:[],
   },
 ];
 
 var SCENES = {
   date:    {label:'Date Night',    color:'#E8543A', price:66, needsSize:false,
-    items:['Activity guide with illustrated steps — emailed to you after purchase','Beautiful hand towel, exclusively designed','Floral tea — a blend chosen for the moment','Hand cream — a little self-care after creating','<strong style="color:#B94F63;">Some surprise just for you ✦</strong>'],
+    items:['Beautiful hand towel, exclusively designed','Floral tea — a blend chosen for the moment','Hand cream — a little self-care after creating','<strong style="color:#B94F63;">Many more surprises just for you ✦</strong>'],
     sub:"We've curated everything for a beautiful evening in. Light the candle, open the blind box, make something together."},
   friends: {label:'Friends Hang',  color:'#E8A020', price:62, needsSize:true,
-    items:['Activity guide with illustrated steps — emailed to you after purchase','Beautiful hand towel, exclusively designed','Floral tea — a blend chosen for the moment','Hand cream — a little self-care after creating','<strong style="color:#B94F63;">Some surprise just for you ✦</strong>'],
+    items:['Beautiful hand towel, exclusively designed','Floral tea — a blend chosen for the moment','Hand cream — a little self-care after creating','<strong style="color:#B94F63;">Many more surprises just for you ✦</strong>'],
     sub:'Your perfect group hang, ready to unbox. All materials sized for the whole crew.'},
   family:  {label:'Family Time',   color:'#3A9E6F', price:76, needsSize:true,
-    items:['Activity guide with illustrated steps — emailed to you after purchase','Beautiful hand towel, exclusively designed','Floral tea — a blend chosen for the moment','Hand cream — a little self-care after creating','<strong style="color:#B94F63;">Some surprise just for you ✦</strong>'],
+    items:['Beautiful hand towel, exclusively designed','Floral tea — a blend chosen for the moment','Hand cream — a little self-care after creating','<strong style="color:#B94F63;">Many more surprises just for you ✦</strong>'],
     sub:'Made for everyone at home — the little ones, the teens, the grown-ups. Every age has a role.'},
   self:    {label:'Solo Unwind',   color:'#8B5CE8', price:58, needsSize:false,
-    items:['Activity guide with illustrated steps — emailed to you after purchase','Beautiful hand towel, exclusively designed','Floral tea — a blend chosen for the moment','Hand cream — a little self-care after creating','<strong style="color:#B94F63;">Some surprise just for you ✦</strong>'],
+    items:['Beautiful hand towel, exclusively designed','Floral tea — a blend chosen for the moment','Hand cream — a little self-care after creating','<strong style="color:#B94F63;">Many more surprises just for you ✦</strong>'],
     sub:'Step away from everything. A few hours making something with your hands.'},
 };
 
@@ -2860,6 +4046,37 @@ var PERSONA = {
   }
 };
 
+/* Daily reading seed — combines today's date with MBTI so the same person
+   gets a different reading each day, and different people on the same day
+   get different readings. Repeat customers genuinely get a fresh box. */
+var _MBTI_LIST = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP',
+                  'ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
+function _dailySeed(S){
+  var dayKey = Math.floor(Date.now() / 86400000);  // unix day index
+  var mbtiOffset = 0;
+  if(S && S.mbti){
+    var idx = _MBTI_LIST.indexOf(S.mbti);
+    if(idx >= 0) mbtiOffset = idx + 1;
+  }
+  // Add zodiac as a small extra offset (12 zodiacs)
+  var zKeys = Object.keys(PERSONA.zodiacElement);
+  if(S && S.zodiac){
+    var zIdx = zKeys.indexOf(S.zodiac);
+    if(zIdx >= 0) mbtiOffset += zIdx * 7;  // prime-ish stride for spread
+  }
+  return dayKey + mbtiOffset;
+}
+/* Today's tarot pull — deterministic per (day, MBTI, zodiac). */
+function _todaysTarot(S){
+  var seed = _dailySeed(S);
+  var keys = Object.keys(PERSONA.tarot);
+  return PERSONA.tarot[keys[Math.abs(seed) % keys.length]];
+}
+/* Today's element — drives today's scent / tea / colour. Comes from today's
+   tarot card so the whole reading hangs together thematically. */
+function _todaysElement(S){
+  return _todaysTarot(S).element;
+}
 /* Element inference chain: zodiac > tarot > symbol > palette > default.
    The richer the signal, the earlier in the chain. */
 function _inferElement(S){
@@ -2882,21 +4099,28 @@ function computeReading(S){
   var hasMystic = !!(
     (S && S.mbti) || (S && S.zodiac) || (S && S.tarot) || (S && S.symbol)
   );
-  var el  = _inferElement(S);
-  var sense = _inferSense(S);
+  // Daily layer: today's tarot pull drives today's element → scent / tea / colour.
+  // Same person on a different day gets a fresh box.
+  var dailyTarot = _todaysTarot(S);
+  var el = _todaysElement(S);
+  var sense = _inferSense(S) || 'N';
   var scent = PERSONA.scent[el];
   var tea   = PERSONA.tea[el];
   var color = PERSONA.color[el][sense];
   var name  = (S && S.name) ? (typeof titleCaseName==='function' ? titleCaseName(S.name) : S.name) : 'friend';
   var zInfo = (S && S.zodiac) ? PERSONA.zodiacInfo[S.zodiac] : null;
   var mInfo = (S && S.mbti)   ? PERSONA.mbtiInfo[S.mbti]     : null;
-  var tInfo = (S && S.tarot)  ? PERSONA.tarot[S.tarot]       : null;
   var yInfo = (S && S.symbol) ? PERSONA.symbol[S.symbol]     : null;
+
+  // Today's date as a label ("April 30")
+  var _months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var _now = new Date();
+  var todayLabel = _months[_now.getMonth()] + ' ' + _now.getDate();
 
   // Build the reading as structured sections. Each section is {heading, body}.
   var sections = [];
 
-  // 1 — Zodiac (archetype + traits + gift + tell = ~3 sentences)
+  // 1 — Zodiac (personal anchor — doesn't change between purchases)
   if(zInfo){
     sections.push({
       heading: 'Your ' + zInfo.name + ' heart',
@@ -2905,7 +4129,7 @@ function computeReading(S){
     });
   }
 
-  // 2 — MBTI (tag + line + extra reading sentence)
+  // 2 — MBTI (personal anchor)
   if(mInfo){
     sections.push({
       heading: 'As ' + S.mbti + ', ' + mInfo.tag,
@@ -2913,15 +4137,13 @@ function computeReading(S){
     });
   }
 
-  // 3 — Tarot card drawn (tagline + message about what drawing THIS card means)
-  if(tInfo){
-    sections.push({
-      heading: tInfo.name + ' drew for you',
-      body: 'Card ' + tInfo.numeral + ' — '+tInfo.tagline+'. ' + tInfo.message
-    });
-  }
+  // 3 — TODAY'S CARD (rotates daily — the freshness layer for repeat customers)
+  sections.push({
+    heading: todayLabel + ' drew ' + dailyTarot.name + ' for you',
+    body: 'Card ' + dailyTarot.numeral + ' — '+dailyTarot.tagline+'. ' + dailyTarot.message
+  });
 
-  // 4 — Symbol chosen (meaning + current)
+  // 4 — Symbol chosen (personal anchor, only if they answered)
   if(yInfo){
     sections.push({
       heading: 'Your symbol — the ' + yInfo.name,
@@ -2929,10 +4151,10 @@ function computeReading(S){
     });
   }
 
-  // 5 — Sealed add-ons summary (one rosewood paragraph; cards at bottom still blur)
+  // 5 — Sealed add-ons summary (rotates daily because they're tied to today's element)
   sections.push({
     heading: '',
-    body: 'A scent, a tea, and a colour have been chosen for you — drawn from everything above. Sealed until your box opens.',
+    body: 'Today\'s scent, tea, and colour have been chosen for you — drawn from ' + dailyTarot.name + '. Sealed until your box opens.',
     rosewood: true
   });
 
@@ -2963,27 +4185,15 @@ var S = {name:'', forWhom:'', scene:'', crafts:[], craftQty:{}, exp:'', color:''
 var TOTAL_SLIDES = 10; // 0–9 (0:whofor, 1:name, 2:occasion, 3:crafts, 4:palette, 5:mbti, 6:zodiac, 7:tarot*, 8:loading, 9:result)
 var _currentGrandTotal = 0;  // raw numeric total, set in buildResult, read by order snapshot
 
-/* ── Charm pricing: round up to nearest .99 for display ──
-   We keep internal math as clean numbers and only format at render time.
-   toCharm(55) → 54.99   toCharm(46.75) → 46.99   toCharm(86.19) → 86.99 */
-function toCharm(price){
-  var p = Number(price) || 0;
-  return Math.ceil(p) - 0.01;
-}
+/* Whole-dollar pricing: brand reads premium/intentional, not bargain. */
 function fmtPrice(price){
-  return '$' + toCharm(price).toFixed(2);
+  return '$' + Math.round(Number(price) || 0);
 }
 
 /* ════════════════════════════════════════════════
    OPEN / CLOSE / RESTART
 ════════════════════════════════════════════════ */
 function openQuiz(){
-  /* COMING-SOON MODE: redirect any quiz entry point to the waitlist popup.
-     To re-enable the full quiz flow, remove the next 4 lines. */
-  if(typeof openWelcomePopup === 'function'){
-    openWelcomePopup();
-    return;
-  }
   delete twDone[0];
   document.getElementById('quiz-overlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -3057,6 +4267,12 @@ function restartQuiz(){
    signal for the recipient.
 ════════════════════════════════════════════════ */
 function goToSlide(n){
+  // Skip the dormant craft-selection slide (slide 3) — pre-selected on shop page
+  if(n===3){
+    if(arguments[1]==='back') goToSlide(2,'back');
+    else goToSlide(4);
+    return;
+  }
   // Skip tarot (slide 7) when the box is for someone else
   if(n===7 && S.forWhom === 'other'){
     if(arguments[1]==='back') goToSlide(6,'back');
@@ -3068,10 +4284,11 @@ function goToSlide(n){
     if(i===n) s.classList.add('active');
     else if(i<n) s.classList.add('exit');
   });
-  // Counter total: 8 questions (whofor/name/occasion/crafts/palette/mbti/zodiac/tarot)
-  // When tarot is skipped (forWhom=other), total is 7.
-  var total = (S.forWhom === 'other') ? 7 : 8;
-  var shown = n + 1;                      // slides 0–7 map 1:1 to questions 1–8
+  // Counter total: 7 visible questions (whofor/name/occasion/palette/mbti/zodiac/tarot)
+  // When tarot is skipped (forWhom=other), total is 6.
+  var total = (S.forWhom === 'other') ? 6 : 7;
+  // Slides 0-2 map 1:1 (questions 1-3); slides 4-7 shift down by one (questions 4-7).
+  var shown = (n <= 2) ? (n + 1) : n;
   if(shown > total) shown = total;
   function pad(x){ return x<10?'0'+x:String(x); }
   var counters = {
@@ -3088,6 +4305,8 @@ function goToSlide(n){
     var el=document.getElementById(id); if(el) el.textContent = val;
   });
   setProgress(n/(TOTAL_SLIDES-1));
+  /* Tarot-altar aesthetic on the result page — hides quiz video bg via CSS */
+  document.body.classList.toggle('result-active', n===9);
   if(n===8) startLoading();
   if(n===9) buildResult();
   setTimeout(function(){ typewriterQ(n); }, 380);
@@ -3302,19 +4521,20 @@ function startLoading(){
   document.getElementById('loading-name').textContent=S.name;
   var steps=document.querySelectorAll('.lstep');
   steps.forEach(function(s){s.classList.remove('show','done');});
-  // Stagger steps across ~16s video
-  var showAt=[400,2000,4000,6500,9500,12500];
-  var doneAt=[1800,3800,6000,9000,12000,15500];
+  // Compressed to 4s total — steps flash by as the video plays at speed
+  var showAt=[100, 600, 1100, 1700, 2300, 2900];
+  var doneAt=[500, 1000, 1600, 2200, 2800, 3400];
   showAt.forEach(function(t,i){setTimeout(function(){if(steps[i])steps[i].classList.add('show');},t);});
   doneAt.forEach(function(t,i){setTimeout(function(){if(steps[i])steps[i].classList.add('done');},t);});
   var vid=document.getElementById('loading-video');
   if(vid){
     vid.currentTime=0;
+    vid.playbackRate=4;   // compress ~16s source video into ~4s display
     vid.play().catch(function(){});
     vid.onended=function(){ goToSlide(9); };
     setTimeout(function(){
       if(document.getElementById('slide-8').classList.contains('active')) goToSlide(9);
-    },18000);
+    },4000);
   } else {
     setTimeout(function(){ goToSlide(9); },4000);
   }
@@ -3332,9 +4552,31 @@ function buildResult(){
   document.getElementById('result-tag-wrap').innerHTML=
     '<div class="result-scene-tag" style="background:'+sc.color+'">'+sc.label+'</div>';
 
-  // Headline
-  document.getElementById('result-h').innerHTML='Take a peek now!';
-  document.getElementById('result-sub').textContent="This is only a preview of your actual blind box.";
+  // Headline (handwritten "Hooray, [Name]!" — feels like a personal note)
+  var firstNameForHooray = (S && S.name) ? (typeof titleCaseName==='function' ? titleCaseName(S.name).split(' ')[0] : S.name.split(' ')[0]) : '';
+  document.getElementById('result-h').innerHTML = firstNameForHooray
+    ? 'Hooray, ' + firstNameForHooray + '!'
+    : 'Hooray! Your box is ready!';
+  document.getElementById('result-sub').textContent = "Your box is ready, curated just for your afternoon.";
+
+  // Box image inside the squiggly frame — picks the chosen craft's MVP photo
+  var boxFrameImg = document.getElementById('box-frame-img');
+  if(boxFrameImg){
+    var boxSrc = (craft && (craft.mvpImg || craft.kitImg || craft.preview)) || '';
+    boxFrameImg.innerHTML = boxSrc ? '<img src="'+boxSrc+'" alt="'+craft.name+' blind box" loading="lazy">' : '';
+  }
+
+  // Tarot-altar: date label shows today's pulled card
+  var altarDate = document.getElementById('altar-date');
+  if(altarDate){
+    var d = new Date();
+    var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    var todays = (typeof _todaysTarot === 'function') ? _todaysTarot(S) : null;
+    var tarotName = todays ? todays.name.toUpperCase() : 'YOUR READING';
+    altarDate.innerHTML = '— · ' + months[d.getMonth()] + ' ' + d.getDate() + ' · YOU DREW ' + tarotName + ' · —';
+  }
+  var fc = document.getElementById('altar-flipcard');
+  if(fc) fc.classList.remove('flipped');
 
   // Items — restore v11 style preview
   var items=document.getElementById('rkp-items');
@@ -3344,7 +4586,7 @@ function buildResult(){
     var qtyLabel=qty>1?' × '+qty:'';
     var ci=document.createElement('div');
     ci.className='rkp-item';
-    ci.innerHTML='<div class="rkp-dot" style="background:'+sc.color+'"></div><span><strong>'+c.name+' ('+c.cn+')</strong>'+qtyLabel+' — '+c.time+'</span>';
+    ci.innerHTML='<div class="rkp-dot" style="background:'+sc.color+'"></div><span><strong>'+c.name+'</strong>'+qtyLabel+'</span>';
     items.appendChild(ci);
   });
   sc.items.forEach(function(item){
@@ -3388,26 +4630,14 @@ function buildResult(){
     if(peEl) peEl.style.display = '';
   }
 
-  // Result image — kit box image per selected craft
-  var imgWrap=document.getElementById('result-img-wrap');
-  imgWrap.innerHTML='';
-  var kitImgs=selectedCrafts.map(function(c){return c.kitImg||'';}).filter(Boolean);
-  var photos=kitImgs.length?kitImgs:(craft.photos&&craft.photos.length?craft.photos:(craft.preview?[craft.preview]:[]));
-
-  if(photos.length){
-    imgWrap.innerHTML=makeSlideshow(photos,true);
-  } else {
-    var div=document.createElement('div');
-    div.className='result-kit-svg';
-    div.innerHTML='<svg width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="9" fill="#F5C0C0"/><ellipse cx="40" cy="20" rx="8" ry="12" fill="#F5A0A0" opacity=".85"/><ellipse cx="40" cy="60" rx="8" ry="12" fill="#F5A0A0" opacity=".85"/><ellipse cx="20" cy="40" rx="12" ry="8" fill="#F5A0A0" opacity=".85"/><ellipse cx="60" cy="40" rx="12" ry="8" fill="#F5A0A0" opacity=".85"/></svg>';
-    imgWrap.appendChild(div);
-  }
-
-  // Price: sum of (craft unit price × qty) + $15 curation/surprise, with bulk discount on craft subtotal
+  // Price: sum of (craft unit price × qty) + per-craft curation fee, with bulk discount on craft subtotal.
+  // Curation fee is the highest priceCuration in the cart (premium crafts cost more to curate).
   // 2 crafts 20%, 3 crafts 30%, 4 crafts 40%, 5+ crafts 50%
-  var CURATION_FEE=15;
+  var CURATION_FEE=selectedCrafts.reduce(function(max,c){
+    return Math.max(max, c.priceCuration||15);
+  },15);
   var craftSubtotal=selectedCrafts.reduce(function(sum,c){
-    return sum+(c.price||40)*(S.craftQty[c.id]||1);
+    return sum+(c.priceCraft||c.price||40)*(S.craftQty[c.id]||1);
   },0);
   var totalQty=Object.values(S.craftQty).reduce(function(a,b){return a+(b||0);},0);
   var discountPct=0;
@@ -3422,11 +4652,6 @@ function buildResult(){
   // Build price breakdown
   var priceEl=document.getElementById('result-price');
   priceEl.textContent=fmtPrice(grandTotal);
-  /* v14 — also set the pre-sale discounted price */
-  var presaleEl=document.getElementById('result-presale-price');
-  if(presaleEl && typeof applyPreSaleDiscount==='function'){
-    presaleEl.textContent=fmtPrice(applyPreSaleDiscount(grandTotal));
-  }
   // Show breakdown label
   var priceRow=priceEl.parentElement;
   var breakdownId='price-breakdown';
@@ -3443,18 +4668,22 @@ function buildResult(){
   priceRow.insertAdjacentElement('afterend',breakdown);
   var btn=document.getElementById('btn-cart');
   btn.style.background=sc.color;
-  // TODO: replace the URL below with your actual payment/checkout link
-  btn.onclick=function(){ openReserveModal(); };
-
-  // Re-init eraser canvases once content has rendered.
-  // Run once immediately (aspect-ratio gives us layout), then again when each
-  // image actually loads — catches cases where the first paint is off.
-  setTimeout(function(){ initErasers(); },60);
-  imgWrap.querySelectorAll('img').forEach(function(img){
-    if(img.complete && img.naturalWidth>0) return;
-    img.addEventListener('load', function(){ initErasers(); }, {once:true});
-    img.addEventListener('error', function(){ initErasers(); }, {once:true});
-  });
+  /* Both states open the reserve modal — the modal's submit handler routes
+     active-state customers to Stripe after capturing their survey via Formspree. */
+  btn.textContent = 'Proceed to checkout';
+  /* Direct Stripe checkout: skips the reserve/Formspree modal and jumps straight to
+     the per-craft Stripe Payment Link. Customer enters email + shipping at Stripe. */
+  btn.onclick=function(){
+    var craftId = (S && S.crafts && S.crafts[0]) || (craft && craft.id);
+    var stripeLink = (craftId && typeof STRIPE_LINKS !== 'undefined') ? STRIPE_LINKS[craftId] : null;
+    if(stripeLink){
+      window.location.href = stripeLink;
+      return;
+    }
+    /* Safety net — no link found, fall back to reserve modal so we don't drop the order */
+    console.warn('[checkout] No STRIPE_LINKS entry for craft', craftId);
+    if(typeof openReserveModal === 'function') openReserveModal();
+  };
 }
 
 /* ════════════════════════════════════════════════
@@ -3549,20 +4778,20 @@ var PRE_SALE_RESERVED = PRE_SALE_RESERVED_BASE;
     if(!isNaN(localCt) && localCt>0) PRE_SALE_RESERVED = PRE_SALE_RESERVED_BASE + localCt;
   }catch(e){}
 })();
-var PRE_SALE_START = '2026-05-01T00:00:00-07:00';   // Round 1 opens May 1
-var PRE_SALE_END   = '2026-05-31T00:00:00-07:00';   // Round 1 closes end of May 30 (Pacific)
-var ROUND2_END     = '2026-07-01T00:00:00-07:00';   // Round 2 closes end of June 30 (Pacific)
+var PRE_SALE_START = '2026-05-10T00:00:00-07:00';   // Round 1 opens May 10
+var PRE_SALE_END   = '2026-06-09T00:00:00-07:00';   // Round 1 runs May 10 – June 9 (Pacific)
+var ROUND2_END     = '2026-07-10T00:00:00-07:00';   // Round 2 closes mid-July (Pacific)
 var LAUNCH_DATE    = '2026-07-04T00:00:00-07:00';
 var PRE_SALE_CODE  = 'UNFOLD15';
 var PRE_SALE_DISCOUNT = 0.15;       // 15% off
 
 /* Pre-sale state: 'softopen' | 'active' | 'round2' | 'closed' | 'soldout' | 'launched'
-   softopen = before May 1 but reservations quietly accepted
-   active   = May 1 – May 30, full Round 1 push (Founding 50)
+   softopen = before May 10 but reservations quietly accepted
+   active   = May 10 – June 9, full Round 1 push (Founding 50)
    round2   = June 1 – June 30, Round 2 reservations (continuous pressure)
    closed   = July 1 – July 3, pre-launch prep
    soldout  = 50/50 Founding 50 reservations hit (only applies during active)
-   launched = after July 4 */
+   launched = after May 10 */
 function getPreSaleState(){
   var now = Date.now();
   var start = new Date(PRE_SALE_START).getTime();
@@ -3590,9 +4819,6 @@ function _formatCountdown(ms){
 
 /* Render simplified banner + live counter */
 function renderPreSaleBanner(){
-  /* COMING-SOON MODE: banner content is static HTML, no dynamic updates.
-     To re-enable pre-sale banner, remove this early return. */
-  return;
   var state = getPreSaleState();
   var left = Math.max(0, PRE_SALE_TOTAL - PRE_SALE_RESERVED);
   var now = Date.now();
@@ -3601,7 +4827,7 @@ function renderPreSaleBanner(){
   var detailEl = document.getElementById('ps-banner-detail');
   if(!bannerEl || !detailEl) return;
 
-  var detail, eyeTxt = '✦ Round 1', action = 'Reserve now →';
+  var detail, eyeTxt = '✦ Round 1', action = 'Curate my box →';
 
   if(state === 'soldout'){
     detail = 'Founding 50 reserved · Round 2 opens June 1';
@@ -3610,7 +4836,7 @@ function renderPreSaleBanner(){
     detail = 'Shop now · Free US shipping';
     action = 'Shop blind boxes →';
   } else if(state === 'closed'){
-    detail = 'Pre-sale closed · Launches July 4';
+    detail = 'Pre-sale closed · Launches May 10';
     action = 'Get notified →';
   } else if(state === 'round2'){
     eyeTxt = '✦ Round 2';
@@ -3624,7 +4850,7 @@ function renderPreSaleBanner(){
   } else { // softopen
     var startT = new Date(PRE_SALE_START).getTime();
     var diffS = Math.max(0, startT - now);
-    detail = 'Limited · 50 blind boxes · Opens May 1 in ' + _formatCountdown(diffS);
+    detail = 'Limited · 50 blind boxes · Opens May 10 in ' + _formatCountdown(diffS);
   }
 
   /* Update banner text */
@@ -3642,14 +4868,14 @@ function applyPreSaleDiscount(price){
   return price * (1 - PRE_SALE_DISCOUNT);
 }
 
-/* Stripe Payment Links — NOT USED in v14 pre-sale (kept for post-launch). */
+/* Stripe Payment Links — live URLs, one per craft (UNFOLD15 promo enabled, US-only). */
 var STRIPE_LINKS = {
-  1:  'https://buy.stripe.com/test_28E4gz5kP5Df1RM2bh4Vy01',
-  2:  'https://buy.stripe.com/test_7sYaEXdRle9L53Yg274Vy02',
-  3:  'https://buy.stripe.com/test_6oU7sLeVpghTeEy9DJ4Vy03',
-  4:  'https://buy.stripe.com/test_7sYaEXaF9e9L7c67vB4Vy04',
-  5:  'https://buy.stripe.com/test_00waEX3cH0iV53Y0394Vy05',
-  6: null, 7: null, 8: null, 9: null, 10: null
+  pn: 'https://buy.stripe.com/5kQeVdeVpe9L0NIdTZ4Vy00',  // Punch Needle  $58
+  pb: 'https://buy.stripe.com/00waEX3cH0iV53Y0394Vy05',  // Perler Beads  $55
+  ww: 'https://buy.stripe.com/7sYaEXaF9e9L7c67vB4Vy04',  // Chenille      $45
+  pl: 'https://buy.stripe.com/6oU7sLeVpghTeEy9DJ4Vy03',  // Plush Ball    $47
+  sy: 'https://buy.stripe.com/7sYaEXdRle9L53Yg274Vy02',  // Paint by Nums $47
+  dp: 'https://buy.stripe.com/28E4gz5kP5Df1RM2bh4Vy01'   // Diamond       $48
 };
 var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqaoebr';
 
@@ -3725,7 +4951,7 @@ function openReserveModal(){
           : state === 'launched' ?
             '<h3>We\'re live!</h3><p>Round 1 shipping has begun. Head back to the main page to shop any remaining blind boxes.</p>'
           :
-            '<h3>Round 1 is closed</h3><p>We\'re packing the Founding 50 boxes now. Launch opens to everyone on July 4 with free US shipping — join the waitlist and we\'ll email you first.</p>'
+            '<h3>Round 1 is closed</h3><p>We\'re packing the Founding 50 boxes now. Launch opens to everyone on May 10 with free US shipping — join the waitlist and we\'ll email you first.</p>'
           )+
           '<form onsubmit="event.preventDefault();submitWaitlist(this);return false;" style="margin-top:1rem;">'+
             '<input type="email" name="email" required placeholder="your email" style="width:100%;max-width:320px;background:var(--white);border:1px solid var(--border);padding:11px 13px;font-family:\'Raleway\',sans-serif;font-size:13px;margin-bottom:10px;outline:none;">'+
@@ -3736,6 +4962,35 @@ function openReserveModal(){
       document.body.style.overflow='hidden';
       document.body.classList.add('overlay-active');
       return;
+    }
+
+    /* State-aware modal copy: 'active' = checkout flow, 'softopen' = free reservation */
+    var isActive = (state === 'active');
+    var couponCode = '<code style="background:rgba(185,79,99,0.12);padding:1px 6px;border-radius:3px;color:#B94F63;font-weight:600;font-family:inherit;">UNFOLD15</code>';
+    var eyeEl       = document.querySelector('#reserve-form-state .reserve-eye');
+    var subEl       = document.querySelector('#reserve-form-state .reserve-sub');
+    var prizeEl     = document.querySelector('#reserve-form-state .reserve-prize-line');
+    var submitEl    = document.getElementById('reserve-submit-btn');
+    var privacyEl   = document.querySelector('#reserve-form-state .reserve-privacy');
+    var presaleRow  = document.getElementById('rs-presale') && document.getElementById('rs-presale').closest('.rs-row');
+    var retailRow   = document.getElementById('rs-retail')  && document.getElementById('rs-retail').closest('.rs-row');
+    var retailLabel = retailRow && retailRow.querySelector('.rs-k');
+    if(isActive){
+      if(eyeEl)        eyeEl.textContent      = '✦ Founding 50 · Confirm your box';
+      if(subEl)        subEl.innerHTML        = 'Apply '+couponCode+' at checkout for <strong style="color:#B94F63;">15% off</strong>. We\'ll send your box recipe straight to packing.';
+      if(prizeEl)      prizeEl.innerHTML      = '✦ All Founding 50 buyers are entered for the <strong>Founder\'s Prize</strong> — winner drawn May 10';
+      if(submitEl){    submitEl.textContent   = 'Continue to checkout →'; submitEl.disabled = false; }
+      if(privacyEl)    privacyEl.innerHTML    = 'You\'ll be redirected to secure Stripe checkout. Free US shipping (10–15 days from China) ✦ Your info goes directly to Afternoon Unfold — never shared.';
+      if(presaleRow)   presaleRow.style.display = 'none';
+      if(retailLabel)  retailLabel.textContent  = 'Box total';
+    } else {
+      if(eyeEl)        eyeEl.textContent      = '✦ Founding 50 · Reserve your spot';
+      if(subEl)        subEl.innerHTML        = 'Pay <strong style="color:#B94F63;">nothing now</strong>. We\'ll email you a secure checkout with your <strong>15% off</strong> locked in when Round 1 opens May 10.';
+      if(prizeEl)      prizeEl.innerHTML      = '✦ You\'ll be entered for the <strong>Founder\'s Prize</strong> — drawn on May 10 launch day';
+      if(submitEl){    submitEl.textContent   = 'Reserve my spot →'; submitEl.disabled = false; }
+      if(privacyEl)    privacyEl.innerHTML    = 'No payment now. Free US shipping (10–15 days from China). Round 1 checkout opens May 10 ✦ Your info goes directly to Afternoon Unfold — never shared.';
+      if(presaleRow)   presaleRow.style.display = '';
+      if(retailLabel)  retailLabel.textContent  = 'Retail';
     }
 
     var setText=function(id,val){var el=document.getElementById(id);if(el) el.textContent=val;};
@@ -4089,9 +5344,9 @@ function proceedToCheckout(){
   /* Soft US detection — 5-digit zip */
   var isUS = /^\d{5}(-\d{4})?$/.test(zip);
 
-  /* International block — Round 1 is US only. If the zip doesn't match
-     the US 5-digit pattern OR the zip-lookup confirmed it's not a US
-     zip, open the international waitlist instead of submitting. */
+  /* International block — Round 1 ships to the US only (door-to-door air mail
+     from China). If the zip doesn't match the US 5-digit pattern OR the
+     zip-lookup confirmed it's not a US zip, open the international waitlist. */
   if(!isUS || window._rsvZipStatus === 'not-us'){
     openIntlModal();
     return;
@@ -4171,7 +5426,7 @@ function proceedToCheckout(){
     'Next steps:',
     '1. Increment PRE_SALE_RESERVED_BASE in v14 so scarcity counter updates',
     '2. Reply to this email with welcome + 15% code promise',
-    '3. On July 4 launch: email customer a Stripe Payment Link for ' + fmtPrice(o.preSalePrice) + ' with UNFOLD15 discount'
+    '3. On May 10 launch: email customer a Stripe Payment Link for ' + fmtPrice(o.preSalePrice) + ' with UNFOLD15 discount'
   ].join('\n');
 
   var data = {
@@ -4228,7 +5483,29 @@ function proceedToCheckout(){
       } catch(e){}
       if(typeof renderPreSaleBanner === 'function') renderPreSaleBanner();
 
-      /* Close reservation modal + quiz, show full-page success */
+      /* Active state: redirect to the per-craft Stripe Payment Link.
+         Customer applies UNFOLD15 at Stripe checkout for 15% off. */
+      if(state === 'active'){
+        var craftId = (S && S.crafts && S.crafts[0]) || null;
+        var stripeLink = (craftId && typeof STRIPE_LINKS !== 'undefined') ? STRIPE_LINKS[craftId] : null;
+        if(stripeLink){
+          var formStateEl = document.getElementById('reserve-form-state');
+          var successEl = document.getElementById('reserve-success-state');
+          if(formStateEl) formStateEl.style.display = 'none';
+          if(successEl){
+            successEl.style.display = 'block';
+            var fb = document.getElementById('rsv-fallback-link');
+            if(fb) fb.href = stripeLink;
+          }
+          /* Brief pause so user reads "Taking you to checkout" before redirect */
+          setTimeout(function(){ window.location.href = stripeLink; }, 700);
+          return;
+        }
+        /* No Stripe link found — fall through to reservation page as a safety net */
+        console.warn('[checkout] No STRIPE_LINKS entry for craft', craftId);
+      }
+
+      /* Softopen and other reservable states: show the "You're in" full-page */
       closeReserveModal();
       closeQuiz();
       openReservedPage({
@@ -4239,12 +5516,12 @@ function proceedToCheckout(){
       });
     } else {
       alert('Something went wrong. Please try again or email hello@afternoon-unfold.com directly.');
-      submitBtn.textContent = 'Reserve my spot →';
+      submitBtn.textContent = (state === 'active') ? 'Continue to checkout →' : 'Reserve my spot →';
       submitBtn.disabled = false;
     }
   }).catch(function(){
     alert('Network error. Please check your connection and try again.');
-    submitBtn.textContent = 'Reserve my spot →';
+    submitBtn.textContent = (state === 'active') ? 'Continue to checkout →' : 'Reserve my spot →';
     submitBtn.disabled = false;
   });
   }  /* end _submitWithBoxNumber */
@@ -4312,6 +5589,8 @@ function ssPrev(uid){var s=slideshowState[uid]||0;var t=document.getElementById(
   var panelsEl=document.getElementById('craft-panels');
   var qtyGrid=document.getElementById('craft-qty-grid');
   if(qtyGrid) qtyGrid.innerHTML='';
+  // v16: legacy panel container removed; bail out cleanly when not present
+  if(!panelsEl) return;
 
   CRAFTS.forEach(function(c,i){
     // Main page panel
@@ -4689,6 +5968,196 @@ function typewriterQ(n) {
 
 /* Split layout disabled in v13 — the wave video is now the unified
    background across all quiz questions, per design direction. */
+
+/* ════════════════════════════════════════════════
+   SHOP GRID + PRODUCT DETAIL MODAL (v16)
+════════════════════════════════════════════════ */
+var _currentShopCraft = null;
+
+function renderShopGrid(){
+  var grid = document.getElementById('shop-grid');
+  if(!grid) return;
+  grid.innerHTML = CRAFTS.map(function(c){
+    return ''
+      +'<div class="shop-card" tabindex="0" role="button" aria-label="View '+c.name+'" '
+      +    'onclick="openShopProduct(\''+c.id+'\')" '
+      +    'onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();openShopProduct(\''+c.id+'\')}">'
+      +  '<img class="shop-card-img" src="'+c.shopHero+'" alt="'+c.name+'" loading="lazy">'
+      +  '<div class="shop-card-overlay">'
+      +    '<div class="shop-card-info">'
+      +      '<div class="shop-card-name">'+c.name+'</div>'
+      +      '<div class="shop-card-price">'+fmtPrice(c.priceTotal)+'</div>'
+      +    '</div>'
+      +    '<div class="shop-card-cta">View →</div>'
+      +  '</div>'
+      +'</div>';
+  }).join('');
+}
+
+function openShopProduct(craftId){
+  var c = CRAFTS.find(function(x){return x.id===craftId;});
+  if(!c) return;
+  _currentShopCraft = c;
+
+  document.getElementById('pm-title').textContent = c.name + ' Magic Blind Box';
+  document.getElementById('pm-desc').textContent = c.desc;
+  document.getElementById('pm-note').textContent = c.note || '';
+
+  document.getElementById('pm-bd-craft').textContent = '$' + c.priceCraft;
+  document.getElementById('pm-bd-cur').textContent = '$' + c.priceCuration;
+  document.getElementById('pm-bd-total').textContent = '$' + c.priceTotal;
+
+  // Box dimensions
+  var dimsEl = document.getElementById('pm-dims');
+  if(dimsEl) dimsEl.textContent = c.boxDims || '';
+
+  var stepsEl = document.getElementById('pm-steps');
+  stepsEl.innerHTML = (c.steps||[]).map(function(s){return '<li>'+s+'</li>';}).join('');
+
+  // Gallery: MVP box image first, then product detail photos
+  var imgs = (c.photos||[]).slice();
+  if(c.mvpImg){
+    // Drop any existing reference and prepend the MVP image as image 1
+    imgs = imgs.filter(function(p){return p !== c.mvpImg;});
+    imgs.unshift(c.mvpImg);
+  }
+  if(!imgs.length) imgs = [c.shopHero];
+  renderShopGalleryMain(imgs[0]);
+  var thumbsEl = document.getElementById('pm-gallery-thumbs');
+  thumbsEl.innerHTML = imgs.map(function(src,i){
+    var fitFully = src.indexOf('cards/exports') !== -1 || src.indexOf('mvp/') !== -1 || src.indexOf('mvp%20') !== -1;
+    return '<div class="pm-thumb'+(i===0?' active':'')+(fitFully?' pm-thumb-card':'')+'" data-idx="'+i+'" onclick="shopGalleryGo('+i+')"><img src="'+src+'" alt="" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>';
+  }).join('');
+  thumbsEl.dataset.imgs = JSON.stringify(imgs);
+
+  document.getElementById('product-modal').classList.add('open');
+  document.body.classList.add('pm-open');
+  document.body.classList.add('overlay-active');
+  // Reset scroll position
+  document.getElementById('product-modal').scrollTop = 0;
+}
+
+function renderShopGalleryMain(src){
+  var main = document.getElementById('pm-gallery-main');
+  // Use object-fit:contain (so full box is visible) for instruction cards AND the MVP box hero
+  var fitFully = src.indexOf('cards/exports') !== -1 || src.indexOf('mvp/') !== -1 || src.indexOf('mvp%20') !== -1;
+  main.innerHTML = '<img src="'+src+'" alt="" class="'+(fitFully?'pm-img-card':'pm-img-photo')+'" onerror="this.classList.add(\'pm-img-broken\')">';
+}
+
+function shopGalleryGo(idx){
+  var thumbsEl = document.getElementById('pm-gallery-thumbs');
+  var imgs = JSON.parse(thumbsEl.dataset.imgs || '[]');
+  if(!imgs.length) return;
+  // Wrap around at both ends
+  if(idx < 0) idx = imgs.length - 1;
+  if(idx >= imgs.length) idx = 0;
+  renderShopGalleryMain(imgs[idx]);
+  thumbsEl.querySelectorAll('.pm-thumb').forEach(function(t,i){
+    t.classList.toggle('active', i===idx);
+  });
+  thumbsEl.dataset.currentIdx = idx;
+  // Scroll the active thumb into view
+  var active = thumbsEl.querySelector('.pm-thumb.active');
+  if(active) active.scrollIntoView({block:'nearest', behavior:'smooth'});
+}
+
+function shopGalleryStep(delta){
+  var thumbsEl = document.getElementById('pm-gallery-thumbs');
+  var cur = parseInt(thumbsEl.dataset.currentIdx || '0', 10);
+  shopGalleryGo(cur + delta);
+}
+
+function closeShopProduct(){
+  document.getElementById('product-modal').classList.remove('open');
+  document.body.classList.remove('pm-open');
+  // Only release overlay-active if no other modal is still open
+  var qz = document.getElementById('quiz-overlay');
+  var rm = document.getElementById('reserve-modal');
+  var wp = document.getElementById('welcome-popup');
+  if((!qz||!qz.classList.contains('open')) &&
+     (!rm||!rm.classList.contains('open')) &&
+     (!wp||!wp.classList.contains('open'))){
+    document.body.classList.remove('overlay-active');
+  }
+  _currentShopCraft = null;
+}
+
+function onAddToBox(){
+  if(!_currentShopCraft) return;
+  // Pre-fill the survey state with the chosen craft so the curation flow
+  // can skip the craft-selection slide.
+  S.crafts = [_currentShopCraft.id];
+  S.craftQty = {};
+  S.craftQty[_currentShopCraft.id] = 1;
+  // Close the product modal and open the quiz
+  closeShopProduct();
+  openQuiz();
+}
+
+function scrollToShop(){
+  // "Curate my box" buttons across the site land here. They scroll to How it works
+  // so first-time visitors see the framing before the shop grid.
+  var hiw = document.getElementById('blind-box');
+  var shop = document.getElementById('shop');
+  var target = hiw || shop;
+  if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    var pm = document.getElementById('product-modal');
+    if(pm && pm.classList.contains('open')) closeShopProduct();
+  }
+});
+
+// Initial render
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', renderShopGrid);
+} else {
+  renderShopGrid();
+}
+
+/* ════════════════════════════════════════════════
+   BELIEF — typewriter on rosewood (fires once when in view)
+════════════════════════════════════════════════ */
+(function(){
+  var el = document.getElementById('belief-typed');
+  if(!el) return;
+  var lines = ["No two boxes ever bloom the same.","Breath. Unwind.","Craft your memories."];
+  var fullText = lines.join('\n');
+  var done = false;
+
+  function type(){
+    if(done) return; done = true;
+    el.textContent = '';
+    var i = 0;
+    function step(){
+      if(i >= fullText.length){
+        el.innerHTML = fullText.replace(/\n/g,'<br>') + '<span class="bw-cursor"></span>';
+        return;
+      }
+      var ch = fullText.charAt(i);
+      el.innerHTML = fullText.slice(0, i+1).replace(/\n/g,'<br>') + '<span class="bw-cursor"></span>';
+      i++;
+      // Pause longer at line breaks for breathing room
+      var delay = ch === '\n' ? 380 : (ch === '.' ? 220 : 45);
+      setTimeout(step, delay);
+    }
+    step();
+  }
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ type(); io.disconnect(); }
+      });
+    }, {threshold: 0.35});
+    io.observe(el);
+  } else {
+    // Fallback: just run shortly after load
+    setTimeout(type, 600);
+  }
+})();
 </script>
 </body>
 </html>
