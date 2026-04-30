@@ -1425,6 +1425,30 @@ body.overlay-active #main-nav{top:0;}
 .reserved-seal .rs-lbl strong{color:#B94F63;font-weight:700;}
 
 /* ══════════════ FULL-PAGE RESERVATION SUCCESS ══════════════ */
+/* ── Post-payment thank-you page ── */
+#thank-you-page{display:none;position:fixed;inset:0;z-index:540;background:#FBF4E6 url('assets/flowerwall.jpg') center/auto repeat;overflow-y:auto;padding:3rem 1.25rem 4rem;align-items:flex-start;justify-content:center;}
+#thank-you-page.open{display:flex;}
+.ty-paper{background:url('assets/paper.png') center/100% 100% no-repeat;max-width:560px;width:100%;padding:3.5rem 2.75rem 2.75rem;position:relative;filter:brightness(1.08);}
+.ty-tape{position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-2.5deg);width:110px;height:26px;background:linear-gradient(180deg, rgba(228,210,170,0.85) 0%, rgba(212,190,148,0.78) 100%);border-left:1px dashed rgba(150,115,70,0.18);border-right:1px dashed rgba(150,115,70,0.18);box-shadow:0 2px 4px -1px rgba(60,35,12,0.18);}
+.ty-content{position:relative;}
+.ty-eye{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:#8A6034;text-align:center;margin-bottom:14px;font-weight:600;}
+.ty-h{font-family:'Dancing Script',cursive;font-size:clamp(2.2rem,4.5vw,2.8rem);font-weight:700;color:#3A2410;text-align:center;margin-bottom:8px;line-height:1.05;letter-spacing:0;}
+.ty-sub{font-family:'Cormorant',serif;font-style:italic;color:#7A5A30;text-align:center;margin-bottom:1.8rem;font-size:15.5px;}
+.ty-block p{font-family:'Cormorant',serif;color:#3A2410;line-height:1.65;font-size:15.5px;margin-bottom:14px;}
+.ty-mystic{margin-top:1.4rem;padding-top:1.2rem;border-top:1px dashed rgba(110,75,30,0.32);}
+.ty-mystic-line{font-family:'Cormorant',serif;font-style:italic;color:#8E3A4E;line-height:1.6;font-size:15px;margin-bottom:8px;}
+.ty-mystic-line strong{color:#8E3A4E;font-weight:600;font-style:normal;}
+.ty-mystic-fine{color:#7A5A30 !important;font-size:13px;font-style:normal;}
+.ty-signature{margin-top:1.8rem;padding-top:1rem;border-top:1px dashed rgba(110,75,30,0.22);font-family:'Cormorant',serif;font-style:italic;color:#7A5A30;text-align:center;font-size:14.5px;line-height:1.7;}
+.ty-signature em{font-family:'Great Vibes',cursive;font-size:30px;color:#8E3A4E;font-style:normal;display:inline-block;margin:4px 0;}
+.ty-sig-fine{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#9A8070;font-style:normal;}
+.ty-back-btn{display:block;margin:1.6rem auto 0;background:#3A2410;color:#FAF1DC;border:none;padding:13px 32px;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;border-radius:999px;font-weight:600;transition:background 0.2s;}
+.ty-back-btn:hover{background:#8E3A4E;}
+@media(max-width:560px){
+  .ty-paper{padding:3rem 1.75rem 2.25rem;}
+  .ty-h{font-size:2rem;}
+}
+
 #reserved-page{display:none;position:fixed;inset:0;z-index:520;background:linear-gradient(160deg,var(--parchment) 0%,var(--cream) 50%,var(--white) 100%);overflow-y:auto;padding:3rem 1.5rem;}
 #reserved-page.open{display:block;}
 #reserved-page .rp-inner{max-width:640px;margin:0 auto;padding:2rem 1.5rem;text-align:center;}
@@ -2861,6 +2885,137 @@ function openCouponModal(){
   document.body.style.overflow = 'hidden';
 }
 
+/* ════════════════════════════════════════════════
+   POST-PAYMENT THANK-YOU FLOW
+   Stripe redirects to ?paid=1 after successful checkout.
+   On load we read the survey + reading from localStorage (saved at the
+   "Proceed to checkout" click) and email the curation details to packing.
+════════════════════════════════════════════════ */
+function _submitOrderToPacking(order){
+  if(!order || !order.S) return;
+  var S = order.S;
+  var r = order.reading || {};
+  var firstName = (S.name || '').trim() || 'Customer';
+  var subj = 'PAID order — ' + (order.craftName || 'Box') + ' — ' + firstName;
+  var msg = [
+    '═══ PAID ORDER — PACK THIS BOX ═══',
+    '',
+    'Customer (from quiz):',
+    '  Name: ' + (S.name || '—'),
+    '  For: ' + (S.forWhom === 'self' ? 'Themselves' : S.forWhom === 'other' ? 'A gift' : '—'),
+    '',
+    'Box:',
+    '  Craft: ' + (order.craftName || '—'),
+    '  Scene: ' + (S.scene || '—'),
+    '  Palette: ' + (S.color || S.colorCustom || '—'),
+    '  Price: $' + (order.craftPrice || '—'),
+    '',
+    'Personality (anchors):',
+    '  MBTI: ' + (S.mbti || '—'),
+    '  Zodiac: ' + (S.zodiac || '—'),
+    '  Tarot drawn (in quiz): ' + (S.tarot || '—'),
+    '  Symbol: ' + (S.symbol || '—'),
+    '  Adjectives: ' + (S.adjectives || '—'),
+    '',
+    '═══ TODAY\'S CURATION (from ' + ((r.todaysTarot && r.todaysTarot.name) || '—') + ') ═══',
+    '  Element: ' + (r.element || '—'),
+    '  Scent: ' + (r.scent ? r.scent.name : '—'),
+    '  Tea: ' + (r.tea ? r.tea.name : '—'),
+    '  Colour: ' + (r.color ? r.color.name + ' (' + r.color.hex + ')' : '—'),
+    '',
+    'Reading text printed on the card inside the box:',
+    r.readingText || '—',
+    '',
+    'Customer notes (free-text):',
+    S.notes || '(none)',
+    '',
+    'Order timestamp: ' + new Date(order.ts || Date.now()).toISOString(),
+    'Stripe email + shipping address: see your Stripe dashboard for this order.'
+  ].join('\n');
+
+  var data = {
+    _subject: subj,
+    message: msg,
+    customer_name: S.name || '',
+    craft: order.craftName || '',
+    scene: S.scene || '',
+    palette: S.color || S.colorCustom || '',
+    mbti: S.mbti || '',
+    zodiac: S.zodiac || '',
+    tarot_drawn: S.tarot || '',
+    symbol: S.symbol || '',
+    adjectives: S.adjectives || '',
+    todays_tarot: (r.todaysTarot && r.todaysTarot.name) || '',
+    todays_element: r.element || '',
+    scent: r.scent ? r.scent.name : '',
+    tea: r.tea ? r.tea.name : '',
+    colour: r.color ? r.color.name : '',
+    full_reading: r.readingText || '',
+    notes: S.notes || ''
+  };
+
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: {'Accept':'application/json','Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  }).catch(function(e){ console.warn('[order] formspree submit failed', e); });
+}
+
+function openThankYouPage(order){
+  var page = document.getElementById('thank-you-page');
+  if(!page) return;
+  var setT = function(id, val){ var el = document.getElementById(id); if(el) el.textContent = val; };
+  var S = (order && order.S) || {};
+  var r = (order && order.reading) || {};
+  setT('ty-name', (S.name || '').trim().split(' ')[0] || 'friend');
+  if(r && r.todaysTarot){
+    setT('ty-tarot',  r.todaysTarot.name);
+    setT('ty-scent',  r.scent ? r.scent.name : 'your scent');
+    setT('ty-tea',    r.tea   ? r.tea.name   : 'your tea');
+    setT('ty-color',  r.color ? r.color.name : 'your colour');
+  } else {
+    var mb = document.getElementById('ty-mystic-block');
+    if(mb) mb.style.display = 'none';
+  }
+  page.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.body.classList.add('overlay-active');
+  window.scrollTo(0,0);
+}
+function closeThankYouPage(){
+  var page = document.getElementById('thank-you-page');
+  if(!page) return;
+  page.classList.remove('open');
+  document.body.style.overflow = '';
+  document.body.classList.remove('overlay-active');
+  /* Clean the URL so refresh doesn't re-trigger the flow */
+  if(history && history.replaceState){
+    history.replaceState({}, document.title, location.pathname);
+  }
+}
+
+/* Run on every page load — only fires if ?paid=1 is in the URL */
+(function _handlePostPayment(){
+  try {
+    var params = new URLSearchParams(window.location.search);
+    if(params.get('paid') !== '1') return;
+
+    var order = null;
+    try { order = JSON.parse(localStorage.getItem('au_pending_order') || 'null'); } catch(e){}
+
+    /* Submit the curation details to packing (only if we have order data) */
+    if(order && order.S){
+      _submitOrderToPacking(order);
+    }
+    /* Show the thank-you page (works even if no order data, so refresh is safe) */
+    openThankYouPage(order || {});
+    /* Clear the pending order so it doesn't double-submit on refresh */
+    try { localStorage.removeItem('au_pending_order'); } catch(e){}
+  } catch(e){
+    console.warn('[post-payment] handler failed', e);
+  }
+})();
+
 function openPromo(){
   /* Disabled during pre-sale — reservation flow handles all capture and
      the 15% auto-applies. Remove this `return;` to re-enable. */
@@ -3619,6 +3774,39 @@ function submitPromo(e,variant){
   </div>
 </div>
 
+<!-- ══════════════ POST-PAYMENT THANK-YOU PAGE ══════════════
+     Stripe redirects here after a successful checkout (?paid=1&craft=…).
+     We read the survey + reading from localStorage (saved at button click)
+     and email the curation details to the packing inbox via Formspree. -->
+<div id="thank-you-page">
+  <div class="ty-paper">
+    <div class="ty-tape"></div>
+    <div class="ty-content">
+      <div class="ty-eye">✦ Order received ✦</div>
+      <h2 class="ty-h">Thank you, <span id="ty-name">friend</span> 💛</h2>
+      <p class="ty-sub">Your box is being curated.</p>
+
+      <div class="ty-block">
+        <p>Your payment is in. Your box will be hand-packed in China and shipped door-to-door to your US address. Allow 10–15 business days.</p>
+        <p>You'll get a tracking email when it ships — usually within 2 days.</p>
+      </div>
+
+      <div class="ty-mystic" id="ty-mystic-block">
+        <p class="ty-mystic-line">Today's reading — <strong id="ty-tarot">your tarot card</strong> — is sealed in your box. Inside you'll find <strong id="ty-scent">your scent</strong>, <strong id="ty-tea">your tea</strong>, and <strong id="ty-color">your colour</strong> — drawn from the cards.</p>
+        <p class="ty-mystic-line ty-mystic-fine">Every detail you shared in the quiz has been sent to packing.</p>
+      </div>
+
+      <div class="ty-signature">
+        With slow afternoons,<br>
+        <em>Zora</em><br>
+        <span class="ty-sig-fine">Founder, Afternoon Unfold</span>
+      </div>
+
+      <button class="ty-back-btn" type="button" onclick="closeThankYouPage()">Back to home</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ════════════════════════════════════════════════
    DATA
@@ -4169,6 +4357,7 @@ function computeReading(S){
 
   return {
     scent: scent, tea: tea, color: color, element: el, sense: sense,
+    todaysTarot: dailyTarot,    // for the post-payment order email
     greeting: 'Dear '+name+',',
     sections: sections,
     closer: closer,
@@ -4671,16 +4860,26 @@ function buildResult(){
   /* Both states open the reserve modal — the modal's submit handler routes
      active-state customers to Stripe after capturing their survey via Formspree. */
   btn.textContent = 'Proceed to checkout';
-  /* Direct Stripe checkout: skips the reserve/Formspree modal and jumps straight to
-     the per-craft Stripe Payment Link. Customer enters email + shipping at Stripe. */
+  /* Direct Stripe checkout: save the survey + reading to localStorage so the
+     post-payment thank-you page can email the curation details to packing,
+     then redirect to the per-craft Stripe Payment Link. */
   btn.onclick=function(){
     var craftId = (S && S.crafts && S.crafts[0]) || (craft && craft.id);
     var stripeLink = (craftId && typeof STRIPE_LINKS !== 'undefined') ? STRIPE_LINKS[craftId] : null;
     if(stripeLink){
+      try{
+        localStorage.setItem('au_pending_order', JSON.stringify({
+          S: S,
+          reading: computeReading(S),
+          craftId: craftId,
+          craftName: craft && craft.name,
+          craftPrice: craft && craft.priceTotal,
+          ts: Date.now()
+        }));
+      }catch(e){console.warn('[checkout] localStorage save failed', e);}
       window.location.href = stripeLink;
       return;
     }
-    /* Safety net — no link found, fall back to reserve modal so we don't drop the order */
     console.warn('[checkout] No STRIPE_LINKS entry for craft', craftId);
     if(typeof openReserveModal === 'function') openReserveModal();
   };
