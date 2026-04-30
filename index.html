@@ -1874,6 +1874,13 @@ body.pm-open{overflow:hidden;}
   font-weight:700;
   white-space:nowrap;
   max-width:100%;
+  cursor:pointer;
+  transition:background 0.2s,color 0.2s,border-color 0.2s;
+}
+.pm-founders-tag:hover{
+  background:rgba(122,42,53,0.14);
+  color:#5C1F28;
+  border-color:rgba(122,42,53,0.75);
 }
 .pm-breakdown{
   border:1px solid #E0DBD3;
@@ -2633,6 +2640,7 @@ function submitWelcomeNotify(form){
 <!-- HOW IT WORKS — split illustration -->
 <section id="blind-box" class="hiw-split">
   <div class="hiw-split-inner">
+    <h2 class="sec-h" style="text-align:center;margin-bottom:2.5rem;">How it <span class="hl-rose">works</span></h2>
     <div class="hiw-grid">
       <div class="hiw-panel">
         <div class="hiw-illust" aria-hidden="true">
@@ -2680,7 +2688,7 @@ function submitWelcomeNotify(form){
         </div>
         <div class="hiw-num">02</div>
         <h3 class="hiw-h">We brew the magic</h3>
-        <p class="hiw-p">A short survey reads your vibe (MBTI, zodiac, tarot), and we curate surprise extras to match.</p>
+        <p class="hiw-p">A short survey reads your vibe (MBTI, zodiac, tarot), and we curate your blind box with surprise extras to match.</p>
       </div>
     </div>
     <div class="hiw-cta-wrap">
@@ -2717,7 +2725,7 @@ function submitWelcomeNotify(form){
       <h1 class="pm-name" id="pm-title">Craft name</h1>
       <div class="pm-divider"></div>
 
-      <div class="pm-founders-tag">✦ Founding 50 · 15% off at checkout</div>
+      <button type="button" class="pm-founders-tag" onclick="closeShopProduct();openCouponModal();">✦ Founding 50 · redeem 15% off coupon &rarr;</button>
       <div class="pm-breakdown" id="pm-breakdown">
         <div class="pm-bd-row"><span>Craft kit</span><span id="pm-bd-craft">$0</span></div>
         <div class="pm-bd-row"><span>Curation &amp; surprise extras</span><span id="pm-bd-cur">$0</span></div>
@@ -2770,9 +2778,9 @@ function submitWelcomeNotify(form){
     <span style="font-family:'Cormorant',serif;font-size:1.5rem;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:0.65rem;">Browse our FAQ <span class="faq-chev" style="display:inline-block;width:11px;height:11px;border-right:1.5px solid var(--dust);border-bottom:1.5px solid var(--dust);transform:rotate(45deg);transition:transform 0.3s ease;margin-bottom:4px;"></span></span>
   </div>
   <div class="faq-wrap" id="faq-wrap" style="max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height 0.45s ease,opacity 0.35s ease,margin-top 0.3s ease;">
-    <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">How long does delivery take?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">We're in our Round 1 reservation stage — checkout opens May 10, 2026. Round 1 ships to the US only, by air mail door-to-door from China. Allow 10–15 business days from dispatch.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Are the blind boxes suitable for complete beginners?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Absolutely. Every blind box includes a printed step-by-step guide plus QR code video tutorials. No prior experience needed.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What is the mystery add-on?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every blind box includes a hand-picked extra based on your answers and the scene you're creating. Always a surprise until you open the box.</div></div></div>
+    <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">How long does delivery take?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">We're in our Round 1 reservation stage — checkout opens May 10, 2026. Please allow 10–15 days for us to hand-pick your product and deliver it to your doorstep. Round 1 is US-only.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Are the blind boxes suitable for complete beginners?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Absolutely. Every blind box includes a printed step-by-step guide. No prior experience needed.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What is the mystery add-on?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every blind box includes a hand-picked extra, curated from your MBTI, zodiac, tarot pull, and the date you draw — so no two boxes are alike. Always a surprise until you open the box.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What's the Founder's Prize?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every Founding 50 member is automatically entered into a draw for a premium, hand-curated prize — kept under wraps until May 10. Reserving your box is your entry. One winner drawn on launch day (May 10) when the first 50 boxes ship. Announced via email and Instagram.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Can I send a blind box as a gift?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Yes. Every blind box arrives in a beautiful presentation box. You can leave a handwritten note while placing your order.</div></div></div>
   </div>
@@ -3823,74 +3831,6 @@ var IMG = {
 
 var CRAFTS = [
   {
-    id:'pn', name:'Punch Needle', cn:'戳戳绣',
-    priceCraft:38, priceCuration:20, priceTotal:58, price:38,
-    time:'2–3 hrs', level:'Beginner friendly',
-    boxDims:'33 × 23 × 7 cm',
-    mvpImg:'mvp/Bazaart_39BD5ACD-5BCA-4D3B-89D7-4F449F3E0E5A.JPEG',
-    shopHero:'new%20crafts/needle.jpg',
-    hero:'new%20crafts/needle.jpg',
-    preview:'new%20crafts/needle.jpg',
-    kitImg:'new%20crafts/needle.jpg',
-    desc:'Push loops of soft yarn through fabric to build a fluffy, three-dimensional tapestry. The pile is what makes it special — like a tiny handmade rug you can hang on the wall.',
-    note:'The pattern is randomly selected from our designs based on your survey.',
-    steps:[
-      'Stretch the fabric tight in the included hoop',
-      'Thread the punch needle with yarn',
-      'Punch loops along the printed design lines',
-      'Trim, fluff, and finish — display in the hoop',
-    ],
-    photos:[
-      'product/punch%20needle/IMG_4354.JPG',
-      'cards/exports/06-punch-needle-tools.png',
-      'cards/exports/06-punch-needle-steps.png',
-      'product/punch%20needle/IMG_4356.JPG',
-      'product/punch%20needle/IMG_4357.JPG',
-      'product/punch%20needle/IMG_4358.JPG',
-      'product/punch%20needle/IMG_4359.JPG',
-      'product/punch%20needle/IMG_4375.JPG',
-      'product/punch%20needle/IMG_4376.JPG',
-      'product/punch%20needle/IMG_4377.JPG',
-      'product/punch%20needle/IMG_4378.JPG',
-      'product/punch%20needle/IMG_4381.JPG',
-      'product/punch%20needle/IMG_4384.JPG',
-      'product/punch%20needle/IMG_4482.JPG',
-      'product/punch%20needle/IMG_4484.JPG',
-    ],
-    videos:[],
-  },
-  {
-    id:'pb', name:'Perler Beads', cn:'拼豆',
-    priceCraft:35, priceCuration:20, priceTotal:55, price:35,
-    time:'2–4 hrs', level:'Beginner friendly',
-    boxDims:'33 × 23 × 7 cm',
-    mvpImg:'mvp/Bazaart_13E81AB9-9A40-40EC-92BD-D8CFD9D93713.PNG',
-    shopHero:'new%20crafts/beads.jpg',
-    hero:'new%20crafts/beads.jpg',
-    preview:'new%20crafts/beads.jpg',
-    kitImg:'new%20crafts/beads.jpg',
-    desc:'Place tiny colourful beads onto a pegboard, then iron them together into a glossy, fused pixel-art keepsake. Crisp, satisfying, and surprisingly meditative — like adult Lego.',
-    note:'The pattern is randomly selected from our designs based on your survey.',
-    steps:[
-      'Pick your bead colours from the kit',
-      'Arrange beads on the pegboard following the template',
-      'Use tweezers for the small, precise placements',
-      'Iron with parchment paper to fuse and set the design',
-    ],
-    photos:[
-      'product/beads/1777359076537.JPG',
-      'cards/exports/02-perler-beads-tools.png',
-      'cards/exports/02-perler-beads-steps.png',
-      'product/beads/IMG_3938.JPG',
-      'product/beads/1777359418954.JPG',
-      'product/beads/IMG_3940.JPG',
-      'product/beads/IMG_3941.JPG',
-      'product/beads/IMG_4515.JPG',
-      'product/beads/IMG_4520.JPG',
-    ],
-    videos:[],
-  },
-  {
     id:'ww', name:'Chenille Stick Flowers', cn:'扭扭棒花束',
     priceCraft:25, priceCuration:20, priceTotal:45, price:25,
     time:'45 min – 1.5 hrs', level:'Easy for all ages',
@@ -4020,6 +3960,74 @@ var CRAFTS = [
       'product/diamond/IMG_4451.JPG',
       'product/diamond/IMG_4453.JPG',
       'product/diamond/IMG_4507.jpg',
+    ],
+    videos:[],
+  },
+  {
+    id:'pb', name:'Perler Beads', cn:'拼豆',
+    priceCraft:35, priceCuration:20, priceTotal:55, price:35,
+    time:'2–4 hrs', level:'Beginner friendly',
+    boxDims:'33 × 23 × 7 cm',
+    mvpImg:'mvp/Bazaart_13E81AB9-9A40-40EC-92BD-D8CFD9D93713.PNG',
+    shopHero:'new%20crafts/beads.jpg',
+    hero:'new%20crafts/beads.jpg',
+    preview:'new%20crafts/beads.jpg',
+    kitImg:'new%20crafts/beads.jpg',
+    desc:'Place tiny colourful beads onto a pegboard, then iron them together into a glossy, fused pixel-art keepsake. Crisp, satisfying, and surprisingly meditative — like adult Lego.',
+    note:'The pattern is randomly selected from our designs based on your survey.',
+    steps:[
+      'Pick your bead colours from the kit',
+      'Arrange beads on the pegboard following the template',
+      'Use tweezers for the small, precise placements',
+      'Iron with parchment paper to fuse and set the design',
+    ],
+    photos:[
+      'product/beads/1777359076537.JPG',
+      'cards/exports/02-perler-beads-tools.png',
+      'cards/exports/02-perler-beads-steps.png',
+      'product/beads/IMG_3938.JPG',
+      'product/beads/1777359418954.JPG',
+      'product/beads/IMG_3940.JPG',
+      'product/beads/IMG_3941.JPG',
+      'product/beads/IMG_4515.JPG',
+      'product/beads/IMG_4520.JPG',
+    ],
+    videos:[],
+  },
+  {
+    id:'pn', name:'Punch Needle', cn:'戳戳绣',
+    priceCraft:38, priceCuration:20, priceTotal:58, price:38,
+    time:'2–3 hrs', level:'Beginner friendly',
+    boxDims:'33 × 23 × 7 cm',
+    mvpImg:'mvp/Bazaart_39BD5ACD-5BCA-4D3B-89D7-4F449F3E0E5A.JPEG',
+    shopHero:'new%20crafts/needle.jpg',
+    hero:'new%20crafts/needle.jpg',
+    preview:'new%20crafts/needle.jpg',
+    kitImg:'new%20crafts/needle.jpg',
+    desc:'Push loops of soft yarn through fabric to build a fluffy, three-dimensional tapestry. The pile is what makes it special — like a tiny handmade rug you can hang on the wall.',
+    note:'The pattern is randomly selected from our designs based on your survey.',
+    steps:[
+      'Stretch the fabric tight in the included hoop',
+      'Thread the punch needle with yarn',
+      'Punch loops along the printed design lines',
+      'Trim, fluff, and finish — display in the hoop',
+    ],
+    photos:[
+      'product/punch%20needle/IMG_4354.JPG',
+      'cards/exports/06-punch-needle-tools.png',
+      'cards/exports/06-punch-needle-steps.png',
+      'product/punch%20needle/IMG_4356.JPG',
+      'product/punch%20needle/IMG_4357.JPG',
+      'product/punch%20needle/IMG_4358.JPG',
+      'product/punch%20needle/IMG_4359.JPG',
+      'product/punch%20needle/IMG_4375.JPG',
+      'product/punch%20needle/IMG_4376.JPG',
+      'product/punch%20needle/IMG_4377.JPG',
+      'product/punch%20needle/IMG_4378.JPG',
+      'product/punch%20needle/IMG_4381.JPG',
+      'product/punch%20needle/IMG_4384.JPG',
+      'product/punch%20needle/IMG_4482.JPG',
+      'product/punch%20needle/IMG_4484.JPG',
     ],
     videos:[],
   },
