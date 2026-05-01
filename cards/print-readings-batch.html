@@ -61,21 +61,21 @@
     /* Type-size variables — fitCardToPage() shrinks these proportionally
        when a customer's reading is too long to fit one A4 page, so nothing
        gets cut off below the signature and footer. */
-    --fs-greeting:46px;
-    --fs-sub:15.5px;
-    --fs-body:17px;
-    --fs-rosewood:16px;
-    --fs-heading:9.5px;
-    --fs-card-value:16px;
-    --fs-cta:14.5px;
-    --sp-section:7.5mm;
+    --fs-greeting:48px;
+    --fs-sub:16px;
+    --fs-body:18px;
+    --fs-rosewood:17px;
+    --fs-heading:10px;
+    --fs-card-value:17px;
+    --fs-cta:15px;
+    --sp-section:7mm;
     margin:0 auto 24px;
     background:var(--paper);
     background-image:
       radial-gradient(ellipse at 20% 15%, rgba(255,250,240,0.7) 0%, transparent 55%),
       radial-gradient(ellipse at 80% 85%, rgba(245,225,195,0.5) 0%, transparent 60%);
     box-shadow:0 12px 40px -16px var(--paper-shadow);
-    padding:30mm 30mm 24mm;
+    padding:22mm 22mm 18mm;
     position:relative;
     page-break-after:always;
     overflow:hidden;
@@ -84,17 +84,12 @@
   }
   .card:last-child{page-break-after:auto;}
 
-  /* Wiggly rosewood border — same SVG used on the on-site result page so the
-     printed card visually matches the digital "torn paper letter" reveal.
-     Sits close to the paper edge (6mm in) so it reads as a paper border, not
-     a frame around the text. */
+  /* Simple thin gold inner frame — matches the original print design. */
   .card::before{
     content:'';position:absolute;
-    top:6mm;left:6mm;right:6mm;bottom:6mm;
+    top:14mm;left:14mm;right:14mm;bottom:14mm;
+    border:0.4mm solid rgba(165,127,69,0.20);
     pointer-events:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 320' preserveAspectRatio='none'><path d='M16 16 Q30 8 44 16 Q58 24 72 16 Q86 8 100 16 Q114 24 128 16 Q142 8 156 16 Q170 24 184 16 Q198 8 212 16 Q220 18 224 28 Q232 42 224 56 Q216 70 224 84 Q232 98 224 112 Q216 126 224 140 Q232 154 224 168 Q216 182 224 196 Q232 210 224 224 Q216 238 224 252 Q232 266 224 280 Q222 296 212 304 Q198 312 184 304 Q170 296 156 304 Q142 312 128 304 Q114 296 100 304 Q86 312 72 304 Q58 296 44 304 Q30 312 18 304 Q8 296 16 280 Q24 266 16 252 Q8 238 16 224 Q24 210 16 196 Q8 182 16 168 Q24 154 16 140 Q8 126 16 112 Q24 98 16 84 Q8 70 16 56 Q24 42 16 28 Q12 18 16 16 Z' stroke='%23B94F63' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    background-size:100% 100%;
-    background-repeat:no-repeat;
   }
 
   .card-eye{
@@ -575,14 +570,14 @@ function setStatus(text, isErr){
    resets these every render so a previously-shrunk card doesn't stay shrunk
    when its content gets shorter. */
 var FIT_DEFAULTS = {
-  '--fs-greeting':   { v: 46,  unit: 'px' },
-  '--fs-sub':        { v: 15.5,unit: 'px' },
-  '--fs-body':       { v: 17,  unit: 'px' },
-  '--fs-rosewood':   { v: 16,  unit: 'px' },
-  '--fs-heading':    { v: 9.5, unit: 'px' },
-  '--fs-card-value': { v: 16,  unit: 'px' },
-  '--fs-cta':        { v: 14.5,unit: 'px' },
-  '--sp-section':    { v: 7.5, unit: 'mm' }
+  '--fs-greeting':   { v: 48,  unit: 'px' },
+  '--fs-sub':        { v: 16,  unit: 'px' },
+  '--fs-body':       { v: 18,  unit: 'px' },
+  '--fs-rosewood':   { v: 17,  unit: 'px' },
+  '--fs-heading':    { v: 10,  unit: 'px' },
+  '--fs-card-value': { v: 17,  unit: 'px' },
+  '--fs-cta':        { v: 15,  unit: 'px' },
+  '--sp-section':    { v: 7,   unit: 'mm' }
 };
 
 /* Shrink a card's type-size variables proportionally until its content fits
@@ -609,11 +604,14 @@ function fitCardToPage(cardEl){
   var availableHeight = cardEl.clientHeight;
 
   /* 3. If content overflows, scale every variable down by the same ratio with
-     a small safety margin. Iterate a couple of times to settle word-wrap. */
+     a small safety margin. Iterate a couple of times to settle word-wrap.
+     Stop shrinking at 0.92 — going smaller makes the printed reading feel
+     cramped, and a slim overflow at the bottom is preferable to tiny type. */
+  var MIN_SCALE = 0.92;
   var scale = 1;
-  for(var i = 0; i < 4 && contentHeight > availableHeight; i++){
-    var step = (availableHeight / contentHeight) * 0.97;
-    scale *= step;
+  for(var i = 0; i < 4 && contentHeight > availableHeight && scale > MIN_SCALE; i++){
+    var step = (availableHeight / contentHeight) * 0.99;
+    scale = Math.max(MIN_SCALE, scale * step);
     Object.keys(FIT_DEFAULTS).forEach(function(k){
       var d = FIT_DEFAULTS[k];
       cardEl.style.setProperty(k, (d.v * scale).toFixed(3) + d.unit);
