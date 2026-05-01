@@ -58,6 +58,17 @@
   ───────────────────────────────────────────────────────── */
   .card{
     width:210mm;height:297mm;
+    /* Type-size variables — fitCardToPage() shrinks these proportionally
+       when a customer's reading is too long to fit one A4 page, so nothing
+       gets cut off below the signature and footer. */
+    --fs-greeting:46px;
+    --fs-sub:15.5px;
+    --fs-body:17px;
+    --fs-rosewood:16px;
+    --fs-heading:9.5px;
+    --fs-card-value:16px;
+    --fs-cta:14.5px;
+    --sp-section:7.5mm;
     margin:0 auto 24px;
     background:var(--paper);
     background-image:
@@ -73,12 +84,15 @@
   }
   .card:last-child{page-break-after:auto;}
 
-  /* Decorative inner frame — sits inside the new generous padding */
+  /* Wiggly rosewood border — same SVG used on the on-site result page so the
+     printed card visually matches the digital "torn paper letter" reveal. */
   .card::before{
     content:'';position:absolute;
-    top:20mm;left:20mm;right:20mm;bottom:18mm;
-    border:0.4mm solid rgba(165,127,69,0.20);
+    top:12mm;left:12mm;right:12mm;bottom:12mm;
     pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 320' preserveAspectRatio='none'><path d='M16 16 Q30 8 44 16 Q58 24 72 16 Q86 8 100 16 Q114 24 128 16 Q142 8 156 16 Q170 24 184 16 Q198 8 212 16 Q220 18 224 28 Q232 42 224 56 Q216 70 224 84 Q232 98 224 112 Q216 126 224 140 Q232 154 224 168 Q216 182 224 196 Q232 210 224 224 Q216 238 224 252 Q232 266 224 280 Q222 296 212 304 Q198 312 184 304 Q170 296 156 304 Q142 312 128 304 Q114 296 100 304 Q86 312 72 304 Q58 296 44 304 Q30 312 18 304 Q8 296 16 280 Q24 266 16 252 Q8 238 16 224 Q24 210 16 196 Q8 182 16 168 Q24 154 16 140 Q8 126 16 112 Q24 98 16 84 Q8 70 16 56 Q24 42 16 28 Q12 18 16 16 Z' stroke='%23B94F63' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-size:100% 100%;
+    background-repeat:no-repeat;
   }
 
   .card-eye{
@@ -96,7 +110,7 @@
     text-align:center;
     font-family:'Dancing Script',cursive;
     font-weight:700;
-    font-size:46px;
+    font-size:var(--fs-greeting);
     color:var(--ink);
     line-height:1;
     margin-bottom:3mm;
@@ -106,7 +120,7 @@
     text-align:center;
     font-family:'Cormorant',serif;
     font-style:italic;
-    font-size:15.5px;
+    font-size:var(--fs-sub);
     color:var(--dust);
     margin-bottom:8mm;
     position:relative;z-index:1;
@@ -118,10 +132,10 @@
   }
 
   /* Reading body — sections */
-  .card-body{position:relative;z-index:1;flex:1;}
-  .pr-section{margin-bottom:7.5mm;position:relative;}
+  .card-body{position:relative;z-index:1;}
+  .pr-section{margin-bottom:var(--sp-section);position:relative;}
   .pr-section-heading{
-    font-family:'Raleway',sans-serif;font-size:9.5px;font-weight:600;
+    font-family:'Raleway',sans-serif;font-size:var(--fs-heading);font-weight:600;
     letter-spacing:0.34em;text-transform:uppercase;
     color:var(--gold);margin-bottom:3mm;
     display:flex;align-items:center;gap:8px;
@@ -130,7 +144,7 @@
     content:'';flex:1;height:0.25mm;background:rgba(165,127,69,0.35);
   }
   .pr-section-body{
-    font-family:'Cormorant',serif;font-size:17px;line-height:1.65;
+    font-family:'Cormorant',serif;font-size:var(--fs-body);line-height:1.65;
     color:var(--ink);
   }
   .pr-section-rosewood{
@@ -145,7 +159,7 @@
     background:rgba(185,79,99,0.4);
   }
   .pr-section-rosewood .pr-section-body{
-    color:var(--rose);font-size:16px;line-height:1.75;font-style:italic;
+    color:var(--rose);font-size:var(--fs-rosewood);line-height:1.75;font-style:italic;
   }
 
   /* Today's tarot — featured card */
@@ -197,7 +211,7 @@
     text-transform:uppercase;color:var(--dust);font-weight:500;margin-bottom:2.5mm;
   }
   .pr-card-value{
-    font-family:'Cormorant',serif;font-size:16px;font-weight:500;
+    font-family:'Cormorant',serif;font-size:var(--fs-card-value);font-weight:500;
     color:var(--ink);line-height:1.3;
   }
 
@@ -211,7 +225,7 @@
     font-size:14px;color:var(--gold);letter-spacing:0.5em;margin-bottom:4mm;
   }
   .card-share-cta{
-    font-family:'Cormorant',serif;font-size:14.5px;line-height:1.5;
+    font-family:'Cormorant',serif;font-size:var(--fs-cta);line-height:1.5;
     color:var(--ink);margin-bottom:3mm;
   }
   .card-share-cta strong{
@@ -231,8 +245,8 @@
     letter-spacing:0.3em;margin:4mm 0;position:relative;z-index:1;
   }
   .card-signoff{
-    text-align:center;margin-top:auto;position:relative;z-index:1;
-    padding-top:4mm;
+    text-align:center;position:relative;z-index:1;
+    padding-top:6mm;
   }
   .card-signoff-pre{
     font-family:'Cormorant',serif;font-style:italic;font-size:13.5px;
@@ -476,7 +490,7 @@ function renderCard(r){
   return (
     '<div class="card">' +
       '<div class="card-eye">✦ Order received ✦</div>' +
-      '<h1 class="card-greeting">Thank you, ' + escHtml(name) + ' &#x1F49B;</h1>' +
+      '<h1 class="card-greeting">Thank you, ' + escHtml(name) + '</h1>' +
       '<p class="card-sub">Your box is being curated.</p>' +
       '<hr class="card-divider">' +
       '<div class="card-body">' +
@@ -555,11 +569,72 @@ function setStatus(text, isErr){
   $status.classList.toggle('err', !!isErr);
 }
 
+/* Default sizes that match the CSS defaults declared on .card. fitCardToPage
+   resets these every render so a previously-shrunk card doesn't stay shrunk
+   when its content gets shorter. */
+var FIT_DEFAULTS = {
+  '--fs-greeting':   { v: 46,  unit: 'px' },
+  '--fs-sub':        { v: 15.5,unit: 'px' },
+  '--fs-body':       { v: 17,  unit: 'px' },
+  '--fs-rosewood':   { v: 16,  unit: 'px' },
+  '--fs-heading':    { v: 9.5, unit: 'px' },
+  '--fs-card-value': { v: 16,  unit: 'px' },
+  '--fs-cta':        { v: 14.5,unit: 'px' },
+  '--sp-section':    { v: 7.5, unit: 'mm' }
+};
+
+/* Shrink a card's type-size variables proportionally until its content fits
+   on one A4 page. Iterates a few times because each shrink can change the
+   word-wrap and trigger a different content height. */
+function fitCardToPage(cardEl){
+  /* 1. Reset to defaults so we always start from the same baseline. */
+  Object.keys(FIT_DEFAULTS).forEach(function(k){
+    var d = FIT_DEFAULTS[k];
+    cardEl.style.setProperty(k, d.v + d.unit);
+  });
+
+  /* 2. Measure full intrinsic content height by temporarily letting the card
+     grow. We restore right after so the visible card stays exactly A4. */
+  var originalHeight   = cardEl.style.height;
+  var originalOverflow = cardEl.style.overflow;
+  cardEl.style.height   = 'auto';
+  cardEl.style.overflow = 'visible';
+  void cardEl.offsetHeight;
+  var contentHeight = cardEl.scrollHeight;
+  cardEl.style.height   = originalHeight   || '';
+  cardEl.style.overflow = originalOverflow || '';
+  void cardEl.offsetHeight;
+  var availableHeight = cardEl.clientHeight;
+
+  /* 3. If content overflows, scale every variable down by the same ratio with
+     a small safety margin. Iterate a couple of times to settle word-wrap. */
+  var scale = 1;
+  for(var i = 0; i < 4 && contentHeight > availableHeight; i++){
+    var step = (availableHeight / contentHeight) * 0.97;
+    scale *= step;
+    Object.keys(FIT_DEFAULTS).forEach(function(k){
+      var d = FIT_DEFAULTS[k];
+      cardEl.style.setProperty(k, (d.v * scale).toFixed(3) + d.unit);
+    });
+    /* Re-measure for the next iteration. */
+    cardEl.style.height   = 'auto';
+    cardEl.style.overflow = 'visible';
+    void cardEl.offsetHeight;
+    contentHeight = cardEl.scrollHeight;
+    cardEl.style.height   = originalHeight   || '';
+    cardEl.style.overflow = originalOverflow || '';
+    void cardEl.offsetHeight;
+  }
+}
+
 function render(){
   try{
     var rows = parseInput($input.value);
     if(!rows.length){ setStatus('No valid rows in input.', true); $cards.innerHTML = ''; return; }
     $cards.innerHTML = rows.map(renderCard).join('');
+    /* Auto-shrink any card whose content exceeds one A4 page so the
+       signature + share footer never get clipped at the bottom. */
+    Array.from($cards.querySelectorAll('.card')).forEach(fitCardToPage);
     setStatus(rows.length + ' card' + (rows.length===1?'':'s') + ' rendered. Cmd+P to print.');
   } catch(err){
     setStatus(err.message, true);
