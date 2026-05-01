@@ -2392,7 +2392,7 @@ em, i { font-style: normal; }
         <button type="submit">Notify →</button>
       </form>
     </div>
-    <p class="wp-fine">Reservations are free. <strong>15% off</strong> with <code style="background:rgba(185,79,99,0.12);padding:1px 5px;border-radius:3px;font-family:inherit;color:#B94F63;font-weight:600;">UNFOLD15</code> when checkout opens May 10. Free US shipping (10–15 days from China).</p>
+    <p class="wp-fine">Reservations are free. <strong>15% off</strong> with <code style="background:rgba(185,79,99,0.12);padding:1px 5px;border-radius:3px;font-family:inherit;color:#B94F63;font-weight:600;">UNFOLD15</code> when checkout opens May 10. Free US shipping (15–20 days from China).</p>
   </div>
 </div>
 
@@ -2747,7 +2747,7 @@ function submitWelcomeNotify(form){
       </details>
       <details class="pm-acc">
         <summary>Delivery &amp; returns</summary>
-        <div class="pm-incl">Free shipping to the US. We ship door-to-door by air mail from China, 10–15 business days to your doorstep. Round 1 is US-only — international launch coming later. Because every box is curated to your answers, sales are final — but reach out anytime if anything arrives damaged.</div>
+        <div class="pm-incl">Free shipping to the US. We ship door-to-door by air mail from China, 15–20 business days to your doorstep. Round 1 is US-only — international launch coming later. Because every box is curated to your answers, sales are final — but reach out anytime if anything arrives damaged.</div>
       </details>
     </div>
   </div>
@@ -2778,7 +2778,7 @@ function submitWelcomeNotify(form){
     <span style="font-family:'Cormorant',serif;font-size:1.5rem;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:0.65rem;">Browse our FAQ <span class="faq-chev" style="display:inline-block;width:11px;height:11px;border-right:1.5px solid var(--dust);border-bottom:1.5px solid var(--dust);transform:rotate(45deg);transition:transform 0.3s ease;margin-bottom:4px;"></span></span>
   </div>
   <div class="faq-wrap" id="faq-wrap" style="max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height 0.45s ease,opacity 0.35s ease,margin-top 0.3s ease;">
-    <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">How long does delivery take?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Please allow 10–15 days for us to hand-pick your product and deliver it to your doorstep. Round 1 is US-only.</div></div></div>
+    <div class="faq-item open"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">How long does delivery take?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Please allow 15–20 days for us to hand-pick your product and deliver it to your doorstep. Round 1 is US-only.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">Are the blind boxes suitable for complete beginners?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Absolutely. Every blind box includes a printed step-by-step guide. No prior experience needed.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What is the mystery add-on?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every blind box includes a hand-picked extra, curated from your MBTI, zodiac, tarot pull, and the date you draw — so no two boxes are alike. Always a surprise until you open the box.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="togFaq(this)"><span class="faq-qt">What's the Founder's Prize?</span><div class="faq-ic"></div></div><div class="faq-a"><div class="faq-ai">Every Founding 50 member is automatically entered into a draw for a premium, hand-curated prize — kept under wraps until May 10. Reserving your box is your entry. One winner drawn on launch day (May 10) when the first 50 boxes ship. Announced via email and Instagram.</div></div></div>
@@ -3714,7 +3714,7 @@ function submitPromo(e,variant){
 
         <button type="submit" class="reserve-submit" id="reserve-submit-btn">Reserve my spot →</button>
       </form>
-      <p class="reserve-privacy">No payment now. Free US shipping (10–15 days from China). Round 1 checkout opens May 10 ✦ Your info goes directly to Afternoon Unfold — never shared.</p>
+      <p class="reserve-privacy">No payment now. Free US shipping (15–20 days from China). Round 1 checkout opens May 10 ✦ Your info goes directly to Afternoon Unfold — never shared.</p>
     </div>
 
     <div id="reserve-success-state" style="display:none;">
@@ -5208,7 +5208,7 @@ function openReserveModal(){
       if(subEl)        subEl.innerHTML        = 'Apply '+couponCode+' at checkout for <strong style="color:#B94F63;">15% off</strong>. We\'ll send your box recipe straight to packing.';
       if(prizeEl)      prizeEl.innerHTML      = '✦ All Founding 50 buyers are entered for the <strong>Founder\'s Prize</strong> — winner drawn May 10';
       if(submitEl){    submitEl.textContent   = 'Continue to checkout →'; submitEl.disabled = false; }
-      if(privacyEl)    privacyEl.innerHTML    = 'You\'ll be redirected to secure Stripe checkout. Free US shipping (10–15 days from China) ✦ Your info goes directly to Afternoon Unfold — never shared.';
+      if(privacyEl)    privacyEl.innerHTML    = 'You\'ll be redirected to secure Stripe checkout. Free US shipping (15–20 days from China) ✦ Your info goes directly to Afternoon Unfold — never shared.';
       if(presaleRow)   presaleRow.style.display = 'none';
       if(retailLabel)  retailLabel.textContent  = 'Box total';
     } else {
@@ -5216,7 +5216,7 @@ function openReserveModal(){
       if(subEl)        subEl.innerHTML        = 'Pay <strong style="color:#B94F63;">nothing now</strong>. We\'ll email you a secure checkout with your <strong>15% off</strong> locked in when Round 1 opens May 10.';
       if(prizeEl)      prizeEl.innerHTML      = '✦ You\'ll be entered for the <strong>Founder\'s Prize</strong> — drawn on May 10 launch day';
       if(submitEl){    submitEl.textContent   = 'Reserve my spot →'; submitEl.disabled = false; }
-      if(privacyEl)    privacyEl.innerHTML    = 'No payment now. Free US shipping (10–15 days from China). Round 1 checkout opens May 10 ✦ Your info goes directly to Afternoon Unfold — never shared.';
+      if(privacyEl)    privacyEl.innerHTML    = 'No payment now. Free US shipping (15–20 days from China). Round 1 checkout opens May 10 ✦ Your info goes directly to Afternoon Unfold — never shared.';
       if(presaleRow)   presaleRow.style.display = '';
       if(retailLabel)  retailLabel.textContent  = 'Retail';
     }
