@@ -5709,7 +5709,21 @@ function proceedToCheckout(){
     reading_scent: (o.reading && o.reading.scent) ? o.reading.scent.name : '',
     reading_tea: (o.reading && o.reading.tea) ? o.reading.tea.name : '',
     reading_color: (o.reading && o.reading.color) ? o.reading.color.name : '',
+    reading_color_hex: (o.reading && o.reading.color) ? o.reading.color.hex : '',
     reading_text: o.reading ? o.reading.readingText : '',
+    /* Full structured reading payload — used by cards/print-readings-batch.html
+       to lay out each customer's printable reading card without re-deriving
+       the daily tarot pull (which would drift if printed on a later day). */
+    reading_full_json: o.reading ? JSON.stringify({
+      name: (o.reading.greeting||'').replace(/^Dear\s+/, '').replace(/,$/, ''),
+      sections: o.reading.sections || [],
+      closer: o.reading.closer || '✦',
+      scent: o.reading.scent  || null,
+      tea:   o.reading.tea    || null,
+      color: o.reading.color  || null,
+      todaysTarot: o.reading.todaysTarot || null,
+      element: o.reading.element || ''
+    }) : '',
     is_gift: isGift ? 'yes' : 'no',
     gift_note: giftNote,
     quiz_name: o.customerQuizName,
