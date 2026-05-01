@@ -185,12 +185,12 @@
   /* 3-card row: Scent / Tea / Colour */
   .pr-cards{
     display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;
-    margin:7mm 0 5mm;position:relative;z-index:1;
+    margin:5mm 0 4mm;position:relative;z-index:1;
   }
   .pr-card{
     background:#FFFEF9;
     border:0.3mm solid rgba(165,127,69,0.25);
-    padding:6mm 4mm 6.5mm;
+    padding:4.5mm 3mm 5mm;
     text-align:center;
   }
   .pr-card-icon{
@@ -214,16 +214,13 @@
 
   /* ── Footer: unboxing CTA + social handles ── */
   .card-share{
-    margin-top:5mm;padding:5mm 4mm 4mm;
-    border-top:0.3mm dashed rgba(165,127,69,0.35);
+    margin-top:4mm;padding:3mm 0 0;
+    border-top:0.25mm dashed rgba(165,127,69,0.3);
     text-align:center;position:relative;z-index:1;
   }
-  .card-share-flourish{
-    font-size:14px;color:var(--gold);letter-spacing:0.5em;margin-bottom:4mm;
-  }
   .card-share-cta{
-    font-family:'Cormorant',serif;font-size:var(--fs-cta);line-height:1.5;
-    color:var(--ink);margin-bottom:3mm;
+    font-family:'Cormorant',serif;font-size:var(--fs-cta);line-height:1.45;
+    color:var(--ink);margin-bottom:2mm;
   }
   .card-share-cta strong{
     color:var(--rose);font-weight:600;
@@ -238,23 +235,23 @@
 
   /* Closing flourish + signature */
   .card-closer{
-    text-align:center;font-size:18px;color:var(--gold);
-    letter-spacing:0.3em;margin:4mm 0;position:relative;z-index:1;
+    text-align:center;font-size:16px;color:var(--gold);
+    letter-spacing:0.3em;margin:3mm 0 2mm;position:relative;z-index:1;
   }
   .card-signoff{
     text-align:center;position:relative;z-index:1;
-    padding-top:6mm;
+    padding-top:4mm;
   }
   .card-signoff-pre{
-    font-family:'Cormorant',serif;font-style:italic;font-size:13.5px;
-    color:var(--dust);margin-bottom:2mm;
+    font-family:'Cormorant',serif;font-style:italic;font-size:13px;
+    color:var(--dust);margin-bottom:1.5mm;
   }
   .card-signoff-name{
-    font-family:'Great Vibes',cursive;font-size:32px;
-    color:var(--rose);line-height:1;margin-bottom:2mm;
+    font-family:'Great Vibes',cursive;font-size:28px;
+    color:var(--rose);line-height:1;margin-bottom:1.5mm;
   }
   .card-signoff-role{
-    font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.3em;
+    font-family:'Raleway',sans-serif;font-size:8px;letter-spacing:0.3em;
     text-transform:uppercase;color:var(--dust);font-weight:500;
   }
 
@@ -518,8 +515,7 @@ function renderCard(r){
         '<div class="card-signoff-role">Founder · Afternoon Unfold</div>' +
       '</div>' +
       '<div class="card-share">' +
-        '<div class="card-share-flourish">✦ ✦ ✦</div>' +
-        '<div class="card-share-cta">Share your unboxing video and get <strong>10% off</strong> your next order &mdash;<br>tag us so we can re-share you.</div>' +
+        '<div class="card-share-cta">Share your unboxing video and get <strong>10% off</strong> your next order &mdash; tag us so we can re-share you.</div>' +
         '<div class="card-share-handles">Instagram &amp; TikTok &middot; <strong>@afternoonunfold</strong></div>' +
       '</div>' +
       (box ? '<div class="card-meta">' + escHtml(box) + '</div>' : '') +
@@ -604,12 +600,12 @@ function fitCardToPage(cardEl){
   var availableHeight = cardEl.clientHeight;
 
   /* 3. If content overflows, scale every variable down by the same ratio with
-     a small safety margin. Iterate a couple of times to settle word-wrap.
-     Stop shrinking at 0.92 — going smaller makes the printed reading feel
-     cramped, and a slim overflow at the bottom is preferable to tiny type. */
-  var MIN_SCALE = 0.92;
+     a small safety margin. Iterate a few times to settle word-wrap. The 0.86
+     floor keeps body type at ~15.5px minimum — still comfortable to read,
+     and it prevents the card from running past the paper edge. */
+  var MIN_SCALE = 0.86;
   var scale = 1;
-  for(var i = 0; i < 4 && contentHeight > availableHeight && scale > MIN_SCALE; i++){
+  for(var i = 0; i < 6 && contentHeight > availableHeight && scale > MIN_SCALE; i++){
     var step = (availableHeight / contentHeight) * 0.99;
     scale = Math.max(MIN_SCALE, scale * step);
     Object.keys(FIT_DEFAULTS).forEach(function(k){
