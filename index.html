@@ -4203,32 +4203,34 @@ var PERSONA = {
       line:'warm and spontaneous — joy follows you into a room',
       extra:'You feel with your whole body. People feel more alive around you — that\'s a gift, not an accident.'}
   },
+  // Hand cream inventory — 4 stocked scents, one per element
   scent: {
-    fire:  { name:'Bergamot & Orange Blossom', note:'bright, warming, citrus-floral',
-             why:'to meet the warmth you bring — lifting without crowding' },
-    earth: { name:'Sandalwood & Vanilla',      note:'grounding, soft, amber-rich',
+    fire:  { name:'Pink Encounter', note:'warm pink floral — soft and romantic',
+             why:'to meet the warmth you bring — petal-soft, never loud' },
+    earth: { name:'Sandalwood',     note:'grounding, woody, amber-rich',
              why:'to hold you steady the way you hold others — rich, still, staying' },
-    air:   { name:'Lemon & Eucalyptus',        note:'fresh, cool, garden-green',
+    air:   { name:'Yulong Tea',     note:'fresh light tea fragrance',
              why:'to clear the mind the way your thoughts move — light, fast, precise' },
-    water: { name:'Rose & Lavender',           note:'romantic, calming, soft floral',
-             why:'to honor the depth in you — softness without losing its weight' }
+    water: { name:'White Musk',     note:'soft, clean, gently powdered',
+             why:'to honour the depth in you — softness without losing its weight' }
   },
+  // Tea inventory — 4 stocked teas, one per element
   tea: {
-    fire:  { name:'Bergamot Black',          note:'warming, awakening',
+    fire:  { name:'Lemon',         note:'bright, citrus, warming',
              why:'a tea that meets your pace without burning it off' },
-    earth: { name:'Roasted Oolong & Honey',  note:'nutty, rounded, grounding',
-             why:'slow and golden — for the moments you finally sit down' },
-    air:   { name:'Jasmine Green',           note:'floral-fresh, clarity-bringing',
+    earth: { name:'Green Tea',     note:'steady, ritual, grounding',
+             why:'slow and clear — for the moments you finally sit down' },
+    air:   { name:'Jasmine Green', note:'floral-fresh, clarity-bringing',
              why:'light and blooming — a tea that lets you keep thinking' },
-    water: { name:'Chamomile & Rose Bud',    note:'gentle, calming, softening',
+    water: { name:'Rose',          note:'gentle, calming, soft floral',
              why:'a tea for the hour between day and night — quiet, held, soft' }
   },
-  // 8 deterministic luck-colors = 4 elements × 2 MBTI sense types
+  // 4 simple luck-colours — one per element (no MBTI N/S split anymore)
   color: {
-    fire:  { N:{name:'Honey Gold',    hex:'#D9A557'}, S:{name:'Terracotta',   hex:'#C47A5A'} },
-    earth: { N:{name:'Sage',          hex:'#8FA284'}, S:{name:'Caramel',      hex:'#B07A4C'} },
-    air:   { N:{name:'Soft Lavender', hex:'#BFAED4'}, S:{name:'Clay Beige',   hex:'#C6B29A'} },
-    water: { N:{name:'Pearl Blue',    hex:'#A5BBCF'}, S:{name:'Dusty Rose',   hex:'#C89098'} }
+    fire:  { N:{name:'Coral', hex:'#E5996B'}, S:{name:'Coral', hex:'#E5996B'} },
+    earth: { N:{name:'Sage',  hex:'#8FA284'}, S:{name:'Sage',  hex:'#8FA284'} },
+    air:   { N:{name:'Sky',   hex:'#A5BBCF'}, S:{name:'Sky',   hex:'#A5BBCF'} },
+    water: { N:{name:'Rose',  hex:'#E5B5C0'}, S:{name:'Rose',  hex:'#E5B5C0'} }
   },
   // Tarot — 8 major-arcana archetypes. numeral = roman numeral printed on
   // the card; tagline = short classical meaning; message = what it means
