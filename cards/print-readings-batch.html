@@ -238,8 +238,11 @@
 <!-- ───── CONTROL PANEL ───── -->
 <div class="control no-print">
   <h1>Reading cards — batch print</h1>
-  <p>Paste a JSON array below. Each entry is one customer's reading and renders as one A4 page. Click <strong>Render</strong>, then <strong>Cmd+P</strong> (or Ctrl+P) to print or save as PDF — A4, no margins.</p>
-  <p style="font-size:12px;">Field map: <code>name</code>, <code>scent {name}</code>, <code>tea {name}</code>, <code>color {name, hex}</code>, <code>todaysTarot {name, numeral, message}</code>, <code>sections [{heading, body, rosewood?}]</code>, <code>closer</code>, <code>boxNumber</code> (optional). Or paste the <code>reading_full_json</code> string from each Formspree row, wrapped in an array.</p>
+  <p>Paste a JSON array below — one entry per customer, each renders as one A4 page. Click <strong>Render</strong>, then <strong>Cmd+P</strong> (or Ctrl+P) to print/save-as-PDF — A4, no margins.</p>
+  <p style="font-size:12px;">
+    <strong>Easy mode (paste from Formspree fields):</strong> <code>name</code>, <code>readingText</code>, <code>scent</code>, <code>tea</code>, <code>colour</code>, <code>colourHex</code>, <code>boxNumber</code> — all simple strings. Aliases accepted: <code>customer_name</code>, <code>full_reading</code>, <code>reading_text</code>, <code>color</code>, <code>color_hex</code>.<br>
+    <strong>Full mode (new orders, post-deploy):</strong> paste the <code>reading_full_json</code> value from each Formspree row, wrapped as an array of strings <code>[ "json...", "json..." ]</code>. The tool unpacks each one and uses the structured sections / today's-tarot / etc.
+  </p>
   <textarea id="json-input" placeholder='[{"name":"Zora","scent":{"name":"White Musk"},"tea":{"name":"Rose"},"color":{"name":"Rose","hex":"#E5B5C0"},"todaysTarot":{"name":"The Star","numeral":"XVII","message":"A quiet signal from something larger."},"sections":[{"heading":"Your Pisces heart","body":"As Pisces, the dreamer, you are gentle and intuitive."}],"closer":"✦"}]'></textarea>
   <div class="control-row">
     <button class="btn" id="btn-render">Render cards</button>
@@ -262,16 +265,34 @@ function escHtml(s){
     .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
+/* Pull a value from a row using a list of accepted aliases. */
+function pick(r, keys){
+  for(var i = 0; i < keys.length; i++){
+    if(r[keys[i]] != null && r[keys[i]] !== '') return r[keys[i]];
+  }
+  return undefined;
+}
+
 function renderCard(r){
-  var name      = r.name || 'friend';
+  var name      = pick(r, ['name','customer_name','customerName']) || 'friend';
   var sections  = Array.isArray(r.sections) ? r.sections : [];
   var closer    = r.closer || '✦';
-  var scentName = (r.scent && r.scent.name) || (typeof r.scent === 'string' ? r.scent : '—');
-  var teaName   = (r.tea && r.tea.name)     || (typeof r.tea === 'string' ? r.tea : '—');
-  var colName   = (r.color && r.color.name) || (typeof r.color === 'string' ? r.color : '—');
-  var colHex    = (r.color && r.color.hex)  || '#C4936A';
+  var scentName = (r.scent && r.scent.name) || pick(r, ['scent','scent_name','scentName']) || '—';
+  var teaName   = (r.tea && r.tea.name)     || pick(r, ['tea','tea_name','teaName'])       || '—';
+  var colName   = (r.color && r.color.name) || pick(r, ['colour','color','colour_name','color_name']) || '—';
+  var colHex    = (r.color && r.color.hex)  || pick(r, ['colourHex','colour_hex','colorHex','color_hex','hex']) || '#C4936A';
   var t         = r.todaysTarot || {};
-  var box       = r.boxNumber ? ('BOX #' + r.boxNumber) : '';
+  var box       = pick(r, ['boxNumber','box_number','box']) ? ('BOX #' + pick(r, ['boxNumber','box_number','box'])) : '';
+  var flatText  = pick(r, ['readingText','reading_text','fullReading','full_reading']);
+
+  /* If no structured sections were given but a flat reading-text string is,
+     synthesize one body section so the card still has substance. The string
+     is rendered verbatim — sentence-level paragraph splitting is left to
+     the print page's natural line wrap. */
+  if(sections.length === 0 && flatText){
+    var trimmed = String(flatText).replace(/^Dear\s+[^,]+,\s*/i, '').replace(/\s*✦\s*$/, '').trim();
+    sections = [{ heading:'', body: trimmed }];
+  }
 
   /* Split today's-tarot section out so we can render it as a featured card.
      Heuristic: a section whose heading contains "drew" is the daily-tarot one. */
@@ -401,32 +422,22 @@ function render(){
 $render.addEventListener('click', render);
 $print.addEventListener('click', function(){ window.print(); });
 
-/* Sample data — uses Zora's actual stocked inventory. */
+/* Sample data — first entry uses the simple flat format you can build by hand
+   from Formspree fields; second entry uses the full structured format that
+   new orders will ship via reading_full_json. */
 var SAMPLE = [
   {
-    name:'Zora',
+    /* ── FLAT FORMAT — what you'd hand-build from a Formspree submission. ── */
+    name:'Zo',
     boxNumber:'001',
-    sections:[
-      { heading:'Your Pisces heart',
-        body:'As Pisces, the dreamer, you are intuitive and tender, with a love that runs deep and a knack for noticing what others miss. You hold space for the unseen.' },
-      { heading:'As INFP, the Idealist',
-        body:'You are idealistic and gentle — you feel things in colour and look for beauty everywhere. You’re wired to translate inner worlds into something the rest of us can hold.' },
-      { heading:'May 1 drew The Star for you',
-        body:'Card XVII — hope, quiet clarity, something guiding. A quiet signal from something larger. You’re oriented, even if you can’t see the whole path yet.' },
-      { heading:'Your symbol — the Moon',
-        body:'The moon means intuition, dreams, cycles. Trust the cycles. What’s hidden tonight will be revealed; what’s bright now will also rest.' },
-      { heading:'',
-        body:'Today’s scent, tea, and colour have been chosen for you — drawn from The Star. Sealed until your box opens.',
-        rosewood:true }
-    ],
-    closer:'✦',
-    scent:{ name:'White Musk' },
-    tea:{ name:'Rose' },
-    color:{ name:'Rose', hex:'#E5B5C0' },
-    todaysTarot:{ name:'The Star', numeral:'XVII', message:'A quiet signal from something larger. You are oriented, even if you can’t see the whole path yet.' },
-    element:'water'
+    readingText:'As Scorpio, the alchemist, you are persistent and deep, with intensity that holds a quiet pull toward romance. You see through surfaces — people feel known around you, sometimes before they’re ready for it. You love deeply or not at all. You are quietly expressive — you live through your senses and your aesthetic. Your taste is the language you write in. Card XVII — hope, quiet clarity, something guiding. A quiet signal from something larger. You’re oriented, even if you can’t see the whole path yet.',
+    scent:'White Musk',
+    tea:'Rose',
+    colour:'Rose',
+    colourHex:'#E5B5C0'
   },
   {
+    /* ── STRUCTURED FORMAT — what reading_full_json gives you on new orders. ── */
     name:'Mei',
     boxNumber:'002',
     sections:[
