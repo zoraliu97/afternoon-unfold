@@ -890,6 +890,15 @@ body.result-active #slide-9 .quiz-slide-inner{
   max-height:none !important;
   height:auto !important;
 }
+/* .quiz-slides is normally flex:1 with overflow:hidden so each slide fills the
+   viewport. In result-active mode the result page can be taller than the
+   viewport (especially on mobile, where the two columns stack), so let the
+   container grow to its content and let #quiz-overlay handle the scroll. */
+body.result-active .quiz-slides{
+  overflow:visible !important;
+  flex:0 0 auto !important;
+  height:auto !important;
+}
 body.result-active #quiz-overlay{overflow-y:auto !important;overflow-x:hidden !important;}
 /* Beige washi tape at the top of the reading card paper only (left panel has no paper to tape to) */
 body.result-active .altar-flipcard::before{
@@ -2040,6 +2049,8 @@ em, i { font-style: normal; }
 @media (max-width:780px){
   #belief.belief-rose{min-height:720px;height:auto;padding:5rem 1.5rem;}
   .belief-zones{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);}
+  /* Mobile: pictures behind the slogan are decorative — disable click-to-shop reroute */
+  .belief-zone{pointer-events:none;cursor:default;}
 }
 .belief-rose-inner{
   max-width:900px;text-align:center;color:#FFF;
@@ -4907,7 +4918,7 @@ function buildResult(){
          redirect succeeds — Zora cross-references the two. */
       try { _submitOrderToPacking(orderObj, 'PENDING'); }
       catch(e){ console.warn('[checkout] pre-redirect packing notify failed', e); }
-      window.location.href = stripeLink;
+      window.location.href = _stripeUrl(stripeLink);
       return;
     }
     console.warn('[checkout] No STRIPE_LINKS entry for craft', craftId);
@@ -5106,6 +5117,14 @@ var STRIPE_LINKS = {
   sy: 'https://buy.stripe.com/7sYaEXdRle9L53Yg274Vy02',  // Paint by Nums $47
   dp: 'https://buy.stripe.com/28E4gz5kP5Df1RM2bh4Vy01'   // Diamond       $48
 };
+/* TESTING ONLY — auto-applies a 90%-off coupon at checkout so Zora can test the
+   end-to-end flow without paying full processing fees. Set to '' to disable. */
+var STRIPE_TEST_PROMO_CODE = 'YRTMBS97';
+function _stripeUrl(link){
+  if(!link) return link;
+  if(!STRIPE_TEST_PROMO_CODE) return link;
+  return link + (link.indexOf('?') === -1 ? '?' : '&') + 'prefilled_promo_code=' + encodeURIComponent(STRIPE_TEST_PROMO_CODE);
+}
 var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqaoebr';
 
 /* Cached order snapshot (used when modal opens) */
@@ -5724,10 +5743,10 @@ function proceedToCheckout(){
           if(successEl){
             successEl.style.display = 'block';
             var fb = document.getElementById('rsv-fallback-link');
-            if(fb) fb.href = stripeLink;
+            if(fb) fb.href = _stripeUrl(stripeLink);
           }
           /* Brief pause so user reads "Taking you to checkout" before redirect */
-          setTimeout(function(){ window.location.href = stripeLink; }, 700);
+          setTimeout(function(){ window.location.href = _stripeUrl(stripeLink); }, 700);
           return;
         }
         /* No Stripe link found — fall through to reservation page as a safety net */
