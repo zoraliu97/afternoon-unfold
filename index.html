@@ -1350,16 +1350,17 @@ body.overlay-active .prize-float{display:none;}
 .presale-banner #ps-banner-detail b{color:#FFE4D8;font-weight:700;margin-right:1px;}
 .presale-banner .ps-action{color:#FFF;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:11px;padding:3px 10px;border:1px solid rgba(253,248,245,0.4);border-radius:12px;margin-left:4px;transition:all 0.2s;}
 .presale-banner:hover .ps-action{background:#FDF8F5;color:#8E3A4E;border-color:#FDF8F5;}
-body.has-banner{padding-top:42px;}
-body.has-banner #main-nav{top:42px;}
+/* --banner-h is set at runtime by syncBannerNavOffset() to the banner's
+   actual rendered height. This keeps the nav flush against the banner
+   regardless of viewport / wrap behavior. Fallback values used until JS runs. */
+body.has-banner{padding-top:var(--banner-h, 42px);}
+body.has-banner #main-nav{top:var(--banner-h, 42px);}
 /* Hide banner when a fullscreen overlay is active (quiz, reserve modal, welcome popup) — gives the close button clear access and avoids weirdness */
 body.overlay-active .presale-banner{display:none;}
 body.overlay-active{padding-top:0 !important;}
 body.overlay-active #main-nav{top:0;}
 @media(max-width:900px){
   .presale-banner{font-size:11px;padding:8px 10px;gap:8px;}
-  body.has-banner{padding-top:62px;}
-  body.has-banner #main-nav{top:62px;}
 }
 .scarcity-bar{display:inline-block;width:70px;height:4px;background:rgba(253,248,245,0.25);border-radius:2px;margin-left:6px;vertical-align:middle;overflow:hidden;position:relative;}
 .scarcity-bar-fill{position:absolute;inset:0;background:linear-gradient(90deg,#FFE0D8 0%,#fff 100%);transform:scaleX(0);transform-origin:left;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);}
@@ -5778,6 +5779,41 @@ window.addEventListener('resize',function(){
     initErasers();
   }
 });
+
+/* Keep the nav flush against the rosewood banner. The banner height varies
+   with viewport (font-size + padding switch at 900px, content can wrap on
+   tiny screens), so we measure it at runtime and write the value into the
+   --banner-h CSS variable that body.has-banner / #main-nav both consume.
+   ResizeObserver watches the banner directly so we capture wrap reflows
+   that the window resize event would race against. */
+function syncBannerNavOffset(){
+  var banner = document.querySelector('.presale-banner');
+  if(!banner) return;
+  /* Read offsetHeight directly — the browser will force a layout if needed.
+     Avoid requestAnimationFrame here: it doesn't fire in hidden/background
+     tabs, so a customer landing on the site from a backgrounded tab would
+     never see the offset applied. */
+  var h = banner.offsetHeight;
+  if(h > 0) document.documentElement.style.setProperty('--banner-h', h + 'px');
+}
+function _bindBannerNavSync(){
+  var banner = document.querySelector('.presale-banner');
+  if(!banner) return;
+  syncBannerNavOffset();
+  if(window.ResizeObserver){
+    try { new ResizeObserver(syncBannerNavOffset).observe(banner); } catch(e){}
+  } else {
+    window.addEventListener('resize', syncBannerNavOffset);
+  }
+  /* Re-sync once web fonts finish — banner can grow a couple px when
+     custom fonts swap in. */
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(syncBannerNavOffset);
+}
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', _bindBannerNavSync);
+} else {
+  _bindBannerNavSync();
+}
 
 /* ════════════════════════════════════════════════
    CRAFT TABS (main page gallery)
