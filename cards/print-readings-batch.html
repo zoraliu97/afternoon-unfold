@@ -85,10 +85,12 @@
   .card:last-child{page-break-after:auto;}
 
   /* Wiggly rosewood border — same SVG used on the on-site result page so the
-     printed card visually matches the digital "torn paper letter" reveal. */
+     printed card visually matches the digital "torn paper letter" reveal.
+     Sits close to the paper edge (6mm in) so it reads as a paper border, not
+     a frame around the text. */
   .card::before{
     content:'';position:absolute;
-    top:12mm;left:12mm;right:12mm;bottom:12mm;
+    top:6mm;left:6mm;right:6mm;bottom:6mm;
     pointer-events:none;
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 320' preserveAspectRatio='none'><path d='M16 16 Q30 8 44 16 Q58 24 72 16 Q86 8 100 16 Q114 24 128 16 Q142 8 156 16 Q170 24 184 16 Q198 8 212 16 Q220 18 224 28 Q232 42 224 56 Q216 70 224 84 Q232 98 224 112 Q216 126 224 140 Q232 154 224 168 Q216 182 224 196 Q232 210 224 224 Q216 238 224 252 Q232 266 224 280 Q222 296 212 304 Q198 312 184 304 Q170 296 156 304 Q142 312 128 304 Q114 296 100 304 Q86 312 72 304 Q58 296 44 304 Q30 312 18 304 Q8 296 16 280 Q24 266 16 252 Q8 238 16 224 Q24 210 16 196 Q8 182 16 168 Q24 154 16 140 Q8 126 16 112 Q24 98 16 84 Q8 70 16 56 Q24 42 16 28 Q12 18 16 16 Z' stroke='%23B94F63' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
     background-size:100% 100%;
