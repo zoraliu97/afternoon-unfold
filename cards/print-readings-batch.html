@@ -96,19 +96,19 @@
     text-align:center;
     font-family:'Dancing Script',cursive;
     font-weight:700;
-    font-size:38px;
+    font-size:46px;
     color:var(--ink);
     line-height:1;
-    margin-bottom:2mm;
+    margin-bottom:3mm;
     position:relative;z-index:1;
   }
   .card-sub{
     text-align:center;
     font-family:'Cormorant',serif;
     font-style:italic;
-    font-size:14px;
+    font-size:15.5px;
     color:var(--dust);
-    margin-bottom:7mm;
+    margin-bottom:8mm;
     position:relative;z-index:1;
   }
 
@@ -119,21 +119,33 @@
 
   /* Reading body — sections */
   .card-body{position:relative;z-index:1;flex:1;}
-  .pr-section{margin-bottom:5mm;}
+  .pr-section{margin-bottom:7.5mm;position:relative;}
   .pr-section-heading{
-    font-family:'Cormorant',serif;font-size:13.5px;font-weight:600;
-    letter-spacing:0.04em;color:#8A6034;margin-bottom:2.4mm;
+    font-family:'Raleway',sans-serif;font-size:9.5px;font-weight:600;
+    letter-spacing:0.34em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:3mm;
+    display:flex;align-items:center;gap:8px;
+  }
+  .pr-section-heading::before, .pr-section-heading::after{
+    content:'';flex:1;height:0.25mm;background:rgba(165,127,69,0.35);
   }
   .pr-section-body{
-    font-family:'Cormorant',serif;font-size:14px;line-height:1.6;
+    font-family:'Cormorant',serif;font-size:16px;line-height:1.65;
     color:var(--ink);
   }
   .pr-section-rosewood{
-    margin-top:3mm;padding-top:4mm;
+    margin-top:5mm;padding-top:5mm;
     border-top:0.3mm dashed rgba(185,79,99,0.4);
   }
+  .pr-section-rosewood .pr-section-heading{
+    color:var(--rose);
+  }
+  .pr-section-rosewood .pr-section-heading::before,
+  .pr-section-rosewood .pr-section-heading::after{
+    background:rgba(185,79,99,0.4);
+  }
   .pr-section-rosewood .pr-section-body{
-    color:var(--rose);font-size:13.5px;line-height:1.7;
+    color:var(--rose);font-size:15px;line-height:1.75;font-style:italic;
   }
 
   /* Today's tarot — featured card */
@@ -161,19 +173,19 @@
 
   /* 3-card row: Scent / Tea / Colour */
   .pr-cards{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;
-    margin:5mm 0 5mm;position:relative;z-index:1;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;
+    margin:7mm 0 5mm;position:relative;z-index:1;
   }
   .pr-card{
     background:#FFFEF9;
     border:0.3mm solid rgba(165,127,69,0.25);
-    padding:4mm 3mm 4.5mm;
+    padding:6mm 4mm 6.5mm;
     text-align:center;
   }
   .pr-card-icon{
-    width:7mm;height:7mm;
+    width:9mm;height:9mm;
     display:flex;align-items:center;justify-content:center;
-    margin:0 auto 2mm;color:var(--gold);font-size:13px;
+    margin:0 auto 3mm;color:var(--gold);font-size:16px;
   }
   .pr-card-swatch{
     border-radius:50%;
@@ -181,11 +193,11 @@
     box-shadow:inset 0 0 4px rgba(255,255,255,0.4);
   }
   .pr-card-label{
-    font-family:'Raleway',sans-serif;font-size:7.5px;letter-spacing:0.22em;
-    text-transform:uppercase;color:var(--dust);font-weight:500;margin-bottom:1.5mm;
+    font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.26em;
+    text-transform:uppercase;color:var(--dust);font-weight:500;margin-bottom:2.5mm;
   }
   .pr-card-value{
-    font-family:'Cormorant',serif;font-size:13px;font-weight:500;
+    font-family:'Cormorant',serif;font-size:15px;font-weight:500;
     color:var(--ink);line-height:1.3;
   }
 
@@ -241,6 +253,7 @@
   <p>Paste a JSON array below — one entry per customer, each renders as one A4 page. Click <strong>Render</strong>, then <strong>Cmd+P</strong> (or Ctrl+P) to print/save-as-PDF — A4, no margins.</p>
   <p style="font-size:12px;">
     <strong>Easy mode (paste from Formspree fields):</strong> <code>name</code>, <code>readingText</code>, <code>scent</code>, <code>tea</code>, <code>colour</code>, <code>colourHex</code>, <code>boxNumber</code> — all simple strings. Aliases accepted: <code>customer_name</code>, <code>full_reading</code>, <code>reading_text</code>, <code>color</code>, <code>color_hex</code>.<br>
+    <strong>Optional but recommended for nicer headings:</strong> <code>mbti</code> (e.g. "ISFJ" → heading becomes "As ISFJ, the Defender"), <code>zodiac</code> ("aquarius" → "Your Aquarius heart"), <code>todaysTarot</code> ("The Moon"), <code>date</code> ("May 1" or an ISO timestamp; defaults to today).<br>
     <strong>Full mode (new orders, post-deploy):</strong> paste the <code>reading_full_json</code> value from each Formspree row, wrapped as an array of strings <code>[ "json...", "json..." ]</code>. The tool unpacks each one and uses the structured sections / today's-tarot / etc.
   </p>
   <textarea id="json-input" placeholder='[{"name":"Zora","scent":{"name":"White Musk"},"tea":{"name":"Rose"},"color":{"name":"Rose","hex":"#E5B5C0"},"todaysTarot":{"name":"The Star","numeral":"XVII","message":"A quiet signal from something larger."},"sections":[{"heading":"Your Pisces heart","body":"As Pisces, the dreamer, you are gentle and intuitive."}],"closer":"✦"}]'></textarea>
@@ -273,6 +286,43 @@ function pick(r, keys){
   return undefined;
 }
 
+/* MBTI archetype tags — lifted from the on-site PERSONA so the print card
+   can show "As ISFJ, the Defender" instead of just "MBTI". */
+var MBTI_TAGS = {
+  INTJ:'the Architect',  INTP:'the Logician',     ENTJ:'the Commander',     ENTP:'the Debater',
+  INFJ:'the Advocate',   INFP:'the Mediator',     ENFJ:'the Protagonist',   ENFP:'the Campaigner',
+  ISTJ:'the Logistician',ISFJ:'the Defender',     ESTJ:'the Executive',     ESFJ:'the Consul',
+  ISTP:'the Virtuoso',   ISFP:'the Adventurer',   ESTP:'the Entrepreneur',  ESFP:'the Entertainer'
+};
+
+/* Title-case a single word (e.g. "aquarius" -> "Aquarius"). */
+function titleCase(s){
+  s = String(s||'').trim();
+  if(!s) return s;
+  return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+}
+
+/* Format a date the same way the on-site reading does ("May 1"). Accepts
+   a JS Date, an ISO string, or a pre-formatted "Month Day" string. */
+function formatReadingDate(d){
+  if(d instanceof Date) {/* fall through */}
+  else if(typeof d === 'string'){
+    var trimmed = d.trim();
+    if(!trimmed) return '';
+    /* If it already looks like "Month Day", trust it. */
+    if(/^[A-Za-z]+\s+\d{1,2}$/.test(trimmed)) return trimmed;
+    var parsed = new Date(trimmed);
+    if(isNaN(parsed.getTime())) return trimmed;
+    d = parsed;
+  } else if(d == null){
+    d = new Date();
+  } else {
+    return '';
+  }
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return months[d.getMonth()] + ' ' + d.getDate();
+}
+
 /* Split a flat reading string into structured paragraphs.
    The on-site generator concatenates sections in this fixed order:
      1. Zodiac body  — starts with "As [Sign], the [archetype], you are..."
@@ -284,9 +334,10 @@ function pick(r, keys){
    becomes its own paragraph on the printed card. The sealed-addons line is
    marked rosewood so it renders in the brand accent colour, matching the
    on-site reveal. */
-function splitFlatReading(text){
+function splitFlatReading(text, meta){
   text = String(text || '').replace(/^Dear\s+[^,]+,\s*/i, '').replace(/\s*✦\s*$/, '').trim();
   if(!text) return [];
+  meta = meta || {};
 
   var paragraphs = [];
 
@@ -337,11 +388,26 @@ function splitFlatReading(text){
     zodiacText = text;
   }
 
-  if(zodiacText) paragraphs.push({ heading:'', body: zodiacText });
-  if(mbtiText)   paragraphs.push({ heading:'', body: mbtiText });
-  if(tarotText)  paragraphs.push({ heading:'', body: tarotText });
-  if(symText)    paragraphs.push({ heading:'', body: symText });
-  if(addonsText) paragraphs.push({ heading:'', body: addonsText, rosewood:true });
+  /* Build personalised headings using whatever metadata the row included. */
+  var zodiacHeading = meta.zodiac
+    ? 'Your ' + titleCase(meta.zodiac) + ' heart'
+    : 'Zodiac';
+  var mbtiCode = String(meta.mbti||'').toUpperCase();
+  var mbtiHeading = mbtiCode && MBTI_TAGS[mbtiCode]
+    ? 'As ' + mbtiCode + ', ' + MBTI_TAGS[mbtiCode]
+    : (mbtiCode ? 'As ' + mbtiCode : 'MBTI');
+  var dateLabel = formatReadingDate(meta.date);
+  var tarotName = meta.todaysTarot || meta.todays_tarot || '';
+  var tarotHeading = tarotName && dateLabel
+    ? dateLabel + ' drew ' + tarotName + ' for you'
+    : (dateLabel ? 'Tarot drawn on ' + dateLabel : (tarotName ? 'Today\'s card — ' + tarotName : 'Today\'s card'));
+  var addonsHeading = 'Sealed inside your box';
+
+  if(zodiacText) paragraphs.push({ heading:zodiacHeading, body: zodiacText });
+  if(mbtiText)   paragraphs.push({ heading:mbtiHeading,   body: mbtiText });
+  if(tarotText)  paragraphs.push({ heading:tarotHeading,  body: tarotText });
+  if(symText)    paragraphs.push({ heading:'Your symbol', body: symText });
+  if(addonsText) paragraphs.push({ heading:addonsHeading, body: addonsText, rosewood:true });
 
   return paragraphs;
 }
@@ -363,44 +429,25 @@ function renderCard(r){
      its own paragraph on the printed card. We split using known boundary
      phrases produced by the on-site reading generator. */
   if(sections.length === 0 && flatText){
-    sections = splitFlatReading(flatText);
+    sections = splitFlatReading(flatText, {
+      mbti:   pick(r, ['mbti','MBTI']),
+      zodiac: pick(r, ['zodiac','sign']),
+      todaysTarot: pick(r, ['todaysTarot','todays_tarot','tarot_today']),
+      date:   pick(r, ['date','readingDate','reading_date','order_date','timestamp'])
+    });
   }
 
-  /* Split today's-tarot section out so we can render it as a featured card.
-     Heuristic: a section whose heading contains "drew" is the daily-tarot one. */
-  var tarotIdx = sections.findIndex(function(s){
-    return s && /drew/i.test(s.heading || '');
-  });
-  var bodySections = sections.slice();
-  var tarotSection = null;
-  if(tarotIdx >= 0){
-    tarotSection = bodySections.splice(tarotIdx, 1)[0];
-  }
-
-  /* Build sections HTML */
-  var sectionsHtml = bodySections.map(function(s){
+  /* Render each section uniformly as a heading + body paragraph. We used to
+     pluck the today's-tarot section into a "featured" block, but the user
+     prefers all characteristics rendered the same way for a calmer page. */
+  var sectionsHtml = sections.map(function(s){
     if(!s) return '';
     var cls = 'pr-section' + (s.rosewood ? ' pr-section-rosewood' : '');
     var heading = s.heading ? '<div class="pr-section-heading">' + escHtml(s.heading) + '</div>' : '';
     var body    = '<div class="pr-section-body">' + escHtml(s.body || '') + '</div>';
     return '<div class="' + cls + '">' + heading + body + '</div>';
   }).join('');
-
-  /* Today's-tarot featured block — prefer the parsed section's body, fall
-     back to todaysTarot fields if section wasn't included. */
   var tarotBlock = '';
-  if(tarotSection || t.name){
-    var tName    = t.name || (tarotSection && (tarotSection.heading||'').replace(/.*drew\s+/i,'').replace(/\s+for you.*/i,'')) || '';
-    var tNumeral = t.numeral || '';
-    var tMsg     = (tarotSection && tarotSection.body) || t.message || '';
-    tarotBlock =
-      '<div class="pr-tarot">' +
-        '<div class="pr-tarot-eye">Today\'s reading</div>' +
-        (tName    ? '<div class="pr-tarot-name">' + escHtml(tName) + '</div>'    : '') +
-        (tNumeral ? '<div class="pr-tarot-numeral">Card ' + escHtml(tNumeral) + '</div>' : '') +
-        (tMsg     ? '<div class="pr-tarot-msg">' + escHtml(tMsg) + '</div>'      : '') +
-      '</div>';
-  }
 
   return (
     '<div class="card">' +
@@ -500,9 +547,13 @@ $print.addEventListener('click', function(){ window.print(); });
 var SAMPLE = [
   {
     /* ── FLAT FORMAT — what you'd hand-build from a Formspree submission. ── */
-    name:'Zo',
+    name:'Lll',
     boxNumber:'001',
-    readingText:'As Scorpio, the alchemist, you are persistent and deep, with intensity that holds a quiet pull toward romance. You see through surfaces — people feel known around you, sometimes before they’re ready for it. You love deeply or not at all. You are quietly expressive — you live through your senses and your aesthetic. Your taste is the language you write in. Card XVII — hope, quiet clarity, something guiding. A quiet signal from something larger. You’re oriented, even if you can’t see the whole path yet.',
+    mbti:'ISFJ',
+    zodiac:'aquarius',
+    todaysTarot:'The Moon',
+    date:'May 1',
+    readingText:'As Aquarius, the visionary, you are inventive and independent, seeing angles the rest of us miss. You ask the questions other people skipped because they looked too obvious to ask. Your independence isn’t distance — it’s the room where your ideas can actually breathe. You are warm and attentive — the reason other people get to relax. You remember the small things, and you protect other people’s quiet. Care is your craft. Card XVIII — intuition, mystery, dreams half-remembered. You’re not looking at the thing directly — you’re sensing it. Trust that tonight; the subconscious is speaking. Today’s scent, tea, and colour have been chosen for you — drawn from The Moon. Sealed until your box opens.',
     scent:'White Musk',
     tea:'Rose',
     colour:'Rose',
