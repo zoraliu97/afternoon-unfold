@@ -273,6 +273,79 @@ function pick(r, keys){
   return undefined;
 }
 
+/* Split a flat reading string into structured paragraphs.
+   The on-site generator concatenates sections in this fixed order:
+     1. Zodiac body  — starts with "As [Sign], the [archetype], you are..."
+     2. MBTI body    — starts with capital "You are [trait line]"
+     3. Today's tarot — starts with "Card [Roman numeral] —"
+     4. Symbol body  — starts with "The [name] means..." (only if customer picked one)
+     5. Sealed addons — "Today's scent, tea, and colour have been chosen..."
+   We detect boundaries by their unique opening phrases. Each detected segment
+   becomes its own paragraph on the printed card. The sealed-addons line is
+   marked rosewood so it renders in the brand accent colour, matching the
+   on-site reveal. */
+function splitFlatReading(text){
+  text = String(text || '').replace(/^Dear\s+[^,]+,\s*/i, '').replace(/\s*✦\s*$/, '').trim();
+  if(!text) return [];
+
+  var paragraphs = [];
+
+  /* 1. Pull the sealed-addons sentence off the end (always last when present). */
+  var addonsRe = /(?:^|\s+)(Today['’]s scent[\s\S]*?)$/;
+  var m = text.match(addonsRe);
+  var addonsText = '';
+  if(m){
+    addonsText = m[1].trim();
+    text = text.substring(0, m.index).trim();
+  }
+
+  /* 2. Pull the today's-tarot sentence off the (new) end. */
+  var tarotRe = /(?:^|\s+)(Card\s+[IVX0]+\s*[—–\-][\s\S]*?)$/;
+  var tm = text.match(tarotRe);
+  var tarotText = '';
+  if(tm){
+    tarotText = tm[1].trim();
+    text = text.substring(0, tm.index).trim();
+  }
+
+  /* 3. Pull the symbol section off the (new) end if it's there. The symbol
+     body is "The <name> means <tagline>. <message>" — we look for the form
+     ". The <something> means " near the tail. */
+  var symRe = /\.\s+(The\s+\w+\s+means\b[\s\S]*)$/;
+  var sm = text.match(symRe);
+  var symText = '';
+  if(sm){
+    symText = sm[1].trim();
+    /* Keep the period that closed the previous sentence in the prefix. */
+    text = text.substring(0, sm.index + 1).trim();
+  }
+
+  /* 4. Whatever remains is zodiac + MBTI smashed together. Split on the
+     first ". You are " — that's the MBTI body's opening (capital Y). The
+     zodiac body uses lowercase "you are" so it won't false-match. */
+  var zodiacText = '';
+  var mbtiText = '';
+  var idx = text.indexOf('. You are ');
+  if(idx >= 0){
+    zodiacText = text.substring(0, idx + 1).trim();   /* include the period */
+    mbtiText   = text.substring(idx + 2).trim();      /* skip ". " */
+  } else if(/^You are\b/.test(text)){
+    /* No zodiac — the customer only gave MBTI. */
+    mbtiText = text;
+  } else if(text){
+    /* No MBTI — only zodiac (or other). */
+    zodiacText = text;
+  }
+
+  if(zodiacText) paragraphs.push({ heading:'', body: zodiacText });
+  if(mbtiText)   paragraphs.push({ heading:'', body: mbtiText });
+  if(tarotText)  paragraphs.push({ heading:'', body: tarotText });
+  if(symText)    paragraphs.push({ heading:'', body: symText });
+  if(addonsText) paragraphs.push({ heading:'', body: addonsText, rosewood:true });
+
+  return paragraphs;
+}
+
 function renderCard(r){
   var name      = pick(r, ['name','customer_name','customerName']) || 'friend';
   var sections  = Array.isArray(r.sections) ? r.sections : [];
@@ -286,12 +359,11 @@ function renderCard(r){
   var flatText  = pick(r, ['readingText','reading_text','fullReading','full_reading']);
 
   /* If no structured sections were given but a flat reading-text string is,
-     synthesize one body section so the card still has substance. The string
-     is rendered verbatim — sentence-level paragraph splitting is left to
-     the print page's natural line wrap. */
+     synthesize structured paragraphs so each personality characteristic gets
+     its own paragraph on the printed card. We split using known boundary
+     phrases produced by the on-site reading generator. */
   if(sections.length === 0 && flatText){
-    var trimmed = String(flatText).replace(/^Dear\s+[^,]+,\s*/i, '').replace(/\s*✦\s*$/, '').trim();
-    sections = [{ heading:'', body: trimmed }];
+    sections = splitFlatReading(flatText);
   }
 
   /* Split today's-tarot section out so we can render it as a featured card.
